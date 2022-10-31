@@ -1,0 +1,131 @@
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.help-tip {
+  position: relative;
+  text-align: center;
+  background-color: #409EBB;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: default;
+}
+.help-tip:before {
+  content: "?";
+  font-weight: bold;
+  color: #fff;
+}
+.help-tip:hover p {
+  display: block;
+  transform-origin: 100% 0%;
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in-out;
+}
+.help-tip p {
+  z-index: 9000;
+  display: none;
+  text-align: left;
+  background-color: #0C3A5B;
+  padding: 20px;
+  width: 300px;
+  position: absolute;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  right: -4px;
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.4;
+}
+@media screen and (max-width: 400px) {
+  .help-tip p {
+    width: 200px;
+  }
+}
+.help-tip p:before {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-color: #0C3A5B;
+  right: 10px;
+  top: -12px;
+}
+.help-tip p:after {
+  width: 100%;
+  height: 40px;
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+.wp-core-ui .fs-page.wrap {
+  margin: 0 0 0 -20px;
+}
+@media screen and (max-width: 782px) {
+  .wp-core-ui .fs-page.wrap {
+    margin: 0 0 0 -10px;
+  }
+}
+.wp-core-ui .fs-page h2.brand {
+  background: #0C3A5B;
+  padding: 10px 0 0 0;
+  margin: 0;
+}
+.wp-core-ui .fs-page #poststuff {
+  margin: 10px 20px 0 22px;
+}
+.wp-core-ui .fs-page .logo {
+  height: 80px;
+  padding-right: 35px;
+  vertical-align: middle;
+}
+.wp-core-ui .fs-page .text {
+  background: #B9B9BA;
+  color: #2E3744;
+  padding: 10px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.wp-core-ui .fs-page .button-secondary, .wp-core-ui .fs-page .button {
+  color: #545764;
+  border-color: #B9B9BA;
+  background: #fff;
+  box-shadow: 0 1px 0 #545764;
+}
+.wp-core-ui .fs-page .button-secondary:hover, .wp-core-ui .fs-page .button:hover {
+  background: #B9B9BA;
+  border-color: #545764;
+  color: #fff;
+}
+.wp-core-ui .fs-page .button-primary, .wp-core-ui .fs-page .page-title-action {
+  background: #0C3A5B;
+  border-color: #2E3744;
+  box-shadow: 0 1px 0 #2E3744;
+  color: #fff;
+  text-shadow: none;
+}
+.wp-core-ui .fs-page .button-primary:hover, .wp-core-ui .fs-page .page-title-action:hover {
+  background: #409EBB;
+  border-color: #B9B9BA;
+  color: #fff;
+}

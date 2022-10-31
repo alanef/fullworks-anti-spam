@@ -1,0 +1,147 @@
+$brand_darkblue: #0C3A5B;
+$brand_lightgrey: #B9B9BA;
+$brand_white: #fff;
+$brand_lightblue: #409EBB;
+$brand_midgrey: #545764;
+$brand_darkgrey: #2E3744;
+$color_qmark: $brand_white;
+$color_2: $brand_white;
+$background_color_qmark: $brand_lightblue;
+$background_color_tip: $brand_darkblue;
+$background_pointer: $brand_darkblue;
+
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 100%;
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+.help-tip {
+  position: relative;
+  text-align: center;
+  background-color: $background_color_qmark;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: default;
+  &:before {
+    content: '?';
+    font-weight: bold;
+    color: $color_qmark;
+  }
+  &:hover {
+    p {
+      display: block;
+      transform-origin: 100% 0%;
+      -webkit-animation: fadeIn 0.3s ease-in-out;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+  }
+  p {
+    z-index: 9000;
+    display: none;
+    text-align: left;
+    background-color: $background_color_tip;
+    padding: 20px;
+    width: 300px;
+    @media screen and (max-width: 400px) {
+      width: 200px;
+    }
+    position: absolute;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+    right: -4px;
+    color: $color_2;
+    font-size: 13px;
+    line-height: 1.4;
+    &:before {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border: 6px solid transparent;
+      border-bottom-color: $background_pointer;
+      right: 10px;
+      top: -12px;
+    }
+    &:after {
+      width: 100%;
+      height: 40px;
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: 0;
+    }
+  }
+}
+
+.wp-core-ui {
+  .fs-page {
+    &.wrap {
+      margin: 0 0 0 -20px;
+      @media screen and (max-width: 782px) {
+        margin: 0 0 0 -10px;
+      }
+    }
+    h2.brand{
+      background: $brand_darkblue;
+      padding: 10px 0 0 0;
+      margin: 0;
+    }
+    #poststuff {
+      margin: 10px 20px 0 22px;
+    }
+    .logo {
+      height: 80px;
+      padding-right: 35px;
+      vertical-align: middle;
+    }
+    .text {
+      background: $brand_lightgrey;
+      color: $brand_darkgrey;
+      padding: 10px;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    .button-secondary, .button {
+      color: $brand_midgrey;
+      border-color: $brand_lightgrey;
+      background: $brand_white;
+      box-shadow: 0 1px 0 $brand_midgrey;
+      &:hover {
+        background: $brand_lightgrey;
+        border-color: $brand_midgrey;
+        color: $brand_white;
+      }
+    }
+    .button-primary, .page-title-action {
+      background: $brand_darkblue;
+      border-color: $brand_darkgrey;
+      box-shadow: 0 1px 0 $brand_darkgrey;
+      color: #fff;
+      text-shadow: none;
+      &:hover {
+        background: $brand_lightblue;
+        border-color: $brand_lightgrey;
+        color: $brand_white;
+      }
+    }
+
+
+  }
+}

@@ -1,0 +1,70 @@
+= 1.3.5 =
+* fix SQL error in log purge
+
+= 1.3.4 =
+* remove unused directory
+
+= 1.3.3 =
+* improve blacklist and human spam features ( Pro )
+
+= 1.3.2 =
+* Security update
+
+= 1.3.1 =
+* Add missing  css / js assets for opt-in /out
+
+= 1.3 =
+* Refactor js so the checks are applied even if a form is added after the initial page load, e.g. lazy load comments plugin
+
+= 1.2.7 =
+* Adjust blacklist check ( Pro only )
+
+= 1.2.6 =
+* Add trackback and pingback spam to Pro
+
+= 1.2.5 =
+* Do not call server for contextual human spam when no content to actually check (Pro)
+
+= 1.2.4 =
+* Avoid trapping pingbacks & trackbacks in comment spam
+* Improve Quick Contact Form Spam processing and reporting ( Pro only )
+
+= 1.2.3 =
+* Updated Caldera Spam processing  ( Pro only )
+
+= 1.2.2 =
+* Add blacklist checking ( Pro only )
+
+= 1.2.1 =
+* Library Update
+
+= 1.2.0 =
+* Added single word text area detection ( premium )
+
+= 1.1.2 =
+* Change to free trial info
+
+= 1.1.1 =
+* Add auto purge of spam comments
+
+= 1.1.0 =
+* added Woocomerce protection to pro
+
+= 1.0.2 =
+* corrected error message
+* ignore comment replies submitted from admin pages
+
+= 1.0.1 =
+* changed links
+
+= 1.0.0 =
+* updated minorlogic
+
+= 0.0.3 =
+* Add settings link to plugin action link
+
+= 0.0.2 =
+* Tidy integration
+
+= 0.0.1 =
+* First release
