@@ -1,7 +1,7 @@
 === Anti Spam by Fullworks ===
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment spam, contact form spam, spam firewall, spam protection
-Tested up to: 6.0
+Tested up to: 6.1
 Stable tag: 1.3.5
 Type: freemium
 
