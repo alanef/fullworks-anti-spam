@@ -55,10 +55,7 @@ class Purge
     {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
-        add_action( 'init', function () {
-            global  $fwantispam_fs ;
-            $this->spam_options = get_option( 'fullworks-anti-spam' );
-        } );
+        global  $fwantispam_fs ;
     }
     
     public function daily()
