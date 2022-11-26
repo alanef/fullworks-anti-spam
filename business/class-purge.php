@@ -55,6 +55,10 @@ class Purge
     {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
+        add_action( 'init', function () {
+            global  $fwantispam_fs ;
+            $this->spam_options = get_option( 'fullworks-anti-spam' );
+        } );
     }
     
     public function daily()
@@ -92,12 +96,49 @@ class Purge
         }
     }
     
+    public function grunion_delete_old_spam()
+    {
+        $this->spam_options = get_option( 'fullworks-anti-spam' );
+        /*
+         * following code from
+         *
+         * Grunion Contact Form
+         *
+         * Author: automattic
+         *
+         * GPL 2
+         *
+         * modified to allow variable days deletion
+         */
+        global  $wpdb ;
+        $grunion_delete_limit = 100;
+        $now_gmt = current_time( 'mysql', 1 );
+        $sql = $wpdb->prepare(
+            "\n\t\tSELECT `ID`\n\t\tFROM {$wpdb->posts}\n\t\tWHERE DATE_SUB( %s, INTERVAL %d DAY ) > `post_date_gmt`\n\t\t\tAND `post_type` = 'feedback'\n\t\t\tAND `post_status` = 'spam'\n\t\tLIMIT %d\n\t",
+            $now_gmt,
+            $this->spam_options['days'],
+            $grunion_delete_limit
+        );
+        $post_ids = $wpdb->get_col( $sql );
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+        foreach ( (array) $post_ids as $post_id ) {
+            // force a full delete, skip the trash
+            wp_delete_post( $post_id, true );
+        }
+        if ( apply_filters( 'grunion_optimize_table', false ) ) {
+            $wpdb->query( "OPTIMIZE TABLE {$wpdb->posts}" );
+        }
+        // if we hit the max then schedule another run
+        if ( count( $post_ids ) >= $grunion_delete_limit ) {
+            wp_schedule_single_event( time() + 700, 'grunion_scheduled_delete' );
+        }
+    }
+    
     private function purge_local_log()
     {
         global  $wpdb ;
         $table_name = $wpdb->prefix . 'fwantispam_log';
-        $result = $wpdb->query( "DELETE FROM `{$table_name}` WHERE logdate < CURRENT_DATE - INTERVAL 30 DAY" );
-        $a = 1;
+        $result = $wpdb->query( "DELETE FROM {$table_name} WHERE logdate < CURRENT_DATE - INTERVAL 30 DAY" );
     }
 
 }

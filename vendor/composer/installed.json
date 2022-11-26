@@ -93,23 +93,24 @@
         },
         {
             "name": "freemius/wordpress-sdk",
-            "version": "2.5.0-rc.2",
-            "version_normalized": "2.5.0.0-RC2",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "60bf619de3602785edb7c58b94fb2e82bb2b99c3"
+                "reference": "35782eb9f19eefc63723afb3196c768bca6dfbd9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/60bf619de3602785edb7c58b94fb2e82bb2b99c3",
-                "reference": "60bf619de3602785edb7c58b94fb2e82bb2b99c3",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/35782eb9f19eefc63723afb3196c768bca6dfbd9",
+                "reference": "35782eb9f19eefc63723afb3196c768bca6dfbd9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
             },
-            "time": "2022-03-03T09:14:30+00:00",
+            "time": "2022-11-14T06:49:45+00:00",
+            "default-branch": true,
             "type": "library",
             "installation-source": "dist",
             "license": [
@@ -127,7 +128,7 @@
                 "wordpress-theme"
             ],
             "support": {
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.5.0-rc.2",
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.5.2",
                 "issues": "https://github.com/Freemius/wordpress-sdk/issues"
             },
             "install-path": "../freemius/wordpress-sdk"

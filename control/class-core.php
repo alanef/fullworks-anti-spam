@@ -111,7 +111,6 @@ class Core
             $this->get_plugin_name(),
             $this->get_version(),
             $this->freemius,
-            $this->log,
             $this->utilities
         );
         add_action( 'admin_menu', array( $settings, 'settings_setup' ) );

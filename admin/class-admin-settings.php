@@ -31,15 +31,12 @@
  */
 namespace Fullworks_Anti_Spam\Admin;
 
-use  Fullworks_Anti_Spam\Control\Log ;
 use  Fullworks_Anti_Spam\Core\Utilities ;
 class Admin_Settings extends Admin_Pages
 {
     protected  $settings_page ;
     protected  $settings_page_id = 'settings_page_fullworks-anti-spam-settings' ;
     protected  $option_group = 'fullworks-anti-spam' ;
-    /** @var Log $log */
-    protected  $log ;
     /** @var Utilities $utilities */
     protected  $utilities ;
     protected  $options ;
@@ -55,45 +52,43 @@ class Admin_Settings extends Admin_Pages
         $plugin_name,
         $version,
         $freemius,
-        $log,
         $utilities
     )
     {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
         $this->freemius = $freemius;
-        $this->log = $log;
         $this->utilities = $utilities;
         $this->titles = array(
             'Bot Comments' => array(
-            'title' => __( 'Comments', 'fullworks-anti-spam' ),
-            'tip'   => sprintf( __( 'Kill automated (bot) spam without Captcha or other annoying user quizes', 'fullworks-anti-spam' ) ),
+            'title' => esc_html__( 'Comments', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Kill automated (bot) spam without Captcha or other annoying user quizes', 'fullworks-anti-spam' ),
         ),
         );
-        $this->titles['Keep Spam'] = [
-            'title' => __( 'Keep Spam', 'fullworks-anti-spam' ),
-            'tip'   => sprintf( __( 'Select the number of days to keep spam, when spam is logged. Select 0 to discard immediately', 'fullworks-anti-spam' ) ),
-        ];
-        $this->titles['Bot Forms'] = [
-            'title' => __( 'Forms', 'fullworks-anti-spam' ),
-            'tip'   => sprintf( __( 'Forms types protected, without Captcha, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations', 'fullworks-anti-spam' ) ),
-        ];
-        $this->titles['BL Comments'] = [
-            'title' => __( 'Comments', 'fullworks-anti-spam' ),
-            'tip'   => sprintf( __( 'Refuse comments from IP addresses that are on a blacklist', 'fullworks-anti-spam' ) ),
-        ];
-        $this->titles['BL Forms'] = [
-            'title' => __( 'Forms', 'fullworks-anti-spam' ),
-            'tip'   => sprintf( __( 'Reject form submissions from IPs with a bad reputation, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations', 'fullworks-anti-spam' ) ),
-        ];
-        $this->titles['Upgrade'] = [
-            'title' => __( 'Upgrade', 'fullworks-anti-spam' ),
-            'tip'   => sprintf( __( 'By upgrading you will benefit from machine learning logic to protect against human manually input spam', 'fullworks-anti-spam' ) ),
-        ];
-        $this->titles['Spam Stats Free'] = [
-            'title' => __( 'Stats', 'fullworks-anti-spam' ),
-            'tip'   => sprintf( __( 'Upgraded version will automatically email you spam statistics', 'fullworks-anti-spam' ) ),
-        ];
+        $this->titles['Keep Spam'] = array(
+            'title' => esc_html__( 'Keep Spam', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Select the number of days to keep spam, when spam is logged. Select 0 to discard immediately', 'fullworks-anti-spam' ),
+        );
+        $this->titles['Bot Forms'] = array(
+            'title' => esc_html__( 'Forms', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Forms types protected, without Captcha, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations', 'fullworks-anti-spam' ),
+        );
+        $this->titles['BL Comments'] = array(
+            'title' => esc_html__( 'Comments', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Refuse comments from IP addresses that are on a blacklist', 'fullworks-anti-spam' ),
+        );
+        $this->titles['BL Forms'] = array(
+            'title' => esc_html__( 'Forms', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Reject form submissions from IPs with a bad reputation, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations', 'fullworks-anti-spam' ),
+        );
+        $this->titles['Upgrade'] = array(
+            'title' => esc_html__( 'Upgrade', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'By upgrading you will benefit from machine learning logic to protect against human manually input spam', 'fullworks-anti-spam' ),
+        );
+        $this->titles['Spam Stats Free'] = array(
+            'title' => esc_html__( 'Stats', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Upgraded version will automatically email you spam statistics', 'fullworks-anti-spam' ),
+        );
         $this->options = get_option( 'fullworks-anti-spam' );
         $this->options = array_merge( self::option_defaults( 'fullworks-anti-spam' ), $this->options );
         $this->settings_title = '<img src="' . dirname( plugin_dir_url( __FILE__ ) ) . '/admin/images/brand/light-anti-spam-75h.png" class="logo" alt="Fullworks Logo"/><div class="text">' . __( 'Anti Spam Settings', 'fullworks-anti-spam' ) . '</div>';
@@ -130,9 +125,9 @@ class Admin_Settings extends Admin_Pages
         /* Add settings menu page */
         $this->settings_page = add_submenu_page(
             'fullworks-anti-spam-settings',
-            'Settings',
+            esc_html__( 'Settings', 'fullworks-anti-spam' ),
             /* Page Title */
-            'Settings',
+            esc_html__( 'Settings', 'fullworks-anti-spam' ),
             /* Menu Title */
             'manage_options',
             /* Capability */
@@ -158,7 +153,7 @@ class Admin_Settings extends Admin_Pages
             add_settings_error(
                 $this->option_group,
                 '',
-                'Settings reset to defaults.',
+                esc_html__( 'Settings reset to defaults.', 'fullworks-anti-spam' ),
                 'updated'
             );
             /* Delete Option */
@@ -194,7 +189,7 @@ class Admin_Settings extends Admin_Pages
         $this->add_meta_box(
             'botspam',
             /* Meta Box ID */
-            __( 'Bot Spam Protection', 'fullworks-anti-spam' ),
+            esc_html__( 'Bot Spam Protection', 'fullworks-anti-spam' ),
             /* Title */
             array( $this, 'meta_box_bot_spam' ),
             /* Function Callback */
@@ -210,7 +205,7 @@ class Admin_Settings extends Admin_Pages
         $this->add_meta_box(
             'blspam',
             /* Meta Box ID */
-            __( 'Blacklist Checking', 'fullworks-anti-spam' ),
+            esc_html__( 'Blacklist Checking', 'fullworks-anti-spam' ),
             /* Title */
             array( $this, 'meta_box_blacklist_spam' ),
             /* Function Callback */
@@ -226,7 +221,7 @@ class Admin_Settings extends Admin_Pages
         $this->add_meta_box(
             'stats',
             /* Meta Box ID */
-            __( 'Stats', 'fullworks-anti-spam' ),
+            esc_html__( 'Stats', 'fullworks-anti-spam' ),
             /* Title */
             array( $this, 'meta_box_stats' ),
             /* Function Callback */
@@ -241,7 +236,7 @@ class Admin_Settings extends Admin_Pages
         $this->add_meta_box(
             'humanspam',
             /* Meta Box ID */
-            __( 'Human Spam Protection', 'fullworks-anti-spam' ),
+            esc_html__( 'Human Spam Protection', 'fullworks-anti-spam' ),
             /* Title */
             array( $this, 'meta_box_human_spam' ),
             /* Function Callback */
@@ -257,7 +252,7 @@ class Admin_Settings extends Admin_Pages
         $this->add_meta_box(
             'housekeeping',
             /* Meta Box ID */
-            __( 'Adminstration', 'fullworks-anti-spam' ),
+            esc_html__( 'Administration', 'fullworks-anti-spam' ),
             /* Title */
             array( $this, 'meta_box_spam_admin' ),
             /* Function Callback */
@@ -318,7 +313,7 @@ class Admin_Settings extends Admin_Pages
         $data = $this->utilities->get_spam_stats();
         
         if ( count( $data ) < 2 ) {
-            _e( '<p>No spam stopped yet, be patient it will come soon enough</p>', 'fullworks-anti-spam' );
+            echo  '<p>' . esc_html__( 'No spam stopped yet, be patient it will come soon enough', 'fullworks-anti-spam' ) . '</p>' ;
             return;
         }
         
@@ -338,10 +333,10 @@ class Admin_Settings extends Admin_Pages
 						<?php 
             printf(
                 '%3$s - %1$s [%2$s] %4$s',
-                $value['source'],
-                $value['type'],
-                $value['count'],
-                $value['link']
+                esc_html( $value['source'] ),
+                esc_html( $value['type'] ),
+                (int) $value['count'],
+                esc_url( $value['link'] )
             );
             ?>
                     </td>
@@ -366,13 +361,12 @@ class Admin_Settings extends Admin_Pages
                 <td>
                     <label for="fullworks-anti-spam[comments]"><input type="checkbox"
                                                                       name="fullworks-anti-spam[comments]"
-                                                                      id="fullworks-anti-spam[comments]"
-                                                                      value="1"
+                                                                      id="fullworks-anti-spam[comments]" value="1"
 							<?php 
         checked( '1', $this->options['comments'] );
         ?>>
 						<?php 
-        _e( 'Enable bot spam protection for comments', 'fullworks-anti-spam' );
+        esc_html_e( 'Enable bot spam protection for comments', 'fullworks-anti-spam' );
         ?></label>
                 </td>
 				<?php 
@@ -388,17 +382,16 @@ class Admin_Settings extends Admin_Pages
         $this->display_th( 'Bot Forms' );
         ?>
                 <td>
-                    <label for="fullworks-anti-spam[forms]"><input type="checkbox"
-                                                                   name="fullworks-anti-spam[forms]"
-                                                                   id="fullworks-anti-spam[forms]"
-                                                                   value="1"
+                    <label for="fullworks-anti-spam[forms]"><input type="checkbox" name="fullworks-anti-spam[forms]"
+                                                                   id="fullworks-anti-spam[forms]" value="1"
 							<?php 
         checked( '1', $opt );
-        echo  $disabled ;
-        ?>>
+        echo  esc_attr( $disabled ) ;
+        ?>
+                        >
 						<?php 
-        $msg = sprintf( __( '<a  href="%s">Activate FREE trial</a> to enable bot spam protection for forms input', 'fullworks-anti-spam' ), $this->freemius->get_trial_url() );
-        echo  $msg ;
+        $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to enable bot spam protection for forms input', 'fullworks-anti-spam' );
+        echo  wp_kses_post( $msg ) ;
         ?>
                     </label>
                 </td>
@@ -406,9 +399,6 @@ class Admin_Settings extends Admin_Pages
         $this->display_tip( 'Bot Forms' );
         ?>
             </tr>
-			<?php 
-        ?>
-
             </tbody>
         </table>
 		<?php 
@@ -433,11 +423,12 @@ class Admin_Settings extends Admin_Pages
                                                                          value="1"
 							<?php 
         checked( '1', $opt_c );
-        echo  $disabled ;
-        ?>>
+        echo  esc_attr( $disabled ) ;
+        ?>
+                        >
 						<?php 
-        $msg = sprintf( __( '<a  href="%s">Activate the FREE trial</a> to remove more spam by blacklist checking for comments', 'fullworks-anti-spam' ), $this->freemius->get_trial_url() );
-        echo  $msg ;
+        $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to remove more spam by blacklist checking for comments', 'fullworks-anti-spam' );
+        echo  wp_kses_post( $msg ) ;
         ?>
                     </label>
                 </td>
@@ -457,11 +448,12 @@ class Admin_Settings extends Admin_Pages
                                                                       value="1"
 							<?php 
         checked( '1', $opt_f );
-        echo  $disabled ;
-        ?>>
+        echo  esc_attr( $disabled ) ;
+        ?>
+                        >
 						<?php 
-        $msg = sprintf( __( '<a  href="%s">Activate FREE trial</a> to enable blacklist checking for forms input', 'fullworks-anti-spam' ), $this->freemius->get_trial_url() );
-        echo  $msg ;
+        $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to enable blacklist checking for forms input', 'fullworks-anti-spam' );
+        echo  wp_kses_post( $msg ) ;
         ?>
                     </label>
                 </td>
@@ -469,9 +461,6 @@ class Admin_Settings extends Admin_Pages
         $this->display_tip( 'Bot Forms' );
         ?>
             </tr>
-			<?php 
-        ?>
-
             </tbody>
         </table>
 		<?php 
@@ -489,8 +478,15 @@ class Admin_Settings extends Admin_Pages
             $this->display_th( 'Upgrade' );
             ?>
                     <td>
+                        <a href="<?php 
+            esc_url( $this->freemius->get_trial_url() );
+            ?>">
+							<?php 
+            esc_html__( '">Activate the FREE trial', 'fullworks-anti-spam' );
+            ?>
+                        </a>&nbsp;
 						<?php 
-            printf( __( '<a href="%s">Activate FREE trial</a> to protect against manually input \'human\' spam', 'fullworks-anti-spam' ), $this->freemius->get_trial_url() );
+            esc_html__( 'to protect against manually input "human" spam', 'fullworks-anti-spam' );
             ?>
                     </td>
 					<?php 
@@ -519,11 +515,11 @@ class Admin_Settings extends Admin_Pages
                                                                   id="fullworks-anti-spam[days]"
                                                                   class="small-text"
                                                                   value="<?php 
-        echo  $this->options['days'] ;
+        echo  (int) $this->options['days'] ;
         ?>"
                                                                   min="0">
 						<?php 
-        _e( 'Days', 'fullworks-anti-spam' );
+        esc_html_e( 'Days', 'fullworks-anti-spam' );
         ?></label>
                 </td>
 				<?php 
@@ -539,8 +535,15 @@ class Admin_Settings extends Admin_Pages
             $this->display_th( 'Spam Stats Free' );
             ?>
                     <td>
+                        <a href="<?php 
+            esc_url( $this->freemius->get_upgrade_url() );
+            ?>">
+							<?php 
+            esc_html__( 'Upgrade', 'fullworks-anti-spam' );
+            ?>
+                        </a>&nbsp;
 						<?php 
-            printf( __( '<a href="%s">Upgrade</a> for spam statistics auto reporting by email', 'fullworks-anti-spam' ), $this->freemius->get_upgrade_url() );
+            esc_html__( 'for spam statistics auto reporting by email', 'fullworks-anti-spam' );
             ?>
                     </td>
 					<?php 
@@ -560,8 +563,9 @@ class Admin_Settings extends Admin_Pages
     private function display_th( $title )
     {
         ?>
-        <th scope="row"><?php 
-        echo  $this->titles[$title]['title'] ;
+        <th scope="row">
+			<?php 
+        echo  esc_html( $this->titles[$title]['title'] ) ;
         ?>
         </th>
 		<?php 
@@ -570,8 +574,9 @@ class Admin_Settings extends Admin_Pages
     private function display_tip( $title )
     {
         ?>
-        <td><?php 
-        echo  ( isset( $this->titles[$title]['tip'] ) ? '<div class="help-tip"><p>' . $this->titles[$title]['tip'] . '</p></div>' : '' ) ;
+        <td>
+			<?php 
+        echo  ( isset( $this->titles[$title]['tip'] ) ? '<div class="help-tip"><p>' . esc_html( $this->titles[$title]['tip'] ) . '</p></div>' : '' ) ;
         ?>
         </td>
 		<?php 

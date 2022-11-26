@@ -17,233 +17,240 @@ msgstr ""
 msgid "Cannot execute as the plugin already exists, if you have a another version installed deactivate that and try again"
 msgstr ""
 
-#: src/admin/class-admin-pages.php:65
+#: src/admin/class-admin-pages.php:58
 msgid "Anti Spam"
 msgstr ""
 
-#: src/admin/class-admin-pages.php:220
+#: src/admin/class-admin-pages.php:117
+msgid "Are you sure want to do this?"
+msgstr ""
+
+#: src/admin/class-admin-pages.php:209
 msgid "Save Options"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:68, src/admin/class-admin-settings.php:81, src/admin/class-admin-settings.php:108, src/core/class-utilities.php:205, src/core/class-utilities.php:288, src/core/class-utilities.php:296
+#: src/admin/class-admin-pages.php:233
+msgid "Reset Settings"
+msgstr ""
+
+#: src/admin/class-admin-pages.php:238
+msgid "Save"
+msgstr ""
+
+#: src/admin/class-admin-settings.php:63, src/admin/class-admin-settings.php:76, src/admin/class-admin-settings.php:103, src/core/class-utilities.php:205, src/core/class-utilities.php:288, src/core/class-utilities.php:296
 msgid "Comments"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:69
+#: src/admin/class-admin-settings.php:64
 msgid "Kill automated (bot) spam without Captcha or other annoying user quizes"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:73
+#: src/admin/class-admin-settings.php:68
 msgid "Keep Spam"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:74
+#: src/admin/class-admin-settings.php:69
 msgid "Select the number of days to keep spam, when spam is logged. Select 0 to discard immediately"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:77, src/admin/class-admin-settings.php:85, src/admin/class-admin-settings.php:112
+#: src/admin/class-admin-settings.php:72, src/admin/class-admin-settings.php:80, src/admin/class-admin-settings.php:107
 msgid "Forms"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:78, src/admin/class-admin-settings.php:113
+#: src/admin/class-admin-settings.php:73, src/admin/class-admin-settings.php:108
 msgid "Forms types protected, without Captcha, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:82
+#: src/admin/class-admin-settings.php:77
 msgid "Refuse comments from IP addresses that are on a blacklist"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:86
+#: src/admin/class-admin-settings.php:81
 msgid "Reject form submissions from IPs with a bad reputation, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:89
+#: src/admin/class-admin-settings.php:84, src/admin/class-admin-settings.php:635
 msgid "Upgrade"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:90
+#: src/admin/class-admin-settings.php:85
 msgid "By upgrading you will benefit from machine learning logic to protect against human manually input spam"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:93, src/admin/class-admin-settings.php:117, src/admin/class-admin-settings.php:253
+#: src/admin/class-admin-settings.php:88, src/admin/class-admin-settings.php:112, src/admin/class-admin-settings.php:248
 msgid "Stats"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:94
+#: src/admin/class-admin-settings.php:89
 msgid "Upgraded version will automatically email you spam statistics"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:99
+#: src/admin/class-admin-settings.php:94
 msgid "Email reports to:"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:100
+#: src/admin/class-admin-settings.php:95
 msgid "This email will be used by the plugin to send all notifications from the plugin. It can be different to the site administrator email"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:103
+#: src/admin/class-admin-settings.php:98
 msgid "Spam Filter"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:104
+#: src/admin/class-admin-settings.php:99
 msgid "Set the desired spam probability filter %%, default is 55%%, a lower %% will exclude more messages and may include genuine messages, a higher %% will allow more messages through so may let through more spam"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:109
+#: src/admin/class-admin-settings.php:104
 msgid "Use machine learning technology to filter out comment spam from human beings"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:118
+#: src/admin/class-admin-settings.php:113
 msgid "Monthly summary email of spam block statistics"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:121
-msgid "Report Misses"
-msgstr ""
-
-#: src/admin/class-admin-settings.php:122
-msgid ""
-"Manual spam is filtered by machine learning algorithms. If you get a significant number of 'misses' i.e. items marked as spam when not or spam items comming through, you can try tweaking teh filter leveel. But you\n"
-"				 can help us improve the algorithm by emailing your messages that were misclassified  to the appropriate email address."
-msgstr ""
-
-#: src/admin/class-admin-settings.php:130
+#: src/admin/class-admin-settings.php:120
 msgid "Anti Spam Settings"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:158
+#: src/admin/class-admin-settings.php:154, src/admin/class-admin-settings.php:158, src/admin/class-admin-settings.php:159
 msgid "Settings"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:232
+#: src/admin/class-admin-settings.php:178
+msgid "Settings reset to defaults."
+msgstr ""
+
+#: src/admin/class-admin-settings.php:227
 msgid "Bot Spam Protection"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:242
+#: src/admin/class-admin-settings.php:237
 msgid "Blacklist Checking"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:265
+#: src/admin/class-admin-settings.php:259
 msgid "Human Spam Protection"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:276
-msgid "Adminstration"
+#: src/admin/class-admin-settings.php:270
+msgid "Administration"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:351
-msgid "<p>No spam stopped yet, be patient it will come soon enough</p>"
+#: src/admin/class-admin-settings.php:347
+msgid "No spam stopped yet, be patient it will come soon enough"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:392
+#: src/admin/class-admin-settings.php:387
 msgid "Enable bot spam protection for comments"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:416
-msgid "<a  href=\"%s\">Activate FREE trial</a> to enable bot spam protection for forms input"
+#: src/admin/class-admin-settings.php:412, src/admin/class-admin-settings.php:458, src/admin/class-admin-settings.php:485
+msgid "Activate the FREE trial"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:419
+#: src/admin/class-admin-settings.php:412
+msgid "to enable bot spam protection for forms input"
+msgstr ""
+
+#: src/admin/class-admin-settings.php:415
 msgid "Enable bot spam protection for forms input"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:462
-msgid "<a  href=\"%s\">Activate the FREE trial</a> to remove more spam by blacklist checking for comments"
+#: src/admin/class-admin-settings.php:458
+msgid "to remove more spam by blacklist checking for comments"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:465
+#: src/admin/class-admin-settings.php:461
 msgid "Enable blacklist checking for comment input"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:485
-msgid "<a  href=\"%s\">Activate FREE trial</a> to enable blacklist checking for forms input"
+#: src/admin/class-admin-settings.php:486
+msgid "to enable blacklist checking for forms input"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:488
+#: src/admin/class-admin-settings.php:489
 msgid "Enable blacklist checking for forms input"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:519
+#: src/admin/class-admin-settings.php:517
 msgid "Enable human spam protection for comments"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:532
+#: src/admin/class-admin-settings.php:530
 msgid "Enable human spam protection for forms input"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:548
+#: src/admin/class-admin-settings.php:546
 msgid "% ( default 55% )"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:556
-msgid "email content to <a href=mailto:spam@fullworks.net\"><strong>spam@fullworks.net</strong></a>  - for spam that gets through"
+#: src/admin/class-admin-settings.php:565
+msgid "\">Activate the FREE trial"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:560
-msgid "email content to <a href=mailto:ham@fullworks.net\"><strong>ham@fullworks.net</strong></a> - for incorrectly classified as spam"
+#: src/admin/class-admin-settings.php:569
+msgid "to protect against manually input \"human\" spam"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:578
-msgid "<a href=\"%s\">Activate FREE trial</a> to protect against manually input 'human' spam"
-msgstr ""
-
-#: src/admin/class-admin-settings.php:602
+#: src/admin/class-admin-settings.php:593
 msgid "Days"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:618
+#: src/admin/class-admin-settings.php:609
 msgid "Enable spam stats email"
 msgstr ""
 
-#: src/admin/class-admin-settings.php:642
-msgid "<a href=\"%s\">Upgrade</a> for spam statistics auto reporting by email"
+#: src/admin/class-admin-settings.php:639
+msgid "for spam statistics auto reporting by email"
 msgstr ""
 
 #: src/business/class-monthly-reports.php:80
 msgid "Your Monthly Anti-Spam Review"
 msgstr ""
 
+#. translators: %1$s: full path of missing file
 #: src/control/autoloader.php:85
 msgid "The system file attempting to be loaded at %1$s does not exist."
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:135, src/core/class-process-spam-checks.php:437, src/core/class-process-spam-checks.php:589
+#: src/core/class-process-spam-checks.php:141, src/core/class-process-spam-checks.php:443, src/core/class-process-spam-checks.php:652
 msgid "You need Javascript enabled to submit this form"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:141, src/core/class-process-spam-checks.php:443, src/core/class-process-spam-checks.php:501, src/core/class-process-spam-checks.php:622
+#: src/core/class-process-spam-checks.php:147, src/core/class-process-spam-checks.php:449, src/core/class-process-spam-checks.php:564, src/core/class-process-spam-checks.php:685
 msgid "[SPAM score %d%% ][from blacklisted IP]"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:237, src/core/class-process-spam-checks.php:282
+#: src/core/class-process-spam-checks.php:243, src/core/class-process-spam-checks.php:288
 msgid "[SPAM score %d%% ]"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:306
+#: src/core/class-process-spam-checks.php:312
 msgid "Comment attempted to be submitted without Javascript - enable javascript"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:322, src/core/class-process-spam-checks.php:333
+#: src/core/class-process-spam-checks.php:328, src/core/class-process-spam-checks.php:339
 msgid "Comment submitted from blacklisted IP"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:349
+#: src/core/class-process-spam-checks.php:355
 msgid "Comment submitted looks like human spam"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:495
+#: src/core/class-process-spam-checks.php:558
 msgid "WP Forms honeypot triggered."
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:552
+#: src/core/class-process-spam-checks.php:615
 msgid "<strong>ERROR:</strong> Blacklisted IP check your IP reputation"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:560
+#: src/core/class-process-spam-checks.php:623
 msgid "<strong>ERROR:</strong> Javascript needed to register"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:580
+#: src/core/class-process-spam-checks.php:643
 msgid "Your IP is on a spam blacklist, check your IP reputation"
 msgstr ""
 
@@ -251,11 +258,11 @@ msgstr ""
 msgid "Site not registered: %s plugin will not function"
 msgstr ""
 
-#: src/core/class-utilities.php:198, src/core/class-utilities.php:227, src/core/class-utilities.php:235, src/core/class-utilities.php:291, src/core/class-utilities.php:299
+#: src/core/class-utilities.php:198, src/core/class-utilities.php:227, src/core/class-utilities.php:235, src/core/class-utilities.php:291, src/core/class-utilities.php:299, src/core/class-utilities.php:395, src/core/class-utilities.php:403
 msgid "Review"
 msgstr ""
 
-#: src/core/class-utilities.php:206, src/core/class-utilities.php:217, src/core/class-utilities.php:241, src/core/class-utilities.php:265, src/core/class-utilities.php:305, src/core/class-utilities.php:321, src/core/class-utilities.php:337, src/core/class-utilities.php:361
+#: src/core/class-utilities.php:206, src/core/class-utilities.php:217, src/core/class-utilities.php:241, src/core/class-utilities.php:265, src/core/class-utilities.php:305, src/core/class-utilities.php:321, src/core/class-utilities.php:337, src/core/class-utilities.php:361, src/core/class-utilities.php:385
 msgid "Bot"
 msgstr ""
 
@@ -263,11 +270,11 @@ msgstr ""
 msgid "Gravity Forms"
 msgstr ""
 
-#: src/core/class-utilities.php:225, src/core/class-utilities.php:249, src/core/class-utilities.php:273, src/core/class-utilities.php:289, src/core/class-utilities.php:345, src/core/class-utilities.php:369
+#: src/core/class-utilities.php:225, src/core/class-utilities.php:249, src/core/class-utilities.php:273, src/core/class-utilities.php:289, src/core/class-utilities.php:345, src/core/class-utilities.php:369, src/core/class-utilities.php:393
 msgid "Human"
 msgstr ""
 
-#: src/core/class-utilities.php:233, src/core/class-utilities.php:257, src/core/class-utilities.php:281, src/core/class-utilities.php:297, src/core/class-utilities.php:313, src/core/class-utilities.php:329, src/core/class-utilities.php:353, src/core/class-utilities.php:377
+#: src/core/class-utilities.php:233, src/core/class-utilities.php:257, src/core/class-utilities.php:281, src/core/class-utilities.php:297, src/core/class-utilities.php:313, src/core/class-utilities.php:329, src/core/class-utilities.php:353, src/core/class-utilities.php:377, src/core/class-utilities.php:401
 msgid "Blacklisted"
 msgstr ""
 
@@ -295,6 +302,10 @@ msgstr ""
 msgid "Quick Contact Forms"
 msgstr ""
 
-#: src/core/class-utilities.php:392
+#: src/core/class-utilities.php:384, src/core/class-utilities.php:392, src/core/class-utilities.php:400
+msgid "JetPack Forms"
+msgstr ""
+
+#: src/core/class-utilities.php:416
 msgid "Total"
 msgstr ""

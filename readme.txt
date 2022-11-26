@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment spam, contact form spam, spam firewall, spam protection
 Tested up to: 6.1
-Stable tag: 1.3.5
+Stable tag: 1.3.7
 Type: freemium
 
 WordPress anti spam plugin that eliminates automated comment spam without reCAPTCHA or quizes. The ultimate in spam protection.
@@ -124,7 +124,7 @@ Upgrade to 'Pro'  from within your WordPress dashboard to get these further pro 
 * Protect from Comments and Form entries from blacklisted IP
 * Protect against Pingback and Trackback spam
 * Protect against human entered spam, using a machine learning anti spam server
-* Protect your Contact Forms, including Gravity Forms, Contact Form 7 ( CF7 ), WP Forms, Caldera Forms, Quick Contact Form and Quick Event Manager
+* Protect your Contact Forms, including JetPack contact form, Gravity Forms, Contact Form 7 ( CF7 ), WP Forms, Caldera Forms, Quick Contact Form and Quick Event Manager
 * Stops fake user registration in WordPress
 * Stops fake  WooCommerce Account Registrations from bots
 * Unlimited number of entries checked via the anti spam server
@@ -140,12 +140,17 @@ Or visit the [Pro product page](https://fullworks.net/products/anti-spam/)
 
 This free plugin does not collect, process or send any website visitor personal data anywhere
 
-== PHP 8.0 ==
+== PHP 8.1 ==
 
-Tested against PHP 8.0
+Tested against PHP 8.1
 
 == Changelog ==
-= 1.3.5 =
-* fix SQL error in log purge
+= 1.3.7 =
+* updated translation strings
+* added JetPack contact form protection ( Pro Only )
+
+= 1.3.6 =
+* fix another SQL issue in log purge
+
 
 [Full Change History](https://plugins.trac.wordpress.org/browser/fullworks-anti-spam/trunk/changelog.txt)

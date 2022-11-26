@@ -34,26 +34,19 @@ use Fullworks_Anti_Spam\Core\Utilities;
  */
 class Admin_Pages {
 
-	public $block_table_obj;
 	protected $settings_page;  // toplevel appearance etc  followed by slug
-
 
 	// for the block report
 	protected $settings_page_id = 'toplevel_page_fullworks-anti-spam-settings';
 
-	//
 	protected $settings_title;
 
 	protected $plugin_name;
 	protected $version;
 	protected $freemius;
 
-
 	public function __construct() {
-
-
 	}
-
 
 	public static function set_screen( $status, $option, $value ) {
 		return $value;
@@ -62,7 +55,7 @@ class Admin_Pages {
 	public function settings_setup() {
 		// @TODO called multiple times - thing maybe singleton
 
-		$title = __( 'Anti Spam', 'fullworks-anti-spam' );
+		$title = esc_html__( 'Anti Spam', 'fullworks-anti-spam' );
 
 		/* Add settings menu page */
 		add_submenu_page(
@@ -89,7 +82,6 @@ class Admin_Pages {
 			/* Set number of column available. */
 			add_filter( 'screen_layout_columns', array( $this, 'screen_layout_column' ), 10, 2 );
 			add_action( $this->settings_page_id . '_settings_page_boxes', array( $this, 'add_required_meta_boxes' ) );
-
 		}
 	}
 
@@ -99,7 +91,7 @@ class Admin_Pages {
 
 	public function enqueue_scripts( $hook_suffix ) {
 		$page_hook_id = $this->settings_page_id;
-		if ( $hook_suffix == $page_hook_id ) {
+		if ( $hook_suffix === $page_hook_id ) {
 			wp_enqueue_script( 'common' );
 			wp_enqueue_script( 'wp-lists' );
 			wp_enqueue_script( 'postbox' );
@@ -122,7 +114,7 @@ class Admin_Pages {
                 });
 // confirm before reset
                 $('#delete-action *').on('click', function () {
-                    return confirm('Are you sure want to do this?');
+                    return confirm('<?php esc_html_e( 'Are you sure want to do this?', 'fullworks-anti-spam' ); ?>');
                 });
             });
             //]]>
@@ -132,21 +124,18 @@ class Admin_Pages {
 
 	public function screen_layout_column( $columns, $screen ) {
 		$page_hook_id = $this->settings_page_id;
-		if ( $screen == $page_hook_id ) {
+		if ( $screen === $page_hook_id ) {
 			$columns[ $page_hook_id ] = 2;
 		}
 
 		return $columns;
 	}
 
-	/**
-	 *
-	 */
 	public function settings_page() {
 
 		/* global vars */
 		global $hook_suffix;
-		if ( $this->settings_page_id == $hook_suffix ) {
+		if ( $this->settings_page_id === $hook_suffix ) {
 
 			/* enable add_meta_boxes function in this page. */
 			do_action( $this->settings_page_id . '_settings_page_boxes', $hook_suffix );
@@ -211,7 +200,7 @@ class Admin_Pages {
 	public function add_required_meta_boxes() {
 		global $hook_suffix;
 
-		if ( $this->settings_page_id == $hook_suffix ) {
+		if ( $this->settings_page_id === $hook_suffix ) {
 
 			$this->add_meta_boxes();
 
@@ -241,12 +230,12 @@ class Admin_Pages {
                     <input type="submit" name="<?php echo "{$this->option_group}-reset"; ?>"
                            id="<?php echo "{$this->option_group}-reset"; ?>"
                            class="button"
-                           value="Reset Settings">
+                           value="<?php esc_html_e( 'Reset Settings', 'fullworks-anti-spam' ); ?>">
                 </div><!-- #delete-action -->
 
                 <div id="publishing-action">
                     <span class="spinner"></span>
-					<?php submit_button( esc_attr( 'Save' ), 'primary', 'submit', false ); ?>
+					<?php submit_button( esc_html__( 'Save', 'fullworks-anti-spam' ), 'primary', 'submit', false ); ?>
                 </div>
 
                 <div class="clear"></div>
@@ -281,8 +270,7 @@ class Admin_Pages {
 				if ( preg_match( '#' . $_GET['page'] . '$#', $tab['href'] ) ) {
 					$active = ' nav-tab-active';
 				}
-				echo '<a href="' . $tab['href'] . '" class="nav-tab' . $active . '">' . $tab['title'] . '</a>';
-				// <a href="#" class="nav-tab nav-tab-active">Social Options</a>
+				echo '<a href="' . esc_url( $tab['href'] ) . '" class="nav-tab' . esc_attr( $active ) . '">' . esc_html( $tab['title'] ) . '</a>';
 			}
 			?>
 

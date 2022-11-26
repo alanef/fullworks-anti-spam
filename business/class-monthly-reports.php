@@ -77,7 +77,7 @@ class Monthly_Reports {
 			return;
 		}
 		add_filter( 'wp_mail_content_type', array( $this, 'set_html_content_type' ) );
-		$res = wp_mail( $options['email'], __( 'Your Monthly Anti-Spam Review', 'fullworks-anti-spam' ), $message );
+		$res = wp_mail( $options['email'], esc_html__( 'Your Monthly Anti-Spam Review', 'fullworks-anti-spam' ), $message );
 		remove_filter( 'wp_mail_content_type', array( $this, 'set_html_content_type' ) );
 	}
 
