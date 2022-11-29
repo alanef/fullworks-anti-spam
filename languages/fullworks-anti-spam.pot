@@ -214,43 +214,43 @@ msgstr ""
 msgid "The system file attempting to be loaded at %1$s does not exist."
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:141, src/core/class-process-spam-checks.php:443, src/core/class-process-spam-checks.php:652
+#: src/core/class-process-spam-checks.php:138, src/core/class-process-spam-checks.php:440, src/core/class-process-spam-checks.php:649
 msgid "You need Javascript enabled to submit this form"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:147, src/core/class-process-spam-checks.php:449, src/core/class-process-spam-checks.php:564, src/core/class-process-spam-checks.php:685
+#: src/core/class-process-spam-checks.php:144, src/core/class-process-spam-checks.php:446, src/core/class-process-spam-checks.php:561, src/core/class-process-spam-checks.php:682
 msgid "[SPAM score %d%% ][from blacklisted IP]"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:243, src/core/class-process-spam-checks.php:288
+#: src/core/class-process-spam-checks.php:240, src/core/class-process-spam-checks.php:285
 msgid "[SPAM score %d%% ]"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:312
+#: src/core/class-process-spam-checks.php:309
 msgid "Comment attempted to be submitted without Javascript - enable javascript"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:328, src/core/class-process-spam-checks.php:339
+#: src/core/class-process-spam-checks.php:325, src/core/class-process-spam-checks.php:336
 msgid "Comment submitted from blacklisted IP"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:355
+#: src/core/class-process-spam-checks.php:352
 msgid "Comment submitted looks like human spam"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:558
+#: src/core/class-process-spam-checks.php:555
 msgid "WP Forms honeypot triggered."
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:615
+#: src/core/class-process-spam-checks.php:612
 msgid "<strong>ERROR:</strong> Blacklisted IP check your IP reputation"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:623
+#: src/core/class-process-spam-checks.php:620
 msgid "<strong>ERROR:</strong> Javascript needed to register"
 msgstr ""
 
-#: src/core/class-process-spam-checks.php:643
+#: src/core/class-process-spam-checks.php:640
 msgid "Your IP is on a spam blacklist, check your IP reputation"
 msgstr ""
 

@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment spam, contact form spam, spam firewall, spam protection
 Tested up to: 6.1
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 Type: freemium
 
 WordPress anti spam plugin that eliminates automated comment spam without reCAPTCHA or quizes. The ultimate in spam protection.
@@ -39,6 +39,7 @@ comments and this can slow down your site. This plugin is fast and lightweight a
 * prevents automated WordPress comment spam
 * stores the spam comments for review in the spam tab
 * removes the spam comments from WordPress after a defined number of days
+* also deals with comments through the wpDiscuz plugin
 * option not to remove comment spam automatically if desired
 * whilst another antispam plugin should not be required, as in our opinion this is the best anti spam plugin for comments created by bots, this can run alongside other spam and security plugins
 
@@ -145,12 +146,12 @@ This free plugin does not collect, process or send any website visitor personal 
 Tested against PHP 8.1
 
 == Changelog ==
+= 1.3.8 =
+* Handle wpDiscuz comments
+
 = 1.3.7 =
 * updated translation strings
 * added JetPack contact form protection ( Pro Only )
-
-= 1.3.6 =
-* fix another SQL issue in log purge
 
 
 [Full Change History](https://plugins.trac.wordpress.org/browser/fullworks-anti-spam/trunk/changelog.txt)

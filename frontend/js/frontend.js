@@ -23,7 +23,7 @@
  */
 
 var fas_honeyinput = "<input type='hidden' name='" + FullworksAntiSpamFELO.name + "' value='" + FullworksAntiSpamFELO.value + "' />";
-var fas_forms = "#commentform, #comments-form";
+var fas_forms = "#commentform, #comments-form, .wpd_comm_form";
 
 
 (function ($) {

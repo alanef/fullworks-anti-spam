@@ -79,15 +79,6 @@ class Process_Spam_Checks
      */
     private function set_hooks()
     {
-        if ( !is_admin() ) {
-            // this is not a capability check, it is just saying any admin view can add any comment.
-            add_filter(
-                'pre_comment_approved',
-                array( $this, 'pre_comment_approved' ),
-                99,
-                2
-            );
-        }
     }
     
     /**

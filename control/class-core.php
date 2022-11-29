@@ -174,6 +174,16 @@ class Core
             $this->freemius
         );
         add_action( 'init', array( $process_spam_checks, 'init' ), 0 );
+        add_action( 'plugins_loaded', function () use( $process_spam_checks ) {
+            if ( !current_user_can( 'edit_posts' ) ) {
+                add_filter(
+                    'pre_comment_approved',
+                    array( $process_spam_checks, 'pre_comment_approved' ),
+                    99,
+                    2
+                );
+            }
+        } );
     }
     
     /**
