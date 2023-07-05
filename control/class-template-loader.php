@@ -35,7 +35,7 @@ namespace Fullworks_Anti_Spam\Control;
 use Gamajo_Template_Loader;
 
 
-require_once dirname( __FILE__ ) . '/vendor/gamajo/template-loader/class-gamajo-template-loader.php';
+require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . '/vendor/gamajo/template-loader/class-gamajo-template-loader.php';
 
 /**
  * Template loader

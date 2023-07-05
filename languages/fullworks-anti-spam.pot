@@ -1,4 +1,4 @@
-# Copyright (C) 2022 fullworks-anti-spam
+# Copyright (C) 2023 fullworks-anti-spam
 # This file is distributed under the same license as the fullworks-anti-spam package.
 msgid ""
 msgstr ""

@@ -1,8 +1,8 @@
 === Anti Spam by Fullworks ===
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment spam, contact form spam, spam firewall, spam protection
-Tested up to: 6.1
-Stable tag: 1.3.8
+Tested up to: 6.2
+Stable tag: 1.3.10
 Type: freemium
 
 WordPress anti spam plugin that eliminates automated comment spam without reCAPTCHA or quizes. The ultimate in spam protection.
@@ -146,6 +146,12 @@ This free plugin does not collect, process or send any website visitor personal 
 Tested against PHP 8.1
 
 == Changelog ==
+= 1.3.10 =
+* Freemius SDK update to 2.5.10
+
+= 1.3.9 =
+* Fix monthly report template
+
 = 1.3.8 =
 * Handle wpDiscuz comments
 
