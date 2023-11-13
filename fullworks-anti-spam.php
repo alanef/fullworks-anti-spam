@@ -28,7 +28,7 @@
  * Plugin Name:       Anti Spam by Fullworks
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
  * Description:       Anti Spam by Fullworks providing protection for your website
- * Version:           1.3.10
+ * Version:           1.3.11
  * Author:            Fullworks
  * Author URI:        https://fullworksplugins.com/
  * Requires at least: 4.9
@@ -58,7 +58,7 @@ if ( ! function_exists( 'Fullworks_Anti_Spam\run_Fullworks_Anti_Spam' ) ) {
 	define( 'FULLWORKS_ANTI_SPAM_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 	define( 'FULLWORKS_ANTI_SPAM_CONTENT_DIR', dirname( plugin_dir_path( __DIR__ ) ) );
 	define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-	define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '1.3.10' );
+	define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '1.3.11' );
 
 	require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'control/autoloader.php';
 	require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'vendor/autoload.php';
