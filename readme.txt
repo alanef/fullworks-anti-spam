@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment spam, contact form spam, spam firewall, spam protection
 Tested up to: 6.4
-Stable tag: 1.3.11
+Stable tag: 1.3.12
 Type: freemium
 
 WordPress anti spam plugin that eliminates automated comment spam without reCAPTCHA or quizes. The ultimate in spam protection.
@@ -19,31 +19,32 @@ This plugin is free for commercial and business sites as well as personal blogs.
 
 Check the reviews, we are sure that spam comments on your blog post will be decimated. Look no further if you are looking for a free anti spam solution that simply works.
 
-If you are not sure what to do about your comment spam just give this plugin a try, we are sure you won't be disappointed.
+Whether you're just tired of comment spam or looking for a spam protection solution that truly stops spam, Fullworks is the perfect solution.
 
-
-= It is FREE  =
-There are several WordPress anti spam plugins available, some free, some free only for non commercial use and some you have to subscribe to.
-
-The free version of this plugin focuses on WordPress spam comments.  WordPress spam comments are often generated in thousands by bots, and are a total waste of your time.
-  This plugin prevents WordPress comment spam from bots.
-
-= It Works =
-Check the reviews, the plugin works.
-
-= It is good for SEO =
-How can an anti spam plugin improve SEO? Well they can't but they can damage SEO by damaging performance.  Other well known anti spam plugins make calls to the cloud to analyse
-comments and this can slow down your site. This plugin is fast and lightweight and so by using this plugin, over some others, you can be avoiding damaging your SEO.
-
-= Anti Spam Free Features =
+= Anti Spam Protection Free Features =
 * prevents automated WordPress comment spam
 * stores the spam comments for review in the spam tab
 * removes the spam comments from WordPress after a defined number of days
 * also deals with comments through the wpDiscuz plugin
 * option not to remove comment spam automatically if desired
-* whilst another antispam plugin should not be required, as in our opinion this is the best anti spam plugin for comments created by bots, this can run alongside other spam and security plugins
+* can be used alongside other security plugins and spam protection plugins
+* if you have built up thousands of spam comments, the auto remove function will work on previous spam, so will clear down historic comment spam automatically.
 
-( the remove function will work on previously spammed comments, so can also be used to clearly down historic comment spam if that has built up from another plugin )
+= It is FREE  =
+Free for any use, personal, commercial, and business sites with no API key required.
+
+= It Works =
+Check out our reviews, and you'll find that Fullworks Anti Spam is widely recognized as an anti-spam solution that truly stops spam comments on your blog posts.
+
+= It is good for SEO =
+How can an anti spam plugin improve SEO? Well they can't but they can damage SEO by damaging performance.  Other well known anti spam plugins make calls to the cloud to analyse
+comments and this can slow down your site. This plugin is fast and lightweight and so by using this plugin, over some others, you can be avoiding damaging your SEO.
+
+= It is easy to use =
+The plugin is designed to be 'set and forget'.  Once installed it will start protecting you from spam.  You can review the spam comments if you wish, but you don't have to.
+
+= It is safe =
+The plugin does not send any data to any third party.  It does not use cookies.  It does not track users.  It does not collect any personal data.
 
 == Installation ==
 
@@ -146,6 +147,9 @@ This free plugin does not collect, process or send any website visitor personal 
 Tested against PHP 8.1
 
 == Changelog ==
+= 1.3.12 =
+* Freemius SDK library update to 2.6.2
+
 = 1.3.11 =
 * Freemius SDK library update to 2.6.0
 

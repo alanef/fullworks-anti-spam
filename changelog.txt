@@ -1,4 +1,7 @@
 == Changelog ==
+= 1.3.12 =
+* Freemius SDK library update to 2.6.2
+
 = 1.3.11 =
 * Freemius SDK library update to 2.6.0
 
