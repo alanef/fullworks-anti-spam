@@ -25,7 +25,7 @@
 
 /**
  *
- * Plugin Name:       Anti Spam by Fullworks
+ * Plugin Name:       Anti Spam by Fullworks : Spam Protection
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
  * Description:       Anti Spam by Fullworks providing protection for your website
  * Version:           1.3.12

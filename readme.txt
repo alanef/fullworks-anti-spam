@@ -1,4 +1,4 @@
-=== Anti Spam by Fullworks ===
+=== Anti Spam by Fullworks : Spam Protection ===
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment spam, contact form spam, spam firewall, spam protection
 Tested up to: 6.4
