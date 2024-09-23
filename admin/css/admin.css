@@ -17,6 +17,10 @@
     opacity: 100%;
   }
 }
+.help-tip__td {
+  float: right;
+}
+
 .help-tip {
   position: relative;
   text-align: center;
@@ -35,7 +39,7 @@
 }
 .help-tip:hover p {
   display: block;
-  transform-origin: 100% 0%;
+  transform-origin: 100% 0;
   -webkit-animation: fadeIn 0.3s ease-in-out;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -128,6 +132,33 @@
   background: #409EBB;
   border-color: #B9B9BA;
   color: #fff;
+}
+.wp-core-ui .fs-page .button-primary.orange, .wp-core-ui .fs-page .page-title-action.orange {
+  background: #Ef4f15;
+  border-color: #Ef4f15;
+  box-shadow: 0 1px 0 #Ef4f15;
+}
+.wp-core-ui .fs-page .button-primary.orange:hover, .wp-core-ui .fs-page .page-title-action.orange:hover {
+  background: #EBCE10;
+  border-color: #EBCE10;
+  color: #0C3A5B;
+  box-shadow: none;
+}
+
+.fs-settings-meta-box-wrap img {
+  max-width: 100%;
+}
+
+.wp-admin .toplevel_page_fwas-hidden-menu-page {
+  display: none;
+}
+
+.fs-email-view pre {
+  white-space: pre-wrap; /* Since CSS 2.1 */
+  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+  white-space: -pre-wrap; /* Opera 4-6 */
+  white-space: -o-pre-wrap; /* Opera 7 */
+  word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
 /*# sourceMappingURL=admin.css.map */

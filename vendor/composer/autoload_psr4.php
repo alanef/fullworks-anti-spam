@@ -6,4 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Sabberworm\\CSS\\' => array($vendorDir . '/sabberworm/php-css-parser/src'),
+    'PHPAntiSpam\\' => array($vendorDir . '/alanef/phpantispam/src'),
+    'Fullworks_WP_Autoloader\\' => array($vendorDir . '/alanef/wp_autoloader/src'),
 );

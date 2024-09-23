@@ -4,6 +4,8 @@ $brand_white: #fff;
 $brand_lightblue: #409EBB;
 $brand_midgrey: #545764;
 $brand_darkgrey: #2E3744;
+$brand_orange: #Ef4f15;
+$brand_gold: #EBCE10;
 $color_qmark: $brand_white;
 $color_2: $brand_white;
 $background_color_qmark: $brand_lightblue;
@@ -21,6 +23,7 @@ $background_pointer: $brand_darkblue;
     transform: scale(1);
   }
 }
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -28,6 +31,9 @@ $background_pointer: $brand_darkblue;
   100% {
     opacity: 100%;
   }
+}
+.help-tip__td {
+  float: right;
 }
 .help-tip {
   position: relative;
@@ -39,19 +45,22 @@ $background_pointer: $brand_darkblue;
   font-size: 14px;
   line-height: 20px;
   cursor: default;
+
   &:before {
     content: '?';
     font-weight: bold;
     color: $color_qmark;
   }
+
   &:hover {
     p {
       display: block;
-      transform-origin: 100% 0%;
+      transform-origin: 100% 0;
       -webkit-animation: fadeIn 0.3s ease-in-out;
       animation: fadeIn 0.3s ease-in-out;
     }
   }
+
   p {
     z-index: 9000;
     display: none;
@@ -69,6 +78,7 @@ $background_pointer: $brand_darkblue;
     color: $color_2;
     font-size: 13px;
     line-height: 1.4;
+
     &:before {
       position: absolute;
       content: '';
@@ -79,6 +89,7 @@ $background_pointer: $brand_darkblue;
       right: 10px;
       top: -12px;
     }
+
     &:after {
       width: 100%;
       height: 40px;
@@ -98,19 +109,23 @@ $background_pointer: $brand_darkblue;
         margin: 0 0 0 -10px;
       }
     }
-    h2.brand{
+
+    h2.brand {
       background: $brand_darkblue;
       padding: 10px 0 0 0;
       margin: 0;
     }
+
     #poststuff {
       margin: 10px 20px 0 22px;
     }
+
     .logo {
       height: 80px;
       padding-right: 35px;
       vertical-align: middle;
     }
+
     .text {
       background: $brand_lightgrey;
       color: $brand_darkgrey;
@@ -118,30 +133,70 @@ $background_pointer: $brand_darkblue;
       margin-top: 10px;
       font-weight: bold;
     }
+
     .button-secondary, .button {
       color: $brand_midgrey;
       border-color: $brand_lightgrey;
       background: $brand_white;
       box-shadow: 0 1px 0 $brand_midgrey;
+
       &:hover {
         background: $brand_lightgrey;
         border-color: $brand_midgrey;
         color: $brand_white;
       }
     }
+
     .button-primary, .page-title-action {
       background: $brand_darkblue;
       border-color: $brand_darkgrey;
       box-shadow: 0 1px 0 $brand_darkgrey;
       color: #fff;
       text-shadow: none;
+
       &:hover {
         background: $brand_lightblue;
         border-color: $brand_lightgrey;
         color: $brand_white;
       }
+
+      &.orange {
+        background: $brand_orange;
+        border-color: $brand_orange;
+        box-shadow: 0 1px 0 $brand_orange;
+
+        &:hover {
+          background: $brand_gold;
+          border-color: $brand_gold;
+          color: $brand_darkblue;
+          box-shadow: none;
+        }
+      }
     }
 
 
+  }
+}
+
+.fs-settings-meta-box-wrap {
+  img {
+    max-width: 100%;
+  }
+}
+
+
+.wp-admin {
+  .toplevel_page_fwas-hidden-menu-page {
+    display: none;
+  }
+}
+
+.fs-email-view {
+  pre {
+    white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
   }
 }

@@ -70,7 +70,13 @@ class Admin_Pages {
 
 		$this->register_settings();
 
+	}
 
+	public function register_settings() {
+		// overide in extended class
+	}
+
+	public function hooks() {
 		/* Vars */
 		$page_hook_id = $this->settings_page_id;
 
@@ -78,15 +84,10 @@ class Admin_Pages {
 		if ( ! empty( $this->settings_page ) ) {
 			/* Load the JavaScript needed for the settings screen. */
 			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-			add_action( "admin_footer-{$page_hook_id}", array( $this, 'footer_scripts' ) );
 			/* Set number of column available. */
 			add_filter( 'screen_layout_columns', array( $this, 'screen_layout_column' ), 10, 2 );
 			add_action( $this->settings_page_id . '_settings_page_boxes', array( $this, 'add_required_meta_boxes' ) );
 		}
-	}
-
-	public function register_settings() {
-		// overide in extended class
 	}
 
 	public function enqueue_scripts( $hook_suffix ) {
@@ -95,31 +96,19 @@ class Admin_Pages {
 			wp_enqueue_script( 'common' );
 			wp_enqueue_script( 'wp-lists' );
 			wp_enqueue_script( 'postbox' );
+			$confirm_message = esc_html__( 'Are you sure want to do this?', 'fullworks-anti-spam' );
+			$inline_script   = "jQuery(document).ready(function ($) {
+    $('.if-js-closed').removeClass('if-js-closed').addClass('closed');
+    postboxes.add_postbox_toggles('" . esc_html( $page_hook_id ) . "');
+    $('#fx-smb-form').submit(function() {
+        $('#publishing-action .spinner').css('visibility', 'visible');
+    });
+    $('#delete-action *').on('click', function() {
+        return confirm('" . esc_html( $confirm_message ) . "');
+    });
+});";
+			wp_add_inline_script( 'common', $inline_script );
 		}
-	}
-
-	public function footer_scripts() {
-		$page_hook_id = $this->settings_page_id;
-		//@ TODO think about localize and enqueue
-		?>
-        <script type="text/javascript">
-            //<![CDATA[
-            jQuery(document).ready(function ($) {
-                // toggle
-                $('.if-js-closed').removeClass('if-js-closed').addClass('closed');
-                postboxes.add_postbox_toggles('<?php echo $page_hook_id; ?>');
-                // display spinner
-                $('#fx-smb-form').submit(function () {
-                    $('#publishing-action .spinner').css('visibility', 'visible');
-                });
-// confirm before reset
-                $('#delete-action *').on('click', function () {
-                    return confirm('<?php esc_html_e( 'Are you sure want to do this?', 'fullworks-anti-spam' ); ?>');
-                });
-            });
-            //]]>
-        </script>
-		<?php
 	}
 
 	public function screen_layout_column( $columns, $screen ) {
@@ -143,12 +132,10 @@ class Admin_Pages {
 
             <div class="wrap fs-page">
 
-                <h2 class="brand"><?php echo $this->settings_title; ?></h2>
-
-				<?php settings_errors(); ?>
-
+                <h2 class="brand"><?php echo wp_kses_post( $this->settings_title ); ?></h2>
 
                 <div class="fs-settings-meta-box-wrap">
+					<?php $this->display_tabs(); ?>
 
                     <form id="fs-smb-form" method="post" action="options.php">
 
@@ -157,7 +144,6 @@ class Admin_Pages {
 						<?php wp_nonce_field( 'closedpostboxes', 'closedpostboxesnonce', false ); ?>
 						<?php wp_nonce_field( 'meta-box-order', 'meta-box-order-nonce', false ); ?>
 
-						<?php $this->display_tabs(); ?>
 
                         <div id="poststuff">
 
@@ -172,6 +158,9 @@ class Admin_Pages {
                                 </div><!-- #postbox-container-1 -->
 
                                 <div id="postbox-container-2" class="postbox-container">
+
+									<?php $this->do_promo_box(); ?>
+
 
 									<?php do_meta_boxes( $hook_suffix, 'normal', null ); ?>
                                     <!-- #normal-sortables -->
@@ -194,6 +183,124 @@ class Admin_Pages {
             </div><!-- .wrap -->
 			<?php
 		}
+
+	}
+
+	public function display_tabs() {
+		Utilities::get_instance()->display_tabs();
+	}
+
+
+	private function do_promo_box() {
+		if ( ! $this->freemius->can_use_premium_code() ) {
+			?>
+            <div class="postbox"><a href="<?php echo esc_url( $this->freemius->get_upgrade_url() ); ?>"><img
+                            class="admin-image" src="<?php
+					echo esc_url( dirname( plugin_dir_url( __FILE__ ) ) . '/admin/images/upsell_banner.svg' )
+					?>" alt="<?php
+					esc_html_e( 'Upgrade', 'fullworks-anti-spam' );
+					?>"/></a>
+                <div class="inside">
+                    <table class="form-table">
+                        <tbody>
+
+						<?php
+						if ( Utilities::get_instance()->is_comments_open() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'WP Comments open to anyone', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'You are PROTECTED against the worst bot spam.  Add rules to the Deny List to extend your protection. UPGRADE to protect comments against non bot spam using CLEVER technology', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_wp_user_registrion_enabled() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'WP registrations enabled', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against fake registrations with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+
+						if ( Utilities::get_instance()->is_gravity_forms_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'Gravity Form installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against Gravity Forms spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_woocommerce_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'WooCommerce installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against fake Woo registrations with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_contact_form_7_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'Contact Form 7 installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against CF7 spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+
+						if ( Utilities::get_instance()->is_jetpack_contact_form_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'JetPack Contact Form installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against against JetPack Contact Form spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_quick_contact_forms_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'Quick Contact Form installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against against Quick Contact Form spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_quick_event_manager_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'Quick Event Manager installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against against Quick Event Manager registration spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_wp_forms_lite_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'WP Forms installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against against WP Forms spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_fluent_forms_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'Fluent Forms installed', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against against Fluent Forms spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+						if ( Utilities::get_instance()->is_clean_and_simple_installed() ) {
+							?>
+                            <tr>
+                            <th><?php esc_html_e( 'Contact Form: Clean and Simple', 'fullworks-anti-spam' ); ?></th>
+                            <td><?php esc_html_e( 'Protect against against Contact Form: Clean and Simple, spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            </tr><?php
+						}
+
+						?>
+                        <th></th>
+                        <td>
+                            <div style="float:right"><a style="font-weight:bold; font-size: 130%"
+                                                        class="button-primary orange"
+                                                        href="<?php echo esc_url( $this->freemius->get_upgrade_url() ); ?>"><?php esc_html_e( 'Start my FREE trial of PRO', 'fullworks-anti-spam' ); ?></a>
+                            </div>
+                        </td>
+                        <tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+			<?php
+		}
+
 
 	}
 
@@ -225,10 +332,11 @@ class Admin_Pages {
         <div id="submitpost" class="submitbox">
 
             <div id="major-publishing-actions">
+				<?php wp_nonce_field( 'fwas_submit_meta_box', '_fwas_submit_meta_box_nonce' ); ?>
 
                 <div id="delete-action">
-                    <input type="submit" name="<?php echo "{$this->option_group}-reset"; ?>"
-                           id="<?php echo "{$this->option_group}-reset"; ?>"
+                    <input type="submit" name="<?php echo esc_attr( "{$this->option_group}-reset" ); ?>"
+                           id="<?php echo esc_attr( "{$this->option_group}-reset" ); ?>"
                            class="button"
                            value="<?php esc_html_e( 'Reset Settings', 'fullworks-anti-spam' ); ?>">
                 </div><!-- #delete-action -->
@@ -255,29 +363,4 @@ class Admin_Pages {
 	public function delete_options() {
 		// for extended class to manage
 	}
-
-	public function display_tabs() {
-		$split     = explode( "-", $_GET['page'] );
-		$page_type = $split[ count( $split ) - 1 ];
-		$tabs      = Utilities::get_instance()->get_settings_page_tabs( $page_type );
-		if ( count( $tabs ) < 1 ) {
-			return;
-		}
-		?>
-        <h2 class="nav-tab-wrapper">
-			<?php foreach ( $tabs as $key => $tab ) {
-				$active = '';
-				if ( preg_match( '#' . $_GET['page'] . '$#', $tab['href'] ) ) {
-					$active = ' nav-tab-active';
-				}
-				echo '<a href="' . esc_url( $tab['href'] ) . '" class="nav-tab' . esc_attr( $active ) . '">' . esc_html( $tab['title'] ) . '</a>';
-			}
-			?>
-
-
-        </h2>
-		<?php
-	}
-
-
 }

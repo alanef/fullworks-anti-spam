@@ -31,6 +31,7 @@
 
 namespace Fullworks_Anti_Spam\FrontEnd;
 
+use Fullworks_Anti_Spam\Core\Forms_Registrations;
 use Fullworks_Anti_Spam\Core\Utilities;
 
 
@@ -66,21 +67,40 @@ class FrontEnd {
 	 * @param $utilities
 	 */
 	public function __construct( $plugin_name, $version, $utilities ) {
-		$this->plugin_name   = $plugin_name;
-		$this->version       = $version;
-		$this->utilities     = $utilities;
+		$this->plugin_name = $plugin_name;
+		$this->version     = $version;
+		$this->utilities   = $utilities;
 	}
 
 	/**
+	 * Enqueues the necessary scripts for the frontend.
 	 *
+	 * @return void
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_script( $this->plugin_name . '-front-logged-out', plugin_dir_url( __FILE__ ) . 'js/frontend.js', array( 'jquery' ), $this->version, false );
-		wp_localize_script( $this->plugin_name . '-front-logged-out', 'FullworksAntiSpamFELO', array(
-			'name'     => $this->utilities->get_uid( 'fullworks_anti_spam_key_name', 12 ),
-			'value'    => $this->utilities->get_uid( 'fullworks_anti_spam_key_value', 64 ),
-			'ajax_url' => admin_url( 'admin-ajax.php' ),
+		/** @var \Freemius $fwantispam_fs Freemius global object. */
+		global $fwantispam_fs;
+		wp_enqueue_script( $this->plugin_name . '-front-logged-out', plugin_dir_url( __FILE__ ) . 'js/frontend.js', array( 'jquery' ), $this->version . '.' . $this->utilities->get_random_version(), false );
+		$forms_registrations = new Forms_Registrations();
+		$registered_forms    = $forms_registrations->get_registered_forms();
+		$fas_forms_selectors = implode( ', ', array_column( $registered_forms, 'selectors' ) );
+		wp_localize_script(
+			$this->plugin_name . '-front-logged-out',
+			'FullworksAntiSpamFELO',
+			array(
+				'form_selectors' => $fas_forms_selectors,
+				'ajax_url'       => admin_url( 'admin-ajax.php' ),
+			)
+		);
+	}
+
+	public function get_keys() {
+		/* ajax function  fwas_get_keys as action to return as json */
+		wp_send_json( array(
+			'name'           => $this->utilities->get_uid( 'fullworks_anti_spam_key_name', 12 ),
+			'value'          => $this->utilities->get_uid( 'fullworks_anti_spam_key_value', 64 ),
 		) );
+
 	}
 
 }

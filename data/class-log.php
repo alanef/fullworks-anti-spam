@@ -85,10 +85,10 @@ class Log {
 			$server[] = sanitize_text_field( $_SERVER );
 		}
 		$table_name = $wpdb->prefix . 'fwantispam_log';
-		$sql        = $wpdb->prepare( "INSERT INTO $table_name 
-( IP, server, event, eventcode ) 
+
+		$result = $wpdb->query( $wpdb->prepare( "INSERT INTO $table_name 
+( IP, server, event, eventcode_str ) 
 values (INET6_ATON(%s), %s,%s,%s)"
-			, $this->ip, maybe_serialize( $server ), $this->event, $this->eventcode );
-		$result     = $wpdb->query( $sql );
+			, $this->ip, maybe_serialize( $server ), $this->event, $this->eventcode ) );
 	}
 }

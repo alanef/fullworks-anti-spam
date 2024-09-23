@@ -35,7 +35,8 @@ class Deactivator {
 	 *
 	 */
 	public static function deactivate() {
-		wp_clear_scheduled_hook( 'fullworks_security_admin_daily' );
+		wp_clear_scheduled_hook( 'fwas_admin_daily' );
 		wp_clear_scheduled_hook( 'fullworks_anti_spam_monthly_reports' );
+		wp_clear_scheduled_hook( 'fullworks_anti_spam_alerts' );
 	}
 }

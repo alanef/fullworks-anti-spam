@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright (c) 2019.
  * @author            Alan Fuller (support@fullworks)
@@ -22,7 +23,6 @@
  *
  *
  */
-
 namespace Fullworks_Anti_Spam\Control;
 
 /**
@@ -30,38 +30,40 @@ namespace Fullworks_Anti_Spam\Control;
  * @package Fullworks_Anti_Spam\Control
  */
 class Uninstall {
+    /**
+     * @param $network_wide
+     */
+    public static function uninstall( $network_wide ) {
+        global $wpdb;
+        if ( is_multisite() && $network_wide ) {
+            // Get all blogs in the network and delete tables on each
+            $blog_ids = $wpdb->get_col( "SELECT blog_id FROM {$wpdb->blogs}" );
+            foreach ( $blog_ids as $blog_id ) {
+                switch_to_blog( $blog_id );
+                self::delete_tables();
+                restore_current_blog();
+            }
+        } else {
+            self::delete_tables();
+        }
+        delete_option( "fullworks_anti_spam_db_version" );
+        // settings
+        delete_option( 'fullworks-anti-spam' );
+        // transients
+        delete_transient( 'fullworks_anti_spam_key_name' );
+        delete_transient( 'fullworks_anti_spam_key_value' );
+        delete_transient( 'fwantispam_training_data_obj' );
+    }
 
-	/**
-	 * @param $network_wide
-	 */
-	public static function uninstall( $network_wide ) {
-		global $wpdb;
-		if ( is_multisite() && $network_wide ) {
-			// Get all blogs in the network and delete tables on each
-			$blog_ids = $wpdb->get_col( "SELECT blog_id FROM $wpdb->blogs" );
-			foreach ( $blog_ids as $blog_id ) {
-				switch_to_blog( $blog_id );
-				self::delete_tables();
-				restore_current_blog();
-			}
-		} else {
-			self::delete_tables();
-		}
-		delete_option( "fullworks_anti_spam_db_version" );
-		// settings
-		delete_option( 'fullworks-anti-spam' );
-		// transients
-		delete_transient( 'fullworks_anti_spam_key_name' );
-		delete_transient( 'fullworks_anti_spam_key_value' );
-	}
+    /**
+     *
+     */
+    private static function delete_tables() {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'fwantispam_log';
+        $wpdb->query( "DROP TABLE IF EXISTS " . $table_name );
+        /** @var \Freemius $fwantispam_fs Freemius global object. */
+        global $fwantispam_fs;
+    }
 
-	/**
-	 *
-	 */
-	private static function delete_tables() {
-		global $wpdb;
-		$table_name = $wpdb->prefix . 'fwantispam_log';
-		$sql        = "DROP TABLE IF EXISTS " . $table_name;
-		$wpdb->query( $sql );
-	}
 }

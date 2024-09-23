@@ -1,55 +1,73 @@
 /*
- * @copyright (c) 2019.
+ * @copyright (c) 2024.
  * @author            Alan Fuller (support@fullworks)
  * @licence           GPL V3 https://www.gnu.org/licenses/gpl-3.0.en.html
  * @link                  https://fullworks.net
  *
- * This file is part of Fullworks Security.
+ * This file is part of Fullworks Anti Spam.
  *
- *     Fullworks Security is free software: you can redistribute it and/or modify
+ *     Fullworks Anti Spam is free software: you can redistribute it and/or modify
  *     it under the terms of the GNU General Public License as published by
  *     the Free Software Foundation, either version 3 of the License, or
- *     (at your option) any later version.a
+ *     (at your option) any later version.
  *
- *     Fullworks Security is distributed in the hope that it will be useful,
+ *     Fullworks Anti Spam is distributed in the hope that it will be useful,
  *     but WITHOUT ANY WARRANTY; without even the implied warranty of
  *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  *     GNU General Public License for more details.
  *
  *     You should have received a copy of the GNU General Public License
- *     along with   Fullworks Security.  https://www.gnu.org/licenses/gpl-3.0.en.html
+ *     along with   Fullworks Anti Spam.  https://www.gnu.org/licenses/gpl-3.0.en.html
  *
  *
  */
-
-var fas_honeyinput = "<input type='hidden' name='" + FullworksAntiSpamFELO.name + "' value='" + FullworksAntiSpamFELO.value + "' />";
-var fas_forms = "#commentform, #comments-form, .wpd_comm_form";
-
+const fas_forms = FullworksAntiSpamFELO.form_selectors;
+let activityTimer;
+let sustainedActivity = false;
+let honeyInputAdded = false;
 
 (function ($) {
     'use strict';
     /** anti spam fields */
     $(function () {
-        $(fas_forms).prepend(fas_honeyinput);
-        var whatToObserve = {
-            childList: true,
-            attributes: true,
-            subtree: true,
-            attributeOldValue: true,
-            attributeFilter: ['class', 'style']
-        };
-        var mutationObserver = new MutationObserver(function (mutationRecords) {
-            $.each(mutationRecords, function (index, mutationRecord) {
-                if (mutationRecord.type === 'childList') {
-                    if (mutationRecord.addedNodes.length > 0) {
-                        mutationRecord.addedNodes.forEach(function (addnode) {
-                            $(addnode).find(fas_forms).prepend(fas_honeyinput);
-                        });
-                    }
-                }
-            });
-        });
-        mutationObserver.observe(document.body, whatToObserve);
-    });
+        const addHoneyInput = () => {
 
+            if (sustainedActivity && !honeyInputAdded) {
+                $.ajax({
+                    url: FullworksAntiSpamFELO.ajax_url,
+                    type: 'POST',
+                    dataType: 'json',
+                    data: { action: "fwas_get_keys" },
+                    success: function (response) {
+                        const fas_honeyinput = `<input type='hidden' name='${response.name}' value='${response.value}' />`;
+                        $(fas_forms).each(function () {
+                            if (!$(this).find(`input[name='${FullworksAntiSpamFELO.name}']`).length) {
+                                $(this).prepend(fas_honeyinput);
+                            }
+                        });
+                        honeyInputAdded = true;
+                    }
+                });
+            }
+        };
+
+        const detectActivity = () => {
+            if (!sustainedActivity) {
+                clearTimeout(activityTimer);
+                activityTimer = setTimeout(() => {
+                    sustainedActivity = true;
+                    addHoneyInput();
+                }, 1000); // wait for 1 seconds of sustained activity
+            }
+        };
+
+        $(document).on('mousemove keypress', detectActivity);
+
+        // Adding 'focus' event to catch Tab key navigation
+        $(document).on('focus', 'input, select, textarea, button, a', detectActivity);
+
+        // Mutation observer to ensure the form keeps the honeyinput field
+        const mutationObserver = new MutationObserver(addHoneyInput);
+        mutationObserver.observe(document.body, { childList: true, subtree: true });
+    });
 })(jQuery);

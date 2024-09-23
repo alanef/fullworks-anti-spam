@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright (c) 2019.
  * @author            Alan Fuller (support@fullworks)
@@ -22,17 +23,16 @@
  *
  *
  */
-
 /**
  *
- * Plugin Name:       Anti Spam by Fullworks : Spam Protection
+ * Plugin Name:       Anti-Spam by Fullworks : GDPR Compliant Spam Protection
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
  * Description:       Anti Spam by Fullworks providing protection for your website
- * Version:           1.3.12
+ * Version:           2.3.3
  * Author:            Fullworks
  * Author URI:        https://fullworksplugins.com/
- * Requires at least: 4.9
- * Requires PHP:      5.6
+ * Requires at least: 5.3.0
+ * Requires PHP:      7.4
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       fullworks-anti-spam
@@ -40,51 +40,53 @@
  *
  * @package fullworks-anti-spam
  *
-  *
+ *
  *
  */
-
 namespace Fullworks_Anti_Spam;
 
-use \Fullworks_Anti_Spam\Control\Core;
-use \Fullworks_Anti_Spam\Control\Freemius_Config;
-
+use Fullworks_Anti_Spam\Control\Core;
+use Fullworks_Anti_Spam\Control\Freemius_Config;
+use Fullworks_WP_Autoloader\AutoloaderPlugin;
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if ( !defined( 'WPINC' ) ) {
+    die;
 }
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'FULLWORKS_ANTI_SPAM_CONTENT_DIR', dirname( plugin_dir_path( __DIR__ ) ) );
+define( 'FULLWORKS_ANTI_SPAM_PLUGINS_TOP_DIR', plugin_dir_path( __DIR__ ) );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_NAME', 'fullworks-anti-spam' );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.3.3' );
+require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'vendor/autoload.php';
+new AutoloaderPlugin(__NAMESPACE__, __DIR__);
+/** @var \Freemius $fwantispam_fs Freemius global object. */
+global $fwantispam_fs;
+$freemius = new Freemius_Config();
+$freemius->init();
+if ( !function_exists( 'Fullworks_Anti_Spam\\run_fullworks_anti_spam' ) ) {
+    function run_fullworks_anti_spam() {
+        /** @var \Freemius $fwantispam_fs Freemius global object. */
+        global $fwantispam_fs;
+        do_action( 'fwantispam_fs_loaded' );
+        register_activation_hook( __FILE__, array('\\Fullworks_Anti_Spam\\Control\\Activator', 'activate') );
+        add_action(
+            'wpmu_new_blog',
+            array('\\Fullworks_Anti_Spam\\Control\\Activator', 'on_create_blog_tables'),
+            10,
+            6
+        );
+        register_deactivation_hook( __FILE__, array('\\Fullworks_Anti_Spam\\Control\\Deactivator', 'deactivate') );
+        add_filter( 'wpmu_drop_tables', array('\\Fullworks_Anti_Spam\\Control\\Deactivator', 'on_delete_blog_tables') );
+        $fwantispam_fs->add_action( 'after_uninstall', array('\\Fullworks_Anti_Spam\\Control\\Uninstall', 'uninstall') );
+        $plugin = new Core($fwantispam_fs);
+        add_action( 'plugins_loaded', function () use($plugin) {
+            $plugin->run();
+        }, -1 );
+    }
 
-if ( ! function_exists( 'Fullworks_Anti_Spam\run_Fullworks_Anti_Spam' ) ) {
-	define( 'FULLWORKS_ANTI_SPAM_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
-	define( 'FULLWORKS_ANTI_SPAM_CONTENT_DIR', dirname( plugin_dir_path( __DIR__ ) ) );
-	define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
-	define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '1.3.12' );
-
-	require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'control/autoloader.php';
-	require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'vendor/autoload.php';
-
-	function run_Fullworks_Anti_Spam() {
-		$freemius = new Freemius_Config();
-		$freemius = $freemius->init();
-		do_action( 'fwantispam_fs_loaded' );
-		register_activation_hook( __FILE__, array( '\Fullworks_Anti_Spam\Control\Activator', 'activate' ) );
-		add_action( 'wpmu_new_blog', array(
-			'\Fullworks_Anti_Spam\Control\Activator',
-			'on_create_blog_tables'
-		), 10, 6 );
-		register_deactivation_hook( __FILE__, array( '\Fullworks_Anti_Spam\Control\Deactivator', 'deactivate' ) );
-		add_filter( 'wpmu_drop_tables', array( '\Fullworks_Anti_Spam\Control\Deactivator', 'on_delete_blog_tables' ) );
-		/**
-		 * @var \Freemius $freemius freemius SDK.
-		 */
-		$freemius->add_action( 'after_uninstall', array( '\Fullworks_Anti_Spam\Control\Uninstall', 'uninstall' ) );
-		$plugin = new Core( $freemius );
-		$plugin->run();
-	}
-
-
-	run_Fullworks_Anti_Spam();
+    run_fullworks_anti_spam();
 } else {
-	die( esc_html__( 'Cannot execute as the plugin already exists, if you have a another version installed deactivate that and try again', 'fullworks-anti-spam' ) );
+    $fwantispam_fs->set_basename( true, __FILE__ );
 }
-

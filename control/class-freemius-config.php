@@ -25,21 +25,20 @@
  */
 namespace Fullworks_Anti_Spam\Control;
 
+use FS_Admin_Menu_Manager;
+use FS_Permission_Manager;
 /**
  * Class Freemius_Config
  * @package Fullworks_Anti_Spam\Control
  */
-class Freemius_Config
-{
+class Freemius_Config {
     /**
      * @return \Freemius
      * @throws \Freemius_Exception
      */
-    public function init()
-    {
+    public function init() {
         /** @var \Freemius $fwantispam_fs Freemius global object. */
-        global  $fwantispam_fs ;
-        
+        global $fwantispam_fs;
         if ( !isset( $fwantispam_fs ) ) {
             // Activate multisite network integration.
             if ( !defined( 'WP_FS__PRODUCT_5065_MULTISITE' ) ) {
@@ -58,23 +57,55 @@ class Freemius_Config
                 'has_addons'     => false,
                 'has_paid_plans' => true,
                 'trial'          => array(
-                'days'               => 14,
-                'is_require_payment' => true,
-            ),
+                    'days'               => 30,
+                    'is_require_payment' => false,
+                ),
                 'navigation'     => 'tabs',
                 'menu'           => array(
-                'slug'    => 'fullworks-anti-spam-settings',
-                'contact' => false,
-                'support' => true,
-                'parent'  => array(
-                'slug' => 'options-general.php',
-            ),
-            ),
+                    'slug'    => 'fullworks-anti-spam-settings',
+                    'contact' => false,
+                    'support' => true,
+                    'parent'  => array(
+                        'slug' => 'options-general.php',
+                    ),
+                ),
+                'anonymous_mode' => $this->is_anonymous(),
                 'is_live'        => true,
             ) );
         }
-        
+        $fwantispam_fs->add_filter( 'plugin_icon', function () {
+            return FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'admin/images/brand/icon-256x256.svg';
+        } );
+        $fwantispam_fs->add_filter( 
+            /**
+             * @type string $id
+             * @type bool $default
+             * @type string $icon -class
+             * @type bool $optional
+             * @type string $label
+             * @type string $tooltip
+             * @type string $desc
+             */
+            'permission_list',
+            function ( $permissions ) use($fwantispam_fs) {
+                $permissions['fullworks'] = array(
+                    'id'         => 'fullworks',
+                    'optional'   => false,
+                    'default'    => true,
+                    'icon-class' => 'dashicons dashicons-cloud-upload',
+                    'label'      => esc_html__( 'Notify Spam to Fullworks', 'fullworks-anti-spam' ),
+                    'desc'       => esc_html__( 'Allow spam messages to be sent to Fullworks for the purpose of improving spam detection, if you want to opt out of this specific option you can do on the settings page', 'fullworks-anti-spam' ),
+                    'priority'   => 21,
+                    'tooltip'    => esc_html__( 'When you manually mark a comment or other item as spam or not spam the data will be send to Fullworks for the purpose of improving spam detection', 'fullworks-anti-spam' ),
+                );
+                return $permissions;
+            }
+         );
         return $fwantispam_fs;
+    }
+
+    private function is_anonymous() {
+        return defined( 'FWAS_ANON' ) && FWAS_ANON;
     }
 
 }

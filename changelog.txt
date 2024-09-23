@@ -1,4 +1,54 @@
 == Changelog ==
+= 2.3.3 =
+* Fix issue where badly conigured CF7 reCaptcha bypasses Fullworks Anti Spam ( Pro Only )
+
+= 2.3.2 =
+* Improve industry IP blocklists to reduce false positives ( Pro Only )
+
+= 2.3.1 =
+* Fix Gravity form specific selector ( Pro Only )
+
+= 2.3 =
+* Add integration of WSForm
+* Add GDPR+ Pro level  ( Pro Only )
+
+= 2.2.1 =
+* Ensure comment spam protection applied, even if comments closed on new posts
+
+= 2.2 =
+* Add spam level property ( Pro Only )
+* tidy up some warnings
+
+= 2.1.4 =
+* add extra comment form selector,
+* fix bug when two anti spam systems running
+* fix possible fatal error in free version
+
+= 2.1.3 =
+* Add stricter type checking due to PHP 7.4 inconsistencies
+
+= 2.1.2 =
+* improve bot detection when cache plugins used
+
+= 2.1.1 =
+* remove unused action_scheduler library
+
+= 2.1 =
+* Add API to allow any form system or plugin to utilize Fullworks Anti Spam if installed
+* Make `single word is spam` optional
+* Import and export CSV of Allow Deny Rules to make custom configuration scalable
+
+= 2.0.1 =
+* update honeypot mutation observer to better handle Gravity Forms Legacy markup ( Pro Only )
+
+= 2.0 =
+* Added Allow Deny lists for IP addresses, email patterns and text patterns
+* Opt in or out to share spam or ham data with our spam detection server to help with privacy compliance
+* Add form level control over protection for Gravity Forms ( Pro Only )
+* Add email logging for Contact Forms 7 and WP Forms Lite ( Pro Only )
+* Added  AI Server detections of human spam and other features ( Pro Only )
+* Added Fluent Forms ( Pro Only )
+
 = 1.3.12 =
 * Freemius SDK library update to 2.6.2
 
