@@ -3,7 +3,7 @@
         'name' => 'fullworks/fullworks-anti-spam',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '47a61e384ff654085fc09a08c118ca7e0a7f9e46',
+        'reference' => '9c0f46dcd6d1c529b9d639d275837ee35bf516e9',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -53,7 +53,7 @@
         'fullworks/fullworks-anti-spam' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '47a61e384ff654085fc09a08c118ca7e0a7f9e46',
+            'reference' => '9c0f46dcd6d1c529b9d639d275837ee35bf516e9',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

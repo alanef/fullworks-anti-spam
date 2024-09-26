@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment, gdpr
 Tested up to: 6.6
-Stable tag: 2.3.4
+Stable tag: 2.3.5
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium
@@ -200,6 +200,10 @@ This free plugin does not collect, process or send any website visitor personal 
 Tested against PHP 8.3
 
 == Changelog ==
+= 2.3.5 =
+* Fix issue with comment saving
+* change homeypot sensitivity
+
 = 2.3.4 =
 * Fix issue with CF7 and PHP 7.4.33 ( Pro Only )
 

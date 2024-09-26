@@ -28,7 +28,7 @@
  * Plugin Name:       Anti-Spam by Fullworks : GDPR Compliant Spam Protection
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
  * Description:       Anti Spam by Fullworks providing protection for your website
- * Version:           2.3.4
+ * Version:           2.3.5
  * Author:            Fullworks
  * Author URI:        https://fullworksplugins.com/
  * Requires at least: 5.3.0
@@ -58,7 +58,7 @@ define( 'FULLWORKS_ANTI_SPAM_PLUGINS_TOP_DIR', plugin_dir_path( __DIR__ ) );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_NAME', 'fullworks-anti-spam' );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
-define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.3.4' );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.3.5' );
 require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'vendor/autoload.php';
 new AutoloaderPlugin(__NAMESPACE__, __DIR__);
 /** @var \Freemius $fwantispam_fs Freemius global object. */

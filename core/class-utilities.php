@@ -171,9 +171,14 @@ class Utilities {
      * @return mixed|void
      */
     public function get_uid( $option, $length ) {
-        if ( !($uid = get_transient( $option )) ) {
+        $this->debug_log( 'getting UID' );
+        $uid = get_transient( $option );
+        $this->debug_log( 'got UID: ' . $uid );
+        if ( false === $uid ) {
+            $this->debug_log( 'setting UID' );
             $uid = wp_generate_password( $length, false, false );
             set_transient( $option, $uid, 3 * DAY_IN_SECONDS );
+            $this->debug_log( 'got UID: ' . $uid );
             $random_version = $this->get_random_version();
             set_transient( 'fullworks_anti_spam_random_version', $random_version + 1 );
         }

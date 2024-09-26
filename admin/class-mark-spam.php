@@ -166,7 +166,7 @@ class Mark_Spam {
             global $wpdb;
             $table_name = $wpdb->prefix . 'fwantispam_training_data';
             //check if $this->body['content'] message is in db update if so
-            $existing = $wpdb->get_results( "SELECT * FROM {$table_name} WHERE message = '" . wp_unslash( $this->body['content'] ) . "'", ARRAY_A );
+            $existing = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$table_name} WHERE message = %s", wp_unslash( $this->body['content'] ) ), ARRAY_A );
             if ( !empty( $existing ) ) {
                 $wpdb->update( $table_name, array(
                     'spam_or_ham' => ( $this->route == 'logspam' ? 'spam' : 'nospam' ),

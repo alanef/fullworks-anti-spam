@@ -1,4 +1,8 @@
 == Changelog ==
+= 2.3.5 =
+* Fix issue with comment saving
+* change homeypot sensitivity
+
 = 2.3.4 =
 * Fix issue with CF7 and PHP 7.4.33 ( Pro Only )
 

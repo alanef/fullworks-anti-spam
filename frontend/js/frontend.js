@@ -28,11 +28,31 @@ let honeyInputAdded = false;
 
 (function ($) {
     'use strict';
+
+    // Function to detect if the page was accessed via the back button
+    const isBackAction = () => {
+        return history.state && history.state.isBackAction;
+    };
+
+    // Function to mark that the current state is not a back action
+    const markAsNotBackAction = () => {
+        if (!history.state || !history.state.isBackAction) {
+            history.replaceState({ isBackAction: false }, document.title, location.href);
+        }
+    };
+
+    // Function to mark the state as a back action
+    const markAsBackAction = () => {
+        history.pushState({ isBackAction: true }, document.title, location.href);
+    };
+
+    // Mark the current state as not a back action on page load
+    $(window).on('load', markAsNotBackAction);
+
     /** anti spam fields */
     $(function () {
         const addHoneyInput = () => {
-
-            if (sustainedActivity && !honeyInputAdded) {
+            if ((sustainedActivity || isBackAction()) && !honeyInputAdded) {
                 $.ajax({
                     url: FullworksAntiSpamFELO.ajax_url,
                     type: 'POST',
@@ -50,7 +70,6 @@ let honeyInputAdded = false;
                 });
             }
         };
-
         const detectActivity = () => {
             if (!sustainedActivity) {
                 clearTimeout(activityTimer);
@@ -60,14 +79,14 @@ let honeyInputAdded = false;
                 }, 1000); // wait for 1 seconds of sustained activity
             }
         };
-
         $(document).on('mousemove keypress', detectActivity);
-
         // Adding 'focus' event to catch Tab key navigation
         $(document).on('focus', 'input, select, textarea, button, a', detectActivity);
-
         // Mutation observer to ensure the form keeps the honeyinput field
         const mutationObserver = new MutationObserver(addHoneyInput);
         mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+        // Mark the current state as a back action before the page unloads
+        window.addEventListener('unload', markAsBackAction);
     });
 })(jQuery);
