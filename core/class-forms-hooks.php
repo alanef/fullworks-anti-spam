@@ -118,7 +118,7 @@ class Forms_Hooks {
             }
             return $status;
         }
-        return $status;
+        return false;
     }
 
 }
