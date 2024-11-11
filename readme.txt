@@ -1,8 +1,8 @@
 === Anti-Spam by Fullworks : GDPR Compliant Spam Protection ===
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment, gdpr
-Tested up to: 6.6
-Stable tag: 2.3.5
+Tested up to: 6.7
+Stable tag: 2.3.10
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium
@@ -200,15 +200,32 @@ This free plugin does not collect, process or send any website visitor personal 
 Tested against PHP 8.3
 
 == Changelog ==
+= 2.3.10 =
+* Fix issue with reporting spam
+
+= 2.3.9 =
+* improve IP blocklist logic ( Pro Only )
+
+= 2.3.8 =
+* improve spam alert cron ( Pro Only )
+* fix Gravity Forms spam alerts ( Pro Only )
+
+= 2.3.7 =
+* update tested 6.7
+* upgrade freemius library
+
+= 2.3.6 =
+* Change bot detection messages for improved clarity
+
 = 2.3.5 =
 * Fix issue with comment saving
-* change homeypot sensitivity
+* change honeypot sensitivity
 
 = 2.3.4 =
 * Fix issue with CF7 and PHP 7.4.33 ( Pro Only )
 
 = 2.3.3 =
-* Fix issue where badly conigured CF7 reCaptcha bypasses Fullworks Anti Spam ( Pro Only )
+* Fix issue where badly configured CF7 reCaptcha bypasses Fullworks Anti Spam ( Pro Only )
 
 = 2.3.2 =
 * Improve industry IP blocklists to reduce false positives ( Pro Only )

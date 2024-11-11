@@ -6,7 +6,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-09-26 09:54+0000\n"
+"POT-Creation-Date: 2024-11-11 17:48+0000\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -610,10 +610,6 @@ msgstr ""
 msgid "No file was uploaded."
 msgstr ""
 
-#: fullworks-anti-spam/admin/class-admin.php:468
-msgid "Every Two Days"
-msgstr ""
-
 #: fullworks-anti-spam/admin/class-list-table-allow-deny.php:30, fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:30
 msgid "No current items"
 msgstr ""
@@ -706,6 +702,10 @@ msgstr ""
 msgid "View"
 msgstr ""
 
+#: fullworks-anti-spam/control/class-core.php:203
+msgid "Every Two Days"
+msgstr ""
+
 #: fullworks-anti-spam/control/class-freemius-config.php:108
 msgid "Notify Spam to Fullworks"
 msgstr ""
@@ -746,8 +746,8 @@ msgstr ""
 msgid "Comment submitted from blocklisted email or IP or contains banned text"
 msgstr ""
 
-#: fullworks-anti-spam/core/class-forms-hooks.php:196
-msgid "Comment attempted to be submitted without Javascript - enable javascript"
+#: fullworks-anti-spam/core/class-forms-hooks.php:196, fullworks-anti-spam/core/class-forms-hooks.php:418, fullworks-anti-spam/core/class-forms-hooks.php:470, fullworks-anti-spam/core/class-forms-hooks.php:578, fullworks-anti-spam/core/class-forms-hooks.php:612, fullworks-anti-spam/core/class-forms-hooks.php:617
+msgid "Are you sure you are human as that was very fast typing, please try again"
 msgstr ""
 
 #: fullworks-anti-spam/core/class-forms-hooks.php:281
@@ -771,7 +771,7 @@ msgid "IP on industry blocklists"
 msgstr ""
 
 #: fullworks-anti-spam/core/class-forms-hooks.php:333
-msgid "Just on word, looks like spam content"
+msgid "Just one word, looks like spam content"
 msgstr ""
 
 #: fullworks-anti-spam/core/class-forms-hooks.php:334
@@ -784,10 +784,6 @@ msgstr ""
 
 #: fullworks-anti-spam/core/class-forms-hooks.php:413, fullworks-anti-spam/core/class-forms-hooks.php:586, fullworks-anti-spam/core/class-forms-hooks.php:582, fullworks-anti-spam/core/class-forms-hooks.php:578, fullworks-anti-spam/core/class-forms-hooks.php:634, fullworks-anti-spam/core/class-forms-hooks.php:639, fullworks-anti-spam/core/class-forms-hooks.php:623, fullworks-anti-spam/core/class-forms-hooks.php:628, fullworks-anti-spam/core/class-forms-hooks.php:612, fullworks-anti-spam/core/class-forms-hooks.php:617
 msgid "ERROR:"
-msgstr ""
-
-#: fullworks-anti-spam/core/class-forms-hooks.php:418, fullworks-anti-spam/core/class-forms-hooks.php:578, fullworks-anti-spam/core/class-forms-hooks.php:612, fullworks-anti-spam/core/class-forms-hooks.php:617
-msgid "Invalid Nonce - if this persists contact the website owner"
 msgstr ""
 
 #: fullworks-anti-spam/core/class-forms-hooks.php:421, fullworks-anti-spam/core/class-forms-hooks.php:582, fullworks-anti-spam/core/class-forms-hooks.php:623, fullworks-anti-spam/core/class-forms-hooks.php:628
@@ -804,10 +800,6 @@ msgstr ""
 
 #: fullworks-anti-spam/core/class-forms-hooks.php:472
 msgid "Message submitted from blocklisted email or IP or conatins banned text"
-msgstr ""
-
-#: fullworks-anti-spam/core/class-forms-hooks.php:470
-msgid "Message attempted to be submitted without Javascript - enable javascript"
 msgstr ""
 
 #: fullworks-anti-spam/core/class-forms-hooks.php:586

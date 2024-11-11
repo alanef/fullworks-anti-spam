@@ -7,7 +7,8 @@ class AutoloaderPlugin
 		spl_autoload_register(
 			function ($class_name) use ($namespace, $base) {
 
-				if (false === strpos($class_name, $namespace)) {
+				// Check if the class name starts with the specified namespace.
+				if (strncmp($class_name, $namespace, strlen($namespace)) !== 0) {
 					return;
 				}
 				$file_name_no_suffix = '';

@@ -56,15 +56,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alanef/wp_autoloader.git",
-                "reference": "4ba13363175aef597d3f02a563009130dcedb0fb"
+                "reference": "ab82c9014dd47efbe72cb3612c2a57715bcb212d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alanef/wp_autoloader/zipball/4ba13363175aef597d3f02a563009130dcedb0fb",
-                "reference": "4ba13363175aef597d3f02a563009130dcedb0fb",
+                "url": "https://api.github.com/repos/alanef/wp_autoloader/zipball/ab82c9014dd47efbe72cb3612c2a57715bcb212d",
+                "reference": "ab82c9014dd47efbe72cb3612c2a57715bcb212d",
                 "shasum": ""
             },
-            "time": "2024-07-01T22:26:16+00:00",
+            "time": "2024-10-24T10:54:40+00:00",
             "default-branch": true,
             "type": "library",
             "installation-source": "dist",
@@ -182,17 +182,17 @@
         },
         {
             "name": "freemius/wordpress-sdk",
-            "version": "2.8.1",
-            "version_normalized": "2.8.1.0",
+            "version": "2.9.0",
+            "version_normalized": "2.9.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Freemius/wordpress-sdk.git",
-                "reference": "cc31279d088909135b6b2d8b4f2696312f5731fc"
+                "reference": "56696717c5f0b7fb395618e88e1b592d1893e5dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/cc31279d088909135b6b2d8b4f2696312f5731fc",
-                "reference": "cc31279d088909135b6b2d8b4f2696312f5731fc",
+                "url": "https://api.github.com/repos/Freemius/wordpress-sdk/zipball/56696717c5f0b7fb395618e88e1b592d1893e5dc",
+                "reference": "56696717c5f0b7fb395618e88e1b592d1893e5dc",
                 "shasum": ""
             },
             "require": {
@@ -207,7 +207,7 @@
                 "szepeviktor/phpstan-wordpress": "^1.3",
                 "wp-coding-standards/wpcs": "^2.3"
             },
-            "time": "2024-09-19T15:55:19+00:00",
+            "time": "2024-10-21T10:21:58+00:00",
             "type": "library",
             "installation-source": "dist",
             "notification-url": "https://packagist.org/downloads/",
@@ -227,7 +227,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Freemius/wordpress-sdk/issues",
-                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.8.1"
+                "source": "https://github.com/Freemius/wordpress-sdk/tree/2.9.0"
             },
             "install-path": "../freemius/wordpress-sdk"
         },
@@ -282,30 +282,30 @@
         },
         {
             "name": "sabberworm/php-css-parser",
-            "version": "v8.6.0",
-            "version_normalized": "8.6.0.0",
+            "version": "v8.7.0",
+            "version_normalized": "8.7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/MyIntervals/PHP-CSS-Parser.git",
-                "reference": "d2fb94a9641be84d79c7548c6d39bbebba6e9a70"
+                "reference": "f414ff953002a9b18e3a116f5e462c56f21237cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/MyIntervals/PHP-CSS-Parser/zipball/d2fb94a9641be84d79c7548c6d39bbebba6e9a70",
-                "reference": "d2fb94a9641be84d79c7548c6d39bbebba6e9a70",
+                "url": "https://api.github.com/repos/MyIntervals/PHP-CSS-Parser/zipball/f414ff953002a9b18e3a116f5e462c56f21237cf",
+                "reference": "f414ff953002a9b18e3a116f5e462c56f21237cf",
                 "shasum": ""
             },
             "require": {
                 "ext-iconv": "*",
-                "php": ">=5.6.20"
+                "php": "^5.6.20 || ^7.0.0 || ~8.0.0 || ~8.1.0 || ~8.2.0 || ~8.3.0 || ~8.4.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^5.7.27"
+                "phpunit/phpunit": "5.7.27 || 6.5.14 || 7.5.20 || 8.5.40"
             },
             "suggest": {
                 "ext-mbstring": "for parsing UTF-8 CSS"
             },
-            "time": "2024-07-01T07:33:21+00:00",
+            "time": "2024-10-27T17:38:32+00:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -344,7 +344,7 @@
             ],
             "support": {
                 "issues": "https://github.com/MyIntervals/PHP-CSS-Parser/issues",
-                "source": "https://github.com/MyIntervals/PHP-CSS-Parser/tree/v8.6.0"
+                "source": "https://github.com/MyIntervals/PHP-CSS-Parser/tree/v8.7.0"
             },
             "install-path": "../sabberworm/php-css-parser"
         }

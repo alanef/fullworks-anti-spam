@@ -3,7 +3,7 @@
         'name' => 'fullworks/fullworks-anti-spam',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '9c0f46dcd6d1c529b9d639d275837ee35bf516e9',
+        'reference' => '2b5442e58957b9ac5ca745be30921a42918b63dc',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -24,7 +24,7 @@
         'alanef/wp_autoloader' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '4ba13363175aef597d3f02a563009130dcedb0fb',
+            'reference' => 'ab82c9014dd47efbe72cb3612c2a57715bcb212d',
             'type' => 'library',
             'install_path' => __DIR__ . '/../alanef/wp_autoloader',
             'aliases' => array(
@@ -42,9 +42,9 @@
             'dev_requirement' => false,
         ),
         'freemius/wordpress-sdk' => array(
-            'pretty_version' => '2.8.1',
-            'version' => '2.8.1.0',
-            'reference' => 'cc31279d088909135b6b2d8b4f2696312f5731fc',
+            'pretty_version' => '2.9.0',
+            'version' => '2.9.0.0',
+            'reference' => '56696717c5f0b7fb395618e88e1b592d1893e5dc',
             'type' => 'library',
             'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
             'aliases' => array(),
@@ -53,7 +53,7 @@
         'fullworks/fullworks-anti-spam' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '9c0f46dcd6d1c529b9d639d275837ee35bf516e9',
+            'reference' => '2b5442e58957b9ac5ca745be30921a42918b63dc',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -69,9 +69,9 @@
             'dev_requirement' => false,
         ),
         'sabberworm/php-css-parser' => array(
-            'pretty_version' => 'v8.6.0',
-            'version' => '8.6.0.0',
-            'reference' => 'd2fb94a9641be84d79c7548c6d39bbebba6e9a70',
+            'pretty_version' => 'v8.7.0',
+            'version' => '8.7.0.0',
+            'reference' => 'f414ff953002a9b18e3a116f5e462c56f21237cf',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sabberworm/php-css-parser',
             'aliases' => array(),

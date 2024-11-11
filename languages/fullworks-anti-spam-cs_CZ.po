@@ -1,0 +1,1196 @@
+# Copyright (C) 2024 fullworks-anti-spam
+# This file is distributed under the same license as the fullworks-anti-spam package.
+msgid ""
+msgstr ""
+"Project-Id-Version: fullworks-anti-spam\n"
+"POT-Creation-Date: 2024-09-26 10:16+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n>=2 && n<=4 ? 1 : 2);\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;_ex:1,2c;_n:1,2;_n_noop:1,2;_nx:1,2,4c;"
+"_nx_noop:1,2,3c;_x:1,2c;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;"
+"esc_html_e;esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:38,
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:39
+msgid "Email View"
+msgstr "Zobrazení e-mailu"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:78
+msgid "Date: "
+msgstr "Datum: "
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:79
+msgid "To: "
+msgstr "Do: "
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:80
+msgid "Reply to: "
+msgstr "Odpovědět na:"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:81
+msgid "Forms package: "
+msgstr "Balíček formulářů:"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:84
+msgid "Headers"
+msgstr "Záhlaví"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:108,
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:123
+msgid "Mark as Spam"
+msgstr "Označit jako Spam"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:111,
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:120
+msgid "Mark as Ham"
+msgstr "Označit jako šunka"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:120
+msgid "Subject: "
+msgstr "Předmět: "
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:183
+msgid "Return to Email List"
+msgstr "Zpět na seznam e-mailů"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:190
+msgid "View Email (Ham)"
+msgstr "Zobrazit e-mail (Ham)"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:188
+msgid "View Email (Spam)"
+msgstr "Zobrazit e-mail (spam)"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:264
+msgid "Email Content"
+msgstr "Obsah emailu"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:273
+msgid "Email Action"
+msgstr "E-mailu akce"
+
+#: fullworks-anti-spam/admin/class-admin-email-view__premium_only.php:281
+msgid "Email Info"
+msgstr "Informace o e-mailu"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:58,
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:238,
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:258
+msgid "Anti Spam"
+msgstr "Ochrana proti spamu"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:99
+msgid "Are you sure want to do this?"
+msgstr "Určitě to chcete udělat?"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:201,
+#: fullworks-anti-spam/admin/class-admin-settings.php:99
+msgid "Upgrade"
+msgstr "Upgrade"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:211
+msgid "WP Comments open to anyone"
+msgstr "WP Komentáře otevřené komukoli"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:212
+msgid ""
+"You are PROTECTED against the worst bot spam.  Add rules to the Deny List to "
+"extend your protection. UPGRADE to protect comments against non bot spam "
+"using CLEVER technology"
+msgstr ""
+"Jste chráněni před nejhorším botovým spamem.  Přidáním pravidel do seznamu "
+"Deny List rozšíříte svou ochranu. UPGRADE na ochranu komentářů proti spamu, "
+"který není botem, pomocí technologie CLEVER"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:218
+msgid "WP registrations enabled"
+msgstr "Registrace WP povoleny"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:219
+msgid "Protect against fake registrations with Fullworks Anti Spam Pro"
+msgstr "Chraňte se před falešnými registracemi pomocí Fullworks Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:226
+msgid "Gravity Form installed"
+msgstr "Nainstalovaný formulář Gravity"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:227
+msgid "Protect against Gravity Forms spam with Fullworks Anti Spam Pro"
+msgstr ""
+"Ochrana proti spamu z formulářů Gravity Forms pomocí nástroje Fullworks Anti "
+"Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:233
+msgid "WooCommerce installed"
+msgstr "Nainstalovaný WooCommerce"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:234
+msgid "Protect against fake Woo registrations with Fullworks Anti Spam Pro"
+msgstr "Ochrana před falešnými registracemi Woo pomocí Fullworks Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:240
+msgid "Contact Form 7 installed"
+msgstr "Nainstalovaný kontaktní formulář 7"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:241
+msgid "Protect against CF7 spam with Fullworks Anti Spam Pro"
+msgstr "Ochrana proti spamu CF7 pomocí Fullworks Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:248
+msgid "JetPack Contact Form installed"
+msgstr "Nainstalovaný kontaktní formulář JetPack"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:249
+msgid ""
+"Protect against against JetPack Contact Form spam with Fullworks Anti Spam "
+"Pro"
+msgstr ""
+"Ochrana proti spamu z kontaktního formuláře JetPack pomocí nástroje "
+"Fullworks Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:255
+msgid "Quick Contact Form installed"
+msgstr "Nainstalovaný formulář pro rychlý kontakt"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:256
+msgid ""
+"Protect against against Quick Contact Form spam with Fullworks Anti Spam Pro"
+msgstr ""
+"Ochrana proti spamu z rychlého kontaktního formuláře pomocí Fullworks Anti "
+"Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:262
+msgid "Quick Event Manager installed"
+msgstr "Nainstalovaný nástroj Quick Event Manager"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:263
+msgid ""
+"Protect against against Quick Event Manager registration spam with Fullworks "
+"Anti Spam Pro"
+msgstr ""
+"Ochrana proti spamu při registraci do Quick Event Manageru pomocí Fullworks "
+"Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:269
+msgid "WP Forms installed"
+msgstr "Nainstalované formuláře WP"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:270
+msgid "Protect against against WP Forms spam with Fullworks Anti Spam Pro"
+msgstr "Chraňte se před spamem z WP formulářů pomocí Fullworks Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:276
+msgid "Fluent Forms installed"
+msgstr "Nainstalované formuláře Fluent Forms"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:277
+msgid "Protect against against Fluent Forms spam with Fullworks Anti Spam Pro"
+msgstr "Ochrana proti spamu Fluent Forms pomocí Fullworks Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:283
+msgid "Contact Form: Clean and Simple"
+msgstr "Kontaktní formulář: Čistý a jednoduchý"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:284
+msgid ""
+"Protect against against Contact Form: Clean and Simple, spam with Fullworks "
+"Anti Spam Pro"
+msgstr ""
+"Ochrana proti kontaktnímu formuláři: Spam: Čistý a jednoduchý, spam s "
+"Fullworks Anti Spam Pro"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:293
+msgid "Start my FREE trial of PRO"
+msgstr "Spusťte zkušební verzi PRO ZDARMA"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:316
+msgid "Save Options"
+msgstr "Uložit nastavení"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:341
+msgid "Reset Settings"
+msgstr "Obnovit nastavení"
+
+#: fullworks-anti-spam/admin/class-admin-pages.php:346
+msgid "Save"
+msgstr "Uložit"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:69,
+#: fullworks-anti-spam/admin/class-admin-settings.php:91,
+#: fullworks-anti-spam/admin/class-admin-settings.php:120,
+#: fullworks-anti-spam/core/class-forms-registrations.php:79
+msgid "Comments"
+msgstr "Komentáře"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:70
+msgid "Kill automated (bot) spam without Captcha or other annoying user quizes"
+msgstr ""
+"Zabít automatizovaný (botový) spam bez Captcha nebo jiných otravných "
+"uživatelských dotazů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:74
+msgid "Keep Spam"
+msgstr "Uchovávejte spam"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:75
+msgid ""
+"Select the number of days to keep spam, when spam is logged. Select 0 to "
+"discard immediately"
+msgstr ""
+"Zvolte počet dní, po které se má spam uchovávat, když je spam zaznamenán. "
+"Výběrem hodnoty 0 okamžitě vyřadíte"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:78,
+#: fullworks-anti-spam/admin/class-admin-settings.php:148
+msgid "Email Logs"
+msgstr "E-mailové protokoly"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:79
+msgid ""
+"Select the number of days to keep email logs. Select 0 to discard immediately"
+msgstr ""
+"Vyberte počet dní, po které se mají uchovávat protokoly e-mailů. Výběrem "
+"hodnoty 0 je možné okamžitě vyřadit"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:82
+msgid "Send spam email to:"
+msgstr "Odeslat spam na adresu:"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:83
+msgid ""
+"Your contact form will still send you some spam emails marked as spam in the "
+"subject and headers, it is recommended\n"
+"\t\t\t\t\tto set a separate email to avoid clutter, leave blank and it will "
+"default to your form settings"
+msgstr ""
+"Váš kontaktní formulář vám bude stále posílat některé nevyžádané e-maily "
+"označené v předmětu a hlavičce jako spam, doporučuje se\n"
+"\t\t\t\t\tnastavit samostatný e-mail, abyste se vyhnuli nepořádku, nechte "
+"prázdný a bude výchozí nastavení vašeho formuláře"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:87,
+#: fullworks-anti-spam/admin/class-admin-settings.php:95,
+#: fullworks-anti-spam/admin/class-admin-settings.php:124
+msgid "Forms"
+msgstr "Formuláře"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:88
+msgid ""
+"Forms types protected, without Captcha, Gravity Forms, Contact Form 7, "
+"WPForms, WP Registration and WooCommerce Registrations"
+msgstr ""
+"Typy formulářů chráněné, bez Captcha, Gravity Forms, Contact Form 7, "
+"WPForms, WP Registration a WooCommerce Registrations"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:92
+msgid "Refuse comments from IP addresses that are on an IP blocklist"
+msgstr ""
+"Odmítnutí komentářů z IP adres, které jsou na seznamu blokovaných IP adres"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:96
+msgid ""
+"Reject form submissions from IPs with a bad reputation, Gravity Forms, "
+"Contact Form 7, WPForms, WP Registration and WooCommerce Registrations"
+msgstr ""
+"Odmítnutí odeslání formuláře z IP adres se špatnou pověstí, Gravity Forms, "
+"Contact Form 7, WPForms, WP Registration a WooCommerce Registrations"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:100
+msgid ""
+"By upgrading you will benefit from machine learning and AI to protect "
+"against human manually input spam"
+msgstr ""
+"Upgradováním získáte výhody strojového učení a umělé inteligence, které vás "
+"ochrání před spamem zadávaným ručně člověkem"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:103,
+#: fullworks-anti-spam/admin/class-admin-settings.php:152,
+#: fullworks-anti-spam/admin/class-admin-settings.php:318
+msgid "Stats"
+msgstr "Statistiky"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:104
+msgid "Upgraded version will automatically email spam statistics"
+msgstr ""
+"Aktualizovaná verze automaticky zasílá statistiky nevyžádané pošty e-mailem"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:107
+msgid "Statistical Analysis"
+msgstr "Statistická analýza"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:108
+msgid ""
+"Set the desired spam probability filter %%, default is 55%%, a lower %% will "
+"exclude more messages and may include genuine messages, a higher %% will "
+"allow more messages through so may let through more spam"
+msgstr ""
+"Nastavte požadovaný filtr pravděpodobnosti spamu %%, výchozí hodnota je 55%"
+"%, nižší %% vyloučí více zpráv a může zahrnovat skutečné zprávy, vyšší %% "
+"propustí více zpráv, takže může propustit více spamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:111
+msgid "Artificial Intelligence"
+msgstr "Umělá inteligence"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:112
+msgid ""
+"Using natural language AI learning server will make an intelligent guess at "
+"a %% as to whether user input is likely to be spam, please note as this uses "
+"thord party AI servers, the message submission may be delayed by as much as "
+"3 seconds while the service responds, if this concerns you set this to zero "
+"to not use."
+msgstr ""
+"Pomocí přirozeného jazyka AI učení serveru bude inteligentní odhad na %%, "
+"zda uživatelský vstup je pravděpodobně spam, Vezměte prosím na vědomí, "
+"protože to používá thord stranou AI servery, odeslání zprávy může být "
+"zpožděn až o 3 sekundy, zatímco služba reaguje, pokud se to týká vás "
+"nastavit na nulu nepoužívat."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:115
+msgid "Strategy"
+msgstr "Taktika"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:116
+msgid ""
+"Decide if you want both machine methods to indicate spam to mark as spam- "
+"conservative -or just one method - aggressive. Normally you would choose "
+"'aggressive' but if for instance your site is about adult content or sells "
+"SEO so valid messages may seem spammy you may want to try 'conservative'"
+msgstr ""
+"Rozhodněte se, zda chcete obě metody označování spamu označit jako "
+"konzervativní, nebo jen jednu metodu - agresivní. Normálně byste zvolili "
+"\"agresivní\", ale pokud se například vaše stránky týkají obsahu pro dospělé "
+"nebo prodávají SEO, takže platné zprávy mohou působit jako spam, můžete "
+"zkusit \"konzervativní\""
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:121
+msgid ""
+"Use machine learning technology to filter out comment spam from human beings"
+msgstr ""
+"Použití technologie strojového učení k odfiltrování komentářového spamu od "
+"lidí"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:125
+msgid ""
+"Forms types protected, without Captcha, Gravity Forms, Contact Form 7, "
+"WPForms, Fusion Forms, QEM, QCF, WP Registration and WooCommerce "
+"Registrations"
+msgstr ""
+"Typy formulářů chráněné, bez Captcha, Gravity Forms, Contact Form 7, "
+"WPForms, Fusion Forms, QEM, QCF, WP Registration a WooCommerce Registrations"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:128
+msgid "Single Words"
+msgstr "Jednotlivá slova"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:129
+msgid ""
+"Single words, often random in text areas, can be a sign of spam, check this "
+"option to always decide one word answers are always spam"
+msgstr ""
+"Jednotlivá slova, často náhodná v textových oblastech, mohou být známkou "
+"spamu, zaškrtnutím této možnosti vždy rozhodnete, že jednoslovné odpovědi "
+"jsou vždy spam"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:132
+msgid "Spam transmission"
+msgstr "Přenos spamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:133
+msgid ""
+"Disabling transmission ensures complete privacy for website visitor messages "
+"and comments which enables easy compliance with privacy laws such as GDPR "
+"and UK GDPR without relying on Data Processing Agreements (DPA) and\n"
+"\t\t\t Standard Contractual Clauses (SCC) if you want to enable transmission "
+"to Fullworks and would like a DPA and SCC please contact support. Disabling "
+"will mean that AI can not be used and remote Statistical Analysis will not "
+"happen resulting in potentially\n"
+"\t\t\t lower correct classification of human spam. Bot and IP Blocklist and "
+"Local Statistical Analysis spam detection remains the same."
+msgstr ""
+"Vypnutí přenosu zajišťuje úplné soukromí zpráv a komentářů návštěvníků "
+"webových stránek, což umožňuje snadné dodržování zákonů o ochraně osobních "
+"údajů, jako je GDPR a GDPR Spojeného království, bez nutnosti spoléhat se na "
+"dohody o zpracování údajů (DPA) a\n"
+"\t\t\t Standardní smluvní doložky (SCC), pokud chcete povolit přenos do "
+"společnosti Fullworks a chcete uzavřít DPA a SCC, kontaktujte prosím "
+"podporu. Zakázání bude znamenat, že nebude možné používat umělou inteligenci "
+"a nebude probíhat vzdálená statistická analýza, což může mít za následek "
+"potenciální\n"
+"\t\t\t nižší správnou klasifikaci lidského spamu. Detekce spamu pomocí botů "
+"a IP Blocklistu a místní statistické analýzy zůstává stejná."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:138
+msgid "Spam to Email"
+msgstr "Spam do e-mailu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:139
+msgid ""
+"Some forms we can't stop email being sent even when we detect spam so to "
+"handle this you can set up a different email address so you can direct to "
+"spam folders. Leaving blank will send the email to whatever is set up in the "
+"forms with a modified subject lime."
+msgstr ""
+"U některých formulářů nemůžeme zabránit odesílání e-mailů, i když zjistíme "
+"spam, takže pro tento případ můžete nastavit jinou e-mailovou adresu, abyste "
+"mohli přesměrovat do složek se spamem. Ponecháte-li prázdnou, bude e-mail "
+"odeslán na jakoukoli adresu nastavenou ve formulářích s upraveným předmětem "
+"lime."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:144
+msgid "Email reports to:"
+msgstr "Zprávy zasílejte e-mailem na adresu:"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:145
+msgid ""
+"This email will be used by the plugin to send all notifications from the "
+"plugin. It can be different to the site administrator email"
+msgstr ""
+"Tento e-mail bude zásuvný modul používat k zasílání všech oznámení ze "
+"zásuvného modulu. Může se lišit od e-mailu správce webu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:149
+msgid ""
+"As some forms packages donot auto maticcaly logs emails and spam fully we "
+"logs these so you can check spam and mark false positives as ham, set "
+"retention for privacy or zero to not log"
+msgstr ""
+"Vzhledem k tomu, že některé formuláře balíčků donot auto maticcaly protokoly "
+"e-maily a spam plně zaznamenáváme, takže můžete zkontrolovat spam a označit "
+"falešně pozitivní jako ham, nastavit retention pro soukromí nebo nula "
+"nezaznamenávat"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:153
+msgid "Monthly summary email of spam block statistics"
+msgstr "Měsíční souhrnný e-mail se statistikami blokování spamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:156
+msgid "Send Alerts"
+msgstr "Odesílání upozornění"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:157
+msgid ""
+"Send more frequent alerts when there is spam to review.  As you can get "
+"false positives with human and IP blocklist detection it is important to "
+"check spam just in case."
+msgstr ""
+"Častější zasílání upozornění na spam, který je třeba zkontrolovat.  Vzhledem "
+"k tomu, že při detekci lidského faktoru a seznamu blokovaných IP adres může "
+"docházet k falešně pozitivním výsledkům, je důležité spam pro jistotu "
+"kontrolovat."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:163
+msgid "Anti Spam Settings"
+msgstr "Nastavení antispamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:252,
+#: fullworks-anti-spam/admin/class-admin-settings.php:258,
+#: fullworks-anti-spam/admin/class-admin-settings.php:259
+msgid "Settings"
+msgstr "Nastavení"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:253
+msgid "Documentation"
+msgstr "Dokumentace"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:279
+msgid "Settings reset to defaults."
+msgstr "Obnovení výchozích nastavení."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:297
+msgid "Bot Spam Protection"
+msgstr "Ochrana proti botovému spamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:307
+msgid "IP Blocklist Checking"
+msgstr "Kontrola seznamu blokovaných adres IP"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:328
+msgid "Human Spam Protection"
+msgstr "Ochrana proti spamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:347
+msgid "Administration"
+msgstr "Administrace"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:361
+msgid "Site visitor privacy [GDPR safe]"
+msgstr "Ochrana osobních údajů návštěvníků stránek [GDPR safe]"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:475
+msgid ""
+"GDPR requires that you keep personal information for only also long as "
+"necessary, please enter a number of days for Email Logs greater than zero"
+msgstr ""
+"GDPR vyžaduje, abyste osobní údaje uchovávali pouze po nezbytně nutnou dobu, "
+"zadejte prosím počet dní pro e-mailové protokoly větší než nula"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:492
+msgid "No spam stopped yet, be patient it will come soon enough"
+msgstr "Žádný spam zatím zastaven, buďte trpěliví, přijde to brzy"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:497
+msgid "Spam stopped in the last 30 days"
+msgstr "Spam přestal chodit v posledních 30 dnech"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:512,
+#: fullworks-anti-spam/templates__premium_only/monthly-spam-report.php:306
+msgid "Review"
+msgstr "Recenze"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:537
+msgid "Enable bot spam protection for comments"
+msgstr "Povolení ochrany komentářů proti spamu od botů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:562,
+#: fullworks-anti-spam/admin/class-admin-settings.php:628,
+#: fullworks-anti-spam/admin/class-admin-settings.php:655,
+#: fullworks-anti-spam/admin/class-admin-settings.php:706,
+#: fullworks-anti-spam/admin/class-admin-settings.php:730,
+#: fullworks-anti-spam/admin/class-admin-settings.php:757,
+#: fullworks-anti-spam/admin/class-admin-settings.php:787,
+#: fullworks-anti-spam/admin/class-admin-settings.php:811,
+#: fullworks-anti-spam/admin/class-admin-settings.php:828,
+#: fullworks-anti-spam/admin/class-admin-settings.php:854
+msgid "Activate the FREE trial"
+msgstr "Aktivujte zkušební verzi ZDARMA"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:562
+msgid "to enable bot spam protection for forms input"
+msgstr "povolit ochranu proti spamu z botů pro zadávání formulářů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:565
+msgid "Enable bot spam protection for forms input"
+msgstr "Povolení ochrany proti spamu z botů pro zadávání formulářů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:628
+msgid "to remove more spam by IP blocklist checking for comments"
+msgstr "odstranit více spamu pomocí kontroly seznamu IP blokování komentářů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:631
+msgid "Enable IP blocklist checking for comment input"
+msgstr "Povolení kontroly seznamu blokovaných adres IP pro zadávání komentářů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:656
+msgid "to enable IP blocklist checking for forms input"
+msgstr "povolit kontrolu seznamu blokovaných adres IP pro zadávání formulářů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:659
+msgid "Enable IP blocklist checking for forms input"
+msgstr "Povolení kontroly seznamu blokovaných adres IP pro zadávání formulářů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:707
+msgid "to protect comments from humans"
+msgstr "chránit komentáře před lidmi"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:710
+msgid "Enable human spam protection for comments"
+msgstr "Povolit ochranu komentářů proti spamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:731
+msgid "to protect forms from humans"
+msgstr "chránit formy před lidmi"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:734
+msgid "Enable human spam protection for forms input"
+msgstr "Povolení ochrany proti nevyžádané poště pro zadávání formulářů"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:758
+msgid "to use probability server"
+msgstr "použít server pravděpodobnosti"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:761
+msgid ""
+"% ( default 55% ) statistical spam server learns from historical spam data "
+"to determine a probability. Set to zero to turn off."
+msgstr ""
+"% ( výchozí 55 % ) statistický spamový server se učí z historických dat o "
+"spamu a určuje pravděpodobnost. Nastavením na nulu se vypne."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:788,
+#: fullworks-anti-spam/admin/class-admin-settings.php:812
+msgid "to use AI server"
+msgstr "používat server AI"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:791
+msgid ""
+"% ( default 75% ) the AI spam server uses natural language artificial "
+"intelligence to classify likely spam. Set to zero to turn off."
+msgstr ""
+"% ( výchozí hodnota 75 % ) server AI spam používá ke klasifikaci "
+"pravděpodobného spamu umělou inteligenci v přirozeném jazyce. Nastavením na "
+"nulu se vypne."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:815
+msgid "Conservative - both (1) AND (2) suspect spam"
+msgstr "Konzervativní - jak (1), tak (2) podezřelý spam"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:829
+msgid "to select machine strategies"
+msgstr "pro výběr strojních strategií"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:832
+msgid "Aggressive - either (1) OR (2) suspect spam"
+msgstr "Agresivní - buď (1), NEBO (2) podezřelý spam"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:855
+msgid "to decide single words are spam answers"
+msgstr "rozhodnout, že jednotlivá slova jsou spamové odpovědi"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:858
+msgid "Enable to decide single words are spam answers"
+msgstr "Umožňuje rozhodnout, že jednotlivá slova jsou spamové odpovědi"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:885
+msgid ""
+"Allow transmission of visitor messages to Fullworks for spam classification "
+"by AI and Machine Learning Analysis"
+msgstr ""
+"Povolení přenosu zpráv návštěvníků do systému Fullworks pro klasifikaci "
+"spamu pomocí AI a analýzy strojového učení"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:911,
+#: fullworks-anti-spam/admin/class-admin-settings.php:930
+msgid "Days"
+msgstr "Dnů"
+
+#. translators: %s: Form plugin name e.g. Gravity Forms
+#: fullworks-anti-spam/admin/class-admin-settings.php:946
+msgid ""
+"Email Log has been disabled, if you want to mark spam / ham for %s, then "
+"sets days to a number more than zero."
+msgstr ""
+"E-mailový protokol byl zakázán, pokud chcete označit spam / ham pro %s, pak "
+"nastaví dny na číslo větší než nula."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:939
+msgid ""
+"Email Log has been enabled in a tab above, to allow you to mark spam / ham "
+"for %s."
+msgstr ""
+"Na kartě výše byl povolen protokol e-mailů, který umožňuje označit spam / "
+"ham pro %s."
+
+#. translators: %s: Form plugin name e.g. Gravity Forms
+#: fullworks-anti-spam/admin/class-admin-settings.php:969
+msgid ""
+"Redirect spam emails to this address for %s as these forms we can not stop "
+"them sending something."
+msgstr ""
+"Přesměrování nevyžádaných e-mailů na tuto adresu pro %s, protože tyto "
+"formuláře nemůžeme zastavit jejich odesílání."
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:985
+msgid "Enable monthly spam stats summary email"
+msgstr "Povolení měsíčního e-mailu se souhrnnými statistikami spamu"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:1001
+msgid "No alerts"
+msgstr "Žádná upozornění"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:1002
+msgid "Daily"
+msgstr "Denně"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:1003
+msgid "Every 2 days"
+msgstr "Každé 2 dny"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:1004
+msgid "Weekly"
+msgstr "Týdně"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:1006
+msgid "Send reminders when there is spam to check"
+msgstr "Odesílání připomenutí, když je třeba zkontrolovat spam"
+
+#. translators: %s: Form plugin name e.g. Gravity Forms
+#: fullworks-anti-spam/admin/class-admin-settings.php:1025
+msgid "Alert form spam ( %s )"
+msgstr "Upozornění na spam ( %s )"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:1057
+msgid "Activate the FREE trial "
+msgstr "Aktivujte zkušební verzi ZDARMA"
+
+#: fullworks-anti-spam/admin/class-admin-settings.php:1058
+msgid "for spam statistics auto reporting by email"
+msgstr "pro automatické hlášení statistik spamu e-mailem"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:27,
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:34
+msgid "Allow / Deny List"
+msgstr "Seznam povolených/odmítnutých položek"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:48
+msgid "Rules"
+msgstr "Pravidla"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:59
+msgid "Add New"
+msgstr "Přidat nový"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:60,
+#: fullworks-anti-spam/admin/class-admin-table-email-log__premium_only.php:60,
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:101
+msgid "Allow / Deny"
+msgstr "Povolit / zamítnout"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:63
+msgid "Upload CSV file"
+msgstr "Nahrát soubor CSV"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:142
+msgid "Invalid IP or IP Subnet"
+msgstr "Neplatná IP nebo podsíť IP"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:137
+msgid "Invalid string or regular expression"
+msgstr "Nesprávný řetězec nebo regulární výraz"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:127
+msgid "Invalid email or email pattern"
+msgstr "Neplatný e-mail nebo vzor e-mailu"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:180
+msgid "Error updating allow / deny data"
+msgstr "Chyba při aktualizaci údajů o povolení/odmítnutí"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:163
+msgid "Error inserting allow / deny data"
+msgstr "Chyba při vkládání údajů o povolení/odmítnutí"
+
+#: fullworks-anti-spam/admin/class-admin-table-allow-deny.php:183
+msgid "Record Saved"
+msgstr "Uložený záznam"
+
+#: fullworks-anti-spam/admin/class-admin-table-email-log__premium_only.php:27,
+#: fullworks-anti-spam/admin/class-admin-table-email-log__premium_only.php:34
+msgid "Email Log"
+msgstr "E-mailový protokol"
+
+#: fullworks-anti-spam/admin/class-admin-table-email-log__premium_only.php:48
+msgid "Entries"
+msgstr "Záznamy"
+
+#: fullworks-anti-spam/admin/class-admin.php:118
+msgid "Fullworks Anti Spam"
+msgstr "Fullworks Anti Spam"
+
+#: fullworks-anti-spam/admin/class-admin.php:121
+msgid "Enable IP blockist Checking"
+msgstr "Povolení kontroly blokování IP"
+
+#: fullworks-anti-spam/admin/class-admin.php:125
+msgid ""
+"This controls IP block list checking at a form level initial default will be "
+"from Fullworks Anti Spam General settings"
+msgstr ""
+"Tím se řídí kontrola seznamu blokovaných IP adres na úrovni formuláře "
+"výchozí nastavení je z obecných nastavení programu Fullworks Anti Spam"
+
+#: fullworks-anti-spam/admin/class-admin.php:129
+msgid "Enable Content Checking (Human Spam)"
+msgstr "Povolení kontroly obsahu (lidský spam)"
+
+#: fullworks-anti-spam/admin/class-admin.php:133
+msgid ""
+"This controls content checking for HUMAN input spam at a form level initial "
+"default will be from Fullworks Anti Spam General settings"
+msgstr ""
+"Tímto se řídí kontrola obsahu pro HUMAN vstupní spam na úrovni formuláře "
+"výchozí nastavení bude z obecných nastavení Fullworks Anti Spam"
+
+#: fullworks-anti-spam/admin/class-admin.php:154,
+#: fullworks-anti-spam/admin/class-admin.php:187
+msgid "You do not have sufficient permissions to access this page."
+msgstr "Nemáte dostatečné oprávnění pro přístup na tuto stránku."
+
+#: fullworks-anti-spam/admin/class-admin.php:285
+msgid "No file was uploaded."
+msgstr "Nebyl nahrán žádný soubor."
+
+#: fullworks-anti-spam/admin/class-admin.php:468
+msgid "Every Two Days"
+msgstr "Každé dva dny"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:30,
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:30
+msgid "No current items"
+msgstr "Žádné aktuální položky"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:54
+msgid "Export to CSV"
+msgstr "Export do CSV"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:57
+msgid "Import from CSV"
+msgstr "Import z CSV"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:92
+msgid "All"
+msgstr "Vše"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:93
+msgid "Allowed"
+msgstr "Povoleno"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:94
+msgid "Denied"
+msgstr "Zakázáno"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:102
+msgid "Type"
+msgstr "Typ"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:103
+msgid "Value"
+msgstr "Hodnota"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:104
+msgid "Notes"
+msgstr "Poznámky"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:127
+msgid "Expression"
+msgstr "Výraz"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:125
+msgid "Email"
+msgstr "Email"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:123
+msgid "IP"
+msgstr "IP"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:135,
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:157,
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:103,
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:130
+msgid "Delete"
+msgstr "Smazat"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:149
+msgid "Deny"
+msgstr "Odmítnout"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:147
+msgid "Allow"
+msgstr "Povolit"
+
+#: fullworks-anti-spam/admin/class-list-table-allow-deny.php:156
+msgid "Edit"
+msgstr "Upravit"
+
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:70
+msgid "Ham"
+msgstr "Šunka"
+
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:71
+msgid "Spam"
+msgstr "Spam"
+
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:80
+msgid "Subject"
+msgstr "Předmět"
+
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:81,
+#: fullworks-anti-spam/core/class-email-log__premium_only.php:123
+msgid "Checked Content"
+msgstr "Zkontrolovaný obsah"
+
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:82
+msgid "From"
+msgstr "Od"
+
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:83
+msgid "Date"
+msgstr "Datum"
+
+#: fullworks-anti-spam/admin/class-list-table-email-log__premium_only.php:128
+msgid "View"
+msgstr "Zobrazit"
+
+#: fullworks-anti-spam/control/class-freemius-config.php:108
+msgid "Notify Spam to Fullworks"
+msgstr "Upozornění na spam do služby Fullworks"
+
+#: fullworks-anti-spam/control/class-freemius-config.php:109
+msgid ""
+"Allow spam messages to be sent to Fullworks for the purpose of improving "
+"spam detection, if you want to opt out of this specific option you can do on "
+"the settings page"
+msgstr ""
+"Povolit odesílání nevyžádaných zpráv do služby Fullworks za účelem zlepšení "
+"detekce spamu, pokud chcete tuto konkrétní možnost zrušit, můžete tak učinit "
+"na stránce nastavení"
+
+#: fullworks-anti-spam/control/class-freemius-config.php:111
+msgid ""
+"When you manually mark a comment or other item as spam or not spam the data "
+"will be send to Fullworks for the purpose of improving spam detection"
+msgstr ""
+"Když ručně označíte komentář nebo jinou položku jako spam nebo jako "
+"nevyžádanou pošlete údaje společnosti Fullworks za účelem zlepšení detekce "
+"spamu"
+
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:95,
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:123,
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:164,
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:189,
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:219
+msgid "has spam entries please review and either delete or mark as not spam."
+msgstr ""
+"má spamové příspěvky, prosím, zkontrolujte a buď odstraňte, nebo označte "
+"jako nevyžádanou poštu."
+
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:244
+msgid "Website spam that needs checking!"
+msgstr "Spam na webových stránkách, který je třeba zkontrolovat!"
+
+#: fullworks-anti-spam/core/class-email-reports__premium_only.php:265
+msgid "Your Monthly Anti-Spam Review"
+msgstr "Měsíční přehled antispamu"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:213
+msgid "Comment submitted looks like human spam"
+msgstr "Odeslaný komentář vypadá jako lidský spam"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:207,
+#: fullworks-anti-spam/core/class-forms-hooks.php:481
+msgid "Please write more, one word comments are not allowed"
+msgstr "Prosím, napište více, jednoslovné komentáře nejsou povoleny"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:201
+msgid "Comment submitted from blocklisted IP"
+msgstr "Komentář odeslaný z blokované IP adresy"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:198
+msgid "Comment submitted from blocklisted email or IP or contains banned text"
+msgstr ""
+"Komentář odeslaný z e-mailu nebo IP adresy, které jsou na seznamu "
+"blokovaných, nebo obsahuje zakázaný text"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:196,
+#: fullworks-anti-spam/core/class-forms-hooks.php:418,
+#: fullworks-anti-spam/core/class-forms-hooks.php:470,
+#: fullworks-anti-spam/core/class-forms-hooks.php:578,
+#: fullworks-anti-spam/core/class-forms-hooks.php:612,
+#: fullworks-anti-spam/core/class-forms-hooks.php:617
+msgid ""
+"Are you sure you are human as that was very fast typing, please try again"
+msgstr ""
+"Jste si jistý, že jste člověk, protože to bylo velmi rychlé psaní, zkuste to "
+"prosím znovu"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:281
+msgid ""
+"Your IP or email of content looks like spam. If this is an issue contact teh "
+"website owner."
+msgstr ""
+"Vaše IP adresa nebo e-mail s obsahem vypadá jako spam. Pokud se jedná o "
+"problém, kontaktujte majitele webu."
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:268
+msgid "You seem to be a bot, sorry but you are unable to submit this form"
+msgstr "Zdá se, že jste bot, je nám líto, ale nemůžete odeslat tento formulář"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:330
+msgid "Bot detected"
+msgstr "Zjištěn bot"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:331,
+#: fullworks-anti-spam/core/class-spam-checks.php:105
+msgid "On Deny List"
+msgstr "Na seznamu odepření"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:332
+msgid "IP on industry blocklists"
+msgstr "IP na průmyslových blokačních seznamech"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:333
+msgid "Just on word, looks like spam content"
+msgstr "Jen na slovíčko, vypadá to jako spam"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:334
+msgid "Content looks suspicious"
+msgstr "Obsah vypadá podezřele"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:352
+msgid ""
+"Your submission has been blocked as it looks like spam, if this persists "
+"contact the site owner."
+msgstr ""
+"Váš příspěvek byl zablokován, protože vypadá jako spam, pokud přetrvává, "
+"kontaktujte majitele webu."
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:413,
+#: fullworks-anti-spam/core/class-forms-hooks.php:586,
+#: fullworks-anti-spam/core/class-forms-hooks.php:582,
+#: fullworks-anti-spam/core/class-forms-hooks.php:578,
+#: fullworks-anti-spam/core/class-forms-hooks.php:634,
+#: fullworks-anti-spam/core/class-forms-hooks.php:639,
+#: fullworks-anti-spam/core/class-forms-hooks.php:623,
+#: fullworks-anti-spam/core/class-forms-hooks.php:628,
+#: fullworks-anti-spam/core/class-forms-hooks.php:612,
+#: fullworks-anti-spam/core/class-forms-hooks.php:617
+msgid "ERROR:"
+msgstr "CHYBA:"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:421,
+#: fullworks-anti-spam/core/class-forms-hooks.php:582,
+#: fullworks-anti-spam/core/class-forms-hooks.php:623,
+#: fullworks-anti-spam/core/class-forms-hooks.php:628
+msgid "The website owner is blocking your email or IP"
+msgstr "Majitel webu blokuje váš e-mail nebo IP adresu"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:487
+msgid "Message submitted looks like human spam"
+msgstr "Odeslaná zpráva vypadá jako lidský spam"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:475
+msgid "Message submitted from blocklisted IP"
+msgstr "Zpráva odeslaná z blokované IP adresy"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:472
+msgid "Message submitted from blocklisted email or IP or conatins banned text"
+msgstr ""
+"Zpráva odeslaná z e-mailu nebo IP adresy, která je na seznamu blokovaných, "
+"nebo obsahuje zakázaný text"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:586
+msgid "IP Blocklisted IP check your IP reputation"
+msgstr "Kontrola reputace IP adresy na seznamu blokovaných IP adres"
+
+#: fullworks-anti-spam/core/class-forms-hooks.php:634,
+#: fullworks-anti-spam/core/class-forms-hooks.php:639
+msgid "IP Blocklisted: check your IP reputation"
+msgstr "Blokovaná IP: zkontrolujte si pověst své IP adresy"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:96
+msgid "Gravity Forms"
+msgstr "Gravity Forms"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:116
+msgid "Contact Form 7"
+msgstr "Contact Form 7"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:129,
+#: fullworks-anti-spam/core/class-forms-registrations.php:144
+msgid "WPforms"
+msgstr "WPforms"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:159
+msgid "WP Registrations"
+msgstr "Registrace WP"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:170
+msgid "WooCommerce Forms"
+msgstr "Formuláře WooCommerce"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:181
+msgid "Quick Event Manager"
+msgstr "Správce rychlých událostí"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:192
+msgid "Quick Contact Form"
+msgstr "Rychlý kontaktní formulář"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:208
+msgid "JetPack Contact Form"
+msgstr "Kontaktní formulář JetPack"
+
+#: fullworks-anti-spam/core/class-forms-registrations.php:229
+msgid "Fluent Forms"
+msgstr "Fluentní formuláře"
+
+#: fullworks-anti-spam/core/class-spam-analysis__premium_only.php:146
+msgid "[SPAM review]"
+msgstr "[recenze SPAMu]"
+
+#. translators: %s: Form plugin name e.g. Gravity Forms
+#: fullworks-anti-spam/core/class-spam-checks.php:99
+msgid "%1$s (%2$s)"
+msgstr "%1$s (%2$s)"
+
+#: fullworks-anti-spam/core/class-spam-checks.php:106
+msgid "On IP Block List"
+msgstr "Na seznamu blokovaných IP adres"
+
+#: fullworks-anti-spam/core/class-spam-checks.php:107
+msgid "Content suspect"
+msgstr "Podezřelý obsah"
+
+#: fullworks-anti-spam/core/class-spam-checks.php:256
+msgid "Email on Form:"
+msgstr "E-mail na formuláři:"
+
+#: fullworks-anti-spam/core/class-spam-checks.php:257
+msgid "Combined textarea:"
+msgstr "Kombinovaná textová oblast:"
+
+#. translators: placeholder is a number followed by percent sign
+#: fullworks-anti-spam/core/class-spam-checks.php:424
+msgid "[SPAM score %d%% ]"
+msgstr "[SPAM score %d%% ]"
+
+#: fullworks-anti-spam/core/class-utilities.php:119
+msgid "Site not registered: Anti Spam plugin will not function"
+msgstr "Stránka není registrována: Zásuvný modul proti spamu nebude fungovat"
+
+#: fullworks-anti-spam/core/class-utilities.php:326
+msgid "Total"
+msgstr "Celkem"
+
+#: fullworks-anti-spam/templates__premium_only/monthly-spam-report.php:182
+msgid "has been protecting your website"
+msgstr "chrání vaše webové stránky"
+
+#: fullworks-anti-spam/templates__premium_only/monthly-spam-report.php:183
+msgid " from spam"
+msgstr " ze spamu"
+
+#: fullworks-anti-spam/templates__premium_only/monthly-spam-report.php:185
+msgid "The following are the spam statistics over the last 30 days"
+msgstr "Následují statistiky spamu za posledních 30 dní"
+
+#: fullworks-anti-spam/templates__premium_only/parts/alert-email-footer.php:7
+msgid ""
+"This email is intended as a reminder for you to check your spam queues for "
+"human spam in case some were classified incorrectly"
+msgstr ""
+"Tento e-mail je určen jako připomínka, abyste si zkontrolovali fronty "
+"nevyžádané pošty, pokud byla některá z nich nesprávně klasifikována"
+
+#: fullworks-anti-spam/templates__premium_only/parts/alert-email-footer.php:9
+msgid "You can adjust the frequency or disable this email."
+msgstr "Frekvenci můžete upravit nebo tento e-mail zakázat."
+
+#: fullworks-anti-spam/templates__premium_only/parts/alert-email-footer.php:13
+msgid "click to review your settings"
+msgstr "kliknutím zkontrolujete svá nastavení"
+
+#: fullworks-anti-spam/templates__premium_only/parts/alert-email-header.php:8
+msgid "This is your automated spam checking alert from Fullworks Anti Spam"
+msgstr ""
+"Toto je vaše automatické upozornění na kontrolu spamu od společnosti "
+"Fullworks Anti Spam"
+
+#: fullworks-anti-spam/templates__premium_only/parts/alert-email-header.php:11
+msgid "Website:"
+msgstr "Webová stránka:"
+
+#: fullworks-anti-spam/templates__premium_only/parts/alert-email-header.php:12
+msgid "URL:"
+msgstr "URL:"

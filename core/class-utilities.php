@@ -160,7 +160,6 @@ class Utilities {
         if ( false === WP_Http::is_ip_address( $ipaddress ) ) {
             $ipaddress = '0.0.0.0';
         }
-        return '90.210.193.176';
         return $ipaddress;
     }
 

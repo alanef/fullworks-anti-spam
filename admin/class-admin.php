@@ -321,12 +321,4 @@ class Admin {
         }
     }
 
-    public function set_cron_intervals( $schedules ) {
-        $schedules['everytwodays'] = array(
-            'interval' => 2 * DAY_IN_SECONDS,
-            'display'  => esc_html__( 'Every Two Days', 'fullworks-anti-spam' ),
-        );
-        return $schedules;
-    }
-
 }
