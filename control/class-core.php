@@ -97,7 +97,7 @@ class Core {
         $this->api = new Anti_Spam_Api();
         $this->options = get_option( 'fullworks-anti-spam' );
         $this->set_options_data();
-        $this->set_locale();
+        add_action( 'init', array($this, 'set_locale') );
         $this->settings_pages();
         $this->define_admin_hooks();
         $this->define_public_hooks();
@@ -139,7 +139,7 @@ class Core {
     /**
      *
      */
-    private function set_locale() {
+    public function set_locale() {
         load_plugin_textdomain( 'fullworks-anti-spam', false, basename( FULLWORKS_ANTI_SPAM_PLUGIN_DIR ) . '/languages/' );
     }
 
