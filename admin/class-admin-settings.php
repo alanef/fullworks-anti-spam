@@ -70,6 +70,62 @@ class Admin_Settings extends Admin_Pages {
         $this->freemius = $freemius;
         $this->utilities = $utilities;
         $this->api = $api;
+        $this->options = get_option( 'fullworks-anti-spam' );
+        parent::__construct();
+    }
+
+    /**
+     * Get settings title with lazy initialization to avoid early translation loading
+     *
+     * @return string
+     */
+    protected function get_settings_title() {
+        if ( null === $this->settings_title ) {
+            $this->settings_title = '<img src="' . dirname( plugin_dir_url( __FILE__ ) ) . '/admin/images/brand/light-anti-spam-75h.svg" class="logo" alt="Fullworks Logo"/><div class="text">' . __( 'Anti Spam Settings', 'fullworks-anti-spam' ) . '</div>';
+        }
+        return $this->settings_title;
+    }
+
+    /**
+     * Override parent settings_page to initialize settings_title before rendering
+     */
+    public function settings_page() {
+        // Initialize settings title before parent renders it
+        $this->settings_title = $this->get_settings_title();
+        parent::settings_page();
+    }
+
+    public static function option_defaults( $option ) {
+        /** @var \Freemius $fwantispam_fs Freemius global object. */
+        global $fwantispam_fs;
+        switch ( $option ) {
+            case 'fullworks-anti-spam':
+                $res = array(
+                    'comments'           => 1,
+                    'days'               => 30,
+                    'freemius_state_set' => false,
+                );
+                if ( !$fwantispam_fs->is_anonymous() && !$fwantispam_fs->is_plan_or_trial( 'gdpr', true ) ) {
+                    $res['sendspam'] = 1;
+                } else {
+                    $res['sendspam'] = 0;
+                }
+                return $res;
+            default:
+                return false;
+        }
+    }
+
+    /**
+     * Get titles array with lazy initialization.
+     * This ensures translations are only loaded when needed (after init hook).
+     *
+     * @return array
+     */
+    private function get_titles() {
+        if ( null !== $this->titles ) {
+            return $this->titles;
+        }
         $this->titles = array(
             'Bot Comments' => array(
                 'title' => esc_html__( 'Comments', 'fullworks-anti-spam' ),
@@ -143,30 +199,7 @@ class Admin_Settings extends Admin_Pages {
             'title' => esc_html__( 'Spam to Email', 'fullworks-anti-spam' ),
             'tip'   => esc_html__( 'Some forms we can\'t stop email being sent even when we detect spam so to handle this you can set up a different email address so you can direct to spam folders. Leaving blank will send the email to whatever is set up in the forms with a modified subject lime.', 'fullworks-anti-spam' ),
         );
-        $this->options = get_option( 'fullworks-anti-spam' );
-        $this->settings_title = '<img src="' . dirname( plugin_dir_url( __FILE__ ) ) . '/admin/images/brand/light-anti-spam-75h.svg" class="logo" alt="Fullworks Logo"/><div class="text">' . __( 'Anti Spam Settings', 'fullworks-anti-spam' ) . '</div>';
-        parent::__construct();
-    }
-
-    public static function option_defaults( $option ) {
-        /** @var \Freemius $fwantispam_fs Freemius global object. */
-        global $fwantispam_fs;
-        switch ( $option ) {
-            case 'fullworks-anti-spam':
-                $res = array(
-                    'comments'           => 1,
-                    'days'               => 30,
-                    'freemius_state_set' => false,
-                );
-                if ( !$fwantispam_fs->is_anonymous() && !$fwantispam_fs->is_plan_or_trial( 'gdpr', true ) ) {
-                    $res['sendspam'] = 1;
-                } else {
-                    $res['sendspam'] = 0;
-                }
-                return $res;
-            default:
-                return false;
-        }
+        return $this->titles;
     }
 
     public function plugin_action_links() {
@@ -174,7 +207,7 @@ class Admin_Settings extends Admin_Pages {
     }
 
     public function add_plugin_action_links( $links ) {
-        $links = array_merge( array('<a href="' . esc_url( admin_url( 'options-general.php?page=fullworks-anti-spam-settings' ) ) . '">' . __( 'Settings' ) . '</a>'), $links );
+        $links = array_merge( array('<a href="' . esc_url( admin_url( 'options-general.php?page=fullworks-anti-spam-settings' ) ) . '">' . __( 'Settings', 'fullworks-anti-spam' ) . '</a>'), $links );
         return $links;
     }
 
@@ -439,6 +472,40 @@ class Admin_Settings extends Admin_Pages {
 		<?php 
     }
 
+    public function meta_box_diagnostics() {
+        $enabled = ( isset( $this->options['diagnostics_enabled'] ) ? $this->options['diagnostics_enabled'] : 0 );
+        ?>
+        <p>
+            <label>
+                <input type="checkbox"
+                       name="fullworks-anti-spam[diagnostics_enabled]"
+                       value="1"
+                       <?php 
+        checked( 1, $enabled );
+        ?>>
+				<?php 
+        esc_html_e( 'Enable', 'fullworks-anti-spam' );
+        ?>
+            </label>
+        </p>
+		<?php 
+        if ( $enabled ) {
+            ?>
+            <p>
+                <a href="<?php 
+            echo esc_url( admin_url( 'admin.php?page=fullworks-anti-spam-diagnostics' ) );
+            ?>">
+					<?php 
+            esc_html_e( 'View Diagnostics', 'fullworks-anti-spam' );
+            ?> →
+                </a>
+            </p>
+		<?php 
+        }
+        ?>
+		<?php 
+    }
+
     public function meta_box_bot_spam() {
         ?>
         <table class="form-table">
@@ -497,7 +564,8 @@ class Admin_Settings extends Admin_Pages {
         ?>
         <th scope="row">
 			<?php 
-        echo wp_kses_post( $this->titles[$title]['title'] );
+        $titles = $this->get_titles();
+        echo wp_kses_post( $titles[$title]['title'] );
         ?>
         </th>
 		<?php 
@@ -507,7 +575,8 @@ class Admin_Settings extends Admin_Pages {
         ?>
         <td class="help-tip__td">
 			<?php 
-        echo ( isset( $this->titles[$title]['tip'] ) ? '<div class="help-tip"><p>' . esc_html( $this->titles[$title]['tip'] ) . '</p></div>' : '' );
+        $titles = $this->get_titles();
+        echo ( isset( $titles[$title]['tip'] ) ? '<div class="help-tip"><p>' . esc_html( $titles[$title]['tip'] ) . '</p></div>' : '' );
         ?>
         </td>
 		<?php 

@@ -97,7 +97,6 @@ class Core {
         $this->api = new Anti_Spam_Api();
         $this->options = get_option( 'fullworks-anti-spam' );
         $this->set_options_data();
-        add_action( 'init', array($this, 'set_locale') );
         $this->settings_pages();
         $this->define_admin_hooks();
         $this->define_public_hooks();
@@ -139,13 +138,6 @@ class Core {
     /**
      *
      */
-    public function set_locale() {
-        load_plugin_textdomain( 'fullworks-anti-spam', false, basename( FULLWORKS_ANTI_SPAM_PLUGIN_DIR ) . '/languages/' );
-    }
-
-    /**
-     *
-     */
     private function settings_pages() {
         $settings = new Admin_Settings(
             $this->get_plugin_name(),
@@ -165,6 +157,9 @@ class Core {
             3
         );
         add_action( 'admin_menu', array($allow_deny, 'add_table_page') );
+        add_action( 'init', function () {
+        } );
+        // Diagnostics Admin
         add_action( 'init', function () {
         } );
     }

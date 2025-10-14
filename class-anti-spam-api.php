@@ -10,17 +10,10 @@ use Fullworks_Anti_Spam\Core\Utilities;
 class Anti_Spam_Api {
 
 
-	/**
-	 * @var Forms_Registrations $forms_registrations
-	 */
-	private $forms_registrations;
 	public $spam_level;
 
 	public function __construct() {
 		add_filter( 'fwas_is_spam', array( $this, 'is_spam' ), 10, 4 );
-		$this->forms_registrations = new Forms_Registrations();
-		$this->forms_registrations->register_forms();
-
 	}
 
 	/**
@@ -30,7 +23,7 @@ class Anti_Spam_Api {
 	 * @api
 	 */
 	public function get_registered_forms() {
-		return $this->forms_registrations->get_registered_forms();
+		return Forms_Registrations::get_registered_forms();
 	}
 
 	/**
@@ -42,7 +35,8 @@ class Anti_Spam_Api {
 	 * @api
 	 */
 	public function set_registered_forms( $forms ) {
-		$this->forms_registrations->set_registered_forms( $forms );
+		$instance = new Forms_Registrations();
+		$instance->set_registered_forms( $forms );
 	}
 
 
@@ -56,7 +50,8 @@ class Anti_Spam_Api {
 	 * @api
 	 */
 	public function update_registered_form( $form_system, $form ) {
-		$this->forms_registrations->update_registered_form( $form_system, $form );
+		$instance = new Forms_Registrations();
+		$instance->update_registered_form( $form_system, $form );
 	}
 
 	/**

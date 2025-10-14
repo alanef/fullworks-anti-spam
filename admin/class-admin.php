@@ -101,36 +101,52 @@ class Admin {
         }
         global $wpdb;
         $table_name = $wpdb->prefix . 'fwantispam_allow_deny';
+        // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $table_name is safe, using prefix + constant
         $results = $wpdb->get_results( "SELECT allow_deny,type,value,notes FROM {$table_name}", ARRAY_A );
         if ( count( $results ) > 0 ) {
             $delimiter = ",";
             $enclosure = '"';
-            $filename = "fwas_allow_deny_" . date( 'Y-m-d' ) . ".csv";
-            // create a file pointer
-            $f = fopen( 'php://memory', 'w' );
-            // set column headers
+            $filename = "fwas_allow_deny_" . gmdate( 'Y-m-d' ) . ".csv";
+            // Build CSV rows array
+            $csv_rows = array();
+            // Add column headers
             $fields = array_keys( $results[0] );
-            fputcsv(
-                $f,
-                $fields,
-                $delimiter,
-                $enclosure
-            );
-            // output each row of the data, format line as csv and write to file pointer
+            $csv_rows[] = $this->array_to_csv_line( $fields, $delimiter, $enclosure );
+            // Add data rows
             foreach ( $results as $row ) {
-                $lineData = array_values( $row );
-                fputcsv(
-                    $f,
-                    $lineData,
-                    $delimiter,
-                    $enclosure
-                );
+                $csv_rows[] = $this->array_to_csv_line( array_values( $row ), $delimiter, $enclosure );
             }
-            fseek( $f, 0 );
+            // Combine into CSV content
+            $csv_content = implode( "\n", $csv_rows );
+            // Send headers and output
             header( 'Content-Type: text/csv' );
             header( 'Content-Disposition: attachment; filename="' . $filename . '";' );
-            fpassthru( $f );
+            echo $csv_content;
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- CSV data already sanitized from database
+            exit;
         }
+    }
+
+    /**
+     * Convert array to CSV line
+     *
+     * @param array  $data      Data array.
+     * @param string $delimiter Delimiter character.
+     * @param string $enclosure Enclosure character.
+     * @return string CSV line.
+     */
+    private function array_to_csv_line( $data, $delimiter = ',', $enclosure = '"' ) {
+        $line = array();
+        foreach ( $data as $field ) {
+            // Escape enclosure characters and wrap in enclosures if needed
+            if ( strpos( $field, $enclosure ) !== false || strpos( $field, $delimiter ) !== false || strpos( $field, "\n" ) !== false ) {
+                $field = $enclosure . str_replace( $enclosure, $enclosure . $enclosure, $field ) . $enclosure;
+            } else {
+                $field = $enclosure . $field . $enclosure;
+            }
+            $line[] = $field;
+        }
+        return implode( $delimiter, $line );
     }
 
     public function handle_ad_csv_import() {

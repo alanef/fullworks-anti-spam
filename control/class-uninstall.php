@@ -61,6 +61,7 @@ class Uninstall {
     private static function delete_tables() {
         global $wpdb;
         $table_name = $wpdb->prefix . 'fwantispam_log';
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $table_name is safe, using prefix + constant
         $wpdb->query( "DROP TABLE IF EXISTS " . $table_name );
         /** @var \Freemius $fwantispam_fs Freemius global object. */
         global $fwantispam_fs;

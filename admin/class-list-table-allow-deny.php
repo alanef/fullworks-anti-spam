@@ -34,12 +34,12 @@ class List_Table_Allow_Deny extends WP_List_Table {
 		global $wpdb;
 		$table_name = $wpdb->prefix . self::TABLE;
 		if ( 'all' === $type ) {
-			$sql = "SELECT COUNT(*) FROM {$table_name}";
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $table_name is safe, using prefix + constant
+			return $wpdb->get_var( "SELECT COUNT(*) FROM {$table_name}" );
 		} else {
-			$sql = $wpdb->prepare( "SELECT COUNT(*) FROM {$table_name} WHERE allow_deny = %s", $type );
+			// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared -- $table_name is safe, using prefix + constant
+			return $wpdb->get_var( $wpdb->prepare( "SELECT COUNT(*) FROM {$table_name} WHERE allow_deny = %s", $type ) );
 		}
-
-		return $wpdb->get_var( $sql );
 	}
 
 	protected function extra_tablenav( $which ) {
@@ -222,6 +222,7 @@ class List_Table_Allow_Deny extends WP_List_Table {
 			ARRAY_A
 		);
 
+		// phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared,WordPress.DB.PreparedSQL.NotPrepared -- $table_name is safe (prefix + constant), $where_clause is prepared above
 		$total_items = $wpdb->get_var( "SELECT COUNT(*) FROM $table_name   $where_clause" );
 		$this->set_pagination_args(
 			array(

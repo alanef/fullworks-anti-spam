@@ -289,6 +289,15 @@ class Utilities {
     }
 
     public function debug_log( $data ) {
+        // Save original data for action hook (before any string conversion)
+        $original_data = $data;
+        // Allow other plugins to intercept the debug function
+        $debug_function = apply_filters( 'fwas_diagnostics_log_function', '' );
+        if ( !empty( $debug_function ) && function_exists( $debug_function ) ) {
+            // Call the custom debug function provided by the filter
+            call_user_func( $debug_function, $data );
+        }
+        // Default debug behavior
         if ( defined( 'WP_DEBUG' ) && WP_DEBUG && defined( 'FWAS_DEBUG' ) && FWAS_DEBUG ) {
             if ( is_array( $data ) ) {
                 // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r -- is a debug function
@@ -297,6 +306,8 @@ class Utilities {
             // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log -- is a debug function
             error_log( '[' . gmdate( 'Y-m-d H:i:s' ) . '] Fullworks Anti Spam: ' . $data );
         }
+        // Fire an action for plugins to hook into (use original data, not string-converted version)
+        do_action( 'fwas_diagnostics_log', $original_data );
     }
 
     public function is_gravity_forms_installed() {

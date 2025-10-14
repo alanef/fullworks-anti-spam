@@ -16,6 +16,13 @@ class Forms_Registrations {
     private static $registered_forms;
 
     /**
+     * Track if forms have been initialized
+     *
+     * @var bool
+     */
+    private static $forms_initialized = false;
+
+    /**
      * The Freemius object used for handling plugin licensing and updates.
      *
      * @var \Freemius $freemius object
@@ -30,10 +37,20 @@ class Forms_Registrations {
 
     /**
      * Retrieves the array of registered forms.
+     * Lazy initialization - registers forms on first access (after init hook)
      *
      * @return array The array of registered forms.
      */
     public static function get_registered_forms() {
+        if ( !self::$forms_initialized ) {
+            // If init hasn't fired yet, return empty array to avoid early translation loading
+            if ( !did_action( 'init' ) ) {
+                return array();
+            }
+            $instance = new self();
+            $instance->register_forms();
+            self::$forms_initialized = true;
+        }
         return self::$registered_forms;
     }
 
@@ -80,7 +97,7 @@ class Forms_Registrations {
             'spam_purge_cb'    => array('\\Fullworks_Anti_Spam\\Core\\Purge', 'purge_comment_spam'),
             'spam_count_cb'    => array('\\Fullworks_Anti_Spam\\Core\\Email_Reports', 'get_comments_count'),
         ) );
-        $this->set_registered_forms( apply_filters( 'fwas_registered_forms', $this->get_registered_forms() ) );
+        $this->set_registered_forms( apply_filters( 'fwas_registered_forms', self::$registered_forms ) );
     }
 
 }

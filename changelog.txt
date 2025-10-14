@@ -1,4 +1,9 @@
 == Changelog ==
+= 2.4 =
+* Add remote debug capabilities with comprehensive diagnostics and reporting
+* Fix translation loading warnings in WordPress 6.7
+* Fix single word detection for QCF forms
+
 = 2.3.12 =
 * Update libraries
 

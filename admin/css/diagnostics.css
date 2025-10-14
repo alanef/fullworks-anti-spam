@@ -1,0 +1,394 @@
+/**
+ * Diagnostics Admin Styles
+ *
+ * @package Fullworks_Anti_Spam
+ */
+
+.fwas-diagnostics-container {
+	max-width: 1400px;
+	margin: 20px 0;
+}
+
+.fwas-debug-controls {
+	background: #fff;
+	padding: 15px;
+	border: 1px solid #ccd0d4;
+	margin-bottom: 20px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.fwas-debug-filters {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.fwas-debug-filters label {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.fwas-debug-filters select,
+.fwas-debug-filters input[type="text"] {
+	min-width: 150px;
+}
+
+.fwas-debug-actions {
+	display: flex;
+	gap: 10px;
+}
+
+.fwas-remote-access-info {
+	background: #fff;
+	padding: 15px;
+	border: 1px solid #ccd0d4;
+	margin-bottom: 20px;
+}
+
+.fwas-access-url {
+	display: flex;
+	gap: 10px;
+	margin: 10px 0;
+	align-items: center;
+}
+
+.fwas-access-url input[type="text"] {
+	flex: 1;
+	font-family: monospace;
+	font-size: 12px;
+}
+
+#fwas-logs-container {
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	min-height: 200px;
+}
+
+#fwas-logs-loading {
+	padding: 40px;
+	text-align: center;
+	color: #666;
+}
+
+#fwas-logs-table {
+	width: 100%;
+}
+
+#fwas-logs-table th,
+#fwas-logs-table td {
+	padding: 10px;
+	text-align: left;
+}
+
+#fwas-logs-table .column-time {
+	width: 150px;
+	white-space: nowrap;
+}
+
+#fwas-logs-table .column-level {
+	width: 80px;
+}
+
+#fwas-logs-table .column-message {
+	min-width: 300px;
+	word-break: break-word;
+}
+
+#fwas-logs-table .column-source {
+	width: 150px;
+	font-family: monospace;
+	font-size: 11px;
+}
+
+#fwas-logs-table .column-ip {
+	width: 120px;
+}
+
+#fwas-logs-table .column-user {
+	width: 100px;
+}
+
+#fwas-logs-table tr.log-level-error {
+	background-color: #ffebe8;
+}
+
+#fwas-logs-table tr.log-level-warning {
+	background-color: #fff8e5;
+}
+
+#fwas-logs-table tr.log-level-info {
+	background-color: #e5f5ff;
+}
+
+#fwas-no-logs {
+	padding: 40px;
+	text-align: center;
+	color: #666;
+}
+
+.fwas-pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+	padding: 15px;
+	background: #fff;
+	border: 1px solid #ccd0d4;
+	border-top: none;
+}
+
+#fwas-page-info {
+	color: #666;
+	font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+	.fwas-debug-controls {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.fwas-debug-filters {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.fwas-debug-filters label {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.fwas-debug-filters select,
+	.fwas-debug-filters input[type="text"] {
+		width: 100%;
+	}
+
+	.fwas-debug-actions {
+		flex-direction: column;
+	}
+
+	.fwas-access-url {
+		flex-direction: column;
+	}
+
+	.fwas-access-url input[type="text"] {
+		width: 100%;
+	}
+
+	#fwas-logs-table .column-message {
+		min-width: 200px;
+	}
+}
+
+/* Report Section Styles */
+.fwas-report-section {
+	background: #fff;
+	padding: 20px;
+	border: 1px solid #ccd0d4;
+	margin-bottom: 20px;
+}
+
+.fwas-report-section h3 {
+	margin-top: 0;
+	border-bottom: 2px solid #2271b1;
+	padding-bottom: 10px;
+	color: #2271b1;
+}
+
+.fwas-report-controls {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	margin-bottom: 15px;
+	flex-wrap: wrap;
+}
+
+.fwas-report-controls label {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+#fwas-report-container {
+	margin-top: 20px;
+}
+
+.fwas-report {
+	background: #f9f9f9;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+.fwas-report .fwas-report-section {
+	background: #fff;
+	padding: 20px;
+	margin-bottom: 20px;
+	border-left: 4px solid #2271b1;
+}
+
+.fwas-report h4 {
+	margin-top: 0;
+	color: #2271b1;
+	font-size: 18px;
+	border-bottom: 1px solid #ddd;
+	padding-bottom: 8px;
+	margin-bottom: 15px;
+}
+
+.fwas-report h5 {
+	margin-top: 15px;
+	margin-bottom: 10px;
+	color: #50575e;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.fwas-stats-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	gap: 15px;
+	margin-bottom: 15px;
+}
+
+.fwas-stat {
+	background: #f0f0f1;
+	padding: 12px 15px;
+	border-radius: 4px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.fwas-stat .label {
+	font-weight: 600;
+	color: #50575e;
+	font-size: 13px;
+}
+
+.fwas-stat .value {
+	font-size: 20px;
+	font-weight: bold;
+	color: #2271b1;
+}
+
+.fwas-stat .value.fwas-spam {
+	color: #d63638;
+}
+
+.fwas-stat .value.fwas-legitimate {
+	color: #00a32a;
+}
+
+.fwas-report table {
+	width: 100%;
+	margin-top: 10px;
+	border-collapse: collapse;
+}
+
+.fwas-report table th {
+	background: #f0f0f1;
+	padding: 10px;
+	text-align: left;
+	font-weight: 600;
+	border-bottom: 2px solid #ccd0d4;
+}
+
+.fwas-report table td {
+	padding: 8px 10px;
+	border-bottom: 1px solid #ddd;
+}
+
+.fwas-report table tr:hover {
+	background: #f9f9f9;
+}
+
+.fwas-report ul {
+	margin: 10px 0;
+	padding-left: 20px;
+}
+
+.fwas-report ul li {
+	margin-bottom: 8px;
+	line-height: 1.5;
+}
+
+.fwas-issues {
+	border-left-color: #d63638;
+}
+
+.fwas-issues ul li {
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #fff8e5;
+	border-left: 3px solid #d63638;
+	border-radius: 3px;
+}
+
+.fwas-issues li.fwas-severity-high {
+	background: #ffebe8;
+	border-left-color: #d63638;
+}
+
+.fwas-issues li.fwas-severity-medium {
+	background: #fff8e5;
+	border-left-color: #dba617;
+}
+
+.fwas-issues li.fwas-severity-warning {
+	background: #e5f5ff;
+	border-left-color: #2271b1;
+}
+
+.fwas-recommendations {
+	border-left-color: #00a32a;
+}
+
+.fwas-recommendations ul li {
+	padding: 10px;
+	margin-bottom: 10px;
+	background: #edfaef;
+	border-left: 3px solid #00a32a;
+	border-radius: 3px;
+}
+
+.fwas-recommendations li.fwas-priority-high {
+	background: #ffebe8;
+	border-left-color: #d63638;
+}
+
+.fwas-recommendations li.fwas-priority-medium {
+	background: #fff8e5;
+	border-left-color: #dba617;
+}
+
+@media (max-width: 782px) {
+	.fwas-report-controls {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.fwas-report-controls label {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.fwas-stats-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.fwas-report table {
+		font-size: 12px;
+	}
+
+	.fwas-report table th,
+	.fwas-report table td {
+		padding: 6px;
+	}
+}

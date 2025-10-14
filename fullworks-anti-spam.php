@@ -28,7 +28,7 @@
  * Plugin Name:       Anti-Spam by Fullworks : GDPR Compliant Spam Protection
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
  * Description:       Anti Spam by Fullworks providing protection for your website
- * Version:           2.3.12
+ * Version:           2.4-beta.7
  * Author:            Fullworks
  * Author URI:        https://fullworksplugins.com/
  * Requires at least: 5.3.0
@@ -62,8 +62,47 @@ define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_NAME', 'fullworks-anti-spam' );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.3.12' );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.4-beta.7' );
 
+/**
+ * Debug helper to trace early translation loading (WP 6.7+)
+ * Only active when WP_DEBUG is true
+ * Remove this block after identifying and fixing all early translation issues
+ */
+if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+	add_action(
+		'doing_it_wrong_run',
+		function ( $function, $message, $version ) {
+			if ( $function === '_load_textdomain_just_in_time' ) {
+				// Only log if it's our plugin's domain
+				if ( strpos( $message, 'fullworks-anti-spam' ) !== false ) {
+					error_log( '=== TRANSLATION LOADED TOO EARLY ===' );
+					error_log( 'Function: ' . $function );
+					error_log( 'Message: ' . $message );
+					error_log( 'Version: ' . $version );
+
+					// Show current hook/action
+					error_log( 'Current action: ' . ( current_action() ?: 'none' ) );
+					error_log( "Did 'init' fire? " . ( did_action( 'init' ) ? 'yes' : 'NO' ) );
+
+					// Full backtrace
+					error_log( 'Backtrace:' );
+					$backtrace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS );
+					foreach ( $backtrace as $i => $trace ) {
+						if ( isset( $trace['file'] ) && isset( $trace['line'] ) ) {
+							$file          = str_replace( ABSPATH, '', $trace['file'] ); // Shorten path
+							$function_name = $trace['function'] ?? 'unknown';
+							error_log( "  #$i $file:{$trace['line']} -> $function_name()" );
+						}
+					}
+					error_log( "=== END BACKTRACE ===\n" );
+				}
+			}
+		},
+		10,
+		3
+	);
+}
 
 require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'vendor/autoload.php';
 new AutoloaderPlugin( __NAMESPACE__, __DIR__ );
@@ -103,9 +142,11 @@ if ( ! function_exists( 'Fullworks_Anti_Spam\run_fullworks_anti_spam' ) ) {
 			},
 			- 1 // run early but need to make sure other plugins are loaded
 		);
+		do_action( 'fwas_loaded' );
 	}
 
 	run_fullworks_anti_spam();
+
 } else {
 	$fwantispam_fs->set_basename( true, __FILE__ );
 }

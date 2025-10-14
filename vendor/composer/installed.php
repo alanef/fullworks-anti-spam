@@ -3,11 +3,11 @@
         'name' => 'fullworks/fullworks-anti-spam',
         'pretty_version' => 'dev-master',
         'version' => 'dev-master',
-        'reference' => '4f172bdf90923a95f23561e711e50e362c2d0e5f',
+        'reference' => '2b1850a9cf756a98ecc7bf1f2255146f9e543df9',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'dev' => true,
+        'dev' => false,
     ),
     'versions' => array(
         'alanef/phpantispam' => array(
@@ -42,9 +42,9 @@
             'dev_requirement' => false,
         ),
         'freemius/wordpress-sdk' => array(
-            'pretty_version' => '2.11.0',
-            'version' => '2.11.0.0',
-            'reference' => null,
+            'pretty_version' => '2.12.2',
+            'version' => '2.12.2.0',
+            'reference' => '241fbfc91151f85d8ebeb75343caf29bda1d3208',
             'type' => 'library',
             'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
             'aliases' => array(),
@@ -53,7 +53,7 @@
         'fullworks/fullworks-anti-spam' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '4f172bdf90923a95f23561e711e50e362c2d0e5f',
+            'reference' => '2b1850a9cf756a98ecc7bf1f2255146f9e543df9',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -69,9 +69,9 @@
             'dev_requirement' => false,
         ),
         'sabberworm/php-css-parser' => array(
-            'pretty_version' => 'v8.7.0',
-            'version' => '8.7.0.0',
-            'reference' => 'f414ff953002a9b18e3a116f5e462c56f21237cf',
+            'pretty_version' => 'v8.9.0',
+            'version' => '8.9.0.0',
+            'reference' => 'd8e916507b88e389e26d4ab03c904a082aa66bb9',
             'type' => 'library',
             'install_path' => __DIR__ . '/../sabberworm/php-css-parser',
             'aliases' => array(),

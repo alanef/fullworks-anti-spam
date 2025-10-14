@@ -59,10 +59,18 @@ class Purge {
     public function __construct( $plugin_name, $version ) {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
+        add_action( 'fwas_purge_daily', array(__CLASS__, 'purge_email_and_spam_log__premium_only') );
+        // Defer form registration callback setup until init to avoid early translation loading
+        add_action( 'init', array($this, 'register_purge_callbacks') );
+    }
+
+    /**
+     * Register purge callbacks for registered forms
+     * Called on init hook to ensure forms are registered
+     */
+    public function register_purge_callbacks() {
         // get registered forms
-        $forms_registrations_obj = new Forms_Registrations();
-        $this->forms_registrations = $forms_registrations_obj->get_registered_forms();
-        add_action( 'fwas_purge_daily', array(__CLASS__, 'purge_email_and_spam_log__premium_onl') );
+        $this->forms_registrations = Forms_Registrations::get_registered_forms();
         foreach ( $this->forms_registrations as $forms_registration ) {
             if ( isset( $forms_registration['spam_purge_cb'] ) && is_callable( $forms_registration['spam_purge_cb'] ) ) {
                 if ( !isset( $forms_registration['email_log'] ) || !$forms_registration['email_log'] ) {

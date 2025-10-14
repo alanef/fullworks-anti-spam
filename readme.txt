@@ -1,8 +1,8 @@
 === Anti-Spam by Fullworks : GDPR Compliant Spam Protection ===
 Contributors: Fullworks
 Tags: anti-spam, antispam, spam, comment, gdpr
-Tested up to: 6.7
-Stable tag: 2.3.12
+Tested up to: 6.8
+Stable tag: 2.4-beta.7
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium

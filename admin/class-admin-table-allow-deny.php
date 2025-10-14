@@ -32,7 +32,7 @@ class Admin_Table_Allow_Deny extends Admin_Tables {
 		$this->hook = add_submenu_page(
 			'fullworks-anti-spam-settings',
 			esc_html__( 'Allow / Deny List', 'fullworks-anti-spam' ),
-			esc_html__( 'Allow / Deny List', 'Allow / Deny List' ),
+			esc_html__( 'Allow / Deny List', 'fullworks-anti-spam' ),
 			'manage_options',
 			'fullworks-anti-spam-settings-allow-deny-settings',
 			array( $this, 'list_page' )

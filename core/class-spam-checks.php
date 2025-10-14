@@ -57,6 +57,9 @@ class Spam_Checks {
 
     public static $spam_level;
 
+    /** @var string $submission_id Unique ID for this spam check */
+    private $submission_id;
+
     /**
      * Process_Spam_Checks constructor.
      *
@@ -71,8 +74,19 @@ class Spam_Checks {
         $this->utilities = new Utilities();
         $this->log = new Log($this->utilities);
         $this->freemius = $fwantispam_fs;
-        $forms_registrations_obj = new Forms_Registrations();
-        $this->forms_registrations = $forms_registrations_obj->get_registered_forms();
+        // Don't load forms here - they'll be loaded lazily when needed
+    }
+
+    /**
+     * Get registered forms (lazy loading)
+     *
+     * @return array
+     */
+    private function get_forms_registrations() {
+        if ( null === $this->forms_registrations ) {
+            $this->forms_registrations = Forms_Registrations::get_registered_forms();
+        }
+        return $this->forms_registrations;
     }
 
     public function get_spam_level() {
@@ -90,10 +104,11 @@ class Spam_Checks {
      * @param string $type The type of spam event.
      */
     public function spam_log( $form_system, $type ) {
+        $forms = $this->get_forms_registrations();
         $this->log->run( sprintf( 
             // translators: %s: Form plugin name e.g. Gravity Forms
             esc_html__( '%1$s (%2$s)', 'fullworks-anti-spam' ),
-            $this->forms_registrations[$form_system]['name'],
+            $forms[$form_system]['name'],
             $type
          ), $form_system . ',' . $type );
     }
@@ -116,35 +131,52 @@ class Spam_Checks {
         $offline = false,
         $options = array()
     ) {
+        // Generate unique submission ID for tracking logs
+        $this->submission_id = uniqid( 'sub_', true );
         $this->options = array_merge( $this->options, $options );
         $this->utilities->debug_log( array(
-            'step:'       => 'is_spam: About to check',
-            'content:'    => $message,
-            'is_spam:'    => $spam,
-            'form_system' => $form_system,
-            'email'       => $email,
+            'submission_id' => $this->submission_id,
+            'step:'         => 'is_spam: About to check',
+            'content:'      => $message,
+            'is_spam:'      => $spam,
+            'form_system'   => $form_system,
+            'email'         => $email,
         ) );
         $this->set_spam_level( 0 );
         if ( false !== $spam ) {
             $this->set_spam_level( 0 );
             return $spam;
         }
+        $forms = $this->get_forms_registrations();
         $headers = '';
         $message = trim( $message );
-        if ( $this->is_denied( $email, $message ) ) {
+        $deny_result = $this->is_denied( $email, $message );
+        if ( $deny_result['matched'] ) {
+            $this->utilities->debug_log( array(
+                'submission_id'  => $this->submission_id,
+                'step:'          => 'is_spam: DENY rule matched',
+                'rule_type:'     => $deny_result['type'],
+                'rule:'          => $deny_result['rule'],
+                'checked_value:' => $deny_result['checked_value'],
+            ) );
             $this->set_spam_level( 100 );
             $spam = 'DENY';
         }
-        if ( $this->is_allowed( $email, $message ) ) {
+        $allow_result = $this->is_allowed( $email, $message );
+        if ( $allow_result['matched'] ) {
             $this->utilities->debug_log( array(
-                'step:' => 'is_spam: is_allowed true',
+                'submission_id'  => $this->submission_id,
+                'step:'          => 'is_spam: ALLOW rule matched',
+                'rule_type:'     => $allow_result['type'],
+                'rule:'          => $allow_result['rule'],
+                'checked_value:' => $allow_result['checked_value'],
             ) );
             $this->set_spam_level( 0 );
             return false;
             // on allow list so no other checks
         }
         $option = ( 'comments' == $form_system ? 'comments' : 'forms' );
-        if ( !$spam && isset( $this->options[$option] ) && $this->options[$option] && $this->forms_registrations[$form_system]['protection_level'] > 0 ) {
+        if ( !$spam && isset( $this->options[$option] ) && $this->options[$option] && $forms[$form_system]['protection_level'] > 0 ) {
             if ( !$offline ) {
                 if ( !$this->is_valid() ) {
                     $this->set_spam_level( 100 );
@@ -153,8 +185,9 @@ class Spam_Checks {
             }
         }
         $this->utilities->debug_log( array(
-            'step:'    => 'is_spam: Checks complete',
-            'is_spam:' => $spam,
+            'submission_id' => $this->submission_id,
+            'step:'         => 'is_spam: Checks complete',
+            'is_spam:'      => $spam,
         ) );
         if ( false !== $spam ) {
             $this->spam_log( $form_system, $spam );
@@ -177,11 +210,12 @@ class Spam_Checks {
         $is_valid_type_2 = !empty( $_POST['data'] ) && false !== strpos( $_POST['data'], $key . '=' . $value );
         // Return true if any of the conditions is true
         $this->utilities->debug_log( array(
-            'step:'   => 'is_valid: Checking keys',
-            'key:'    => $key,
-            'value:'  => $value,
-            'valid1:' => ( !empty( $_POST[$key] ) ? sanitize_text_field( $_POST[$key] ) : '' ),
-            'valid2:' => ( !empty( $_POST['data'] ) ? sanitize_text_field( $_POST['data'] ) : '' ),
+            'submission_id' => $this->submission_id,
+            'step:'         => 'is_valid: Checking keys',
+            'key:'          => $key,
+            'value:'        => $value,
+            'valid1:'       => ( !empty( $_POST[$key] ) ? sanitize_text_field( $_POST[$key] ) : '' ),
+            'valid2:'       => ( !empty( $_POST['data'] ) ? sanitize_text_field( $_POST['data'] ) : '' ),
         ) );
         return $is_valid_type_1 || $is_valid_type_2;
     }
@@ -216,66 +250,111 @@ class Spam_Checks {
             foreach ( $allow_deny as $entry ) {
                 if ( 'IP' === $target_type ) {
                     if ( $this->ip_in_subnet( $ip, $entry->value ) ) {
-                        return true;
+                        return array(
+                            'matched'       => true,
+                            'type'          => $target_type,
+                            'rule'          => $entry->value,
+                            'checked_value' => $ip,
+                        );
                     }
                 } else {
                     if ( @preg_match_all( $entry->value, '' ) !== false ) {
                         // regex is valid
                         if ( preg_match_all( $entry->value, $pattern ) >= 1 ) {
-                            return true;
+                            return array(
+                                'matched'       => true,
+                                'type'          => $target_type,
+                                'rule'          => $entry->value,
+                                'checked_value' => $pattern,
+                            );
                         }
                     } else {
                         if ( $entry->value === $pattern ) {
-                            return true;
+                            return array(
+                                'matched'       => true,
+                                'type'          => $target_type,
+                                'rule'          => $entry->value,
+                                'checked_value' => $pattern,
+                            );
                         }
                     }
                 }
             }
         }
-        return false;
+        return array(
+            'matched' => false,
+        );
     }
 
     public function is_allowed( $email, $content ) {
-        return $this->check_allow_deny(
+        $result = $this->check_allow_deny(
             $email,
             $content,
             'IP',
             'allow',
             $this->utilities->get_ip()
-        ) || $this->check_allow_deny(
+        );
+        if ( $result['matched'] ) {
+            return $result;
+        }
+        $result = $this->check_allow_deny(
             $email,
             $content,
             'email',
             'allow',
             $email
-        ) || $this->check_allow_deny(
+        );
+        if ( $result['matched'] ) {
+            return $result;
+        }
+        $result = $this->check_allow_deny(
             $email,
             $content,
             'string',
             'allow',
             $content
         );
+        if ( $result['matched'] ) {
+            return $result;
+        }
+        return array(
+            'matched' => false,
+        );
     }
 
     public function is_denied( $email, $content ) {
-        return $this->check_allow_deny(
+        $result = $this->check_allow_deny(
             $email,
             $content,
             'IP',
             'deny',
             $this->utilities->get_ip()
-        ) || $this->check_allow_deny(
+        );
+        if ( $result['matched'] ) {
+            return $result;
+        }
+        $result = $this->check_allow_deny(
             $email,
             $content,
             'email',
             'deny',
             $email
-        ) || $this->check_allow_deny(
+        );
+        if ( $result['matched'] ) {
+            return $result;
+        }
+        $result = $this->check_allow_deny(
             $email,
             $content,
             'string',
             'deny',
             $content
+        );
+        if ( $result['matched'] ) {
+            return $result;
+        }
+        return array(
+            'matched' => false,
         );
     }
 
