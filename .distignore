@@ -6,6 +6,7 @@
 
 # Build tools and config
 .editorconfig
+.nvmrc
 composer.json
 composer.lock
 package.json

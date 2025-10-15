@@ -1,0 +1,16 @@
+{
+  "name": "fullworks-anti-spam",
+  "version": "2.4.0",
+  "description": "Anti-Spam by Fullworks : GDPR Compliant Spam Protection",
+  "scripts": {
+    "build:css": "sass admin/css/admin.scss admin/css/admin.css --style=compressed --source-map",
+    "watch:css": "sass admin/css/admin.scss admin/css/admin.css --watch --source-map",
+    "build": "npm run build:css"
+  },
+  "keywords": ["wordpress", "plugin", "anti-spam"],
+  "author": "Fullworks",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "sass": "^1.80.0"
+  }
+}

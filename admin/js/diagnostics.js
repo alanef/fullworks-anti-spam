@@ -403,6 +403,241 @@
 	}
 
 	/**
+	 * Check remote server status
+	 */
+	function checkRemoteServer() {
+		const $button = $('#fwas-check-remote-server');
+		const $container = $('#fwas-server-check-result');
+
+		// Show loading state
+		$button.prop('disabled', true).text('Checking...');
+		$container.html('<p>Checking remote server status...</p>').show();
+
+		const data = {
+			action: 'fwas_check_remote_server',
+			nonce: fwasDiagnostics.nonce
+		};
+
+		$.post(fwasDiagnostics.ajaxurl, data, function(response) {
+			$button.prop('disabled', false).text('Check Remote Server');
+
+			if (response.success && response.data) {
+				displayServerCheck(response.data);
+			} else {
+				const errorMsg = response.data || 'Failed to check remote server.';
+				$container.html('<div class="notice notice-error"><p>' + errorMsg + '</p></div>');
+			}
+		}).fail(function() {
+			$button.prop('disabled', false).text('Check Remote Server');
+			$container.html('<div class="notice notice-error"><p>Failed to check remote server. Please try again.</p></div>');
+		});
+	}
+
+	/**
+	 * Display remote server check results
+	 */
+	function displayServerCheck(data) {
+		const $container = $('#fwas-server-check-result');
+		let html = '<div class="fwas-server-check-results">';
+
+		// Overall Status Badge
+		html += '<div class="fwas-status-section">';
+		if (data.status === 'success') {
+			html += '<div class="fwas-status-badge fwas-status-success">✓ Server Operational</div>';
+		} else if (data.status === 'degraded') {
+			html += '<div class="fwas-status-badge fwas-status-warning">⚠ Server Degraded</div>';
+		} else {
+			html += '<div class="fwas-status-badge fwas-status-error">✗ Server Error</div>';
+		}
+		html += '<div class="fwas-status-meta">';
+		html += '<span><strong>Response Time:</strong> ' + data.request_time_ms + ' ms</span>';
+		html += '<span><strong>Timestamp:</strong> ' + data.timestamp + '</span>';
+		html += '</div>';
+		html += '</div>';
+
+		// Client IP Section (for firewall diagnostics)
+		html += '<div class="fwas-tech-section">';
+		html += '<h4>Connection Details</h4>';
+		html += '<div class="fwas-tech-details">';
+		html += '<div class="fwas-tech-row"><span class="fwas-tech-label">Client IP:</span><span class="fwas-tech-value fwas-ip">' + escapeHtml(data.client_ip) + '</span></div>';
+		html += '<div class="fwas-tech-row"><span class="fwas-tech-label">Endpoint:</span><span class="fwas-tech-value">' + escapeHtml(data.endpoint) + '</span></div>';
+		html += '</div>';
+		html += '</div>';
+
+		// Error Details (if any)
+		if (data.status === 'error') {
+			html += '<div class="fwas-tech-section fwas-error-section">';
+			html += '<h4>Error Details</h4>';
+
+			if (data.error_type === 'network') {
+				html += '<div class="fwas-error-box">';
+				html += '<div class="fwas-error-type">Network Error: ' + escapeHtml(data.error_classification.type) + '</div>';
+				html += '<div class="fwas-error-message">' + escapeHtml(data.error_message) + '</div>';
+				html += '<div class="fwas-error-guidance"><strong>Guidance:</strong> ' + escapeHtml(data.error_classification.guidance) + '</div>';
+				html += '</div>';
+
+				// Technical details
+				html += '<div class="fwas-tech-details">';
+				html += '<div class="fwas-tech-row"><span class="fwas-tech-label">Error Code:</span><span class="fwas-tech-value">' + escapeHtml(data.error_code) + '</span></div>';
+				html += '<div class="fwas-tech-row"><span class="fwas-tech-label">Severity:</span><span class="fwas-tech-value">' + escapeHtml(data.error_classification.severity) + '</span></div>';
+				html += '</div>';
+			} else if (data.error_type === 'http_error') {
+				html += '<div class="fwas-error-box">';
+				html += '<div class="fwas-error-type">HTTP Error: ' + data.http_status_code + ' ' + escapeHtml(data.http_status_message) + '</div>';
+				html += '<div class="fwas-error-guidance"><strong>Guidance:</strong> ' + escapeHtml(data.error_classification.guidance) + '</div>';
+				html += '</div>';
+			} else if (data.error_type === 'invalid_response') {
+				html += '<div class="fwas-error-box">';
+				html += '<div class="fwas-error-type">Invalid Response</div>';
+				html += '<div class="fwas-error-message">' + escapeHtml(data.error_message) + '</div>';
+				html += '</div>';
+			}
+			html += '</div>';
+		}
+
+		// Server Status (success/degraded)
+		if (data.status === 'success' || data.status === 'degraded') {
+			html += '<div class="fwas-tech-section">';
+			html += '<h4>Server Status</h4>';
+			html += '<div class="fwas-tech-details">';
+			html += '<div class="fwas-tech-row"><span class="fwas-tech-label">Overall Status:</span><span class="fwas-tech-value">' + escapeHtml(data.server_status) + '</span></div>';
+
+			if (data.checks) {
+				for (const [check, status] of Object.entries(data.checks)) {
+					const statusClass = status === 'ok' || status === 'configured' ? 'fwas-check-ok' : 'fwas-check-fail';
+					html += '<div class="fwas-tech-row"><span class="fwas-tech-label">' + escapeHtml(check) + ':</span><span class="fwas-tech-value ' + statusClass + '">' + escapeHtml(status) + '</span></div>';
+				}
+			}
+
+			if (data.server_message) {
+				html += '<div class="fwas-tech-row"><span class="fwas-tech-label">Message:</span><span class="fwas-tech-value">' + escapeHtml(data.server_message) + '</span></div>';
+			}
+			html += '</div>';
+			html += '</div>';
+		}
+
+		// HTTP Response Details (always show - no hiding)
+		if (data.http_status_code) {
+			html += '<div class="fwas-tech-section">';
+			html += '<h4>HTTP Response</h4>';
+			html += '<div class="fwas-tech-details">';
+			html += '<div class="fwas-tech-row"><span class="fwas-tech-label">Status Code:</span><span class="fwas-tech-value">' + data.http_status_code + ' ' + escapeHtml(data.http_status_message) + '</span></div>';
+			html += '</div>';
+
+			// Response Headers
+			if (data.response_headers && Object.keys(data.response_headers).length > 0) {
+				html += '<details class="fwas-tech-details-expandable">';
+				html += '<summary>Response Headers</summary>';
+				html += '<pre class="fwas-code-block">' + escapeHtml(JSON.stringify(data.response_headers, null, 2)) + '</pre>';
+				html += '</details>';
+			}
+
+			// Response Body
+			if (data.response_body) {
+				html += '<details class="fwas-tech-details-expandable" open>';
+				html += '<summary>Response Body</summary>';
+				html += '<pre class="fwas-code-block">' + escapeHtml(data.response_body) + '</pre>';
+				html += '</details>';
+			}
+
+			// Decoded Response (if JSON)
+			if (data.decoded_response) {
+				html += '<details class="fwas-tech-details-expandable">';
+				html += '<summary>Decoded JSON Response</summary>';
+				html += '<pre class="fwas-code-block">' + escapeHtml(JSON.stringify(data.decoded_response, null, 2)) + '</pre>';
+				html += '</details>';
+			}
+
+			html += '</div>';
+		}
+
+		// Manual Testing Section
+		if (data.curl_command) {
+			html += '<div class="fwas-tech-section">';
+			html += '<h4>Manual Testing</h4>';
+			html += '<p>Use this curl command to test connectivity manually from your server:</p>';
+			html += '<div class="fwas-curl-command">';
+			html += '<code>' + escapeHtml(data.curl_command) + '</code>';
+			html += '<button type="button" class="button button-small fwas-copy-curl" data-curl="' + escapeHtml(data.curl_command) + '">Copy</button>';
+			html += '</div>';
+			html += '</div>';
+		}
+
+		// Raw Diagnostic Data (complete transparency)
+		html += '<div class="fwas-tech-section">';
+		html += '<details class="fwas-tech-details-expandable">';
+		html += '<summary>Complete Raw Diagnostic Data</summary>';
+		html += '<pre class="fwas-code-block">' + escapeHtml(JSON.stringify(data, null, 2)) + '</pre>';
+		html += '<button type="button" class="button fwas-copy-diagnostics" data-diagnostics="' + escapeHtml(JSON.stringify(data, null, 2)) + '">Copy All Diagnostic Data</button>';
+		html += '</details>';
+		html += '</div>';
+
+		html += '</div>';
+
+		$container.html(html).show();
+
+		// Attach copy handlers
+		$('.fwas-copy-curl').on('click', function() {
+			const curl = $(this).data('curl');
+			copyToClipboard(curl, 'Curl command copied!');
+		});
+
+		$('.fwas-copy-diagnostics').on('click', function() {
+			const diagnostics = $(this).data('diagnostics');
+			copyToClipboard(diagnostics, 'Diagnostic data copied!');
+		});
+	}
+
+	/**
+	 * Copy text to clipboard
+	 */
+	function copyToClipboard(text, successMsg) {
+		if (navigator.clipboard && window.isSecureContext) {
+			navigator.clipboard.writeText(text).then(function() {
+				alert(successMsg);
+			}).catch(function(err) {
+				console.error('Failed to copy: ', err);
+				fallbackCopyText(text, successMsg);
+			});
+		} else {
+			fallbackCopyText(text, successMsg);
+		}
+	}
+
+	/**
+	 * Fallback copy for older browsers
+	 */
+	function fallbackCopyText(text, successMsg) {
+		const $temp = $('<textarea>');
+		$('body').append($temp);
+		$temp.val(text).select();
+		try {
+			document.execCommand('copy');
+			alert(successMsg);
+		} catch (err) {
+			alert('Failed to copy. Please copy manually.');
+		}
+		$temp.remove();
+	}
+
+	/**
+	 * Escape HTML to prevent XSS
+	 */
+	function escapeHtml(text) {
+		if (typeof text !== 'string') {
+			text = String(text);
+		}
+		const map = {
+			'&': '&amp;',
+			'<': '&lt;',
+			'>': '&gt;',
+			'"': '&quot;',
+			"'": '&#039;'
+		};
+		return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+	}
+
+	/**
 	 * Initialize
 	 */
 	$(document).ready(function() {
@@ -466,6 +701,11 @@
 		// Generate report button
 		$('#fwas-generate-report').on('click', function() {
 			generateReport();
+		});
+
+		// Check remote server button
+		$('#fwas-check-remote-server').on('click', function() {
+			checkRemoteServer();
 		});
 	});
 
