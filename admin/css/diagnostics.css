@@ -401,6 +401,211 @@
 	margin-bottom: 20px;
 }
 
+/* Custom URL Diagnostics Styles */
+.fwas-custom-url-check {
+	background: #fef9e7;
+	padding: 15px;
+	border: 1px solid #f9e79f;
+	border-left: 4px solid #f39c12;
+	border-radius: 4px;
+	margin-top: 15px;
+}
+
+.fwas-custom-url-check h4 {
+	color: #9c6500;
+	font-size: 14px;
+	font-weight: 600;
+	margin: 0 0 8px 0;
+}
+
+.fwas-custom-url-check p.description {
+	color: #7c6100;
+	font-size: 13px;
+	margin: 0 0 12px 0;
+}
+
+.fwas-custom-url-controls {
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.fwas-custom-url-controls input[type="url"] {
+	flex: 1;
+	min-width: 300px;
+	padding: 6px 10px;
+	border: 1px solid #c3a847;
+	border-radius: 4px;
+	font-family: monospace;
+	font-size: 13px;
+	background: #fff;
+}
+
+.fwas-custom-url-controls input[type="url"]:focus {
+	border-color: #f39c12;
+	outline: none;
+	box-shadow: 0 0 0 1px #f39c12;
+}
+
+/* Responsive styles for custom URL check */
+@media (max-width: 782px) {
+	.fwas-custom-url-controls {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.fwas-custom-url-controls input[type="url"] {
+		width: 100%;
+		min-width: auto;
+	}
+}
+
+/* Training Data Management Styles */
+.fwas-training-data-management {
+	background: #fff;
+	padding: 20px;
+	border: 1px solid #ccd0d4;
+	margin-bottom: 20px;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+
+.fwas-training-data-management h3 {
+	margin-top: 0;
+	margin-bottom: 15px;
+	color: #23282d;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.fwas-training-data-management > p {
+	margin: 0 0 20px 0;
+	color: #646970;
+}
+
+.fwas-training-export {
+	padding: 20px;
+	background: #f0f6fc;
+	border: 1px solid #c3e6cb;
+	border-left: 4px solid #28a745;
+	border-radius: 4px;
+	margin-bottom: 20px;
+}
+
+.fwas-training-export h4 {
+	color: #155724;
+	font-size: 15px;
+	font-weight: 600;
+	margin: 0 0 15px 0;
+}
+
+.fwas-training-import {
+	padding: 20px;
+	background: #f8f9fa;
+	border: 1px solid #c3d7ef;
+	border-left: 4px solid #2271b1;
+	border-radius: 4px;
+}
+
+.fwas-training-import h4 {
+	color: #135e96;
+	font-size: 15px;
+	font-weight: 600;
+	margin: 0 0 15px 0;
+}
+
+.fwas-import-controls p {
+	margin: 15px 0 10px 0;
+}
+
+.fwas-import-controls p:first-child {
+	margin-top: 0;
+}
+
+.fwas-import-controls label {
+	display: block;
+	margin: 8px 0;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+.fwas-import-controls input[type="file"] {
+	display: block;
+	margin-top: 8px;
+	padding: 6px;
+	border: 1px solid #8c8f94;
+	border-radius: 4px;
+	background: #fff;
+}
+
+.fwas-import-controls input[type="radio"] {
+	margin-right: 8px;
+	vertical-align: middle;
+}
+
+.fwas-import-controls strong {
+	display: block;
+	margin-bottom: 8px;
+	color: #1d2327;
+}
+
+.fwas-import-controls .button {
+	margin-top: 15px;
+}
+
+#fwas-training-import-result {
+	margin-top: 20px;
+	padding: 15px;
+	background: #fff;
+	border-radius: 4px;
+	border: 1px solid #c3e6cb;
+	border-left: 4px solid #28a745;
+}
+
+#fwas-training-import-result h4 {
+	margin-top: 0;
+	color: #155724;
+}
+
+#fwas-training-import-result .notice {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+.fwas-import-errors {
+	max-height: 200px;
+	overflow-y: auto;
+	background: #fff3cd;
+	padding: 12px;
+	border: 1px solid #ffc107;
+	border-left: 4px solid #d63638;
+	border-radius: 3px;
+	font-size: 13px;
+	margin-top: 15px;
+}
+
+.fwas-import-errors ul {
+	margin: 0;
+	padding-left: 20px;
+}
+
+.fwas-import-errors li {
+	margin-bottom: 5px;
+	color: #721c24;
+}
+
+@media (max-width: 782px) {
+	.fwas-training-data-management {
+		padding: 15px;
+	}
+
+	.fwas-training-export,
+	.fwas-training-import {
+		padding: 15px;
+	}
+}
+
 .fwas-server-check-results {
 	margin-top: 20px;
 }

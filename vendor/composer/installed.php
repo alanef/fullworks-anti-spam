@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'fullworks/fullworks-anti-spam',
-        'pretty_version' => 'v2.4-beta.12',
-        'version' => '2.4.0.0-beta12',
-        'reference' => '7ef763ff5f9a202a8395dc9f02bd84071fd17ffc',
+        'pretty_version' => 'v2.4-beta.14',
+        'version' => '2.4.0.0-beta14',
+        'reference' => '9a343646c92d3447e1b6ab0f711de78616f29b93',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -51,9 +51,9 @@
             'dev_requirement' => false,
         ),
         'fullworks/fullworks-anti-spam' => array(
-            'pretty_version' => 'v2.4-beta.12',
-            'version' => '2.4.0.0-beta12',
-            'reference' => '7ef763ff5f9a202a8395dc9f02bd84071fd17ffc',
+            'pretty_version' => 'v2.4-beta.14',
+            'version' => '2.4.0.0-beta14',
+            'reference' => '9a343646c92d3447e1b6ab0f711de78616f29b93',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

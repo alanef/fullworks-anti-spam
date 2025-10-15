@@ -434,6 +434,54 @@
 	}
 
 	/**
+	 * Check custom URL status (diagnostic feature)
+	 */
+	function checkCustomURL() {
+		const $button = $('#fwas-check-custom-url');
+		const $input = $('#fwas-custom-url');
+		const $container = $('#fwas-server-check-result');
+		const customURL = $input.val().trim();
+
+		// Validate URL input
+		if (!customURL) {
+			alert('Please enter a URL to check.');
+			return;
+		}
+
+		// Basic URL validation
+		try {
+			new URL(customURL);
+		} catch (e) {
+			alert('Invalid URL format. Please enter a valid HTTP or HTTPS URL (e.g., https://example.com/api/endpoint)');
+			return;
+		}
+
+		// Show loading state
+		$button.prop('disabled', true).text('Checking...');
+		$container.html('<p>Checking custom URL: ' + escapeHtml(customURL) + '...</p>').show();
+
+		const data = {
+			action: 'fwas_check_remote_server',
+			nonce: fwasDiagnostics.nonce,
+			custom_url: customURL
+		};
+
+		$.post(fwasDiagnostics.ajaxurl, data, function(response) {
+			$button.prop('disabled', false).text('Check Custom URL');
+
+			if (response.success && response.data) {
+				displayServerCheck(response.data);
+			} else {
+				const errorMsg = response.data || 'Failed to check custom URL.';
+				$container.html('<div class="notice notice-error"><p>' + escapeHtml(errorMsg) + '</p></div>');
+			}
+		}).fail(function() {
+			$button.prop('disabled', false).text('Check Custom URL');
+			$container.html('<div class="notice notice-error"><p>Failed to check custom URL. Please try again.</p></div>');
+		});
+	}
+
+	/**
 	 * Display remote server check results
 	 */
 	function displayServerCheck(data) {
@@ -638,6 +686,147 @@
 	}
 
 	/**
+	 * Export training data as JSON
+	 */
+	function exportTrainingData() {
+		const $button = $('#fwas-export-training-data');
+
+		// Show loading state
+		$button.prop('disabled', true).text('Exporting...');
+
+		const data = {
+			action: 'fwas_export_training_data',
+			nonce: fwasDiagnostics.nonce
+		};
+
+		$.post(fwasDiagnostics.ajaxurl, data, function(response) {
+			$button.prop('disabled', false).text('Export to JSON');
+
+			if (response.success && response.data.data) {
+				downloadJSON(response.data.data, 'fullworks-antispam-training-data-' + new Date().toISOString().slice(0, 10) + '.json');
+				alert('Training data exported successfully! (' + response.data.count + ' entries)');
+			} else {
+				const errorMsg = response.data || 'Failed to export training data.';
+				alert(errorMsg);
+			}
+		}).fail(function() {
+			$button.prop('disabled', false).text('Export to JSON');
+			alert('Failed to export training data. Please try again.');
+		});
+	}
+
+	/**
+	 * Download data as JSON file
+	 */
+	function downloadJSON(data, filename) {
+		const json = JSON.stringify(data, null, 2);
+		const blob = new Blob([json], { type: 'application/json' });
+		const url = window.URL.createObjectURL(blob);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = filename;
+		document.body.appendChild(a);
+		a.click();
+		document.body.removeChild(a);
+		window.URL.revokeObjectURL(url);
+	}
+
+	/**
+	 * Import training data from JSON file
+	 */
+	function importTrainingData() {
+		const $button = $('#fwas-import-training-data');
+		const $fileInput = $('#fwas-training-file');
+		const $resultContainer = $('#fwas-training-import-result');
+		const file = $fileInput[0].files[0];
+
+		if (!file) {
+			alert('Please select a JSON file to import.');
+			return;
+		}
+
+		// Get import mode
+		const mode = $('input[name="fwas-import-mode"]:checked').val();
+
+		// Confirm if replace mode
+		if (mode === 'replace') {
+			if (!confirm('Replace mode will DELETE ALL existing training data and replace it with the imported data. This action cannot be undone. Are you sure you want to continue?')) {
+				return;
+			}
+		}
+
+		// Show loading state
+		$button.prop('disabled', true).text('Importing...');
+		$resultContainer.html('<p>Importing training data...</p>').show();
+
+		// Create FormData for file upload
+		const formData = new FormData();
+		formData.append('action', 'fwas_import_training_data');
+		formData.append('nonce', fwasDiagnostics.nonce);
+		formData.append('mode', mode);
+		formData.append('file', file);
+
+		$.ajax({
+			url: fwasDiagnostics.ajaxurl,
+			type: 'POST',
+			data: formData,
+			processData: false,
+			contentType: false,
+			success: function(response) {
+				$button.prop('disabled', false).text('Import from JSON');
+
+				if (response.success && response.data) {
+					displayImportResults(response.data);
+				} else {
+					const errorMsg = response.data || 'Failed to import training data.';
+					$resultContainer.html('<div class="notice notice-error"><p>' + escapeHtml(errorMsg) + '</p></div>');
+				}
+			},
+			error: function() {
+				$button.prop('disabled', false).text('Import from JSON');
+				$resultContainer.html('<div class="notice notice-error"><p>Failed to import training data. Please try again.</p></div>');
+			}
+		});
+	}
+
+	/**
+	 * Display training data import results
+	 */
+	function displayImportResults(results) {
+		const $container = $('#fwas-training-import-result');
+		let html = '<div class="notice notice-success"><h4>Training Data Import Complete</h4>';
+
+		html += '<ul>';
+		html += '<li><strong>Total entries processed:</strong> ' + results.total + '</li>';
+		html += '<li><strong>Entries added:</strong> ' + results.added + '</li>';
+		html += '<li><strong>Entries updated:</strong> ' + results.updated + '</li>';
+
+		if (results.errors && results.errors.length > 0) {
+			html += '<li><strong>Errors:</strong> ' + results.errors.length + '</li>';
+		}
+		html += '</ul>';
+
+		// Show errors if any
+		if (results.errors && results.errors.length > 0) {
+			html += '<h5>Errors:</h5>';
+			html += '<div class="fwas-import-errors" style="max-height: 200px; overflow-y: auto; background: #f9f9f9; padding: 10px; border: 1px solid #ddd;">';
+			html += '<ul>';
+			results.errors.forEach(function(error) {
+				html += '<li>' + escapeHtml(error) + '</li>';
+			});
+			html += '</ul>';
+			html += '</div>';
+		}
+
+		html += '</div>';
+
+		$container.html(html).show();
+
+		// Clear file input
+		$('#fwas-training-file').val('');
+	}
+
+	/**
 	 * Initialize
 	 */
 	$(document).ready(function() {
@@ -706,6 +895,27 @@
 		// Check remote server button
 		$('#fwas-check-remote-server').on('click', function() {
 			checkRemoteServer();
+		});
+
+		// Check custom URL button
+		$('#fwas-check-custom-url').on('click', function() {
+			checkCustomURL();
+		});
+
+		// Export training data button
+		$('#fwas-export-training-data').on('click', function() {
+			exportTrainingData();
+		});
+
+		// Import training data button
+		$('#fwas-import-training-data').on('click', function() {
+			importTrainingData();
+		});
+
+		// Enable/disable import button based on file selection
+		$('#fwas-training-file').on('change', function() {
+			const hasFile = this.files && this.files.length > 0;
+			$('#fwas-import-training-data').prop('disabled', !hasFile);
 		});
 	});
 

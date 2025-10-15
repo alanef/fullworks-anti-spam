@@ -384,21 +384,4 @@ class Utilities {
         return false;
     }
 
-    /**
-     * Force IPv4 connection for spam01.fullworks.net to avoid IPv6 SSL certificate issues.
-     *
-     * Due to LiteSpeed IPv6 virtual host configuration issues, IPv6 connections to spam01.fullworks.net
-     * may receive incorrect SSL certificates. This method forces cURL to use IPv4 for reliability.
-     *
-     * @param resource $handle The cURL handle
-     * @param array $parsed_args The parsed request arguments
-     * @param string $url The request URL
-     */
-    public function force_ipv4_for_spam01( $handle, $parsed_args, $url ) {
-        if ( strpos( $url, 'spam01.fullworks.net' ) !== false ) {
-            // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt -- Using http_api_curl hook to modify WP HTTP API behavior
-            curl_setopt( $handle, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4 );
-        }
-    }
-
 }
