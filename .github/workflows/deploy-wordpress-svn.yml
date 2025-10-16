@@ -3,8 +3,10 @@ name: Deploy to WordPress.org
 on:
   push:
     tags:
-      - 'v*.*.*'
-      - '*.*.*'
+      - 'v*.*.*'    # Matches v2.4.0
+      - '*.*.*'      # Matches 2.4.0
+      - 'v*.*'       # Matches v2.4
+      - '*.*'        # Matches 2.4
   workflow_dispatch:
     inputs:
       tag:
