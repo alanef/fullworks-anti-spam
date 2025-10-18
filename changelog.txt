@@ -1,4 +1,7 @@
 == Changelog ==
+= 2.5.1 =
+* Fix spam transmission checkbox not persisting in free version
+
 = 2.5 =
 * Add dashboard widget showing spam protection status and statistics
 * Update Freemius configuration

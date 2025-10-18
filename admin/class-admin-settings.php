@@ -831,6 +831,7 @@ class Admin_Settings extends Admin_Pages {
     }
 
     public function meta_box_send_spam() {
+        $sendspam_value = ( isset( $this->options['sendspam'] ) ? $this->options['sendspam'] : 0 );
         ?>
         <table class="form-table">
             <tbody>
@@ -844,7 +845,7 @@ class Admin_Settings extends Admin_Pages {
                                                                       id="fullworks-anti-spam[sendspam]"
                                                                       value="1"
 							<?php 
-        checked( '1', $this->options['sendspam'] );
+        checked( '1', $sendspam_value );
         ?>><?php 
         esc_html_e( 'Allow transmission of visitor messages to Fullworks for spam classification by AI and Machine Learning Analysis', 'fullworks-anti-spam' );
         ?>
