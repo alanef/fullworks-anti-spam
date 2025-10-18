@@ -87,6 +87,9 @@ class Admin {
         add_action( 'admin_menu', array($this, 'admin_pages') );
         add_action( 'admin_post_fwas_ad_csv_import', array($this, 'handle_ad_csv_import') );
         add_action( 'admin_post_fwas_ad_csv_export', array($this, 'handle_ad_csv_export') );
+        // Register dashboard widget
+        $dashboard_widget = new Admin_Dashboard_Widget($this->freemius, $this->utilities, $this->api);
+        add_action( 'wp_dashboard_setup', array($dashboard_widget, 'register_widget') );
     }
 
     public function admin_pages() {

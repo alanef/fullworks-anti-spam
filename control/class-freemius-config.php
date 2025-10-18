@@ -47,21 +47,21 @@ class Freemius_Config {
             // Include Freemius SDK.
             require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . '/vendor/freemius/wordpress-sdk/start.php';
             $fwantispam_fs = fs_dynamic_init( array(
-                'id'             => '5065',
-                'slug'           => 'fullworks-anti-spam',
-                'premium_slug'   => 'fullworks-anti-spam-pro',
-                'type'           => 'plugin',
-                'public_key'     => 'pk_742878bf26f007c206731eb58e390',
-                'is_premium'     => false,
-                'premium_suffix' => 'Pro',
-                'has_addons'     => false,
-                'has_paid_plans' => true,
-                'trial'          => array(
-                    'days'               => 30,
+                'id'              => '5065',
+                'slug'            => 'fullworks-anti-spam',
+                'premium_slug'    => 'fullworks-anti-spam-pro',
+                'type'            => 'plugin',
+                'public_key'      => 'pk_742878bf26f007c206731eb58e390',
+                'is_premium'      => false,
+                'premium_suffix'  => 'Pro',
+                'has_addons'      => true,
+                'has_paid_plans'  => true,
+                'trial'           => array(
+                    'days'               => 14,
                     'is_require_payment' => false,
                 ),
-                'navigation'     => 'tabs',
-                'menu'           => array(
+                'has_affiliation' => 'selected',
+                'menu'            => array(
                     'slug'    => 'fullworks-anti-spam-settings',
                     'contact' => false,
                     'support' => true,
@@ -69,8 +69,8 @@ class Freemius_Config {
                         'slug' => 'options-general.php',
                     ),
                 ),
-                'anonymous_mode' => $this->is_anonymous(),
-                'is_live'        => true,
+                'anonymous_mode'  => $this->is_anonymous(),
+                'is_live'         => true,
             ) );
         }
         $fwantispam_fs->add_filter( 'plugin_icon', function () {

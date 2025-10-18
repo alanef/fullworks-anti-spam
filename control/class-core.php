@@ -126,6 +126,11 @@ class Core {
                 }
                 update_option( 'fullworks-anti-spam', $this->options );
             }
+            // Dashboard widget default for upgrades
+            if ( !isset( $this->options['show_dashboard_widget'] ) ) {
+                $this->options['show_dashboard_widget'] = 1;
+                update_option( 'fullworks-anti-spam', $this->options );
+            }
         }
         if ( !wp_next_scheduled( 'fullworks_anti_spam_daily_admin' ) ) {
             wp_schedule_event( time() - 30, 'daily', 'fullworks_anti_spam_daily_admin' );

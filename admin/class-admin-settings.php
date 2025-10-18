@@ -101,9 +101,10 @@ class Admin_Settings extends Admin_Pages {
         switch ( $option ) {
             case 'fullworks-anti-spam':
                 $res = array(
-                    'comments'           => 1,
-                    'days'               => 30,
-                    'freemius_state_set' => false,
+                    'comments'              => 1,
+                    'days'                  => 30,
+                    'freemius_state_set'    => false,
+                    'show_dashboard_widget' => 1,
                 );
                 if ( !$fwantispam_fs->is_anonymous() && !$fwantispam_fs->is_plan_or_trial( 'gdpr', true ) ) {
                     $res['sendspam'] = 1;
@@ -198,6 +199,10 @@ class Admin_Settings extends Admin_Pages {
         $this->titles['Spam Email'] = array(
             'title' => esc_html__( 'Spam to Email', 'fullworks-anti-spam' ),
             'tip'   => esc_html__( 'Some forms we can\'t stop email being sent even when we detect spam so to handle this you can set up a different email address so you can direct to spam folders. Leaving blank will send the email to whatever is set up in the forms with a modified subject lime.', 'fullworks-anti-spam' ),
+        );
+        $this->titles['Dashboard Widget'] = array(
+            'title' => esc_html__( 'Dashboard Widget', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Display spam protection status and statistics on the WordPress dashboard. Shows protection coverage for installed form systems and recent spam blocking activity.', 'fullworks-anti-spam' ),
         );
         return $this->titles;
     }
@@ -431,6 +436,9 @@ class Admin_Settings extends Admin_Pages {
         }
         if ( !isset( $settings['sendspam'] ) ) {
             $settings['sendspam'] = 0;
+        }
+        if ( !isset( $settings['show_dashboard_widget'] ) ) {
+            $settings['show_dashboard_widget'] = 0;
         }
         return $settings;
     }

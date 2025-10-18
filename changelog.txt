@@ -1,4 +1,7 @@
 == Changelog ==
+= 2.5-beta.1 =
+* Add dashboard widget showing spam protection status and statistics
+
 = 2.4 =
 * Add remote debug capabilities with comprehensive diagnostics and reporting
 * Fix translation loading warnings in WordPress 6.7

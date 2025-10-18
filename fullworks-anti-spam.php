@@ -28,7 +28,7 @@
  * Plugin Name:       Anti-Spam by Fullworks : GDPR Compliant Spam Protection
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
  * Description:       Anti Spam by Fullworks providing protection for your website
- * Version:           2.4
+ * Version:           2.5-beta.1
  * Author:            Fullworks
  * Author URI:        https://fullworksplugins.com/
  * Requires at least: 5.3.0
@@ -62,7 +62,7 @@ define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_NAME', 'fullworks-anti-spam' );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.4' );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.5-beta.1' );
 
 /**
  * Debug helper to trace early translation loading (WP 6.7+)
