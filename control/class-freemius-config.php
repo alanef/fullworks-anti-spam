@@ -54,8 +54,9 @@ class Freemius_Config {
                 'public_key'      => 'pk_742878bf26f007c206731eb58e390',
                 'is_premium'      => false,
                 'premium_suffix'  => 'Pro',
-                'has_addons'      => true,
+                'has_addons'      => false,
                 'has_paid_plans'  => true,
+                'navigation'      => 'tabs',
                 'trial'           => array(
                     'days'               => 14,
                     'is_require_payment' => false,
