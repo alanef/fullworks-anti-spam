@@ -888,6 +888,59 @@ class Admin_Settings extends Admin_Pages {
         ?>
         </tr>
 		<?php 
+        ?>
+        <tr>
+			<?php 
+        $this->display_th( 'Dashboard Widget' );
+        ?>
+                <td>
+                    <label for="fullworks-anti-spam[show_dashboard_widget]"><input type="checkbox"
+                                                                                    name="fullworks-anti-spam[show_dashboard_widget]"
+                                                                                    id="fullworks-anti-spam[show_dashboard_widget]"
+                                                                                    value="1"
+						<?php 
+        checked( '1', $this->options['show_dashboard_widget'] );
+        ?>>
+						<?php 
+        esc_html_e( 'Show spam stats in dashboard', 'fullworks-anti-spam' );
+        ?>
+                    </label>
+                </td>
+				<?php 
+        $this->display_tip( 'Dashboard Widget' );
+        ?>
+            </tr>
+			<?php 
+        if ( !$this->freemius->can_use_premium_code() ) {
+            ?>
+                <tr>
+					<?php 
+            $this->display_th( 'Spam Stats Free' );
+            ?>
+                    <td>
+                        <a href="<?php 
+            esc_url( $this->freemius->get_upgrade_url() );
+            ?>">
+							<?php 
+            $this->freemius->get_trial_url();
+            ?>
+                        </a>&nbsp;
+						<?php 
+            $this->upgrade_prompt( esc_html__( 'Activate the FREE trial ', 'fullworks-anti-spam' ) );
+            esc_html_e( 'for spam statistics auto reporting by email', 'fullworks-anti-spam' );
+            ?>
+                    </td>
+					<?php 
+            $this->display_tip( 'Spam Stats Free' );
+            ?>
+                </tr>
+				<?php 
+        }
+        ?>
+
+            </tbody>
+            </table>
+			<?php 
     }
 
 }
