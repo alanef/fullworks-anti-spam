@@ -87,6 +87,14 @@ let honeyInputAdded = false;
         mutationObserver.observe(document.body, { childList: true, subtree: true });
 
         // Mark the current state as a back action before the page unloads
-        window.addEventListener('unload', markAsBackAction);
+        window.addEventListener('pagehide', markAsBackAction);
+
+        // Handle page restoration from back/forward cache
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                // Page was restored from bfcache, ensure honeyinput is added
+                addHoneyInput();
+            }
+        });
     });
 })(jQuery);

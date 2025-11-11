@@ -1,209 +1,232 @@
-=== Anti-Spam by Fullworks : GDPR Compliant Spam Protection ===
+=== Stop Contact Form 7 Spam & WPForms Spam - Free Protection ===
 Contributors: Fullworks
-Tags: anti-spam, antispam, spam, comment, gdpr
-Tested up to: 6.8
-Stable tag: 2.5.1
+Tags: anti-spam, contact form 7, spam protection, wpforms, cf7
+Tested up to: 6.9
+Stable tag: 2.6
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium
 
-Block automated comment spam with GDPR compliant Anti Spam. No reCAPTCHA or quizzes needed.  Effective antispam firewall stops 99% of all spam.
+Stop Contact Form 7 spam and WPForms spam instantly. Free spam protection for business sites. No CAPTCHA. No API keys. Just works.
 
 == Description ==
 
-Fed up with being overwhelmed with WP comment spam?! Say goodbye to those pesky spambots for good with this fantastic WordPress plugin!
+**Is Contact Form 7 spam destroying your mornings?**
 
-Introducing the ultimate anti-spam solution - our plugin detects spam bots with laser-like precision to keep your comments section sparkling clean. And it does it all without annoying your real readers with tedious captchas.
+Every day, the same nightmare: dozens of fake submissions, worried you'll miss real customers, and other plugins want $60/year just for basic protection.
 
-Just install and activate for immediate spam-zapping powers! Sayonara spam, hello helpful conversations!
+This free plugin ends that nightmare today.
 
-Good news, it's a totally free download for personal, commercial and business sites alike. No keys, no catches - just spam-vanquishing joy.
+= What Gets Protected (FREE) =
 
-Check out the rave reviews! Your comment auto-spammers don't stand a chance against this anti-bot. This is the spam-slaying champion you've been searching for.
+✅ **Contact Form 7** - Block bot spam automatically
+✅ **WPForms Lite & Pro** - Stop automated submissions
+✅ **Jetpack Contact Forms** - Filter bot spam instantly
+✅ **Fluent Forms** - Eliminate bot attacks
+✅ **SureForms** - Block bot spam submissions
+✅ **WordPress Comments** - Clean comment spam from badbots
+✅ **Business sites included** - No commercial fees ever
 
-Tired of spam clutter? Want to easily moderate a spam-free zone? Our plugin is the answer - your new best friend in the never-ending war against comment junk.
+Works immediately after activation. No configuration. No learning curve. No monthly costs.
 
-If you need a brilliant bot-blocker that just works, look no further than this fantastic anti-bot hero!
+= How It Works =
 
-Additionally, the plugin has  custom allow/deny rules for email patterns, IP and IP subnets and text string patterns, jut can block even more than just bot comment spam, by making up your own rules. Putting you in control.
+**3 Steps to Spam-Free Contact Forms:**
 
-= Anti Spam Protection Free Features =
-* It stores suspected spam comments in the moderation queue for review.
-* Comments marked as spam can be automatically deleted after a set number of days.
-* It also manages comments submitted through the wpDiscuz plugin.
-* There is an option to set the spam retention period.
-* Can be used alongside other security and spam prevention plugins, such as Akismet and Anti-Spam Bee.
-* For sites with large volumes of historic spam, it will automatically clean up past comments marked as spam.
-* It is GDPR compliant and allows opting in/out of anonymously submitting spam/ham reports.
-* No cookies are used for spam/bot detection.
-* Custom allow/deny lists can be set for IP addresses, email patterns and text.
+1. **Install** - Search "Contact Form 7 spam" in your WordPress dashboard
+2. **Activate** - One click to turn on protection
+3. **Relax** - Your Contact Form 7 and WPForms and others are now protected from bots
 
-= It is FREE  =
-Free for any use, personal, commercial, and business sites with no API key required.
+The moment you activate, spam bots are automatically blocked on all your forms and comments. No settings to configure. No technical knowledge required. No ongoing maintenance.
 
-We are able to provide this free plugin because we have a Pro version that enables us to fund the development of this free plugin and pay for the avocado on toast that our developers insist on having for breakfast every morning.
- Let's just say it isn't cheap to keep that lot happy! But we love 'em really, even if they do spend half the day napping and the other half moaning about how hard they're working.
-  As long as the cash keeps rolling in from you top chaps who purchase the Pro version, the freebies will keep on coming and the developers will continue living the dream (or nightmare depending on who you ask!). So in summary - buy the Pro version and you'll not only get some swanky new features but you'll also be indirectly paying for the livelihood of a bunch of scoundrels who wouldn't last 5 minutes in a real job. Bargain!
+**Most users report 95-100% spam reduction within the first 24 hours.**
 
+Tomorrow morning, check your inbox. Instead of dozens of spam submissions, you'll see only real customer inquiries. That's the peace of mind this plugin delivers.
 
-= It Works =
-Check out our reviews, and you'll find that Fullworks Anti Spam is widely recognized as an anti-spam solution that truly stops spam comments on your blog posts.
+= Why Contact Form 7 Needs This =
 
-= It is good for SEO =
-How can an anti-spam plugin improve SEO? Well they can't but they can damage SEO by damaging performance.  Other well known anti spam plugins make calls to the cloud to analyse
-comments and this can slow down your site. This plugin is fast and lightweight and so by using this plugin, over some others, you can be avoiding damaging your SEO.
+Contact Form 7 is WordPress's most popular form plugin with over 5 million active installations. It's lightweight, flexible, and completely free.
 
-= It is good for Security =
-How can spam protection improve security?  The biggest threat to website or any technology security is 'Social Engineering' where people are tricked into revealing credentials. These attacks all start with an out of the blue contact
-, maybe a phishing link or maybe something else believable, once hooked the hackers dig in.  All these types of attacks start with a contact, such as a comment on a post. The majority of these attacks start with an automated (bot) campaign. This free plugin protects your blog comments from these auto campaigns.
+But it doesn't include spam protection.
 
+Without protection, Contact Form 7 sites get hammered. Bot networks discover unprotected forms and flood them with submissions. Your inbox fills with junk. You waste time sorting real inquiries from spam. Worse, you risk missing legitimate customers buried in the noise.
 
-= It is easy to use =
-The plugin is designed to be 'set and forget'.  Once installed it will start protecting you from spam.  You can review the spam comments if you wish, but you don't have to.
+This plugin fixes that problem. For free. Forever.
 
-= It is safe =
-The free plugin does not send any data to any third party.  It does not use cookies.  It does not track users.  It does not collect any personal data.
+= Free vs Pro: What You Get =
 
+**FREE Version (Most Sites Need Only This):**
+✅ Contact Form 7 bot spam blocked
+✅ WPForms automated spam stopped
+✅ Jetpack forms protected
+✅ Fluent Forms secured
+✅ SureForms protected
+✅ WordPress comment spam eliminated
+✅ Works on business/commercial sites
+✅ Spam statistics dashboard
 
-== Installation ==
+Automated bots cause 95%+ of spam. The free version handles this completely.
 
-**Through Dashboard**
+**PRO Version (For Advanced Needs):**
+⚡ AI-powered human spam detection
+⚡ Gravity Forms integration
+⚡ WooCommerce registration protection
+⚡ Email quarantine for review
+⚡ Custom IP blocklists
+⚡ Allow/deny pattern rules
+⚡ Priority support
 
-1. Log in to your WordPress admin panel and go to Plugins -> Add New
-1. Type find the plugin using the search box
-1. Then click on Install Now and after that Activate the plugin.
-1. You do not have to Opt In that is optional, you may skip
-1. The plugin is set up and protecting you from automated comment spam
+Most Contact Form 7 users never need Pro. But if you're getting manually-typed spam or need enterprise features, Pro has you covered.
 
-**Installing Via FTP**
+= Why This Works Better Than CAPTCHA =
 
-1. Download the plugin to your hardisk.
-1. Unzip.
-1. Upload the plugin folder into your plugins directory.
-1. Log in to your WordPress admin panel and click the Plugins menu.
-1. Then activate the plugin.
-1. You do not have to Opt In that is optional, you may skip
-1. The plugin is set up and protecting you from automated comment spam
+CAPTCHA makes your visitors prove they're human by solving puzzles. It's annoying, hurts conversions, and still lets some spam through.
+
+This plugin takes a smarter approach:
+
+- **Invisible honeypot fields** - Bots can't resist filling hidden fields that humans never see
+- **Timing analysis** - Bots submit forms instantly; real people don't
+- **Behavioral fingerprinting** - Bot patterns are detectable and consistent
+- **No user friction** - Your visitors never know the protection exists
+- **Lightning fast** - All processing happens locally on your server
+
+Your Contact Form 7 stays fast. Your conversion rates stay high. Spam disappears.
+
+It just works. Quietly. Effectively. Completely free.
+
+= Common Questions Answered =
+
+**"Will this work with my existing Contact Form 7 setup?"**
+Yes. It integrates automatically with all CF7 configurations, custom fields, and extensions. Nothing breaks. Spam just stops.
+
+**"I'm not technical. Can I install this?"**
+If you can install a WordPress plugin, you can use this. There's literally nothing to configure. Install, activate, done.
+
+**"What about sites that aren't in English?"**
+Works perfectly on all languages. The spam detection doesn't depend on language - it detects bot behavior patterns.
+
+**"My site sells products. Do I have to pay?"**
+No. Unlike some popular anti-spam solutions that charge business sites, this is free for commercial use. No exceptions. No hidden fees.
+
+= Ready to Stop Contact Form 7 Spam? =
+
+**Installation takes 30 seconds:**
+
+1. In your WordPress dashboard, go to Plugins → Add New
+2. Search for "Contact Form 7 spam"
+3. Click Install, then Activate
+4. Done - your forms are now protected
+
+Check your email tomorrow. Enjoy the silence.
+
+For detailed statistics and settings, visit Settings → Anti Spam after activation.
 
 == Frequently Asked Questions ==
 
-= Why use this plugin and not one of the others? =
+= Is this too good to be true? What's the catch? =
 
-A great question.  The most popular anti-spam plugin for WordPress is Akismet. Akismet is shipped wil the initial install of WordPress giving the impression that it is the most appropriate
-plugin for comment spam. It is not until you try and use Akismet that you find out that that you have to sign up for an API Key, and then discover that for the vast majority of websites Akismet
-is not a free anti-spam plugin.  Akismet is not free for any website that has any commercial purpose, that means if you hav ean affiliate link or a single advert or sell something or advertise something for sale, or just simply use your website as a brochure for your business
-you have to pay Akismet a fee. And it not cheap. They also say that they monitor and check for licence abuse.
+No catch. We make money from optional Pro upgrades for advanced features like AI-powered human spam detection and Gravity Forms support. But the free version isn't a trial - it's genuinely free forever and solves most spam problems completely.
 
-Another popular WordPress anti spam plugin, Clean Talk, is not free at all, for anything. You need to sign up to a plan.
+We believe every WordPress site deserves spam protection, regardless of budget. That's why the free version is actually free - no restrictions, no time limits, no "gotchas."
 
-After that, there are loads of anti spam plugins that have been around a while. Because they have been around awhile they have built up a high number of users, but a high number of users for an anti spam plugin doesn't necessarily mean it is effective.
-Many of these established plugin are free and have no sustainable revenue stream to pay for developments and improvements in the fight against WordPress spam.
+= Will this really stop my Contact Form 7 spam problem? =
 
-And then there are security plugins, that also do anti-spam. There are many good security plugins, but there strength is security, not necessarily anti spam.
+Yes. The vast majority of Contact Form 7 spam comes from automated bots, and this plugin blocks them completely. You'll see results immediately - typically zero spam within the first day.
 
-In conclusion, Fullworks Anti Spam is a relatively new entrant (2019) to an area with lots of competition. Competition is healthy. What Fullworks Anti Spam  has going for it is free for Comment spam and it is new so uses the latest techniques. Also with a pro offering, it has funding to keep
-developing in the never ending fight against spammers.
+If you're one of the rare cases getting manually-typed spam (someone actually sitting there typing spam messages), the Pro version includes AI detection for that. But most sites never need it.
 
-= How does it work? =
+= I use WPForms. Does this work for me too? =
 
-The plugin uses techniques to detect automated spam (bots). Bot have certain characteristics that can be detected by our software. When a comment is submitted by a bot it is marked as spam and appears in your comment list under a separate tab as spam.
-The comment is there for you to review. The plugin also cleans up after a certain number of days, that you set in settings. After a while, once you are convinced all the comments are really spam
- ( we are confident, but we understand you may want to check things out ) you can set the time to zero days and then never see automated spam again. This is why we call it Stop WordPress Spam.
+Absolutely. Works perfectly with WPForms Lite and WPForms Pro. Same instant protection, same zero configuration. WPForms users see the same dramatic spam reduction as Contact Form 7 users.
 
-= Where are the settings? =
-As a 'set and forget' plugin the settings a under Dashboard>Settings>Anti Spam
+= I'm not technical. Will I mess something up? =
 
-There is only one setting, enable or disable blocking of bot (automated) comment spam, by default this is on.
+Impossible. The plugin requires zero configuration. Install it, activate it, walk away. Your forms keep working exactly as they do now, except spam stops arriving. There's nothing to break.
 
-= It only handles automated spam, what about human spam? =
-Our statistic shows that automated comment spam makes up 99.5% of spam comments, that means that in a typical unprotected blog that gets 600 spam comments you have 3 humans spam comments to deal with.
-I'm sure that is manageable, but of course if you want to eliminate those you can always [upgrade to Pro](https://fullworks.net/products/anti-spam/)
+If you can click "Activate" on a plugin, you can use this successfully.
 
-= Why is form protection only in Pro, can't it be in free? =
-It is important for plugins to be commercially viable. If they are not, they wither and die. You see so many abandoned free plugins. Isn't that just annoying when you find after a couple of years
- you need to find an alternative?  We have chosen to put contact form anti spam and registration form anti spam in the Pro version so we can have a revenue stream to keep developing anti spam protection.
- Contact form spam is the higher volume issue, and most websites with contact forms or WooCommerce registration forms are business websites that should easily be able to afford our modest fees
- for the Pro version.  It is surprisingly small investment -  why not upgrade? [Upgrade to Pro](https://fullworks.net/products/anti-spam/)
+= What about my existing Contact Form 7 extensions and custom fields? =
 
+Everything works together seamlessly. The plugin integrates invisibly with all CF7 configurations, custom fields, conditional logic, and third-party extensions. Your forms don't change. Spam just stops.
 
-= What happens to the spam comments? =
-Each spam comment is stored under the comments>spam tab for your review and deletion as required
+= Do I need to sign up for anything or get an API key? =
 
-= Does it work on contact or registration forms? =
-The free plugin is an anti-bot, built to protect WordPress comments from spam bots which is 99% of the issue. The Pro version has more sophisticated spam detection techiques including
-machine learning to prevent human spam and integration to most forms packages.  As most sites that have forms are commercial in some form we feel that
-it is only right that they pay a small amount towards the cost of software and hardware required to provide these features.
-You can upgrade to a free trial of pro directly from your WordPress plugins page.
+No. No signup. No API key. No external accounts. No tracking. Install the plugin and it works immediately using only your WordPress installation.
 
-= Do I have to Opt In or use and API key? =
-Whilst there is an Opt In form, if you skip it the free plugin works exactly the same.
+The free version processes everything locally on your server. Fast, private, and completely independent.
 
-= Why is the free version limited to bot based comment spam? =
-We have chosen to limit the free version to bot based comment spam to keep this WordPress.org plugin absolutely free.
-By putting contact form anti spam and registration form anti spam in the Pro version we can have a revenue stream to keep developing anti spam protection.
-Spammers don't stop so we need to keep developing.
-Most websites with contact forms or WooCommerce registration forms are business websites that should easily be able to afford our modest fees
- for the Pro version.  It is surprisingly small investment -  why not upgrade? [Upgrade to Pro](https://fullworksplugins.com/products/anti-spam/)
+= My business site has products/ads. Will I get charged? =
 
-== Go Pro ==
+Never. This plugin is free for commercial use with zero restrictions. Many popular anti-spam solutions charge business sites - this one doesn't and never will.
 
-Our view is the free version should deal with the most prolific spam elements that come with the free blogging platform, namely comments.
+Run a business? Have affiliate links? Sell products? Still free. Always free.
 
-And the Pro version should be affordable to the smallest of businesses and deal with the more sophisticated spam elements that plague them, namely contact forms and registration forms.
+= Will adding this plugin slow down my site? =
 
-Upgrade to 'Pro'  from within your WordPress dashboard to get these further pro anti spam features
+No. The plugin processes spam detection locally without calling external APIs. There's no network delay, no waiting for remote servers. Your Contact Form 7 performs exactly as it does now, just without the spam.
 
-* Three extra levels of spam protection
-    * IP Blocklist checking using industry spam list
-    * Statistical text analysis to determine spam probability
-    * Artificial Intelligence (AI) natural language server to beat the most creative spammers
+= I have Gravity Forms. Can I use this? =
 
-* Help with GDPR and privacy laws
-  * Option to not send any third party data to the AI server but still have local AI spam detection through machine learning textual analysis, no need for a DPA / SCC
+Gravity Forms protection is included in the Pro version. If you invested in premium forms, the small Pro upgrade gives you complete spam protection with email logging and advanced features designed for Gravity Forms users.
 
-* Protect forms
-    * Jetpack contact form
-    * Contact Form 7
-    * Gravity Forms
-    * WP Forms
-    * Quick Contact Form
-    * Fluent Forms
-    ( and more in the pipeline )
+= Which forms work with the free version? =
 
-* Message Store
-  * Store message for ham / spam review and deletion for plugins that don't have their own message store (optional)
-      * Contact Form 7
-      * WP Forms Lite
-      * Fluent Forms
+Contact Form 7, WPForms Lite, WPForms Pro, Jetpack Contact Forms, Fluent Forms, and WordPress comments all get full bot protection in the free version.
 
-* Stops phantom registrations
-  * WooCommerce
-  * WordPress users
+That covers the vast majority of WordPress forms in use today.
+== Installation ==
 
-* No limits on number of detections
-* Automatically block and discard the worst spam
-* Control spam retention
-* Automatic spam statistics reporting
-* Optional spam notifications alerts, so you can review them
-* Set your own Allow or Deny lists of IP addresses, email patterns and text patterns
+= Automatic Installation (Recommended) =
 
-Free trial, sign up directly from the plugin settings page.
+1. In your WordPress admin, go to **Plugins → Add New**
+2. Search for **"Contact Form 7 spam"**
+3. Find this plugin and click **Install Now**
+4. Click **Activate**
 
-Or visit the [Pro product page](https://fullworksplugins.com/products/anti-spam/)
+Done. Your Contact Form 7 and WPForms are now protected. Check your inbox tomorrow and enjoy not seeing spam.
 
-== Privacy and GDPR ==
+= Manual Installation =
 
-This free plugin does not collect, process or send any website visitor personal data anywhere unless you chose to opt in to sharing the spam comments you mark as spam or ham with our spam detection server.
+1. Download the plugin zip file from WordPress.org
+2. In WordPress admin, go to **Plugins → Add New → Upload Plugin**
+3. Choose the downloaded zip file and click **Install Now**
+4. Click **Activate**
 
-== PHP 8.3 ==
+That's it. No setup wizard. No configuration screens. Just instant spam protection.
 
-Tested against PHP 8.3
+== Screenshots ==
 
-== Frequently asked questions ==
-= How can I report security bugs? =
-
-You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/fullworks-anti-spam)
+1. Dashboard showing forms protected and spam blocked
+2. Contact Form 7 with invisible spam protection active
+3. WPForms protection enabled automatically
+4. Statistics showing blocked spam by type
+5. Pro features for human spam detection
 
 == Changelog ==
 
-[Change log](https://fullworksplugins.com/docs/anti-spam-by-fullworks/developer-anti-spam-by-fullworks/change-log/)
+
+[View full changelog](https://fullworksplugins.com/docs/anti-spam-by-fullworks/changelog/)
+
+== Go Pro ==
+
+Most Contact Form 7 users never need Pro - the free version eliminates their spam problem completely.
+
+**But if you need advanced protection, Pro delivers:**
+
+✅ **AI-Powered Human Spam Detection** - Stop manually-typed spam that gets past basic filters
+✅ **Gravity Forms Integration** - Complete protection for premium form users
+✅ **WooCommerce Registration Blocking** - Stop fake account spam
+✅ **Email Quarantine** - Review and rescue any legitimate messages caught by mistake
+✅ **Custom Allow/Deny Rules** - Block specific IPs, patterns, or keywords
+✅ **IP Blocklist Checking** - Automatic blocking of known spam networks
+✅ **Priority Support** - Get help directly from the developers
+
+**Perfect for:**
+- High-traffic sites getting manually-entered spam
+- Agencies managing multiple client installations
+- Enterprise sites requiring advanced controls
+- Gravity Forms and WooCommerce users
+
+[Start Your Free 14-Day Pro Trial](https://fullworksplugins.com/products/anti-spam/)
+
+Try Pro features risk-free. No credit card required. If it's not worth it, just let the trial expire. No pressure, no hassle.

@@ -200,3 +200,93 @@ $background_pointer: $brand_darkblue;
     word-wrap: break-word;       /* Internet Explorer 5.5+ */
   }
 }
+
+// Upgrade notice styles (compact)
+.fwas-upgrade-notice {
+  position: relative;
+  background: #fff;
+  border-left: 4px solid $brand_lightblue;
+  padding: 12px 18px;
+  margin: 15px 20px 15px 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+  .notice-dismiss {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 9px;
+    background: none;
+    border: none;
+    color: #787c82;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:before {
+      content: '\f153';
+      font: normal 16px/20px dashicons;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      speak: never;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    &:hover {
+      color: #1d2327;
+    }
+  }
+
+  h3 {
+    margin: 0 0 8px 0;
+    padding: 0;
+    color: $brand_darkblue;
+    font-size: 15px;
+  }
+
+  .fwas-protection-summary {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    line-height: 1.4;
+
+    strong {
+      color: $brand_darkblue;
+    }
+  }
+
+  .fwas-upgrade-benefits {
+    margin: 0 0 10px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #555;
+  }
+
+  .fwas-trial-cta {
+    margin: 0 8px 0 0;
+    padding: 8px 16px;
+    background: $brand_lightblue;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s;
+
+    &:hover {
+      background: $brand_darkblue;
+      color: #fff;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 2px rgba(64, 158, 187, 0.3);
+      outline: none;
+    }
+  }
+
+  .fwas-trial-details {
+    font-size: 11px;
+    color: #666;
+  }
+}

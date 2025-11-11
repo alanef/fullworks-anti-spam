@@ -69,11 +69,11 @@ class Spam_Checks {
      * @param $freemius
      */
     public function __construct() {
-        global $fwantispam_fs;
+        global $fwas_fs;
         $this->options = get_option( 'fullworks-anti-spam' );
         $this->utilities = new Utilities();
         $this->log = new Log($this->utilities);
-        $this->freemius = $fwantispam_fs;
+        $this->freemius = $fwas_fs;
         // Don't load forms here - they'll be loaded lazily when needed
     }
 

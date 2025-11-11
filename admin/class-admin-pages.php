@@ -25,6 +25,7 @@
 
 namespace Fullworks_Anti_Spam\Admin;
 
+use Fullworks_Anti_Spam\Core\Forms_Registrations;
 use Fullworks_Anti_Spam\Core\Utilities;
 
 
@@ -191,7 +192,7 @@ class Admin_Pages {
 	}
 
 
-	private function do_promo_box() {
+	protected function do_promo_box() {
 		if ( ! $this->freemius->can_use_premium_code() ) {
 			?>
             <div class="postbox"><a href="<?php echo esc_url( $this->freemius->get_upgrade_url() ); ?>"><img
@@ -205,95 +206,50 @@ class Admin_Pages {
                         <tbody>
 
 						<?php
+						// Comments - always show if enabled
 						if ( Utilities::get_instance()->is_comments_open() ) {
 							?>
                             <tr>
-                            <th><?php esc_html_e( 'WP Comments open to anyone', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'You are PROTECTED against the worst bot spam.  Add rules to the Deny List to extend your protection. UPGRADE to protect comments against non bot spam using CLEVER technology', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_wp_user_registrion_enabled() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'WP registrations enabled', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against fake registrations with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            <th><?php esc_html_e( 'WP Comments', 'fullworks-anti-spam' ); ?></th>
+                            <td>✓ <?php esc_html_e( 'Bot protection active', 'fullworks-anti-spam' ); ?> - <a href="<?php echo esc_url( $this->freemius->get_trial_url() ); ?>"><?php esc_html_e( 'Upgrade for full protection', 'fullworks-anti-spam' ); ?></a></td>
                             </tr><?php
 						}
 
-						if ( Utilities::get_instance()->is_gravity_forms_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'Gravity Form installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against Gravity Forms spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_woocommerce_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'WooCommerce installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against fake Woo registrations with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_contact_form_7_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'Contact Form 7 installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against CF7 spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
+						// Get all registered forms dynamically
+						$registered_forms = Forms_Registrations::get_registered_forms();
+						$free_bot_protection_keys = Forms_Registrations::get_form_keys_by_protection_level( 1 );
 
-						if ( Utilities::get_instance()->is_jetpack_contact_form_installed() ) {
+						// Display registered (installed) forms
+						foreach ( $registered_forms as $form_key => $form_data ) {
+							// Skip comments - we handle them separately above
+							if ( $form_key === 'comments' ) {
+								continue;
+							}
+							$protection_level = isset( $form_data['protection_level'] ) ? $form_data['protection_level'] : 0;
+							$has_free_bot_protection = ( $protection_level === 1 );
 							?>
                             <tr>
-                            <th><?php esc_html_e( 'JetPack Contact Form installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against against JetPack Contact Form spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_quick_contact_forms_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'Quick Contact Form installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against against Quick Contact Form spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_quick_event_manager_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'Quick Event Manager installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against against Quick Event Manager registration spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_wp_forms_lite_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'WP Forms installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against against WP Forms spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_fluent_forms_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'Fluent Forms installed', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against against Fluent Forms spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
-                            </tr><?php
-						}
-						if ( Utilities::get_instance()->is_clean_and_simple_installed() ) {
-							?>
-                            <tr>
-                            <th><?php esc_html_e( 'Contact Form: Clean and Simple', 'fullworks-anti-spam' ); ?></th>
-                            <td><?php esc_html_e( 'Protect against against Contact Form: Clean and Simple, spam with Fullworks Anti Spam Pro', 'fullworks-anti-spam' ); ?></td>
+                            <th><?php echo esc_html( $form_data['name'] ); ?></th>
+                            <td>
+								<?php if ( $has_free_bot_protection ) : ?>
+									✓ <?php esc_html_e( 'Bot protection active', 'fullworks-anti-spam' ); ?> - <a href="<?php echo esc_url( $this->freemius->get_trial_url() ); ?>"><?php esc_html_e( 'Upgrade for full protection', 'fullworks-anti-spam' ); ?></a>
+								<?php else : ?>
+									<a href="<?php echo esc_url( $this->freemius->get_trial_url() ); ?>"><?php esc_html_e( 'Upgrade to PRO', 'fullworks-anti-spam' ); ?></a> <?php esc_html_e( 'for spam protection', 'fullworks-anti-spam' ); ?>
+								<?php endif; ?>
+                            </td>
                             </tr><?php
 						}
 
 						?>
+                        <tr>
                         <th></th>
                         <td>
                             <div style="float:right"><a style="font-weight:bold; font-size: 130%"
                                                         class="button-primary orange"
-                                                        href="<?php echo esc_url( $this->freemius->get_upgrade_url() ); ?>"><?php esc_html_e( 'Start my FREE trial of PRO', 'fullworks-anti-spam' ); ?></a>
+                                                        href="<?php echo esc_url( $this->freemius->get_trial_url() ); ?>"><?php esc_html_e( 'Start my FREE trial of PRO', 'fullworks-anti-spam' ); ?></a>
                             </div>
                         </td>
-                        <tr>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

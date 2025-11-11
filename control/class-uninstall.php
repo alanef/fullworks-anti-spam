@@ -64,7 +64,7 @@ class Uninstall {
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $table_name is safe, using prefix + constant
         $wpdb->query( "DROP TABLE IF EXISTS " . $table_name );
         /** @var \Freemius $fwantispam_fs Freemius global object. */
-        global $fwantispam_fs;
+        global $fwas_fs;
     }
 
 }

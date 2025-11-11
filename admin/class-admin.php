@@ -87,6 +87,8 @@ class Admin {
         add_action( 'admin_menu', array($this, 'admin_pages') );
         add_action( 'admin_post_fwas_ad_csv_import', array($this, 'handle_ad_csv_import') );
         add_action( 'admin_post_fwas_ad_csv_export', array($this, 'handle_ad_csv_export') );
+        // Register AJAX handler for dismissible notices
+        add_action( 'wp_ajax_fwas_dismiss_upgrade_notice', array($this, 'handle_dismiss_upgrade_notice') );
         // Register dashboard widget
         $dashboard_widget = new Admin_Dashboard_Widget($this->freemius, $this->utilities, $this->api);
         add_action( 'wp_dashboard_setup', array($dashboard_widget, 'register_widget') );
@@ -338,6 +340,26 @@ class Admin {
         if ( $current_screen->id == "admin_page_fullworks-anti-spam-settings-allow-deny-settings" ) {
             wp_enqueue_script( 'thickbox' );
         }
+    }
+
+    /**
+     * Handle AJAX request to dismiss upgrade notice
+     */
+    public function handle_dismiss_upgrade_notice() {
+        // Verify nonce
+        check_ajax_referer( 'fwantispam_ajax_nonce', 'nonce' );
+        // Check user capability
+        if ( !current_user_can( 'manage_options' ) ) {
+            wp_send_json_error( array(
+                'message' => __( 'Permission denied', 'fullworks-anti-spam' ),
+            ) );
+        }
+        // Save user meta to remember dismissal
+        $user_id = get_current_user_id();
+        update_user_meta( $user_id, 'fwas_upgrade_notice_dismissed', true );
+        wp_send_json_success( array(
+            'message' => __( 'Notice dismissed', 'fullworks-anti-spam' ),
+        ) );
     }
 
 }

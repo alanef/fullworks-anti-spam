@@ -47,7 +47,7 @@ class Admin_Tables {
 	/*
 	 * @var \Freemius $freemius
      */
-    private $freemius;
+    protected $freemius;
 
 
 	/**

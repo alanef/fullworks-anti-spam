@@ -103,8 +103,8 @@ class Anti_Spam_Api {
 	 * @api
 	 */
 	public function insert_email_log( $email_array, $form_system = '' ) {
-		global $fwantispam_fs;
-		$email_log = new Email_Log( Utilities::get_instance(), $fwantispam_fs );
+		global $fwas_fs;
+		$email_log = new Email_Log( Utilities::get_instance(), $fwas_fs );
 		$email_log->insert_email_log( $email_array, $form_system );
 	}
 }

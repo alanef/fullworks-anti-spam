@@ -247,7 +247,7 @@ class Utilities {
         $forms_registrations_obj = new Forms_Registrations();
         $this->forms_registrations = $forms_registrations_obj->get_registered_forms();
         /** @var \Freemius $fwantispam_fs Freemius global object. */
-        global $fwantispam_fs;
+        global $fwas_fs;
         global $wpdb;
         $table_name = $wpdb->prefix . 'fwantispam_log';
         $counts = $wpdb->get_results( "SELECT eventcode_str, count(*) AS count from {$table_name}  GROUP BY eventcode_str" );
@@ -369,6 +369,10 @@ class Utilities {
 
     public function is_ws_form_installed() {
         return apply_filters( 'fwas_is_ws_form_installed', defined( 'WS_FORM_NAME' ) );
+    }
+
+    public function is_sureforms_installed() {
+        return apply_filters( 'fwas_is_sureforms_installed', defined( 'SRFM_VER' ) );
     }
 
     public function is_comments_open() {

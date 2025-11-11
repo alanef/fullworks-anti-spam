@@ -25,10 +25,10 @@
 
 /**
  *
- * Plugin Name:       Anti-Spam by Fullworks : GDPR Compliant Spam Protection
+ * Plugin Name:       Spam Protection for Contact Form 7 & WPForms ++ - No CAPTCHA
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
- * Description:       Anti Spam by Fullworks providing protection for your website
- * Version:           2.5.1
+ * Description:       Stop spam on Contact Form 7, WPForms, Jetpack forms & comments. Actually FREE for business use (unlike Akismet). No CAPTCHA needed, works instantly.
+ * Version:           2.6
  * Author:            Fullworks
  * Author URI:        https://fullworksplugins.com/
  * Requires at least: 5.3.0
@@ -62,7 +62,7 @@ define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_NAME', 'fullworks-anti-spam' );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.5.1' );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.6' );
 
 /**
  * Debug helper to trace early translation loading (WP 6.7+)
@@ -106,10 +106,10 @@ if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 
 require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'vendor/autoload.php';
 new AutoloaderPlugin( __NAMESPACE__, __DIR__ );
-/** @var \Freemius $fwantispam_fs Freemius global object. */
-global $fwantispam_fs;
-$freemius = new Freemius_Config();
-$freemius->init();
+/** @var \Freemius $fwas_fs Freemius global object. */
+global $fwas_fs;
+$fwas_freemius = new Freemius_Config();
+$fwas_freemius->init();
 
 if ( ! defined( 'FWAS_SERVER' ) ) {
 	define( 'FWAS_SERVER', 'https://spam01.fullworks.net/apiv1/' );
@@ -118,9 +118,9 @@ if ( ! defined( 'FWAS_SERVER' ) ) {
 
 if ( ! function_exists( 'Fullworks_Anti_Spam\run_fullworks_anti_spam' ) ) {
 	function run_fullworks_anti_spam() {
-		/** @var \Freemius $fwantispam_fs Freemius global object. */
-		global $fwantispam_fs;
-		do_action( 'fwantispam_fs_loaded' );
+		/** @var \Freemius $fwas_fs Freemius global object. */
+		global $fwas_fs;
+		do_action( 'fwas_fs_loaded' );
 		register_activation_hook( __FILE__, array( '\Fullworks_Anti_Spam\Control\Activator', 'activate' ) );
 		add_action(
 			'wpmu_new_blog',
@@ -133,8 +133,8 @@ if ( ! function_exists( 'Fullworks_Anti_Spam\run_fullworks_anti_spam' ) ) {
 		);
 		register_deactivation_hook( __FILE__, array( '\Fullworks_Anti_Spam\Control\Deactivator', 'deactivate' ) );
 		add_filter( 'wpmu_drop_tables', array( '\Fullworks_Anti_Spam\Control\Deactivator', 'on_delete_blog_tables' ) );
-		$fwantispam_fs->add_action( 'after_uninstall', array( '\Fullworks_Anti_Spam\Control\Uninstall', 'uninstall' ) );
-		$plugin = new Core( $fwantispam_fs );
+		$fwas_fs->add_action( 'after_uninstall', array( '\Fullworks_Anti_Spam\Control\Uninstall', 'uninstall' ) );
+		$plugin = new Core( $fwas_fs );
 		add_action(
 			'plugins_loaded',
 			function () use ( $plugin ) {
@@ -148,6 +148,6 @@ if ( ! function_exists( 'Fullworks_Anti_Spam\run_fullworks_anti_spam' ) ) {
 	run_fullworks_anti_spam();
 
 } else {
-	$fwantispam_fs->set_basename( true, __FILE__ );
+	$fwas_fs->set_basename( true, __FILE__ );
 }
 

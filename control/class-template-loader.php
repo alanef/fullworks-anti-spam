@@ -99,7 +99,7 @@ class Template_Loader extends Gamajo_Template_Loader {
             $file_paths[20] = trailingslashit( dirname( FULLWORKS_ANTI_SPAM_PLUGINS_TOP_DIR ) ) . 'widget-for-eventbrite-api';
             $file_paths[21] = trailingslashit( dirname( FULLWORKS_ANTI_SPAM_PLUGINS_TOP_DIR ) ) . 'widget-for-eventbrite-api/parts';
             $file_paths[22] = trailingslashit( dirname( FULLWORKS_ANTI_SPAM_PLUGINS_TOP_DIR ) ) . 'widget-for-eventbrite-api/loops';
-            global $fwantispam_fs;
+            global $fwas_fs;
             $file_paths[] = FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'templates__free';
             $file_paths[] = FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'templates__free/parts';
             $file_paths[] = FULLWORKS_ANTI_SPAM_PLUGIN_DIR . 'templates__free/loops';

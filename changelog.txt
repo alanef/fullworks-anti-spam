@@ -1,4 +1,14 @@
 == Changelog ==
+= 2.6 =
+* NEW: Contact Form 7 bot protection added to free version!
+* NEW: WPForms Lite bot protection added to free version!
+* NEW: Jetpack Contact Form protection added to free version!
+* NEW: Fluent Forms protection added to free version!1
+* NEW: SureForms protection added to free version!
+* Improved bot detection algorithm
+* Performance optimizations
+* Improved browser compatibility and page caching support
+
 = 2.5.1 =
 * Fix spam transmission checkbox not persisting in free version
 

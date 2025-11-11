@@ -157,7 +157,7 @@ class Purge {
         $table_name = $wpdb->prefix . 'fwantispam_log';
         $result = $wpdb->query( "DELETE FROM {$table_name} WHERE logdate < CURRENT_DATE - INTERVAL 30 DAY" );
         /** @var \Freemius $fwantispam_fs Freemius global object. */
-        global $fwantispam_fs;
+        global $fwas_fs;
     }
 
 }

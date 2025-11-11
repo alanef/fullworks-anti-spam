@@ -26,6 +26,7 @@
 namespace Fullworks_Anti_Spam\Admin;
 
 use Fullworks_Anti_Spam\Anti_Spam_Api;
+use Fullworks_Anti_Spam\Core\Forms_Registrations;
 use Fullworks_Anti_Spam\Core\Utilities;
 /**
  * Class Admin_Dashboard_Widget
@@ -150,14 +151,41 @@ class Admin_Dashboard_Widget {
 
 				<?php 
         foreach ( $installed_forms as $form_name => $form_data ) {
+            $protection_level = ( isset( $form_data['protection_level'] ) ? $form_data['protection_level'] : 0 );
+            $has_free_bot_protection = $protection_level === 1;
+            $is_premium = $this->freemius->can_use_premium_code__premium_only();
             ?>
 					<li>
 						<?php 
             if ( in_array( $form_name, $protected_forms, true ) ) {
                 ?>
-							<span class="fwas-protected">✓ <?php 
-                echo esc_html( $form_data['name'] );
-                ?></span>
+							<?php 
+                if ( !$is_premium && $has_free_bot_protection ) {
+                    ?>
+								<span class="fwas-protected">
+									✓ <?php 
+                    echo esc_html( $form_data['name'] );
+                    ?>
+									- <em><?php 
+                    esc_html_e( 'bot protection', 'fullworks-anti-spam' );
+                    ?></em>
+								</span>
+								<a href="<?php 
+                    echo esc_url( $this->freemius->get_upgrade_url() );
+                    ?>" style="font-size:11px;">
+									(<?php 
+                    esc_html_e( 'upgrade for full protection', 'fullworks-anti-spam' );
+                    ?>)
+								</a>
+							<?php 
+                } else {
+                    ?>
+								<span class="fwas-protected">✓ <?php 
+                    echo esc_html( $form_data['name'] );
+                    ?></span>
+							<?php 
+                }
+                ?>
 						<?php 
             } else {
                 ?>
@@ -287,57 +315,16 @@ class Admin_Dashboard_Widget {
 
     /**
      * Get list of installed form systems
+     * Now uses the dynamic Forms_Registrations system
      *
      * @return array
      */
     private function get_installed_forms() {
-        $installed = array();
-        if ( $this->utilities->is_gravity_forms_installed() ) {
-            $installed['gravity'] = array(
-                'name' => esc_html__( 'Gravity Forms', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_contact_form_7_installed() ) {
-            $installed['cf7'] = array(
-                'name' => esc_html__( 'Contact Form 7', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_wp_forms_lite_installed() || $this->utilities->is_wp_forms_pro_installed() ) {
-            $installed['wpforms'] = array(
-                'name' => esc_html__( 'WPForms', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_woocommerce_installed() ) {
-            $installed['woocommerce'] = array(
-                'name' => esc_html__( 'WooCommerce', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_jetpack_contact_form_installed() ) {
-            $installed['grunion'] = array(
-                'name' => esc_html__( 'Jetpack Contact Form', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_quick_contact_forms_installed() ) {
-            $installed['qcf'] = array(
-                'name' => esc_html__( 'Quick Contact Form', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_quick_event_manager_installed() ) {
-            $installed['qem'] = array(
-                'name' => esc_html__( 'Quick Event Manager', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_fluent_forms_installed() ) {
-            $installed['fluent'] = array(
-                'name' => esc_html__( 'Fluent Forms', 'fullworks-anti-spam' ),
-            );
-        }
-        if ( $this->utilities->is_wp_user_registrion_enabled() ) {
-            $installed['wpregistration'] = array(
-                'name' => esc_html__( 'WP Registrations', 'fullworks-anti-spam' ),
-            );
-        }
-        return $installed;
+        // Get all registered forms (which are only registered if installed)
+        $registered_forms = Forms_Registrations::get_registered_forms();
+        // Skip comments as we handle it separately in the widget
+        unset($registered_forms['comments']);
+        return $registered_forms;
     }
 
     /**
@@ -348,6 +335,15 @@ class Admin_Dashboard_Widget {
      */
     private function get_protected_forms( $installed_forms ) {
         $protected = array();
+        // Get forms with free bot protection dynamically (protection_level = 1)
+        $forms_with_free_bot_protection = Forms_Registrations::get_form_keys_by_protection_level( 1 );
+        foreach ( $installed_forms as $form_key => $form_data ) {
+            // Free users: Forms with protection_level = 1 have bot protection
+            if ( in_array( $form_key, $forms_with_free_bot_protection, true ) ) {
+                $protected[] = $form_key;
+                continue;
+            }
+        }
         return $protected;
     }
 

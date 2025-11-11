@@ -8,9 +8,12 @@
 namespace Fullworks_Anti_Spam\Admin;
 
 use Fullworks_Anti_Spam\Admin\Admin_Tables;
+use Fullworks_Anti_Spam\Core\Forms_Registrations;
 use Fullworks_Anti_Spam\Core\Utilities;
 
 class Admin_Table_Allow_Deny extends Admin_Tables {
+
+	protected $show_upgrade_notice = false;
 
 	public function __construct( $plugin_name, $version, $freemius ) {
 		// add admin ajax handler
@@ -56,6 +59,15 @@ class Admin_Table_Allow_Deny extends Admin_Tables {
 	}
 
 	public function list_page() {
+		// Check if we should render the upgrade notice
+		if ( ! $this->freemius->can_use_premium_code() ) {
+			$user_id = get_current_user_id();
+			$dismissed = get_user_meta( $user_id, 'fwas_upgrade_notice_dismissed', true );
+			if ( ! $dismissed ) {
+				$this->show_upgrade_notice = true;
+			}
+		}
+
 		$add_action         = '<a  class="alignright button-primary" href="#" id="fwas-add-rule">' . esc_html__( 'Add New', 'fullworks-anti-spam' ) . '</a>';
 		$this->page_heading = '<img src="' . dirname( plugin_dir_url( __FILE__ ) ) . '/admin/images/brand/light-anti-spam-75h.svg" class="logo" alt="Fullworks Logo"/><div class="text">' . __( 'Allow / Deny', 'fullworks-anti-spam' ) . $add_action . '</div>';
 		?>
@@ -71,6 +83,7 @@ class Admin_Table_Allow_Deny extends Admin_Tables {
         <div class="wrap fs-page  fwas-allow-deny">
             <h2 class="brand"><?php echo wp_kses_post( $this->page_heading ); ?></h2>
 			<?php $this->display_tabs(); ?>
+			<?php $this->render_upgrade_notice(); ?>
             <div id="poststuff">
                 <div id="post-body" class="metabox-holder columns-1">
                     <div id="post-body-content">
@@ -181,6 +194,60 @@ class Admin_Table_Allow_Deny extends Admin_Tables {
 			}
 		}
 		wp_send_json_success( esc_html__( 'Record Saved', 'fullworks-anti-spam' ) );
+	}
+
+	/**
+	 * Render upgrade notice with protection summary (compact version)
+	 */
+	public function render_upgrade_notice() {
+		if ( empty( $this->show_upgrade_notice ) ) {
+			return;
+		}
+
+		// Get installed forms count
+		$installed_forms = Forms_Registrations::get_registered_forms();
+		$total_installed = count( $installed_forms ); // Includes comments
+
+		// Count protected forms (comments + forms with protection_level = 1)
+		$free_protected_count = 1; // Comments always protected
+		foreach ( $installed_forms as $form_key => $form_data ) {
+			if ( $form_key === 'comments' ) {
+				continue;
+			}
+			if ( isset( $form_data['protection_level'] ) && $form_data['protection_level'] === 1 ) {
+				$free_protected_count++;
+			}
+		}
+
+		$has_unprotected = $free_protected_count < $total_installed;
+
+		?>
+		<div class="fwas-upgrade-notice">
+			<button type="button" class="notice-dismiss"></button>
+			<h3><?php esc_html_e( 'Unlock Full Protection', 'fullworks-anti-spam' ); ?></h3>
+
+			<?php if ( $has_unprotected ) : ?>
+				<p class="fwas-protection-summary">
+					<?php
+					/* translators: %1$d: number of protected forms, %2$d: total forms */
+					printf( esc_html__( '%1$d of %2$d systems fully protected', 'fullworks-anti-spam' ), (int) $free_protected_count, (int) $total_installed );
+					?>
+					<strong><?php esc_html_e( ' — Missing: AI spam detection & IP blocklist', 'fullworks-anti-spam' ); ?></strong>
+				</p>
+			<?php endif; ?>
+
+			<p class="fwas-upgrade-benefits">
+				<?php esc_html_e( 'Stop manual spammers with AI • Block 10M+ spam IPs • Protect all forms • Email reports', 'fullworks-anti-spam' ); ?>
+			</p>
+
+			<a href="<?php echo esc_url( $this->freemius->get_trial_url() ); ?>" class="fwas-trial-cta">
+				<?php esc_html_e( 'Start 7-Day FREE Trial', 'fullworks-anti-spam' ); ?>
+			</a>
+			<span class="fwas-trial-details">
+				<?php esc_html_e( 'No credit card • Cancel anytime', 'fullworks-anti-spam' ); ?>
+			</span>
+		</div>
+		<?php
 	}
 
 }

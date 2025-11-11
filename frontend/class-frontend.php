@@ -79,7 +79,7 @@ class FrontEnd {
 	 */
 	public function enqueue_scripts() {
 		/** @var \Freemius $fwantispam_fs Freemius global object. */
-		global $fwantispam_fs;
+		global $fwas_fs;
 		wp_enqueue_script( $this->plugin_name . '-front-logged-out', plugin_dir_url( __FILE__ ) . 'js/frontend.js', array( 'jquery' ), $this->version . '.' . $this->utilities->get_random_version(), false );
 		$forms_registrations = new Forms_Registrations();
 		$registered_forms    = $forms_registrations->get_registered_forms();

@@ -238,6 +238,34 @@
         });
 
         
+
+        // Handle dismiss upgrade notice
+        $('.fwas-upgrade-notice .notice-dismiss').on('click', function (e) {
+            e.preventDefault();
+            var $notice = $(this).closest('.fwas-upgrade-notice');
+
+            $.ajax({
+                url: fwantispam_ajax_object.ajax_url,
+                type: 'POST',
+                data: {
+                    'action': 'fwas_dismiss_upgrade_notice',
+                    'nonce': fwantispam_ajax_object.nonce
+                },
+                success: function (response) {
+                    if (response.success) {
+                        $notice.fadeOut(300, function () {
+                            $(this).remove();
+                        });
+                    }
+                },
+                error: function () {
+                    // Still remove the notice even if AJAX fails
+                    $notice.fadeOut(300, function () {
+                        $(this).remove();
+                    });
+                }
+            });
+        });
     });
 
 })(jQuery);
