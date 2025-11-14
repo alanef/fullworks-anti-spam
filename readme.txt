@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, contact form 7, spam protection, wpforms, cf7
 Tested up to: 6.9
-Stable tag: 2.6
+Stable tag: 2.6.1
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium

@@ -333,11 +333,11 @@ class Admin_Settings extends Admin_Pages {
         );
         $this->titles['Spam Score'] = array(
             'title' => esc_html__( 'Statistical Analysis', 'fullworks-anti-spam' ) . '&nbsp;<sup>(1)</sup>',
-            'tip'   => esc_html__( 'Set the desired spam probability filter %%, default is 55%%, a lower %% will exclude more messages and may include genuine messages, a higher %% will allow more messages through so may let through more spam', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Set the desired spam probability filter percentage, default is 55 percent, a lower percentage will exclude more messages and may include genuine messages, a higher percentage will allow more messages through so may let through more spam', 'fullworks-anti-spam' ),
         );
         $this->titles['AI'] = array(
             'title' => esc_html__( 'Artificial Intelligence', 'fullworks-anti-spam' ) . '&nbsp;<sup>(2)</sup>',
-            'tip'   => esc_html__( 'Using natural language AI learning server will make an intelligent guess at a %% as to whether user input is likely to be spam, please note as this uses third party AI servers, the message submission may be delayed by as much as 3 seconds while the service responds, if this concerns you set this to zero to not use.', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Using natural language AI learning server will provide a probability score as to whether user input is likely to be spam, please note as this uses third party AI servers, the message submission may be delayed by as much as 3 seconds while the service responds, if this concerns you set this to zero to not use.', 'fullworks-anti-spam' ),
         );
         $this->titles['Strategy'] = array(
             'title' => esc_html__( 'Strategy', 'fullworks-anti-spam' ),

@@ -11,39 +11,39 @@ class ComposerStaticInit5df31d588354c0630c5fd7df575be572
     );
 
     public static $prefixLengthsPsr4 = array (
-        'S' => 
+        'S' =>
         array (
             'Sabberworm\\CSS\\' => 15,
         ),
-        'P' => 
+        'P' =>
         array (
             'PHPAntiSpam\\' => 12,
         ),
-        'F' => 
+        'F' =>
         array (
             'Fullworks_WP_Autoloader\\' => 24,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Sabberworm\\CSS\\' => 
+        'Sabberworm\\CSS\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
-        'PHPAntiSpam\\' => 
+        'PHPAntiSpam\\' =>
         array (
             0 => __DIR__ . '/..' . '/alanef/phpantispam/src',
         ),
-        'Fullworks_WP_Autoloader\\' => 
+        'Fullworks_WP_Autoloader\\' =>
         array (
             0 => __DIR__ . '/..' . '/alanef/wp_autoloader/src',
         ),
     );
 
     public static $prefixesPsr0 = array (
-        'C' => 
+        'C' =>
         array (
-            'Composer\\Installers\\' => 
+            'Composer\\Installers\\' =>
             array (
                 0 => __DIR__ . '/..' . '/composer/installers/src',
             ),

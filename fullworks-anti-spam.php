@@ -28,7 +28,7 @@
  * Plugin Name:       Spam Protection for Contact Form 7 & WPForms ++ - No CAPTCHA
  * Plugin URI:        https://fullworksplugins.com/products/anti-spam/
  * Description:       Stop spam on Contact Form 7, WPForms, Jetpack forms & comments. Actually FREE for business use (unlike Akismet). No CAPTCHA needed, works instantly.
- * Version:           2.6
+ * Version:           2.6.1
  * Author:            Fullworks
  * Author URI:        https://fullworksplugins.com/
  * Requires at least: 5.3.0
@@ -62,7 +62,7 @@ define( 'FULLWORKS_ANTI_SPAM_PLUGIN_BASENAME', plugin_basename( __FILE__ ) );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_NAME', 'fullworks-anti-spam' );
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 
-define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.6' );
+define( 'FULLWORKS_ANTI_SPAM_PLUGIN_VERSION', '2.6.1' );
 
 /**
  * Debug helper to trace early translation loading (WP 6.7+)

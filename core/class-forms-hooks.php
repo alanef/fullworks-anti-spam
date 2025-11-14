@@ -196,7 +196,7 @@ class Forms_Hooks {
                 null,
                 array(
                     'errors' => array(
-                        'restricted' => array(esc_html__( 'Your IP or email of content looks like spam. If this is an issue contact teh website owner.', 'fullworks-anti-spam' )),
+                        'restricted' => array(esc_html__( 'Your IP or email of content looks like spam. If this is an issue contact the website owner.', 'fullworks-anti-spam' )),
                     ),
                 )
             );
@@ -310,22 +310,22 @@ class Forms_Hooks {
         if ( 'BOT' === $is_spam ) {
             return new WP_Error('jetpack-contact--bot', esc_html__( 'Are you sure you are human as that was very fast typing, please try again', 'fullworks-anti-spam' ), 403);
         } elseif ( 'DENY' === $is_spam ) {
-            return new WP_Error('jetpack-contact--deny', esc_html__( 'Message submitted from blocklisted email or IP or conatins banned text', 'fullworks-anti-spam' ), 403);
+            return new WP_Error('jetpack-contact--deny', esc_html__( 'Message submitted from blocklisted email or IP or contains banned text', 'fullworks-anti-spam' ), 403);
         } elseif ( 'IP_BLK_LST' === $is_spam ) {
             if ( 0 === (int) $this->options['days'] ) {
-                return new WP_Error('jetpack-contact--human', esc_html__( 'Message submitted from blocklisted IP', 'fullworks-anti-spam' ), 403);
+                return new WP_Error('jetpack-contact--human', esc_html__( 'IP address is blocklisted, check your IP reputation', 'fullworks-anti-spam' ), 403);
             } else {
                 return true;
             }
         } elseif ( 'SNGL_WRD' === $is_spam ) {
             if ( 0 === (int) $this->options['days'] ) {
-                return new WP_Error('jetpack-contact--human', esc_html__( 'Please write more, one word comments are not allowed', 'fullworks-anti-spam' ), 403);
+                return new WP_Error('jetpack-contact--human', esc_html__( 'Please write more, one word submissions are not allowed', 'fullworks-anti-spam' ), 403);
             } else {
                 return true;
             }
         } elseif ( 'HUMAN' === $is_spam ) {
             if ( 0 === (int) $this->options['days'] ) {
-                return new WP_Error('jetpack-contact--human', esc_html__( 'Message submitted looks like human spam', 'fullworks-anti-spam' ), 403);
+                return new WP_Error('jetpack-contact--human', esc_html__( 'Your submission looks suspicious', 'fullworks-anti-spam' ), 403);
             } else {
                 return true;
             }
@@ -494,11 +494,11 @@ class Forms_Hooks {
     private function get_sureforms_error_message( $spam_type ) {
         switch ( $spam_type ) {
             case 'BOT':
-                return esc_html__( 'Are you sure you are human? That was very fast typing, please try again', 'fullworks-anti-spam' );
+                return esc_html__( 'Are you sure you are human as that was very fast typing, please try again', 'fullworks-anti-spam' );
             case 'DENY':
                 return esc_html__( 'The website owner is blocking your email or IP', 'fullworks-anti-spam' );
             case 'IP_BLK_LST':
-                return esc_html__( 'Your IP is on industry blocklists', 'fullworks-anti-spam' );
+                return esc_html__( 'IP address is blocklisted, check your IP reputation', 'fullworks-anti-spam' );
             case 'SNGL_WRD':
                 return esc_html__( 'Please write more, one word submissions are not allowed', 'fullworks-anti-spam' );
             case 'HUMAN':

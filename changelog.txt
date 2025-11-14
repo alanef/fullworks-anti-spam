@@ -1,4 +1,8 @@
 == Changelog ==
+= 2.6.1 =
+* Fix: Translation strings consolidated and improved for better internationalization
+* Fix: WS Forms integration namespace issues resolved
+
 = 2.6 =
 * NEW: Contact Form 7 bot protection added to free version!
 * NEW: WPForms Lite bot protection added to free version!
