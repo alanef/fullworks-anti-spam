@@ -31,6 +31,9 @@
  */
 namespace Fullworks_Anti_Spam\Admin;
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 use ActionScheduler_Store;
 use Fullworks_Anti_Spam\Anti_Spam_Api;
 use Fullworks_Anti_Spam\Core\Forms_Registrations;

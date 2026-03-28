@@ -2,6 +2,8 @@
 
 namespace Fullworks_Anti_Spam;
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 use Fullworks_Anti_Spam\Core\Email_Log;
 use Fullworks_Anti_Spam\Core\Forms_Registrations;
 use Fullworks_Anti_Spam\Core\Spam_Checks;

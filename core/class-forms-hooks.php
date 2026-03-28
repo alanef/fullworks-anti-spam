@@ -25,6 +25,9 @@
  */
 namespace Fullworks_Anti_Spam\Core;
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 use Cassandra\Exception\ValidationException;
 use Fullworks_Anti_Spam\Anti_Spam_Api;
 use Fullworks_Anti_Spam\Data\Log;

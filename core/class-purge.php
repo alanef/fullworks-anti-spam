@@ -32,6 +32,9 @@
  */
 namespace Fullworks_Anti_Spam\Core;
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 use GFAPI;
 class Purge {
     /**

@@ -7,6 +7,8 @@
 
 namespace Fullworks_Anti_Spam\Admin;
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 use Fullworks_Anti_Spam\Admin\Admin_Tables;
 use Fullworks_Anti_Spam\Core\Forms_Registrations;
 use Fullworks_Anti_Spam\Core\Utilities;

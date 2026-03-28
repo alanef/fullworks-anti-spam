@@ -31,6 +31,9 @@
  */
 namespace Fullworks_Anti_Spam\Control;
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 use Gamajo_Template_Loader;
 require_once FULLWORKS_ANTI_SPAM_PLUGIN_DIR . '/vendor/gamajo/template-loader/class-gamajo-template-loader.php';
 /**

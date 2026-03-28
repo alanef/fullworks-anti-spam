@@ -1,4 +1,10 @@
 == Changelog ==
+= 2.6.2 =
+* Fix: WS Forms integration loading error when WS Form plugin not active
+* Fix: Translation loading too early warning in WordPress 6.7+
+* Fix: Database error on activation for email log table
+* Fix: Undefined array key warning for form alert settings
+
 = 2.6.1 =
 * Fix: Translation strings consolidated and improved for better internationalization
 * Fix: WS Forms integration namespace issues resolved

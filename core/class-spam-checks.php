@@ -25,6 +25,9 @@
  */
 namespace Fullworks_Anti_Spam\Core;
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 use Error;
 use Fullworks_Anti_Spam\Data\Log;
 use GFAPI;

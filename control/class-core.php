@@ -25,6 +25,9 @@
  */
 namespace Fullworks_Anti_Spam\Control;
 
+if ( !defined( 'ABSPATH' ) ) {
+    exit;
+}
 use Fullworks_Anti_Spam\Admin\Admin;
 use Fullworks_Anti_Spam\Admin\Admin_Email_View;
 use Fullworks_Anti_Spam\Admin\Admin_Settings;
@@ -40,7 +43,6 @@ use Fullworks_Anti_Spam\Core\Training_Data;
 use Fullworks_Anti_Spam\Core\Utilities;
 use Fullworks_Anti_Spam\Data\Log;
 use Fullworks_Anti_Spam\FrontEnd\FrontEnd;
-use Fullworks_Anti_Spam\Integrations\WS_Form\WS_Form_Action_Fullworks_Anti_Spam;
 /**
  * Class Core
  * @package Fullworks_Anti_Spam\Control

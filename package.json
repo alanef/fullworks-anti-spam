@@ -1,6 +1,6 @@
 {
   "name": "fullworks-anti-spam",
-  "version": "2.4.0",
+  "version": "2.6.2",
   "description": "Anti-Spam by Fullworks : GDPR Compliant Spam Protection",
   "scripts": {
     "build:css": "sass admin/css/admin.scss admin/css/admin.css --style=compressed --source-map",

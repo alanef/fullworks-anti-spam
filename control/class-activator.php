@@ -73,7 +73,7 @@ class Activator {
         global $fwas_fs;
         // create an email message log table
         $table_name = $wpdb->prefix . 'fwantispam_email_log';
-        $sql = "CREATE TABLE {$table_name} (\n\t\t\tID int NOT NULL AUTO_INCREMENT,\n\t\t\tlogdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n\t\t\tformsystem varchar(256),\n\t\t\tformid varchar(256),\n\t\t\tsubject varchar(998),\n\t\t\treplyto varchar(998),\n\t\t\ttoemail varchar(998),\n\t\t\tspam_or_ham varchar(16),\n\t\t\theaders text,\n\t\t\tmessage\ttext,\n\t\t\tPRIMARY KEY  (ID)\n\t\t) {$charset_collate};";
+        $sql = "CREATE TABLE {$table_name} (\n\t\t\tID int NOT NULL AUTO_INCREMENT,\n\t\t\tlogdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n\t\t\tformsystem varchar(256),\n\t\t\tformid varchar(256),\n\t\t\tsubject varchar(998),\n\t\t\treplyto varchar(998),\n\t\t\ttoemail varchar(998),\n\t\t\tspam_or_ham varchar(16),\n\t\t\theaders text,\n\t\t\tmessage text,\n\t\t\tPRIMARY KEY  (ID)\n\t\t) {$charset_collate};";
         dbDelta( $sql );
     }
 

@@ -2,6 +2,8 @@
 
 namespace Fullworks_Anti_Spam\Integrations\WS_Form;
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 use \WS_Form_Action;
 use \WS_Form_Common;
 
