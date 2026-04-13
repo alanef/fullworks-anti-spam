@@ -155,22 +155,26 @@ class Forms_Hooks {
     }
 
     public function fluentform( $original_validations, $form, $form_data ) {
-        $s = $form;
-        $s1 = $s['attributes'];
-        $ff = json_decode( $form['attributes']['form_fields'] );
-        $email = '';
-        foreach ( $ff->fields as $key => $value ) {
-            if ( 'input_email' === $value->element ) {
-                $email = $form_data[$value->attributes->name];
-                break;
-            }
+        $json = $this->fluentform_get_form_fields_json( $form );
+        if ( '' === $json ) {
+            return $original_validations;
         }
-        $textareas = array_filter( $ff->fields, function ( $value ) {
-            return 'textarea' === $value->element;
-        } );
+        $ff = json_decode( $json );
+        if ( !is_object( $ff ) || empty( $ff->fields ) || !is_array( $ff->fields ) ) {
+            return $original_validations;
+        }
+        $email = '';
         $message = '';
-        foreach ( $textareas as $key => $value ) {
-            $message .= $form_data[$value->attributes->name] . ' ';
+        foreach ( $ff->fields as $field ) {
+            if ( !isset( $field->element, $field->attributes->name ) ) {
+                continue;
+            }
+            $name = $field->attributes->name;
+            if ( 'input_email' === $field->element && '' === $email ) {
+                $email = (string) ($form_data[$name] ?? '');
+            } elseif ( 'textarea' === $field->element ) {
+                $message .= ($form_data[$name] ?? '') . ' ';
+            }
         }
         $is_spam = $this->api->is_spam(
             false,
@@ -205,6 +209,21 @@ class Forms_Hooks {
             );
         }
         return $original_validations;
+    }
+
+    private function fluentform_get_form_fields_json( $form ) {
+        // FluentForm 6.2+: $form is a Model instance exposing form_fields directly.
+        if ( is_object( $form ) && isset( $form->form_fields ) && is_string( $form->form_fields ) ) {
+            return $form->form_fields;
+        }
+        if ( $form instanceof \ArrayAccess && isset( $form['form_fields'] ) && is_string( $form['form_fields'] ) ) {
+            return $form['form_fields'];
+        }
+        // FluentForm <6.2: legacy array shape with attributes wrapper.
+        if ( is_array( $form ) && isset( $form['attributes']['form_fields'] ) && is_string( $form['attributes']['form_fields'] ) ) {
+            return $form['attributes']['form_fields'];
+        }
+        return '';
     }
 
     /**

@@ -1,21 +1,19 @@
-=== Stop Contact Form 7 Spam & WPForms Spam - Free Protection ===
+=== Anti-Spam Protection – No API Key, GDPR Friendly ===
 Contributors: Fullworks
 Tags: anti-spam, contact form 7, spam protection, wpforms, cf7
-Tested up to: 6.9
-Stable tag: 2.6.2
+Tested up to: 7.0
+Stable tag: 2.6.3
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium
 
-Stop Contact Form 7 spam and WPForms spam instantly. Free spam protection for business sites. No CAPTCHA. No API keys. Just works.
+Block spam on Contact Form 7, WPForms & comments. No API key. GDPR compliant. Free for commercial use. No configuration needed.
 
 == Description ==
 
 **Is Contact Form 7 spam destroying your mornings?**
 
-Every day, the same nightmare: dozens of fake submissions, worried you'll miss real customers, and other plugins want $60/year just for basic protection.
-
-This free plugin ends that nightmare today.
+No API key. No data leaving your server. No charges for commercial use. Just effective spam protection that works the moment you activate it.
 
 = What Gets Protected (FREE) =
 
@@ -205,7 +203,7 @@ That's it. No setup wizard. No configuration screens. Just instant spam protecti
 == Changelog ==
 
 
-[View full changelog](https://fullworksplugins.com/docs/anti-spam-by-fullworks/changelog/)
+[View full changelog](https://fullworksplugins.com/docs/anti-spam-by-fullworks/developer-anti-spam-by-fullworks/change-log/)
 
 == Go Pro ==
 

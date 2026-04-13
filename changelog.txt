@@ -1,4 +1,8 @@
 == Changelog ==
+= 2.6.3 =
+* Fix: Fluent Forms 6.2.0 compatibility - resolves fatal error in form validation hook caused by Fluent Forms passing a Model object instead of an array (legacy Fluent Forms versions still supported)
+* Fix: Undefined array key warning in email reports when a form integration was registered after settings were last saved (e.g. Fluent Forms)
+
 = 2.6.2 =
 * Fix: WS Forms integration loading error when WS Form plugin not active
 * Fix: Translation loading too early warning in WordPress 6.7+

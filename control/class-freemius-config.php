@@ -61,8 +61,8 @@ class Freemius_Config {
                 'has_paid_plans'   => true,
                 'navigation'       => 'tabs',
                 'trial'            => array(
-                    'days'               => 14,
-                    'is_require_payment' => false,
+                    'days'               => 30,
+                    'is_require_payment' => true,
                 ),
                 'has_affiliation'  => 'selected',
                 'menu'             => array(
