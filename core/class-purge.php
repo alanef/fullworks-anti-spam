@@ -90,6 +90,10 @@ class Purge {
             do_action( 'fwas_purge_daily' );
         }
         $this->purge_local_logs();
+        // Quarantine / Audit: hardcoded 30-day retention (premium table only).
+        if ( class_exists( '\\Fullworks_Anti_Spam\\Core\\Quarantine' ) ) {
+            \Fullworks_Anti_Spam\Core\Quarantine::purge();
+        }
         $l = ini_get( 'max_execution_time' );
         if ( $l ) {
             set_time_limit( $l );

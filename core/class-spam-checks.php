@@ -178,6 +178,8 @@ class Spam_Checks {
             return false;
             // on allow list so no other checks
         }
+        $ml_score = null;
+        // ML spam probability, set only if content checking runs.
         $option = ( 'comments' == $form_system ? 'comments' : 'forms' );
         if ( !$spam && isset( $this->options[$option] ) && $this->options[$option] && $forms[$form_system]['protection_level'] > 0 ) {
             if ( !$offline ) {

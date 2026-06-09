@@ -1,4 +1,9 @@
 == Changelog ==
+= 2.6.5 =
+* NEW: Quarantine / Audit log (Pro) - full traceability of every submission the plugin checks, allowed or blocked. See exactly what was caught and why - bot trap, ML human-spam score, single-word, your deny rules, real-time IP blocklist, or allow list - along with the analysed content, masked IP and country.
+* NEW: One-click allow/deny actions directly from the Quarantine / Audit log (by email, content keyword or IP) feeding the existing allow/deny lists.
+* NEW: Automatic 30-day retention and privacy-safe masked IP display for the audit log.
+
 = 2.6.4 =
 * Fix: Spurious "GDPR requires..." error shown when saving settings on sites with no email-log-capable forms installed (Pro only)
 

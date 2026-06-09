@@ -63,6 +63,11 @@ class Uninstall {
         $table_name = $wpdb->prefix . 'fwantispam_log';
         // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- $table_name is safe, using prefix + constant
         $wpdb->query( "DROP TABLE IF EXISTS " . $table_name );
+        // Drop remaining plugin tables (IF EXISTS, so harmless when absent in free builds).
+        foreach ( array('fwantispam_quarantine', 'fwantispam_email_log', 'fwas_diagnostics_log') as $extra_table ) {
+            // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared -- table name is safe, using prefix + constant
+            $wpdb->query( "DROP TABLE IF EXISTS " . $wpdb->prefix . $extra_table );
+        }
         /** @var \Freemius $fwantispam_fs Freemius global object. */
         global $fwas_fs;
     }

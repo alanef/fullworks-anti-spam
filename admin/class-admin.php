@@ -304,6 +304,42 @@ class Admin {
             $dbv = '2.1';
             update_option( 'fullworks_anti_spam_db_version', $dbv );
         }
+        if ( '2.1' == $dbv ) {
+            if ( !function_exists( 'dbDelta' ) ) {
+                require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+            }
+            $charset_collate = $wpdb->get_charset_collate();
+            // Quarantine / Audit table: one row per distinct submission outcome.
+            $table_name = $wpdb->prefix . 'fwantispam_quarantine';
+            $sql = "CREATE TABLE {$table_name} (\n\t\tID int NOT NULL AUTO_INCREMENT,\n\t\tfirst_seen datetime DEFAULT NULL,\n\t\tlast_seen timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n\t\tform_system varchar(64),\n\t\toutcome varchar(16),\n\t\treason varchar(16) DEFAULT NULL,\n\t\tscore float DEFAULT NULL,\n\t\temail varchar(255),\n\t\tcontent text,\n\t\tip varchar(45),\n\t\toccurrences int NOT NULL DEFAULT 1,\n\t\tpromoted varchar(32) DEFAULT NULL,\n\t\tdedup_hash char(32) NOT NULL,\n\t\tPRIMARY KEY  (ID),\n\t\tUNIQUE KEY dedup_hash (dedup_hash),\n\t\tKEY last_seen_idx (last_seen),\n\t\tKEY outcome_idx (outcome)\n\t) {$charset_collate};";
+            dbDelta( $sql );
+            $dbv = '2.2';
+            update_option( 'fullworks_anti_spam_db_version', $dbv );
+        }
+        if ( '2.2' == $dbv ) {
+            if ( !function_exists( 'dbDelta' ) ) {
+                require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+            }
+            $charset_collate = $wpdb->get_charset_collate();
+            // Add reason + score columns to the quarantine table (dbDelta adds them if missing).
+            $table_name = $wpdb->prefix . 'fwantispam_quarantine';
+            $sql = "CREATE TABLE {$table_name} (\n\t\tID int NOT NULL AUTO_INCREMENT,\n\t\tfirst_seen datetime DEFAULT NULL,\n\t\tlast_seen timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n\t\tform_system varchar(64),\n\t\toutcome varchar(16),\n\t\treason varchar(16) DEFAULT NULL,\n\t\tscore float DEFAULT NULL,\n\t\temail varchar(255),\n\t\tcontent text,\n\t\tip varchar(45),\n\t\toccurrences int NOT NULL DEFAULT 1,\n\t\tpromoted varchar(32) DEFAULT NULL,\n\t\tdedup_hash char(32) NOT NULL,\n\t\tPRIMARY KEY  (ID),\n\t\tUNIQUE KEY dedup_hash (dedup_hash),\n\t\tKEY last_seen_idx (last_seen),\n\t\tKEY outcome_idx (outcome)\n\t) {$charset_collate};";
+            dbDelta( $sql );
+            $dbv = '2.3';
+            update_option( 'fullworks_anti_spam_db_version', $dbv );
+        }
+        if ( '2.3' == $dbv ) {
+            if ( !function_exists( 'dbDelta' ) ) {
+                require_once ABSPATH . 'wp-admin/includes/upgrade.php';
+            }
+            $charset_collate = $wpdb->get_charset_collate();
+            // Add rule_matched (which allow/deny rule matched) to the quarantine table.
+            $table_name = $wpdb->prefix . 'fwantispam_quarantine';
+            $sql = "CREATE TABLE {$table_name} (\n\t\tID int NOT NULL AUTO_INCREMENT,\n\t\tfirst_seen datetime DEFAULT NULL,\n\t\tlast_seen timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,\n\t\tform_system varchar(64),\n\t\toutcome varchar(16),\n\t\treason varchar(16) DEFAULT NULL,\n\t\tscore float DEFAULT NULL,\n\t\trule_matched varchar(256) DEFAULT NULL,\n\t\temail varchar(255),\n\t\tcontent text,\n\t\tip varchar(45),\n\t\tcountry varchar(2) DEFAULT NULL,\n\t\toccurrences int NOT NULL DEFAULT 1,\n\t\tpromoted varchar(32) DEFAULT NULL,\n\t\tdedup_hash char(32) NOT NULL,\n\t\tPRIMARY KEY  (ID),\n\t\tUNIQUE KEY dedup_hash (dedup_hash),\n\t\tKEY last_seen_idx (last_seen),\n\t\tKEY outcome_idx (outcome)\n\t) {$charset_collate};";
+            dbDelta( $sql );
+            $dbv = '2.4';
+            update_option( 'fullworks_anti_spam_db_version', $dbv );
+        }
     }
 
     /**

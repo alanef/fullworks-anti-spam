@@ -164,6 +164,65 @@ class Utilities {
     }
 
     /**
+     * Mask an IP address for display (PII). The real value is kept server-side;
+     * only the masked form is ever shown to the admin.
+     *
+     * @param string $ip
+     *
+     * @return string Masked address, e.g. 192.168.x.x
+     */
+    public function mask_ip( $ip ) {
+        $ip = (string) $ip;
+        if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) ) {
+            $parts = explode( '.', $ip );
+            return $parts[0] . '.' . $parts[1] . '.x.x';
+        }
+        if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6 ) ) {
+            $parts = explode( ':', $ip );
+            return $parts[0] . ':' . ($parts[1] ?? '') . ':xxxx::';
+        }
+        return ( '' === $ip ? '' : '0.0.x.x' );
+    }
+
+    /**
+     * Best-effort 2-letter country code for the current request, captured at write
+     * time. Uses Cloudflare's edge header when present; any other source (CloudFront,
+     * MaxMind, etc.) can wire in via the fwas_audit_country filter. Returns '' when
+     * unknown — no database, no API, nothing leaves the site.
+     *
+     * @return string ISO-3166 alpha-2 code, or '' if unknown.
+     */
+    public function get_request_country() {
+        $cc = '';
+        if ( !empty( $_SERVER['HTTP_CF_IPCOUNTRY'] ) ) {
+            $candidate = strtoupper( substr( sanitize_text_field( wp_unslash( $_SERVER['HTTP_CF_IPCOUNTRY'] ) ), 0, 2 ) );
+            if ( ctype_alpha( $candidate ) ) {
+                $cc = $candidate;
+            }
+        }
+        // Escape hatch for any non-Cloudflare geo source. Passes the resolved client IP.
+        $cc = apply_filters( 'fwas_audit_country', $cc, $this->get_ip() );
+        $cc = strtoupper( substr( (string) $cc, 0, 2 ) );
+        return ( ctype_alpha( $cc ) ? $cc : '' );
+    }
+
+    /**
+     * Render a 2-letter country code as a regional-indicator flag emoji.
+     * Purely cosmetic; returns '' for anything that isn't two letters.
+     *
+     * @param string $cc
+     *
+     * @return string
+     */
+    public function country_flag( $cc ) {
+        if ( 2 !== strlen( (string) $cc ) || !ctype_alpha( $cc ) ) {
+            return '';
+        }
+        $cc = strtoupper( $cc );
+        return mb_chr( 127397 + ord( $cc[0] ) ) . mb_chr( 127397 + ord( $cc[1] ) );
+    }
+
+    /**
      * @param $option
      * @param $length
      *
@@ -238,7 +297,7 @@ class Utilities {
     }
 
     public function get_settings_page_tabs( $page ) {
-        $tabs = $this->settings_page_tabs[$page];
+        $tabs = $this->settings_page_tabs[$page] ?? array();
         ksort( $tabs );
         return $tabs;
     }

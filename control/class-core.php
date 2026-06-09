@@ -33,6 +33,8 @@ use Fullworks_Anti_Spam\Admin\Admin_Email_View;
 use Fullworks_Anti_Spam\Admin\Admin_Settings;
 use Fullworks_Anti_Spam\Admin\Admin_Table_Allow_Deny;
 use Fullworks_Anti_Spam\Admin\Admin_Table_Email_Log;
+use Fullworks_Anti_Spam\Admin\Admin_Table_Quarantine;
+use Fullworks_Anti_Spam\Admin\Admin_Quarantine_View;
 use Fullworks_Anti_Spam\Admin\Mark_Spam;
 use Fullworks_Anti_Spam\Anti_Spam_Api;
 use Fullworks_Anti_Spam\Core\Email_Log;
@@ -165,6 +167,9 @@ class Core {
             3
         );
         add_action( 'admin_menu', array($allow_deny, 'add_table_page') );
+        add_action( 'init', function () {
+        } );
+        // Quarantine / Audit Admin (premium, always available — no email_log precondition)
         add_action( 'init', function () {
         } );
         // Diagnostics Admin

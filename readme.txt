@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, contact form 7, spam protection, wpforms, cf7
 Tested up to: 7.0
-Stable tag: 2.6.4
+Stable tag: 2.6.5-beta.1
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium
@@ -215,6 +215,7 @@ Most Contact Form 7 users never need Pro - the free version eliminates their spa
 ✅ **Gravity Forms Integration** - Complete protection for premium form users
 ✅ **WooCommerce Registration Blocking** - Stop fake account spam
 ✅ **Email Quarantine** - Review and rescue any legitimate messages caught by mistake
+✅ **Quarantine / Audit Log** - Full spam traceability: see every submission the plugin checks, allowed or blocked, and exactly why it was decided (bot trap, AI human-spam score, single-word, deny rule, real-time IP blocklist or allow list) - with the analysed content, masked IP and country, plus one-click allow/deny actions to fix any mistake
 ✅ **Custom Allow/Deny Rules** - Block specific IPs, patterns, or keywords
 ✅ **IP Blocklist Checking** - Automatic blocking of known spam networks
 ✅ **Priority Support** - Get help directly from the developers
