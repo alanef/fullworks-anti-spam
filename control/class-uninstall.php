@@ -49,6 +49,7 @@ class Uninstall {
         delete_option( "fullworks_anti_spam_db_version" );
         // settings
         delete_option( 'fullworks-anti-spam' );
+        delete_option( 'fullworks_anti_spam_force_no_transmission' );
         // transients
         delete_transient( 'fullworks_anti_spam_key_name' );
         delete_transient( 'fullworks_anti_spam_key_value' );

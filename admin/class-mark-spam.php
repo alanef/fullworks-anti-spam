@@ -165,7 +165,7 @@ class Mark_Spam {
         // dont send if option sendspam = 0
         $this->body['content'] = preg_replace( '/\\R/', ' ', str_replace( self::REPLACE, ' ', $this->body['content'] ) );
         $options = get_option( 'fullworks-anti-spam' );
-        if ( isset( $options['sendspam'] ) && 0 == $options['sendspam'] || $this->freemius->is_plan_or_trial( 'gdpr, true' ) ) {
+        if ( get_option( 'fullworks_anti_spam_force_no_transmission' ) || isset( $options['sendspam'] ) && 0 == $options['sendspam'] || $this->freemius->is_plan_or_trial( 'gdpr', true ) ) {
             global $wpdb;
             $table_name = $wpdb->prefix . 'fwantispam_training_data';
             //check if $this->body['content'] message is in db update if so

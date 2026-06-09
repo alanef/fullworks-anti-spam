@@ -115,6 +115,9 @@ class Core {
         // set  cron - do it here rather than activator to cover multi sites
         if ( false === $this->options ) {
             add_option( 'fullworks-anti-spam', Admin_Settings::option_defaults( 'fullworks-anti-spam' ) );
+            // New installs enforce GDPR non-transmission (the remote Fullworks server is being retired).
+            // Existing installs never get this flag, so their behaviour and options are unchanged.
+            add_option( 'fullworks_anti_spam_force_no_transmission', 1 );
         } else {
             if ( !isset( $this->options['freemius_state_set'] ) || !$this->options['freemius_state_set'] ) {
                 if ( $this->freemius->is_anonymous() ) {
@@ -124,7 +127,7 @@ class Core {
                 }
             }
             if ( !isset( $this->options['sendspam'] ) ) {
-                if ( $this->freemius->is_anonymous() && $this->freemius->is_plan_or_trial( 'gdpr', true ) ) {
+                if ( get_option( 'fullworks_anti_spam_force_no_transmission' ) || $this->freemius->is_anonymous() && $this->freemius->is_plan_or_trial( 'gdpr', true ) ) {
                     $this->options['sendspam'] = 0;
                 } else {
                     $this->options['sendspam'] = 1;

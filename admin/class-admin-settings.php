@@ -234,7 +234,7 @@ class Admin_Settings extends Admin_Pages {
             printf( esc_html__( '%1$d of %2$d systems fully protected', 'fullworks-anti-spam' ), (int) $free_protected_count, (int) $total_installed );
             ?>
 					<strong><?php 
-            esc_html_e( ' — Missing: AI spam detection & IP blocklist', 'fullworks-anti-spam' );
+            esc_html_e( ' — Missing: Machine Learning spam detection & IP blocklist', 'fullworks-anti-spam' );
             ?></strong>
 				</p>
 			<?php 
@@ -243,7 +243,7 @@ class Admin_Settings extends Admin_Pages {
 
 			<p class="fwas-upgrade-benefits">
 				<?php 
-        esc_html_e( 'Stop manual spammers with AI • Block 10M+ spam IPs • Protect all forms • Email reports', 'fullworks-anti-spam' );
+        esc_html_e( 'Stop manual spammers with Machine Learning • Block 10M+ spam IPs • Protect all forms • Email reports', 'fullworks-anti-spam' );
         ?>
 			</p>
 
@@ -251,12 +251,12 @@ class Admin_Settings extends Admin_Pages {
         echo esc_url( $this->freemius->get_trial_url() );
         ?>" class="fwas-trial-cta">
 				<?php 
-        esc_html_e( 'Start 7-Day FREE Trial', 'fullworks-anti-spam' );
+        esc_html_e( 'Start 30-Day FREE Trial', 'fullworks-anti-spam' );
         ?>
 			</a>
 			<span class="fwas-trial-details">
 				<?php 
-        esc_html_e( 'No credit card • Cancel anytime', 'fullworks-anti-spam' );
+        esc_html_e( 'Card required • No charge if you cancel before your trial ends', 'fullworks-anti-spam' );
         ?>
 			</span>
 		</div>
@@ -328,7 +328,7 @@ class Admin_Settings extends Admin_Pages {
         );
         $this->titles['Upgrade'] = array(
             'title' => esc_html__( 'Upgrade', 'fullworks-anti-spam' ),
-            'tip'   => esc_html__( 'By upgrading you will benefit from machine learning and AI to protect against human manually input spam', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'By upgrading you will benefit from machine learning to protect against human manually input spam', 'fullworks-anti-spam' ),
         );
         $this->titles['Spam Stats Free'] = array(
             'title' => esc_html__( 'Stats', 'fullworks-anti-spam' ),
@@ -533,6 +533,10 @@ class Admin_Settings extends Admin_Pages {
     }
 
     private function add_send_spam_box() {
+        // New installs enforce GDPR non-transmission, so the transmission option is hidden.
+        if ( get_option( 'fullworks_anti_spam_force_no_transmission' ) ) {
+            return;
+        }
         $this->add_meta_box(
             'sendspam',
             /* Meta Box ID */
@@ -904,7 +908,7 @@ class Admin_Settings extends Admin_Pages {
         ?>
                         >
 						<?php 
-        $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use probability server', 'fullworks-anti-spam' );
+        $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use machine learning on your server', 'fullworks-anti-spam' );
         echo wp_kses_post( $msg );
         ?>
                     </label>
@@ -916,33 +920,39 @@ class Admin_Settings extends Admin_Pages {
 			<?php 
         if ( !$this->freemius->is_plan_or_trial( 'gdpr', true ) || 0 === $this->options['sendspam'] ) {
             ?>
+                <?php 
+            if ( !get_option( 'fullworks_anti_spam_force_no_transmission' ) ) {
+                ?>
                 <tr id="fwas-ai">
 					<?php 
-            $this->display_th( 'AI' );
-            ?>
+                $this->display_th( 'AI' );
+                ?>
                     <td>
                         <label for="fullworks-anti-spam[ai]"><input type="number"
                                                                     name="fullworks-anti-spam[ai]"
                                                                     id="fullworks-anti-spam[ai]"
                                                                     class="small-text"
                                                                     value="<?php 
-            echo (int) $opt_ai;
-            ?>"
+                echo (int) $opt_ai;
+                ?>"
                                                                     min="0"
                                                                     max="99"
 								<?php 
-            echo esc_attr( $disabled );
-            ?>>
+                echo esc_attr( $disabled );
+                ?>>
 							<?php 
-            $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use AI server', 'fullworks-anti-spam' );
-            echo wp_kses_post( $msg );
-            ?>
+                $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use private Machine Learning on your own host', 'fullworks-anti-spam' );
+                echo wp_kses_post( $msg );
+                ?>
                         </label>
                     </td>
 					<?php 
-            $this->display_tip( 'AI' );
-            ?>
+                $this->display_tip( 'AI' );
+                ?>
                 </tr>
+                <?php 
+            }
+            ?>
                 <tr id="fwas-settings-strategy">
 					<?php 
             $this->display_th( 'Strategy' );
@@ -957,7 +967,7 @@ class Admin_Settings extends Admin_Pages {
             echo esc_attr( $disabled );
             ?>>
 							<?php 
-            $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use AI server', 'fullworks-anti-spam' );
+            $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use private Machine Learning on your own host', 'fullworks-anti-spam' );
             echo wp_kses_post( $msg );
             ?>
                             <br><label for="fullworks-anti-spam[strategy]"><input type="radio"

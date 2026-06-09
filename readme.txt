@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, contact form 7, spam protection, wpforms, cf7
 Tested up to: 7.0
-Stable tag: 2.6.5
+Stable tag: 3.0.0
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium
@@ -66,7 +66,7 @@ This plugin fixes that problem. For free. Forever.
 Automated bots cause 95%+ of spam. The free version handles this completely.
 
 **PRO Version (For Advanced Needs):**
-⚡ AI-powered human spam detection
+⚡ Private Machine Learning human spam detection (runs on your own server, learns from your spam)
 ⚡ Gravity Forms integration
 ⚡ WooCommerce registration protection
 ⚡ Email quarantine for review
@@ -123,7 +123,7 @@ For detailed statistics and settings, visit Settings → Anti Spam after activat
 
 = Is this too good to be true? What's the catch? =
 
-No catch. We make money from optional Pro upgrades for advanced features like AI-powered human spam detection and Gravity Forms support. But the free version isn't a trial - it's genuinely free forever and solves most spam problems completely.
+No catch. We make money from optional Pro upgrades for advanced features like private Machine Learning human spam detection and Gravity Forms support. But the free version isn't a trial - it's genuinely free forever and solves most spam problems completely.
 
 We believe every WordPress site deserves spam protection, regardless of budget. That's why the free version is actually free - no restrictions, no time limits, no "gotchas."
 
@@ -131,7 +131,7 @@ We believe every WordPress site deserves spam protection, regardless of budget. 
 
 Yes. The vast majority of Contact Form 7 spam comes from automated bots, and this plugin blocks them completely. You'll see results immediately - typically zero spam within the first day.
 
-If you're one of the rare cases getting manually-typed spam (someone actually sitting there typing spam messages), the Pro version includes AI detection for that. But most sites never need it.
+If you're one of the rare cases getting manually-typed spam (someone actually sitting there typing spam messages), the Pro version includes private Machine Learning detection for that. But most sites never need it.
 
 = I use WPForms. Does this work for me too? =
 
@@ -209,13 +209,15 @@ That's it. No setup wizard. No configuration screens. Just instant spam protecti
 
 Most Contact Form 7 users never need Pro - the free version eliminates their spam problem completely.
 
-**But if you need advanced protection, Pro delivers:**
+**What makes Pro unique - private Machine Learning:** Unlike cloud filters that ship your visitors' messages off to an external service, the Pro classifier runs entirely on your own server. It learns from the spam *you* classify, gets smarter the more you use it, and never sends data to a third party outside your control - no external cloud service, no data sharing, no privacy trade-off.
 
-✅ **AI-Powered Human Spam Detection** - Stop manually-typed spam that gets past basic filters
+**Pro delivers:**
+
+✅ **Private Machine Learning Human Spam Detection** - Stops manually-typed spam that gets past basic filters, using Machine Learning that runs entirely on your own server and learns from *your* spam classifications - your visitors' data never leaves your site or goes to a third party outside your control
 ✅ **Gravity Forms Integration** - Complete protection for premium form users
 ✅ **WooCommerce Registration Blocking** - Stop fake account spam
 ✅ **Email Quarantine** - Review and rescue any legitimate messages caught by mistake
-✅ **Quarantine / Audit Log** - Full spam traceability: see every submission the plugin checks, allowed or blocked, and exactly why it was decided (bot trap, AI human-spam score, single-word, deny rule, real-time IP blocklist or allow list) - with the analysed content, masked IP and country, plus one-click allow/deny actions to fix any mistake
+✅ **Quarantine / Audit Log** - Full spam traceability: see every submission the plugin checks, allowed or blocked, and exactly why it was decided (bot trap, Machine Learning human-spam score, single-word, deny rule, real-time IP blocklist or allow list) - with the analysed content, masked IP and country, plus one-click allow/deny actions to fix any mistake
 ✅ **Custom Allow/Deny Rules** - Block specific IPs, patterns, or keywords
 ✅ **IP Blocklist Checking** - Automatic blocking of known spam networks
 ✅ **Priority Support** - Get help directly from the developers
@@ -226,6 +228,6 @@ Most Contact Form 7 users never need Pro - the free version eliminates their spa
 - Enterprise sites requiring advanced controls
 - Gravity Forms and WooCommerce users
 
-[Start Your Free 14-Day Pro Trial](https://fullworksplugins.com/products/anti-spam/)
+[Start Your Free 30-Day Pro Trial](https://fullworksplugins.com/products/anti-spam/)
 
-Try Pro features risk-free. No credit card required. If it's not worth it, just let the trial expire. No pressure, no hassle.
+Try Pro features risk-free for 30 days. A card is required to start, but you won't be charged if you cancel before the trial ends. No pressure, no hassle.

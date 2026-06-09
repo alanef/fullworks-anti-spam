@@ -313,7 +313,7 @@
 			html += '<div class="fwas-report-section">';
 			html += '<h4>Human Spam Analysis</h4>';
 			html += '<div class="fwas-stats-grid">';
-			html += '<div class="fwas-stat"><span class="label">AI Only:</span><span class="value">' + report.human_spam_analysis.detection_methods.ai_only + '</span></div>';
+			html += '<div class="fwas-stat"><span class="label">Machine Learning Only:</span><span class="value">' + report.human_spam_analysis.detection_methods.ai_only + '</span></div>';
 			html += '<div class="fwas-stat"><span class="label">Statistical Only:</span><span class="value">' + report.human_spam_analysis.detection_methods.statistical_only + '</span></div>';
 			html += '<div class="fwas-stat"><span class="label">Both Methods:</span><span class="value">' + report.human_spam_analysis.detection_methods.both + '</span></div>';
 			html += '</div>';
