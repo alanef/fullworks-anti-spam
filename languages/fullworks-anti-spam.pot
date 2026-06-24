@@ -1,22 +1,22 @@
-# Copyright (C) 2025 Fullworks
+# Copyright (C) 2026 Fullworks
 # This file is distributed under the GPL-3.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Spam Protection for Contact Form 7 & WPForms ++ - No CAPTCHA 2.6\n"
+"Project-Id-Version: Anti-Spam Protection – No API Key, GDPR Friendly 3.0.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fullworks-anti-spam\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2025-10-27T13:50:33+00:00\n"
+"POT-Creation-Date: 2026-06-24T16:20:46+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: fullworks-anti-spam\n"
 
 #. Plugin Name of the plugin
 #: fullworks-anti-spam.php
-msgid "Spam Protection for Contact Form 7 & WPForms ++ - No CAPTCHA"
+msgid "Anti-Spam Protection – No API Key, GDPR Friendly"
 msgstr ""
 
 #. Plugin URI of the plugin
@@ -39,808 +39,818 @@ msgstr ""
 msgid "https://fullworksplugins.com/"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:79
+#: admin/class-admin-dashboard-widget.php:80
 msgid "Anti-Spam Protection Status"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:129
+#: admin/class-admin-dashboard-widget.php:130
 msgid "Protection Coverage"
 msgstr ""
 
 #. translators: %1$d: number of protected items, %2$d: total number of items
-#: admin/class-admin-dashboard-widget.php:136
+#: admin/class-admin-dashboard-widget.php:137
 msgid "%1$d of %2$d systems protected"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:144
-#: admin/class-admin-settings.php:165
-#: admin/class-admin-settings.php:187
-#: admin/class-admin-settings.php:216
-#: core/class-forms-registrations.php:95
+#: admin/class-admin-dashboard-widget.php:145
+#: admin/class-admin-settings.php:299
+#: admin/class-admin-settings.php:321
+#: admin/class-admin-settings.php:350
+#: core/class-forms-registrations.php:136
 msgid "Comments"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:158
+#: admin/class-admin-dashboard-widget.php:159
 msgid "bot protection"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:161
+#: admin/class-admin-dashboard-widget.php:162
 msgid "upgrade for full protection"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:169
+#: admin/class-admin-dashboard-widget.php:170
 msgid "unprotected"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:185
+#: admin/class-admin-dashboard-widget.php:186
 msgid "Spam Statistics"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:207
+#: admin/class-admin-dashboard-widget.php:208
 msgid "No spam stopped yet"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:212
+#: admin/class-admin-dashboard-widget.php:213
 msgid "Last 30 days:"
 msgstr ""
 
 #. translators: %d: total spam count
-#: admin/class-admin-dashboard-widget.php:223
+#: admin/class-admin-dashboard-widget.php:224
 msgid "Total: %d items blocked"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:237
-#: admin/class-admin-settings.php:577
-#: templates__premium_only/monthly-spam-report.php:306
+#: admin/class-admin-dashboard-widget.php:238
+#: admin/class-admin-settings.php:709
+#: templates__premium_only/monthly-spam-report.php:307
 msgid "Review"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:268
+#: admin/class-admin-dashboard-widget.php:269
 msgid "spam comments blocked (last 30 days)"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:274
+#: admin/class-admin-dashboard-widget.php:275
 msgid "Start FREE PRO Trial"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:277
+#: admin/class-admin-dashboard-widget.php:278
 msgid "Protect forms and see detailed statistics"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:292
+#: admin/class-admin-dashboard-widget.php:293
 msgid "Configure Protection"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:296
+#: admin/class-admin-dashboard-widget.php:297
 msgid "Review Spam"
 msgstr ""
 
-#: admin/class-admin-dashboard-widget.php:313
-#: core/class-forms-registrations.php:175
-msgid "Gravity Forms"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:317
-#: admin/class-admin-settings.php:657
-#: core/class-forms-registrations.php:111
-#: core/class-forms-registrations.php:195
-msgid "Contact Form 7"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:321
-#: admin/class-admin-settings.php:660
-msgid "WPForms"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:325
-msgid "WooCommerce"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:329
-#: admin/class-admin-settings.php:666
-msgid "Jetpack Contact Form"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:333
-#: core/class-forms-registrations.php:271
-msgid "Quick Contact Form"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:337
-#: core/class-forms-registrations.php:260
-msgid "Quick Event Manager"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:341
-#: admin/class-admin-settings.php:663
-#: core/class-forms-registrations.php:149
-#: core/class-forms-registrations.php:308
-msgid "Fluent Forms"
-msgstr ""
-
-#: admin/class-admin-dashboard-widget.php:345
-#: core/class-forms-registrations.php:238
-msgid "WP Registrations"
-msgstr ""
-
-#: admin/class-admin-diagnostics__premium_only.php:103
-#: admin/class-admin-diagnostics__premium_only.php:104
+#: admin/class-admin-diagnostics__premium_only.php:105
+#: admin/class-admin-diagnostics__premium_only.php:106
 msgid "Diagnostics"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:38
-#: admin/class-admin-email-view__premium_only.php:39
+#: admin/class-admin-email-view__premium_only.php:40
+#: admin/class-admin-email-view__premium_only.php:41
 msgid "Email View"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:78
+#: admin/class-admin-email-view__premium_only.php:80
 msgid "Date: "
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:79
+#: admin/class-admin-email-view__premium_only.php:81
 msgid "To: "
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:80
+#: admin/class-admin-email-view__premium_only.php:82
 msgid "Reply to: "
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:81
+#: admin/class-admin-email-view__premium_only.php:83
 msgid "Forms package: "
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:84
+#: admin/class-admin-email-view__premium_only.php:86
 msgid "Headers"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:108
+#: admin/class-admin-email-view__premium_only.php:110
 #: admin/class-list-table-email-log__premium_only.php:123
+#: integrations/sureforms/class-sureforms-spam-integration__premium_only.php:236
+#: integrations/sureforms/class-sureforms-spam-integration__premium_only.php:417
 msgid "Mark as Spam"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:111
+#: admin/class-admin-email-view__premium_only.php:113
 #: admin/class-list-table-email-log__premium_only.php:120
 msgid "Mark as Ham"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:120
+#: admin/class-admin-email-view__premium_only.php:122
 msgid "Subject: "
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:183
+#: admin/class-admin-email-view__premium_only.php:185
 msgid "Return to Email List"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:188
+#: admin/class-admin-email-view__premium_only.php:190
 msgid "View Email (Spam)"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:190
+#: admin/class-admin-email-view__premium_only.php:192
 msgid "View Email (Ham)"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:264
+#: admin/class-admin-email-view__premium_only.php:266
 msgid "Email Content"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:273
+#: admin/class-admin-email-view__premium_only.php:275
 msgid "Email Action"
 msgstr ""
 
-#: admin/class-admin-email-view__premium_only.php:281
+#: admin/class-admin-email-view__premium_only.php:283
 msgid "Email Info"
 msgstr ""
 
-#: admin/class-admin-pages.php:58
-#: core/class-email-reports__premium_only.php:250
-#: core/class-email-reports__premium_only.php:270
+#: admin/class-admin-pages.php:61
+#: core/class-email-reports__premium_only.php:315
+#: core/class-email-reports__premium_only.php:335
 msgid "Anti Spam"
 msgstr ""
 
-#: admin/class-admin-pages.php:99
+#: admin/class-admin-pages.php:102
 msgid "Are you sure want to do this?"
 msgstr ""
 
-#: admin/class-admin-pages.php:201
-#: admin/class-admin-settings.php:195
+#: admin/class-admin-pages.php:204
+#: admin/class-admin-settings.php:329
 msgid "Upgrade"
 msgstr ""
 
-#: admin/class-admin-pages.php:211
-msgid "WP Comments open to anyone"
+#: admin/class-admin-pages.php:215
+msgid "WP Comments"
 msgstr ""
 
-#: admin/class-admin-pages.php:212
-msgid "You are PROTECTED against the worst bot spam.  Add rules to the Deny List to extend your protection. UPGRADE to protect comments against non bot spam using CLEVER technology"
+#: admin/class-admin-pages.php:216
+#: admin/class-admin-pages.php:237
+msgid "Bot protection active"
 msgstr ""
 
-#: admin/class-admin-pages.php:218
-msgid "WP registrations enabled"
+#: admin/class-admin-pages.php:216
+#: admin/class-admin-pages.php:237
+msgid "Upgrade for full protection"
 msgstr ""
 
-#: admin/class-admin-pages.php:219
-msgid "Protect against fake registrations with Fullworks Anti Spam Pro"
+#: admin/class-admin-pages.php:239
+msgid "Upgrade to PRO"
 msgstr ""
 
-#: admin/class-admin-pages.php:226
-msgid "Gravity Form installed"
+#: admin/class-admin-pages.php:239
+msgid "for spam protection"
 msgstr ""
 
-#: admin/class-admin-pages.php:227
-msgid "Protect against Gravity Forms spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:233
-msgid "WooCommerce installed"
-msgstr ""
-
-#: admin/class-admin-pages.php:234
-msgid "Protect against fake Woo registrations with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:240
-msgid "Contact Form 7 installed"
-msgstr ""
-
-#: admin/class-admin-pages.php:241
-msgid "Protect against CF7 spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:248
-msgid "JetPack Contact Form installed"
-msgstr ""
-
-#: admin/class-admin-pages.php:249
-msgid "Protect against against JetPack Contact Form spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:255
-msgid "Quick Contact Form installed"
-msgstr ""
-
-#: admin/class-admin-pages.php:256
-msgid "Protect against against Quick Contact Form spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:262
-msgid "Quick Event Manager installed"
-msgstr ""
-
-#: admin/class-admin-pages.php:263
-msgid "Protect against against Quick Event Manager registration spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:269
-msgid "WP Forms installed"
-msgstr ""
-
-#: admin/class-admin-pages.php:270
-msgid "Protect against against WP Forms spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:276
-msgid "Fluent Forms installed"
-msgstr ""
-
-#: admin/class-admin-pages.php:277
-msgid "Protect against against Fluent Forms spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:283
-msgid "Contact Form: Clean and Simple"
-msgstr ""
-
-#: admin/class-admin-pages.php:284
-msgid "Protect against against Contact Form: Clean and Simple, spam with Fullworks Anti Spam Pro"
-msgstr ""
-
-#: admin/class-admin-pages.php:293
+#: admin/class-admin-pages.php:251
 msgid "Start my FREE trial of PRO"
 msgstr ""
 
-#: admin/class-admin-pages.php:316
+#: admin/class-admin-pages.php:274
 msgid "Save Options"
 msgstr ""
 
-#: admin/class-admin-pages.php:341
+#: admin/class-admin-pages.php:299
 msgid "Reset Settings"
 msgstr ""
 
-#: admin/class-admin-pages.php:346
+#: admin/class-admin-pages.php:304
 #: admin/js/admin.js:72
 #: admin/js/admin.js:158
 msgid "Save"
 msgstr ""
 
-#: admin/class-admin-settings.php:79
+#: admin/class-admin-quarantine-view__premium_only.php:46
+#: admin/class-admin-quarantine-view__premium_only.php:47
+msgid "Quarantine View"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:85
+msgid "Quarantine / Audit — Item"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:86
+msgid "Back to list"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:89
+msgid "Item not found (it may have aged out)."
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:94
+#: admin/class-list-table-quarantine__premium_only.php:91
+msgid "Outcome"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:98
+msgid "Detail"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:102
+#: admin/class-list-table-quarantine__premium_only.php:90
+msgid "Form"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:106
+#: admin/class-list-table-allow-deny.php:125
+#: admin/class-list-table-quarantine__premium_only.php:92
+#: admin/js/admin.js:62
+#: admin/js/admin.js:135
+#: admin/js/admin.js:188
+msgid "Email"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:110
+msgid "IP (masked)"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:114
+#: admin/class-list-table-quarantine__premium_only.php:96
+msgid "Country"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:123
+msgid "Occurrences"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:127
+msgid "First seen"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:131
+msgid "Last seen"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:136
+msgid "Analysed content (normalized)"
+msgstr ""
+
+#: admin/class-admin-quarantine-view__premium_only.php:138
+msgid "This is the text the spam engine evaluated, merged from the submission fields — not a verbatim copy of the original submission."
+msgstr ""
+
+#: admin/class-admin-settings.php:83
 msgid "Anti Spam Settings"
 msgstr ""
 
-#: admin/class-admin-settings.php:166
+#: admin/class-admin-settings.php:201
+#: admin/class-admin-table-allow-deny.php:229
+msgid "Unlock Full Protection"
+msgstr ""
+
+#. translators: %1$d: number of protected forms, %2$d: total forms
+#: admin/class-admin-settings.php:207
+#: admin/class-admin-table-allow-deny.php:235
+msgid "%1$d of %2$d systems fully protected"
+msgstr ""
+
+#: admin/class-admin-settings.php:209
+#: admin/class-admin-table-allow-deny.php:237
+msgid " — Missing: Machine Learning spam detection & IP blocklist"
+msgstr ""
+
+#: admin/class-admin-settings.php:214
+#: admin/class-admin-table-allow-deny.php:242
+msgid "Stop manual spammers with Machine Learning • Block 10M+ spam IPs • Protect all forms • Email reports"
+msgstr ""
+
+#: admin/class-admin-settings.php:218
+#: admin/class-admin-table-allow-deny.php:246
+msgid "Start 30-Day FREE Trial"
+msgstr ""
+
+#: admin/class-admin-settings.php:221
+#: admin/class-admin-table-allow-deny.php:249
+msgid "Card required • No charge if you cancel before your trial ends"
+msgstr ""
+
+#: admin/class-admin-settings.php:300
 msgid "Kill automated (bot) spam without Captcha or other annoying user quizes"
 msgstr ""
 
-#: admin/class-admin-settings.php:170
+#: admin/class-admin-settings.php:304
 msgid "Keep Spam"
 msgstr ""
 
-#: admin/class-admin-settings.php:171
+#: admin/class-admin-settings.php:305
 msgid "Select the number of days to keep spam, when spam is logged. Select 0 to discard immediately"
 msgstr ""
 
-#: admin/class-admin-settings.php:174
-#: admin/class-admin-settings.php:244
+#: admin/class-admin-settings.php:308
+#: admin/class-admin-settings.php:378
 msgid "Email Logs"
 msgstr ""
 
-#: admin/class-admin-settings.php:175
+#: admin/class-admin-settings.php:309
 msgid "Select the number of days to keep email logs. Select 0 to discard immediately"
 msgstr ""
 
-#: admin/class-admin-settings.php:178
+#: admin/class-admin-settings.php:312
 msgid "Send spam email to:"
 msgstr ""
 
-#: admin/class-admin-settings.php:179
+#: admin/class-admin-settings.php:313
 msgid ""
 "Your contact form will still send you some spam emails marked as spam in the subject and headers, it is recommended\n"
 "\t\t\t\t\tto set a separate email to avoid clutter, leave blank and it will default to your form settings"
 msgstr ""
 
-#: admin/class-admin-settings.php:183
-#: admin/class-admin-settings.php:191
-#: admin/class-admin-settings.php:220
+#: admin/class-admin-settings.php:317
+#: admin/class-admin-settings.php:325
+#: admin/class-admin-settings.php:354
 msgid "Forms"
 msgstr ""
 
-#: admin/class-admin-settings.php:184
+#: admin/class-admin-settings.php:318
 msgid "Forms types protected, without Captcha, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations"
 msgstr ""
 
-#: admin/class-admin-settings.php:188
+#: admin/class-admin-settings.php:322
 msgid "Refuse comments from IP addresses that are on an IP blocklist"
 msgstr ""
 
-#: admin/class-admin-settings.php:192
+#: admin/class-admin-settings.php:326
 msgid "Reject form submissions from IPs with a bad reputation, Gravity Forms, Contact Form 7, WPForms, WP Registration and WooCommerce Registrations"
 msgstr ""
 
-#: admin/class-admin-settings.php:196
-msgid "By upgrading you will benefit from machine learning and AI to protect against human manually input spam"
+#: admin/class-admin-settings.php:330
+msgid "By upgrading you will benefit from machine learning to protect against human manually input spam"
 msgstr ""
 
-#: admin/class-admin-settings.php:199
-#: admin/class-admin-settings.php:248
-#: admin/class-admin-settings.php:366
+#: admin/class-admin-settings.php:333
+#: admin/class-admin-settings.php:382
+#: admin/class-admin-settings.php:500
 msgid "Stats"
 msgstr ""
 
-#: admin/class-admin-settings.php:200
+#: admin/class-admin-settings.php:334
 msgid "Upgraded version will automatically email spam statistics"
 msgstr ""
 
-#: admin/class-admin-settings.php:203
+#: admin/class-admin-settings.php:337
 msgid "Statistical Analysis"
 msgstr ""
 
-#: admin/class-admin-settings.php:204
-msgid "Set the desired spam probability filter %%, default is 55%%, a lower %% will exclude more messages and may include genuine messages, a higher %% will allow more messages through so may let through more spam"
+#: admin/class-admin-settings.php:338
+msgid "Set the desired spam probability filter percentage, default is 55 percent, a lower percentage will exclude more messages and may include genuine messages, a higher percentage will allow more messages through so may let through more spam"
 msgstr ""
 
-#: admin/class-admin-settings.php:207
+#: admin/class-admin-settings.php:341
 msgid "Artificial Intelligence"
 msgstr ""
 
-#: admin/class-admin-settings.php:208
-msgid "Using natural language AI learning server will make an intelligent guess at a %% as to whether user input is likely to be spam, please note as this uses thord party AI servers, the message submission may be delayed by as much as 3 seconds while the service responds, if this concerns you set this to zero to not use."
+#: admin/class-admin-settings.php:342
+msgid "Using natural language AI learning server will provide a probability score as to whether user input is likely to be spam, please note as this uses third party AI servers, the message submission may be delayed by as much as 3 seconds while the service responds, if this concerns you set this to zero to not use."
 msgstr ""
 
-#: admin/class-admin-settings.php:211
+#: admin/class-admin-settings.php:345
 msgid "Strategy"
 msgstr ""
 
-#: admin/class-admin-settings.php:212
+#: admin/class-admin-settings.php:346
 msgid "Decide if you want both machine methods to indicate spam to mark as spam- conservative -or just one method - aggressive. Normally you would choose 'aggressive' but if for instance your site is about adult content or sells SEO so valid messages may seem spammy you may want to try 'conservative'"
 msgstr ""
 
-#: admin/class-admin-settings.php:217
+#: admin/class-admin-settings.php:351
 msgid "Use machine learning technology to filter out comment spam from human beings"
 msgstr ""
 
-#: admin/class-admin-settings.php:221
+#: admin/class-admin-settings.php:355
 msgid "Forms types protected, without Captcha, Gravity Forms, Contact Form 7, WPForms, Fusion Forms, QEM, QCF, WP Registration and WooCommerce Registrations"
 msgstr ""
 
-#: admin/class-admin-settings.php:224
+#: admin/class-admin-settings.php:358
 msgid "Single Words"
 msgstr ""
 
-#: admin/class-admin-settings.php:225
+#: admin/class-admin-settings.php:359
 msgid "Single words, often random in text areas, can be a sign of spam, check this option to always decide one word answers are always spam"
 msgstr ""
 
-#: admin/class-admin-settings.php:228
+#: admin/class-admin-settings.php:362
 msgid "Spam transmission"
 msgstr ""
 
-#: admin/class-admin-settings.php:229
+#: admin/class-admin-settings.php:363
 msgid ""
 "Disabling transmission ensures complete privacy for website visitor messages and comments which enables easy compliance with privacy laws such as GDPR and UK GDPR without relying on Data Processing Agreements (DPA) and\n"
 "\t\t\t Standard Contractual Clauses (SCC) if you want to enable transmission to Fullworks and would like a DPA and SCC please contact support. Disabling will mean that AI can not be used and remote Statistical Analysis will not happen resulting in potentially\n"
 "\t\t\t lower correct classification of human spam. Bot and IP Blocklist and Local Statistical Analysis spam detection remains the same."
 msgstr ""
 
-#: admin/class-admin-settings.php:234
+#: admin/class-admin-settings.php:368
 msgid "Spam to Email"
 msgstr ""
 
-#: admin/class-admin-settings.php:235
+#: admin/class-admin-settings.php:369
 msgid "Some forms we can't stop email being sent even when we detect spam so to handle this you can set up a different email address so you can direct to spam folders. Leaving blank will send the email to whatever is set up in the forms with a modified subject lime."
 msgstr ""
 
-#: admin/class-admin-settings.php:240
+#: admin/class-admin-settings.php:374
 msgid "Email reports to:"
 msgstr ""
 
-#: admin/class-admin-settings.php:241
+#: admin/class-admin-settings.php:375
 msgid "This email will be used by the plugin to send all notifications from the plugin. It can be different to the site administrator email"
 msgstr ""
 
-#: admin/class-admin-settings.php:245
-msgid "As some forms packages donot auto maticcaly logs emails and spam fully we logs these so you can check spam and mark false positives as ham, set retention for privacy or zero to not log"
+#: admin/class-admin-settings.php:379
+msgid "As some forms packages do not automatically log emails and spam fully we log these so you can check spam and mark false positives as ham, set retention for privacy or zero to not log"
 msgstr ""
 
-#: admin/class-admin-settings.php:249
+#: admin/class-admin-settings.php:383
 msgid "Monthly summary email of spam block statistics"
 msgstr ""
 
-#: admin/class-admin-settings.php:252
+#: admin/class-admin-settings.php:386
 msgid "Send Alerts"
 msgstr ""
 
-#: admin/class-admin-settings.php:253
+#: admin/class-admin-settings.php:387
 msgid "Send more frequent alerts when there is spam to review.  As you can get false positives with human and IP blocklist detection it is important to check spam just in case."
 msgstr ""
 
-#: admin/class-admin-settings.php:256
+#: admin/class-admin-settings.php:390
 msgid "Fullworks Anti Spam Diagnostics"
 msgstr ""
 
-#: admin/class-admin-settings.php:257
+#: admin/class-admin-settings.php:391
 msgid "Capture detailed diagnostic logs with spam detection analysis and submission tracking. View logs and generate analysis reports via REST API."
 msgstr ""
 
-#: admin/class-admin-settings.php:263
+#: admin/class-admin-settings.php:397
 msgid "Dashboard Widget"
 msgstr ""
 
-#: admin/class-admin-settings.php:264
+#: admin/class-admin-settings.php:398
 msgid "Display spam protection status and statistics on the WordPress dashboard. Shows protection coverage for installed form systems and recent spam blocking activity."
 msgstr ""
 
-#: admin/class-admin-settings.php:283
-#: admin/class-admin-settings.php:300
-#: admin/class-admin-settings.php:306
-#: admin/class-admin-settings.php:307
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:301
+#: admin/class-admin-settings.php:417
+#: admin/class-admin-settings.php:434
+#: admin/class-admin-settings.php:440
+#: admin/class-admin-settings.php:441
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:311
 msgid "Settings"
 msgstr ""
 
-#: admin/class-admin-settings.php:301
+#: admin/class-admin-settings.php:435
 msgid "Documentation"
 msgstr ""
 
-#: admin/class-admin-settings.php:327
+#: admin/class-admin-settings.php:461
 msgid "Settings reset to defaults."
 msgstr ""
 
-#: admin/class-admin-settings.php:345
+#: admin/class-admin-settings.php:479
 msgid "Bot Spam Protection"
 msgstr ""
 
-#: admin/class-admin-settings.php:355
+#: admin/class-admin-settings.php:489
 msgid "IP Blocklist Checking"
 msgstr ""
 
-#: admin/class-admin-settings.php:378
+#: admin/class-admin-settings.php:512
 msgid "Diagnostics & Analysis"
 msgstr ""
 
-#: admin/class-admin-settings.php:390
+#: admin/class-admin-settings.php:524
 msgid "Human Spam Protection"
 msgstr ""
 
-#: admin/class-admin-settings.php:409
+#: admin/class-admin-settings.php:543
 msgid "Administration"
 msgstr ""
 
-#: admin/class-admin-settings.php:423
+#: admin/class-admin-settings.php:561
 msgid "Site visitor privacy [GDPR safe]"
 msgstr ""
 
-#: admin/class-admin-settings.php:540
+#: admin/class-admin-settings.php:671
 msgid "GDPR requires that you keep personal information for only also long as necessary, please enter a number of days for Email Logs greater than zero"
 msgstr ""
 
-#: admin/class-admin-settings.php:557
+#: admin/class-admin-settings.php:689
 msgid "No spam stopped yet, be patient it will come soon enough"
 msgstr ""
 
-#: admin/class-admin-settings.php:562
+#: admin/class-admin-settings.php:694
 msgid "Spam stopped in the last 30 days"
 msgstr ""
 
-#: admin/class-admin-settings.php:600
+#: admin/class-admin-settings.php:732
 msgid "Enable"
 msgstr ""
 
-#: admin/class-admin-settings.php:606
+#: admin/class-admin-settings.php:738
 msgid "View Diagnostics"
 msgstr ""
 
-#: admin/class-admin-settings.php:624
+#: admin/class-admin-settings.php:756
 msgid "Enable bot spam protection for comments"
 msgstr ""
 
-#: admin/class-admin-settings.php:652
+#: admin/class-admin-settings.php:784
 msgid "Enable bot spam protection for forms input"
 msgstr ""
 
 #. translators: %s: comma-separated list of form names
-#: admin/class-admin-settings.php:672
+#: admin/class-admin-settings.php:793
 msgid "Bot protection enabled for %s."
 msgstr ""
 
-#: admin/class-admin-settings.php:675
-#: admin/class-admin-settings.php:678
-#: admin/class-admin-settings.php:744
-#: admin/class-admin-settings.php:771
-#: admin/class-admin-settings.php:822
-#: admin/class-admin-settings.php:846
-#: admin/class-admin-settings.php:873
-#: admin/class-admin-settings.php:903
-#: admin/class-admin-settings.php:927
-#: admin/class-admin-settings.php:944
-#: admin/class-admin-settings.php:970
+#: admin/class-admin-settings.php:796
+#: admin/class-admin-settings.php:799
+#: admin/class-admin-settings.php:865
+#: admin/class-admin-settings.php:892
+#: admin/class-admin-settings.php:943
+#: admin/class-admin-settings.php:967
+#: admin/class-admin-settings.php:994
+#: admin/class-admin-settings.php:1025
+#: admin/class-admin-settings.php:1050
+#: admin/class-admin-settings.php:1067
+#: admin/class-admin-settings.php:1093
+#: admin/class-admin-settings.php:1308
 msgid "Activate the FREE trial"
 msgstr ""
 
-#: admin/class-admin-settings.php:676
+#: admin/class-admin-settings.php:797
 msgid "for full protection (human spam + IP blocklist) on all forms"
 msgstr ""
 
-#: admin/class-admin-settings.php:679
+#: admin/class-admin-settings.php:800
 msgid "to enable bot spam protection for forms input"
 msgstr ""
 
-#: admin/class-admin-settings.php:744
+#: admin/class-admin-settings.php:865
 msgid "to remove more spam by IP blocklist checking for comments"
 msgstr ""
 
-#: admin/class-admin-settings.php:747
+#: admin/class-admin-settings.php:868
 msgid "Enable IP blocklist checking for comment input"
 msgstr ""
 
-#: admin/class-admin-settings.php:772
+#: admin/class-admin-settings.php:893
 msgid "to enable IP blocklist checking for forms input"
 msgstr ""
 
-#: admin/class-admin-settings.php:775
+#: admin/class-admin-settings.php:896
 msgid "Enable IP blocklist checking for forms input"
 msgstr ""
 
-#: admin/class-admin-settings.php:823
+#: admin/class-admin-settings.php:944
 msgid "to protect comments from humans"
 msgstr ""
 
-#: admin/class-admin-settings.php:826
+#: admin/class-admin-settings.php:947
 msgid "Enable human spam protection for comments"
 msgstr ""
 
-#: admin/class-admin-settings.php:847
+#: admin/class-admin-settings.php:968
 msgid "to protect forms from humans"
 msgstr ""
 
-#: admin/class-admin-settings.php:850
+#: admin/class-admin-settings.php:971
 msgid "Enable human spam protection for forms input"
 msgstr ""
 
-#: admin/class-admin-settings.php:874
-msgid "to use probability server"
+#: admin/class-admin-settings.php:995
+msgid "to use machine learning on your server"
 msgstr ""
 
-#: admin/class-admin-settings.php:877
-msgid "% ( default 55% ) statistical spam server learns from historical spam data to determine a probability. Set to zero to turn off."
+#: admin/class-admin-settings.php:998
+msgid "% ( default 55% ) machine learning on your own server learns from the spam you classify to determine a probability. Set to zero to turn off."
 msgstr ""
 
-#: admin/class-admin-settings.php:904
-#: admin/class-admin-settings.php:928
-msgid "to use AI server"
+#: admin/class-admin-settings.php:1026
+#: admin/class-admin-settings.php:1051
+msgid "to use private Machine Learning on your own host"
 msgstr ""
 
-#: admin/class-admin-settings.php:907
+#: admin/class-admin-settings.php:1029
 msgid "% ( default 75% ) the AI spam server uses natural language artificial intelligence to classify likely spam. Set to zero to turn off."
 msgstr ""
 
-#: admin/class-admin-settings.php:931
+#: admin/class-admin-settings.php:1054
 msgid "Conservative - both (1) AND (2) suspect spam"
 msgstr ""
 
-#: admin/class-admin-settings.php:945
+#: admin/class-admin-settings.php:1068
 msgid "to select machine strategies"
 msgstr ""
 
-#: admin/class-admin-settings.php:948
+#: admin/class-admin-settings.php:1071
 msgid "Aggressive - either (1) OR (2) suspect spam"
 msgstr ""
 
-#: admin/class-admin-settings.php:971
+#: admin/class-admin-settings.php:1094
 msgid "to decide single words are spam answers"
 msgstr ""
 
-#: admin/class-admin-settings.php:974
+#: admin/class-admin-settings.php:1097
 msgid "Enable to decide single words are spam answers"
 msgstr ""
 
-#: admin/class-admin-settings.php:1002
+#: admin/class-admin-settings.php:1125
 msgid "Allow transmission of visitor messages to Fullworks for spam classification by AI and Machine Learning Analysis"
 msgstr ""
 
-#: admin/class-admin-settings.php:1028
-#: admin/class-admin-settings.php:1047
+#: admin/class-admin-settings.php:1151
+#: admin/class-admin-settings.php:1170
 msgid "Days"
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
-#: admin/class-admin-settings.php:1056
+#: admin/class-admin-settings.php:1179
 msgid "Email Log has been enabled in a tab above, to allow you to mark spam / ham for %s."
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
-#: admin/class-admin-settings.php:1063
+#: admin/class-admin-settings.php:1186
 msgid "Email Log has been disabled, if you want to mark spam / ham for %s, then sets days to a number more than zero."
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
-#: admin/class-admin-settings.php:1086
+#: admin/class-admin-settings.php:1209
 msgid "Redirect spam emails to this address for %s as these forms we can not stop them sending something."
 msgstr ""
 
-#: admin/class-admin-settings.php:1102
+#: admin/class-admin-settings.php:1225
 msgid "Enable monthly spam stats summary email"
 msgstr ""
 
-#: admin/class-admin-settings.php:1118
+#: admin/class-admin-settings.php:1241
 msgid "No alerts"
 msgstr ""
 
-#: admin/class-admin-settings.php:1119
+#: admin/class-admin-settings.php:1242
 msgid "Daily"
 msgstr ""
 
-#: admin/class-admin-settings.php:1120
+#: admin/class-admin-settings.php:1243
 msgid "Every 2 days"
 msgstr ""
 
-#: admin/class-admin-settings.php:1121
+#: admin/class-admin-settings.php:1244
 msgid "Weekly"
 msgstr ""
 
-#: admin/class-admin-settings.php:1123
+#: admin/class-admin-settings.php:1246
 msgid "Send reminders when there is spam to check"
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
-#: admin/class-admin-settings.php:1142
+#: admin/class-admin-settings.php:1265
 msgid "Alert form spam ( %s )"
 msgstr ""
 
-#: admin/class-admin-settings.php:1173
+#: admin/class-admin-settings.php:1296
 msgid "Show spam stats in dashboard"
 msgstr ""
 
-#: admin/class-admin-settings.php:1190
-msgid "Activate the FREE trial "
-msgstr ""
-
-#: admin/class-admin-settings.php:1191
+#: admin/class-admin-settings.php:1310
 msgid "for spam statistics auto reporting by email"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:27
-#: admin/class-admin-table-allow-deny.php:34
-#: admin/class-admin-table-allow-deny.php:35
+#: admin/class-admin-table-allow-deny.php:32
+#: admin/class-admin-table-allow-deny.php:39
+#: admin/class-admin-table-allow-deny.php:40
 msgid "Allow / Deny List"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:48
+#: admin/class-admin-table-allow-deny.php:53
 msgid "Rules"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:59
+#: admin/class-admin-table-allow-deny.php:73
 msgid "Add New"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:60
-#: admin/class-admin-table-email-log__premium_only.php:60
+#: admin/class-admin-table-allow-deny.php:74
+#: admin/class-admin-table-email-log__premium_only.php:62
 #: admin/class-list-table-allow-deny.php:101
 msgid "Allow / Deny"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:63
+#: admin/class-admin-table-allow-deny.php:77
 msgid "Upload CSV file"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:127
+#: admin/class-admin-table-allow-deny.php:142
 msgid "Invalid email or email pattern"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:137
+#: admin/class-admin-table-allow-deny.php:152
 msgid "Invalid string or regular expression"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:142
+#: admin/class-admin-table-allow-deny.php:157
 msgid "Invalid IP or IP Subnet"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:163
+#: admin/class-admin-table-allow-deny.php:178
 msgid "Error inserting allow / deny data"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:180
+#: admin/class-admin-table-allow-deny.php:195
 msgid "Error updating allow / deny data"
 msgstr ""
 
-#: admin/class-admin-table-allow-deny.php:183
+#: admin/class-admin-table-allow-deny.php:198
 msgid "Record Saved"
 msgstr ""
 
-#: admin/class-admin-table-email-log__premium_only.php:27
-#: admin/class-admin-table-email-log__premium_only.php:34
-#: admin/class-admin-table-email-log__premium_only.php:35
+#: admin/class-admin-table-email-log__premium_only.php:29
+#: admin/class-admin-table-email-log__premium_only.php:36
+#: admin/class-admin-table-email-log__premium_only.php:37
 msgid "Email Log"
 msgstr ""
 
-#: admin/class-admin-table-email-log__premium_only.php:48
+#: admin/class-admin-table-email-log__premium_only.php:50
+#: admin/class-admin-table-quarantine__premium_only.php:44
 msgid "Entries"
 msgstr ""
 
-#: admin/class-admin.php:103
+#: admin/class-admin-table-quarantine__premium_only.php:23
+#: admin/class-admin-table-quarantine__premium_only.php:30
+#: admin/class-admin-table-quarantine__premium_only.php:31
+#: admin/class-admin-table-quarantine__premium_only.php:54
+msgid "Quarantine / Audit"
+msgstr ""
+
+#: admin/class-admin-table-quarantine__premium_only.php:63
+msgid "A record of submissions the plugin checked, both allowed and blocked. Items are automatically removed after 30 days and IP addresses are masked for privacy."
+msgstr ""
+
+#: admin/class-admin-table-quarantine__premium_only.php:70
+msgid "Search"
+msgstr ""
+
+#: admin/class-admin.php:108
 msgid "Fullworks Anti Spam general settings"
 msgstr ""
 
-#: admin/class-admin.php:122
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:19
+#: admin/class-admin.php:127
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:52
 msgid "Fullworks Anti Spam"
 msgstr ""
 
-#: admin/class-admin.php:125
+#: admin/class-admin.php:130
 msgid "Enable IP blockist Checking"
 msgstr ""
 
-#: admin/class-admin.php:129
+#: admin/class-admin.php:134
 msgid "This controls IP block list checking at a form level initial default will be from Fullworks Anti Spam General settings"
 msgstr ""
 
-#: admin/class-admin.php:133
+#: admin/class-admin.php:138
 msgid "Enable Content Checking (Human Spam)"
 msgstr ""
 
-#: admin/class-admin.php:137
+#: admin/class-admin.php:142
 msgid "This controls content checking for HUMAN input spam at a form level initial default will be from Fullworks Anti Spam General settings"
 msgstr ""
 
-#: admin/class-admin.php:158
-#: admin/class-admin.php:221
+#: admin/class-admin.php:163
+#: admin/class-admin.php:226
 msgid "You do not have sufficient permissions to access this page."
 msgstr ""
 
-#: admin/class-admin.php:319
+#: admin/class-admin.php:324
 msgid "No file was uploaded."
+msgstr ""
+
+#: admin/class-admin.php:605
+msgid "Permission denied"
+msgstr ""
+
+#: admin/class-admin.php:612
+msgid "Notice dismissed"
 msgstr ""
 
 #: admin/class-list-table-allow-deny.php:30
 #: admin/class-list-table-email-log__premium_only.php:30
+#: admin/class-list-table-quarantine__premium_only.php:43
 msgid "No current items"
 msgstr ""
 
@@ -853,6 +863,7 @@ msgid "Import from CSV"
 msgstr ""
 
 #: admin/class-list-table-allow-deny.php:92
+#: admin/class-list-table-quarantine__premium_only.php:69
 msgid "All"
 msgstr ""
 
@@ -877,18 +888,12 @@ msgid "Notes"
 msgstr ""
 
 #: admin/class-list-table-allow-deny.php:123
+#: admin/class-list-table-quarantine__premium_only.php:95
 #: admin/templates/diagnostics-page__premium_only.php:174
 #: admin/js/admin.js:60
 #: admin/js/admin.js:134
 #: admin/js/admin.js:188
 msgid "IP"
-msgstr ""
-
-#: admin/class-list-table-allow-deny.php:125
-#: admin/js/admin.js:62
-#: admin/js/admin.js:135
-#: admin/js/admin.js:188
-msgid "Email"
 msgstr ""
 
 #: admin/class-list-table-allow-deny.php:127
@@ -902,6 +907,7 @@ msgstr ""
 #: admin/class-list-table-allow-deny.php:157
 #: admin/class-list-table-email-log__premium_only.php:103
 #: admin/class-list-table-email-log__premium_only.php:130
+#: admin/class-list-table-quarantine__premium_only.php:120
 msgid "Delete"
 msgstr ""
 
@@ -928,6 +934,7 @@ msgid "Ham"
 msgstr ""
 
 #: admin/class-list-table-email-log__premium_only.php:71
+#: integrations/sureforms/class-sureforms-spam-integration__premium_only.php:101
 msgid "Spam"
 msgstr ""
 
@@ -936,7 +943,8 @@ msgid "Subject"
 msgstr ""
 
 #: admin/class-list-table-email-log__premium_only.php:81
-#: core/class-email-log__premium_only.php:123
+#: admin/class-list-table-quarantine__premium_only.php:93
+#: core/class-email-log__premium_only.php:125
 msgid "Checked Content"
 msgstr ""
 
@@ -945,11 +953,94 @@ msgid "From"
 msgstr ""
 
 #: admin/class-list-table-email-log__premium_only.php:83
+#: admin/class-list-table-quarantine__premium_only.php:89
 msgid "Date"
 msgstr ""
 
 #: admin/class-list-table-email-log__premium_only.php:128
+#: admin/class-list-table-quarantine__premium_only.php:213
 msgid "View"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:94
+msgid "Count"
+msgstr ""
+
+#. translators: %d is a spam-likelihood percentage.
+#: admin/class-list-table-quarantine__premium_only.php:175
+msgid "ML spam score: %d%%"
+msgstr ""
+
+#. translators: %d is a spam-likelihood percentage.
+#: admin/class-list-table-quarantine__premium_only.php:175
+msgid "ML content spam"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:177
+msgid "Single word"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:179
+msgid "On real-time IP blocklist (RBL)"
+msgstr ""
+
+#. translators: %s is the matched deny rule.
+#: admin/class-list-table-quarantine__premium_only.php:182
+msgid "Deny rule (%s)"
+msgstr ""
+
+#. translators: %s is the matched deny rule.
+#: admin/class-list-table-quarantine__premium_only.php:182
+msgid "Deny rule"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:184
+msgid "Bot trap"
+msgstr ""
+
+#. translators: %s is the matched allow rule.
+#: admin/class-list-table-quarantine__premium_only.php:187
+msgid "On allow list (%s)"
+msgstr ""
+
+#. translators: %s is the matched allow rule.
+#: admin/class-list-table-quarantine__premium_only.php:187
+msgid "On allow list"
+msgstr ""
+
+#. translators: %d is a spam-likelihood percentage.
+#: admin/class-list-table-quarantine__premium_only.php:191
+msgid "No spam detected (ML score: %d%%)"
+msgstr ""
+
+#. translators: %d is a spam-likelihood percentage.
+#: admin/class-list-table-quarantine__premium_only.php:191
+msgid "No spam detected (content not scored)"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:216
+msgid "Allow email"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:217
+msgid "Deny email"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:219
+msgid "Deny IP"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:221
+msgid "Deny content"
+msgstr ""
+
+#: admin/class-list-table-quarantine__premium_only.php:226
+msgid "✓ rule created"
+msgstr ""
+
+#. translators: %d is the quarantine record ID.
+#: admin/class-list-table-quarantine__premium_only.php:401
+msgid "From Quarantine #%d"
 msgstr ""
 
 #: admin/templates/diagnostics-page__premium_only.php:22
@@ -1144,210 +1235,212 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: control/class-core.php:203
-msgid "28 Days"
-msgstr ""
-
-#: control/class-core.php:207
-msgid "Every Two Days"
-msgstr ""
-
-#: control/class-freemius-config.php:109
+#: control/class-freemius-config.php:103
 msgid "Notify Spam to Fullworks"
 msgstr ""
 
-#: control/class-freemius-config.php:110
+#: control/class-freemius-config.php:104
 msgid "Allow spam messages to be sent to Fullworks for the purpose of improving spam detection, if you want to opt out of this specific option you can do on the settings page"
 msgstr ""
 
-#: control/class-freemius-config.php:112
+#: control/class-freemius-config.php:106
 msgid "When you manually mark a comment or other item as spam or not spam the data will be send to Fullworks for the purpose of improving spam detection"
 msgstr ""
 
-#: core/class-email-reports__premium_only.php:107
-#: core/class-email-reports__premium_only.php:135
-#: core/class-email-reports__premium_only.php:176
-#: core/class-email-reports__premium_only.php:201
-#: core/class-email-reports__premium_only.php:231
+#: core/class-email-reports__premium_only.php:109
+#: core/class-email-reports__premium_only.php:137
+#: core/class-email-reports__premium_only.php:178
+#: core/class-email-reports__premium_only.php:203
+#: core/class-email-reports__premium_only.php:233
+#: core/class-email-reports__premium_only.php:296
 msgid "has spam entries please review and either delete or mark as not spam."
 msgstr ""
 
-#: core/class-email-reports__premium_only.php:256
+#. translators: %d is the SureForms form ID number.
+#: core/class-email-reports__premium_only.php:291
+msgid "Form #%d"
+msgstr ""
+
+#: core/class-email-reports__premium_only.php:321
 msgid "Website spam that needs checking!"
 msgstr ""
 
-#: core/class-email-reports__premium_only.php:277
+#: core/class-email-reports__premium_only.php:342
 msgid "Your Monthly Anti-Spam Review"
 msgstr ""
 
-#: core/class-forms-hooks.php:200
-#: core/class-forms-hooks.php:422
-#: core/class-forms-hooks.php:474
-#: core/class-forms-hooks.php:582
-#: core/class-forms-hooks.php:616
-#: core/class-forms-hooks.php:621
+#: core/class-forms-hooks.php:202
+#: core/class-forms-hooks.php:441
+#: core/class-forms-hooks.php:493
+#: core/class-forms-hooks.php:601
+#: core/class-forms-hooks.php:635
+#: core/class-forms-hooks.php:640
+#: core/class-forms-hooks.php:764
 msgid "Are you sure you are human as that was very fast typing, please try again"
 msgstr ""
 
-#: core/class-forms-hooks.php:202
+#: core/class-forms-hooks.php:204
 msgid "Comment submitted from blocklisted email or IP or contains banned text"
 msgstr ""
 
-#: core/class-forms-hooks.php:205
-msgid "Comment submitted from blocklisted IP"
+#: core/class-forms-hooks.php:207
+#: core/class-forms-hooks.php:498
+#: core/class-forms-hooks.php:609
+#: core/class-forms-hooks.php:657
+#: core/class-forms-hooks.php:662
+#: core/class-forms-hooks.php:768
+msgid "IP address is blocklisted, check your IP reputation"
 msgstr ""
 
-#: core/class-forms-hooks.php:211
-#: core/class-forms-hooks.php:485
-msgid "Please write more, one word comments are not allowed"
-msgstr ""
-
-#: core/class-forms-hooks.php:217
-msgid "Comment submitted looks like human spam"
-msgstr ""
-
-#: core/class-forms-hooks.php:272
-msgid "You seem to be a bot, sorry but you are unable to submit this form"
-msgstr ""
-
-#: core/class-forms-hooks.php:285
-msgid "Your IP or email of content looks like spam. If this is an issue contact teh website owner."
-msgstr ""
-
-#: core/class-forms-hooks.php:334
-msgid "Bot detected"
-msgstr ""
-
-#: core/class-forms-hooks.php:335
-#: core/class-spam-checks.php:118
-msgid "On Deny List"
-msgstr ""
-
-#: core/class-forms-hooks.php:336
-msgid "IP on industry blocklists"
-msgstr ""
-
-#: core/class-forms-hooks.php:337
-msgid "Just one word, looks like spam content"
-msgstr ""
-
-#: core/class-forms-hooks.php:338
-msgid "Content looks suspicious"
-msgstr ""
-
-#: core/class-forms-hooks.php:356
-msgid "Your submission has been blocked as it looks like spam, if this persists contact the site owner."
-msgstr ""
-
-#: core/class-forms-hooks.php:417
-#: core/class-forms-hooks.php:582
-#: core/class-forms-hooks.php:586
-#: core/class-forms-hooks.php:590
-#: core/class-forms-hooks.php:616
-#: core/class-forms-hooks.php:621
-#: core/class-forms-hooks.php:627
-#: core/class-forms-hooks.php:632
-#: core/class-forms-hooks.php:638
-#: core/class-forms-hooks.php:643
-msgid "ERROR:"
-msgstr ""
-
-#: core/class-forms-hooks.php:425
-#: core/class-forms-hooks.php:586
-#: core/class-forms-hooks.php:627
-#: core/class-forms-hooks.php:632
-#: core/class-forms-hooks.php:753
-msgid "The website owner is blocking your email or IP"
-msgstr ""
-
-#: core/class-forms-hooks.php:476
-msgid "Message submitted from blocklisted email or IP or conatins banned text"
-msgstr ""
-
-#: core/class-forms-hooks.php:479
-msgid "Message submitted from blocklisted IP"
-msgstr ""
-
-#: core/class-forms-hooks.php:491
-msgid "Message submitted looks like human spam"
-msgstr ""
-
-#: core/class-forms-hooks.php:590
-msgid "IP Blocklisted IP check your IP reputation"
-msgstr ""
-
-#: core/class-forms-hooks.php:638
-#: core/class-forms-hooks.php:643
-msgid "IP Blocklisted: check your IP reputation"
-msgstr ""
-
-#: core/class-forms-hooks.php:751
-msgid "Are you sure you are human? That was very fast typing, please try again"
-msgstr ""
-
-#: core/class-forms-hooks.php:755
-msgid "Your IP is on industry blocklists"
-msgstr ""
-
-#: core/class-forms-hooks.php:757
+#: core/class-forms-hooks.php:213
+#: core/class-forms-hooks.php:504
+#: core/class-forms-hooks.php:770
 msgid "Please write more, one word submissions are not allowed"
 msgstr ""
 
-#: core/class-forms-hooks.php:759
+#: core/class-forms-hooks.php:219
+#: core/class-forms-hooks.php:510
+#: core/class-forms-hooks.php:772
 msgid "Your submission looks suspicious"
 msgstr ""
 
-#: core/class-forms-hooks.php:761
+#: core/class-forms-hooks.php:276
+msgid "You seem to be a bot, sorry but you are unable to submit this form"
+msgstr ""
+
+#: core/class-forms-hooks.php:289
+msgid "Your IP or email of content looks like spam. If this is an issue contact the website owner."
+msgstr ""
+
+#: core/class-forms-hooks.php:353
+msgid "Bot detected"
+msgstr ""
+
+#: core/class-forms-hooks.php:354
+#: core/class-spam-checks.php:120
+msgid "On Deny List"
+msgstr ""
+
+#: core/class-forms-hooks.php:355
+msgid "IP on industry blocklists"
+msgstr ""
+
+#: core/class-forms-hooks.php:356
+msgid "Just one word, looks like spam content"
+msgstr ""
+
+#: core/class-forms-hooks.php:357
+msgid "Content looks suspicious"
+msgstr ""
+
+#: core/class-forms-hooks.php:375
+msgid "Your submission has been blocked as it looks like spam, if this persists contact the site owner."
+msgstr ""
+
+#: core/class-forms-hooks.php:436
+#: core/class-forms-hooks.php:601
+#: core/class-forms-hooks.php:605
+#: core/class-forms-hooks.php:609
+#: core/class-forms-hooks.php:635
+#: core/class-forms-hooks.php:640
+#: core/class-forms-hooks.php:646
+#: core/class-forms-hooks.php:651
+#: core/class-forms-hooks.php:657
+#: core/class-forms-hooks.php:662
+msgid "ERROR:"
+msgstr ""
+
+#: core/class-forms-hooks.php:444
+#: core/class-forms-hooks.php:605
+#: core/class-forms-hooks.php:646
+#: core/class-forms-hooks.php:651
+#: core/class-forms-hooks.php:766
+msgid "The website owner is blocking your email or IP"
+msgstr ""
+
+#: core/class-forms-hooks.php:495
+msgid "Message submitted from blocklisted email or IP or contains banned text"
+msgstr ""
+
+#: core/class-forms-hooks.php:774
 msgid "Your submission has been blocked"
 msgstr ""
 
-#: core/class-forms-registrations.php:123
-#: core/class-forms-registrations.php:208
-#: core/class-forms-registrations.php:223
+#: core/class-forms-registrations.php:152
+#: core/class-forms-registrations.php:255
+msgid "Contact Form 7"
+msgstr ""
+
+#: core/class-forms-registrations.php:164
+#: core/class-forms-registrations.php:268
+#: core/class-forms-registrations.php:283
 msgid "WPforms"
 msgstr ""
 
-#: core/class-forms-registrations.php:137
-#: core/class-forms-registrations.php:287
+#: core/class-forms-registrations.php:178
+#: core/class-forms-registrations.php:347
 msgid "JetPack Contact Form"
 msgstr ""
 
-#: core/class-forms-registrations.php:163
-#: core/class-forms-registrations.php:323
+#: core/class-forms-registrations.php:190
+#: core/class-forms-registrations.php:368
+msgid "Fluent Forms"
+msgstr ""
+
+#: core/class-forms-registrations.php:204
+#: core/class-forms-registrations.php:383
 msgid "SureForms"
 msgstr ""
 
-#: core/class-forms-registrations.php:249
+#: core/class-forms-registrations.php:216
+#: core/class-forms-registrations.php:235
+msgid "Gravity Forms"
+msgstr ""
+
+#: core/class-forms-registrations.php:225
+#: core/class-forms-registrations.php:331
+msgid "Quick Contact Form"
+msgstr ""
+
+#: core/class-forms-registrations.php:298
+msgid "WP Registrations"
+msgstr ""
+
+#: core/class-forms-registrations.php:309
 msgid "WooCommerce Forms"
 msgstr ""
 
-#: core/class-spam-analysis__premium_only.php:171
+#: core/class-forms-registrations.php:320
+msgid "Quick Event Manager"
+msgstr ""
+
+#: core/class-spam-analysis__premium_only.php:172
 msgid "[SPAM review]"
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
-#: core/class-spam-checks.php:112
+#: core/class-spam-checks.php:114
 msgid "%1$s (%2$s)"
 msgstr ""
 
-#: core/class-spam-checks.php:119
+#: core/class-spam-checks.php:121
 msgid "On IP Block List"
 msgstr ""
 
-#: core/class-spam-checks.php:120
+#: core/class-spam-checks.php:122
 msgid "Content suspect"
 msgstr ""
 
-#: core/class-spam-checks.php:290
+#: core/class-spam-checks.php:312
 msgid "Email on Form:"
 msgstr ""
 
-#: core/class-spam-checks.php:291
+#: core/class-spam-checks.php:313
 msgid "Combined textarea:"
 msgstr ""
 
 #. translators: placeholder is a number followed by percent sign
-#: core/class-spam-checks.php:515
+#: core/class-spam-checks.php:537
 msgid "[SPAM score %d%% ]"
 msgstr ""
 
@@ -1355,129 +1448,137 @@ msgstr ""
 msgid "Site not registered: Anti Spam plugin will not function"
 msgstr ""
 
-#: core/class-utilities.php:326
+#: core/class-utilities.php:390
 msgid "Total"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:22
+#: integrations/sureforms/class-sureforms-spam-integration__premium_only.php:218
+msgid "Not Spam"
+msgstr ""
+
+#: integrations/sureforms/class-sureforms-spam-integration__premium_only.php:418
+msgid "Mark as Not Spam"
+msgstr ""
+
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:55
 msgid "Spam Check with Fullworks Anti Spam"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:146
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:156
 msgid "Submitted form content to Fullworks Anti Spam (Not spam)."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:159
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:169
 msgid "Spam detected"
 msgstr ""
 
 #. translators: placeholder is a url
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:209
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:219
 msgid "Install and activate the <a href=\"%s\" target=\"_blank\">Fullworks Anti Spam Pro plugin</a>."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:213
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:223
 msgid "Install and activate the Fullworks Anti Spam Pro plugin."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:217
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:227
 msgid "Enable protection on this form."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:220
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:230
 msgid "To enable Fullworks Anti Spam on this form:"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:229
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:239
 msgid "Use Fullworks Anti Spam to filter out form submissions that contain spam."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:229
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:239
 msgid "Learn more"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:242
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:252
 msgid "Enabled"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:250
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:260
 msgid "Email Field"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:253
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:263
 msgid "Select..."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:255
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:265
 msgid "Select which field contains the email address of the person submitting the form."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:270
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:280
 msgid "Fields To Check For Spam"
 msgstr ""
 
 #. translators: %s = WS Form
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:275
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:285
 msgid "Select which %s fields Fullworks Anti Spam should check for spam."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:303
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:313
 msgid "Reject submission if spam level meets this criteria."
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:306
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:316
 msgid "Use Spam Threshold"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:307
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:317
 msgid "Reject Suspected Spam"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:308
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:318
 msgid "Reject Blatant Spam"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:324
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:334
 msgid "Bypass If Administrator"
 msgstr ""
 
-#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:326
+#: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:336
 msgid "If checked, this action will not run if you are signed in as an administrator."
 msgstr ""
 
-#: templates__premium_only/monthly-spam-report.php:182
+#: templates__premium_only/monthly-spam-report.php:183
 msgid "has been protecting your website"
 msgstr ""
 
-#: templates__premium_only/monthly-spam-report.php:183
+#: templates__premium_only/monthly-spam-report.php:184
 msgid " from spam"
 msgstr ""
 
-#: templates__premium_only/monthly-spam-report.php:185
+#: templates__premium_only/monthly-spam-report.php:186
 msgid "The following are the spam statistics over the last 30 days"
 msgstr ""
 
-#: templates__premium_only/parts/alert-email-footer.php:7
+#: templates__premium_only/parts/alert-email-footer.php:8
 msgid "This email is intended as a reminder for you to check your spam queues for human spam in case some were classified incorrectly"
 msgstr ""
 
-#: templates__premium_only/parts/alert-email-footer.php:9
+#: templates__premium_only/parts/alert-email-footer.php:10
 msgid "You can adjust the frequency or disable this email."
 msgstr ""
 
-#: templates__premium_only/parts/alert-email-footer.php:13
+#: templates__premium_only/parts/alert-email-footer.php:14
 msgid "click to review your settings"
 msgstr ""
 
-#: templates__premium_only/parts/alert-email-header.php:8
+#: templates__premium_only/parts/alert-email-header.php:9
 msgid "This is your automated spam checking alert from Fullworks Anti Spam"
 msgstr ""
 
-#: templates__premium_only/parts/alert-email-header.php:11
+#: templates__premium_only/parts/alert-email-header.php:12
 msgid "Website:"
 msgstr ""
 
-#: templates__premium_only/parts/alert-email-header.php:12
+#: templates__premium_only/parts/alert-email-header.php:13
 msgid "URL:"
 msgstr ""
 

@@ -1,4 +1,7 @@
 == Changelog ==
+= 3.0.1 =
+* Fix: Quarantine / Audit detail view no longer adds a stray "non" item to the admin menu (Pro). The hidden detail page is now hung off the same hidden parent the email view uses, so it stays reachable by link but never shows in the sidebar.
+
 = 3.0.0 =
 * CHANGE: New installs now use only the privacy-focussed options. Spam classification runs entirely on your own server using on-site Machine Learning that learns from the spam you classify - visitor messages are never transmitted to any external service. The remote classification option and its setting are no longer shown on new installs.
 * CHANGE: Existing installs are unaffected - every current option, setting and choice (including remote classification) remains available exactly as before.
