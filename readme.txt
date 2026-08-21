@@ -1,8 +1,8 @@
 === Anti-Spam Protection – No API Key, GDPR Friendly ===
 Contributors: Fullworks
 Tags: anti-spam, contact form 7, spam protection, wpforms, cf7
-Tested up to: 7.0
-Stable tag: 3.0.1
+Tested up to: 7.1
+Stable tag: 3.0.2
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium

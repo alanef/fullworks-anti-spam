@@ -1,3 +1,15 @@
+= 3.0.2 =
+* Fix: spam tagging could appear on the wrong email. Where a form plugin sent
+  more than one email in a single request (for example Contact Form 7 with an
+  autoresponse), the "[SPAM review]" style subject prefix and X-Spam headers
+  could be applied to the reply sent to the person who submitted the form,
+  instead of only the site owner's notification.
+* Fix: with "Send spam email to" set, that same fault could silently redirect
+  the submitter's autoresponse to the quarantine address, so they received
+  nothing at all.
+* Fix: submitted message content and the submitter's email address are no
+  longer attached as headers to unrelated emails sent later in the same request.
+
 == Changelog ==
 = 3.0.1 =
 * Fix: Quarantine / Audit detail view no longer adds a stray "non" item to the admin menu (Pro). The hidden detail page is now hung off the same hidden parent the email view uses, so it stays reachable by link but never shows in the sidebar.

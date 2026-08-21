@@ -447,4 +447,89 @@ class Utilities {
         return false;
     }
 
+    /**
+     * Is a wp_mail recipient list addressed, wholly or partly, to $address?
+     *
+     * Used to keep spam tagging off mail sent to the person who submitted the
+     * form. A form plugin commonly sends two mails in one request -- the site
+     * owner's notification and an autoresponse to the enquirer -- and only the
+     * first should ever carry the spam prefix and headers.
+     *
+     * @param string|array $to      wp_mail recipient(s). May be an array, or a
+     *                              comma-separated string, and each entry may be
+     *                              bare or in "Name <someone@example.com>" form.
+     * @param string       $address The submitter's address to test for.
+     *
+     * @return bool True if any recipient matches.
+     */
+    public function mail_is_addressed_to( $to, $address ) {
+        $address = trim( (string) $address );
+        if ( '' === $address ) {
+            return false;
+            // nothing to compare against, so never exclude.
+        }
+        $recipients = ( is_array( $to ) ? $to : explode( ',', (string) $to ) );
+        foreach ( $recipients as $recipient ) {
+            $recipient = trim( (string) $recipient );
+            if ( '' === $recipient ) {
+                continue;
+            }
+            // Reduce "Name <someone@example.com>" to the address itself.
+            if ( preg_match( '/<([^>]+)>/', $recipient, $matches ) ) {
+                $recipient = trim( $matches[1] );
+            }
+            if ( 0 === strcasecmp( $recipient, $address ) ) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Register a wp_mail filter that removes itself after it has run once.
+     *
+     * The spam checks register their tagging filters as a side effect and have
+     * no later hook to unregister them on, so without this they stay on wp_mail
+     * for the rest of the request and stamp every subsequent mail.
+     *
+     * The callback returns the modified arguments when it has tagged a mail, or
+     * null to decline it. Only a tag consumes the single shot -- declining must
+     * leave the filter registered, or a mail we skipped (the submitter's own
+     * copy) would swallow the tagging intended for the notification that
+     * follows it.
+     *
+     * @param callable $callback The filter callback. Returns array|null.
+     * @param int      $priority Hook priority.
+     *
+     * @return void
+     */
+    public function add_one_shot_mail_filter( $callback, $priority ) {
+        /*
+         * Spent-ness is tracked with a flag rather than remove_filter().
+         * Removing the last callback at a priority *during* wp_mail dispatch
+         * makes WP_Hook re-sort its active iterations, which can skip the next
+         * priority entirely -- and the tagging filters sit one priority apart,
+         * so the filter that removed itself silently suppressed the next one.
+         * Leaving the callback registered and inert avoids that completely.
+         */
+        $spent = false;
+        add_filter(
+            'wp_mail',
+            function ( $args ) use(&$spent, $callback) {
+                if ( $spent ) {
+                    return $args;
+                }
+                $result = call_user_func( $callback, $args );
+                if ( null === $result ) {
+                    return $args;
+                    // declined -- stay live for the next mail.
+                }
+                $spent = true;
+                return $result;
+            },
+            $priority,
+            1
+        );
+    }
+
 }

@@ -60,23 +60,49 @@ class Spam_Checks {
 
     public static $spam_level;
 
+    /** @var string $current_submitter_email Submitter address for this request (AS-105). */
+    private static $current_submitter_email = '';
+
+    /**
+     * The submitter address for the submission being processed this request.
+     *
+     * Email_Log uses this to avoid redirecting an autoresponse to the spam
+     * quarantine address. It must not key off X-Spam-Flag, which is a header
+     * this class injects itself.
+     *
+     * @return string
+     */
+    public static function get_current_submitter_email() {
+        return self::$current_submitter_email;
+    }
+
     /** @var string $submission_id Unique ID for this spam check */
     private $submission_id;
 
     /**
      * Process_Spam_Checks constructor.
      *
-     * @param $log
-     * @param $options
-     * @param $utilities
-     * @param $freemius
+     * Every dependency is optional and defaults to how it has always been
+     * wired, so existing `new Spam_Checks()` calls behave identically. The
+     * arguments exist so tests can construct the class without WordPress,
+     * Freemius or a database.
+     *
+     * @param array|null     $options   Plugin settings. Default: the stored option.
+     * @param Utilities|null $utilities Utilities instance.
+     * @param Log|null       $log       Log instance.
+     * @param \Freemius|null $freemius  Freemius instance. Default: the $fwas_fs global.
      */
-    public function __construct() {
+    public function __construct(
+        $options = null,
+        $utilities = null,
+        $log = null,
+        $freemius = null
+    ) {
         global $fwas_fs;
-        $this->options = get_option( 'fullworks-anti-spam' );
-        $this->utilities = new Utilities();
-        $this->log = new Log($this->utilities);
-        $this->freemius = $fwas_fs;
+        $this->options = ( null !== $options ? $options : get_option( 'fullworks-anti-spam' ) );
+        $this->utilities = ( null !== $utilities ? $utilities : new Utilities() );
+        $this->log = ( null !== $log ? $log : new Log($this->utilities) );
+        $this->freemius = ( null !== $freemius ? $freemius : $fwas_fs );
         // Don't load forms here - they'll be loaded lazily when needed
     }
 
@@ -137,6 +163,7 @@ class Spam_Checks {
         // Generate unique submission ID for tracking logs
         $this->submission_id = uniqid( 'sub_', true );
         $this->options = array_merge( $this->options, $options );
+        self::$current_submitter_email = (string) $email;
         $this->utilities->debug_log( array(
             'submission_id' => $this->submission_id,
             'step:'         => 'is_spam: About to check',

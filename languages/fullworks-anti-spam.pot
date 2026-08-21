@@ -2,16 +2,16 @@
 # This file is distributed under the GPL-3.0+.
 msgid ""
 msgstr ""
-"Project-Id-Version: Anti-Spam Protection – No API Key, GDPR Friendly 3.0.1\n"
+"Project-Id-Version: Anti-Spam Protection – No API Key, GDPR Friendly 3.0.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/fullworks-anti-spam\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-06-24T16:20:46+00:00\n"
+"POT-Creation-Date: 2026-08-18T14:21:07+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.10.0\n"
+"X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: fullworks-anti-spam\n"
 
 #. Plugin Name of the plugin
@@ -49,6 +49,7 @@ msgstr ""
 
 #. translators: %1$d: number of protected items, %2$d: total number of items
 #: admin/class-admin-dashboard-widget.php:137
+#, php-format
 msgid "%1$d of %2$d systems protected"
 msgstr ""
 
@@ -86,6 +87,7 @@ msgstr ""
 
 #. translators: %d: total spam count
 #: admin/class-admin-dashboard-widget.php:224
+#, php-format
 msgid "Total: %d items blocked"
 msgstr ""
 
@@ -321,6 +323,7 @@ msgstr ""
 #. translators: %1$d: number of protected forms, %2$d: total forms
 #: admin/class-admin-settings.php:207
 #: admin/class-admin-table-allow-deny.php:235
+#, php-format
 msgid "%1$d of %2$d systems fully protected"
 msgstr ""
 
@@ -576,6 +579,7 @@ msgstr ""
 
 #. translators: %s: comma-separated list of form names
 #: admin/class-admin-settings.php:793
+#, php-format
 msgid "Bot protection enabled for %s."
 msgstr ""
 
@@ -587,8 +591,8 @@ msgstr ""
 #: admin/class-admin-settings.php:967
 #: admin/class-admin-settings.php:994
 #: admin/class-admin-settings.php:1025
-#: admin/class-admin-settings.php:1050
-#: admin/class-admin-settings.php:1067
+#: admin/class-admin-settings.php:1049
+#: admin/class-admin-settings.php:1066
 #: admin/class-admin-settings.php:1093
 #: admin/class-admin-settings.php:1308
 msgid "Activate the FREE trial"
@@ -643,7 +647,7 @@ msgid "% ( default 55% ) machine learning on your own server learns from the spa
 msgstr ""
 
 #: admin/class-admin-settings.php:1026
-#: admin/class-admin-settings.php:1051
+#: admin/class-admin-settings.php:1050
 msgid "to use private Machine Learning on your own host"
 msgstr ""
 
@@ -651,15 +655,15 @@ msgstr ""
 msgid "% ( default 75% ) the AI spam server uses natural language artificial intelligence to classify likely spam. Set to zero to turn off."
 msgstr ""
 
-#: admin/class-admin-settings.php:1054
+#: admin/class-admin-settings.php:1053
 msgid "Conservative - both (1) AND (2) suspect spam"
 msgstr ""
 
-#: admin/class-admin-settings.php:1068
+#: admin/class-admin-settings.php:1067
 msgid "to select machine strategies"
 msgstr ""
 
-#: admin/class-admin-settings.php:1071
+#: admin/class-admin-settings.php:1070
 msgid "Aggressive - either (1) OR (2) suspect spam"
 msgstr ""
 
@@ -682,16 +686,19 @@ msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
 #: admin/class-admin-settings.php:1179
+#, php-format
 msgid "Email Log has been enabled in a tab above, to allow you to mark spam / ham for %s."
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
 #: admin/class-admin-settings.php:1186
+#, php-format
 msgid "Email Log has been disabled, if you want to mark spam / ham for %s, then sets days to a number more than zero."
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
 #: admin/class-admin-settings.php:1209
+#, php-format
 msgid "Redirect spam emails to this address for %s as these forms we can not stop them sending something."
 msgstr ""
 
@@ -721,6 +728,7 @@ msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
 #: admin/class-admin-settings.php:1265
+#, php-format
 msgid "Alert form spam ( %s )"
 msgstr ""
 
@@ -944,7 +952,7 @@ msgstr ""
 
 #: admin/class-list-table-email-log__premium_only.php:81
 #: admin/class-list-table-quarantine__premium_only.php:93
-#: core/class-email-log__premium_only.php:125
+#: core/class-email-log__premium_only.php:135
 msgid "Checked Content"
 msgstr ""
 
@@ -968,6 +976,7 @@ msgstr ""
 
 #. translators: %d is a spam-likelihood percentage.
 #: admin/class-list-table-quarantine__premium_only.php:175
+#, php-format
 msgid "ML spam score: %d%%"
 msgstr ""
 
@@ -986,6 +995,7 @@ msgstr ""
 
 #. translators: %s is the matched deny rule.
 #: admin/class-list-table-quarantine__premium_only.php:182
+#, php-format
 msgid "Deny rule (%s)"
 msgstr ""
 
@@ -1000,6 +1010,7 @@ msgstr ""
 
 #. translators: %s is the matched allow rule.
 #: admin/class-list-table-quarantine__premium_only.php:187
+#, php-format
 msgid "On allow list (%s)"
 msgstr ""
 
@@ -1010,6 +1021,7 @@ msgstr ""
 
 #. translators: %d is a spam-likelihood percentage.
 #: admin/class-list-table-quarantine__premium_only.php:191
+#, php-format
 msgid "No spam detected (ML score: %d%%)"
 msgstr ""
 
@@ -1040,6 +1052,7 @@ msgstr ""
 
 #. translators: %d is the quarantine record ID.
 #: admin/class-list-table-quarantine__premium_only.php:401
+#, php-format
 msgid "From Quarantine #%d"
 msgstr ""
 
@@ -1258,6 +1271,7 @@ msgstr ""
 
 #. translators: %d is the SureForms form ID number.
 #: core/class-email-reports__premium_only.php:291
+#, php-format
 msgid "Form #%d"
 msgstr ""
 
@@ -1317,7 +1331,7 @@ msgid "Bot detected"
 msgstr ""
 
 #: core/class-forms-hooks.php:354
-#: core/class-spam-checks.php:120
+#: core/class-spam-checks.php:146
 msgid "On Deny List"
 msgstr ""
 
@@ -1414,33 +1428,35 @@ msgstr ""
 msgid "Quick Event Manager"
 msgstr ""
 
-#: core/class-spam-analysis__premium_only.php:172
+#: core/class-spam-analysis__premium_only.php:189
 msgid "[SPAM review]"
 msgstr ""
 
 #. translators: %s: Form plugin name e.g. Gravity Forms
-#: core/class-spam-checks.php:114
+#: core/class-spam-checks.php:140
+#, php-format
 msgid "%1$s (%2$s)"
 msgstr ""
 
-#: core/class-spam-checks.php:121
+#: core/class-spam-checks.php:147
 msgid "On IP Block List"
 msgstr ""
 
-#: core/class-spam-checks.php:122
+#: core/class-spam-checks.php:148
 msgid "Content suspect"
 msgstr ""
 
-#: core/class-spam-checks.php:312
+#: core/class-spam-checks.php:342
 msgid "Email on Form:"
 msgstr ""
 
-#: core/class-spam-checks.php:313
+#: core/class-spam-checks.php:343
 msgid "Combined textarea:"
 msgstr ""
 
 #. translators: placeholder is a number followed by percent sign
-#: core/class-spam-checks.php:537
+#: core/class-spam-checks.php:571
+#, php-format
 msgid "[SPAM score %d%% ]"
 msgstr ""
 
@@ -1474,6 +1490,7 @@ msgstr ""
 
 #. translators: placeholder is a url
 #: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:219
+#, php-format
 msgid "Install and activate the <a href=\"%s\" target=\"_blank\">Fullworks Anti Spam Pro plugin</a>."
 msgstr ""
 
@@ -1519,6 +1536,7 @@ msgstr ""
 
 #. translators: %s = WS Form
 #: integrations/ws-form/class-ws-form-action-fullworks-anti-spam.php:285
+#, php-format
 msgid "Select which %s fields Fullworks Anti Spam should check for spam."
 msgstr ""
 

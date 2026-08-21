@@ -950,44 +950,44 @@ class Admin_Settings extends Admin_Pages {
                 $this->display_tip( 'AI' );
                 ?>
                 </tr>
-                <?php 
-            }
-            ?>
                 <tr id="fwas-settings-strategy">
 					<?php 
-            $this->display_th( 'Strategy' );
-            ?>
+                $this->display_th( 'Strategy' );
+                ?>
                     <td>
                         <label for="fullworks-anti-spam[strategy]"><input type="radio"
                                                                           name="fullworks-anti-spam[strategy]"
                                                                           id="fullworks-anti-spam[strategy]"
                                                                           value="conservative"
 								<?php 
-            checked( 'conservative', $opt_strategy );
-            echo esc_attr( $disabled );
-            ?>>
+                checked( 'conservative', $opt_strategy );
+                echo esc_attr( $disabled );
+                ?>>
 							<?php 
-            $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use private Machine Learning on your own host', 'fullworks-anti-spam' );
-            echo wp_kses_post( $msg );
-            ?>
+                $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to use private Machine Learning on your own host', 'fullworks-anti-spam' );
+                echo wp_kses_post( $msg );
+                ?>
                             <br><label for="fullworks-anti-spam[strategy]"><input type="radio"
                                                                                   name="fullworks-anti-spam[strategy]"
                                                                                   id="fullworks-anti-spam[strategy]"
                                                                                   value="aggressive"
 									<?php 
-            checked( 'aggressive', $opt_strategy );
-            echo esc_attr( $disabled );
-            ?>>
+                checked( 'aggressive', $opt_strategy );
+                echo esc_attr( $disabled );
+                ?>>
 								<?php 
-            $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to select machine strategies', 'fullworks-anti-spam' );
-            echo wp_kses_post( $msg );
-            ?>
+                $msg = '<a  href="' . esc_url( $this->freemius->get_trial_url() ) . '">' . esc_html__( 'Activate the FREE trial', 'fullworks-anti-spam' ) . '</a> ' . esc_html__( 'to select machine strategies', 'fullworks-anti-spam' );
+                echo wp_kses_post( $msg );
+                ?>
                             </label>
                     </td>
 					<?php 
-            $this->display_tip( 'Strategy' );
-            ?>
+                $this->display_tip( 'Strategy' );
+                ?>
                 </tr>
+                <?php 
+            }
+            ?>
 				<?php 
         }
         $this->display_th( 'Single Words' );
