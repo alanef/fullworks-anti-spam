@@ -34,6 +34,7 @@ use Fullworks_Anti_Spam\Admin\Admin_Settings;
 use Fullworks_Anti_Spam\Admin\Admin_Table_Allow_Deny;
 use Fullworks_Anti_Spam\Admin\Admin_Table_Email_Log;
 use Fullworks_Anti_Spam\Admin\Admin_Table_Quarantine;
+use Fullworks_Anti_Spam\Admin\Admin_Training_Data;
 use Fullworks_Anti_Spam\Admin\Admin_Quarantine_View;
 use Fullworks_Anti_Spam\Admin\Mark_Spam;
 use Fullworks_Anti_Spam\Anti_Spam_Api;
@@ -143,9 +144,6 @@ class Core {
         if ( !wp_next_scheduled( 'fullworks_anti_spam_daily_admin' ) ) {
             wp_schedule_event( time() - 30, 'daily', 'fullworks_anti_spam_daily_admin' );
         }
-        if ( !wp_next_scheduled( 'fullworks_anti_spam_daily_training' ) ) {
-            wp_schedule_event( time() - 30, 'daily', 'fullworks_anti_spam_daily_training' );
-        }
     }
 
     /**
@@ -173,6 +171,9 @@ class Core {
         add_action( 'init', function () {
         } );
         // Quarantine / Audit Admin (premium, always available — no email_log precondition)
+        add_action( 'init', function () {
+        } );
+        // Training Data admin (premium): view, export and import the local corpus
         add_action( 'init', function () {
         } );
         // Diagnostics Admin

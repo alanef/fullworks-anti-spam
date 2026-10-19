@@ -2,7 +2,7 @@
 Contributors: Fullworks
 Tags: anti-spam, contact form 7, spam protection, wpforms, cf7
 Tested up to: 7.1
-Stable tag: 3.0.2
+Stable tag: 3.1.0
 License: GPLv3 or later
 Requires PHP: 7.4
 Type: freemium
@@ -172,6 +172,11 @@ Gravity Forms protection is included in the Pro version. If you invested in prem
 Contact Form 7, WPForms Lite, WPForms Pro, Jetpack Contact Forms, Fluent Forms, and WordPress comments all get full bot protection in the free version.
 
 That covers the vast majority of WordPress forms in use today.
+
+= How can I report security bugs? =
+
+You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/ff1d9594-7d03-45fd-962b-cdcc14feb16d)
+
 == Installation ==
 
 = Automatic Installation (Recommended) =

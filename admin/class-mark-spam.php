@@ -31,6 +31,7 @@
  */
 namespace Fullworks_Anti_Spam\Admin;
 
+use Fullworks_Anti_Spam\Core\Training_Data;
 if ( !defined( 'ABSPATH' ) ) {
     exit;
 }
@@ -61,7 +62,7 @@ class Mark_Spam {
 
     private $body;
 
-    private $route;
+    private $classification;
 
     const REPLACE = array(
         '\\r',
@@ -123,74 +124,70 @@ class Mark_Spam {
 
     public function unspam_comment( $comment_id, $comment ) {
         $this->build_comment_message( $comment );
-        $this->post_unspam_event();
+        $this->record_ham();
     }
 
     public function spam_comment( $comment_id, $comment ) {
         $this->build_comment_message( $comment );
-        $this->post_spam_event();
+        $this->record_spam();
     }
 
     private function build_comment_message( $comment ) {
-        $this->body = array_merge( array(
-            'author'       => $comment->comment_author,
-            'author_email' => $comment->comment_author_email,
-            'author_url'   => $comment->comment_author_url,
-            'author_IP'    => $comment->comment_author_IP,
-            'date'         => $comment->comment_date,
-            'content'      => $comment->comment_content,
-            'type'         => $comment->comment_type,
-        ), $this->get_site_info() );
-    }
-
-    private function get_site_info() {
-        return array(
-            'site_url'         => get_site_url(),
-            'site_admin_email' => get_bloginfo( 'admin_email' ),
-            'detected_ip'      => $this->utilities->get_ip(),
+        $this->body = array(
+            'content' => $comment->comment_content,
+            'type'    => $comment->comment_type,
         );
     }
 
-    private function post_unspam_event() {
-        $this->route = 'logham';
-        $this->post_event();
+    private function record_ham() {
+        $this->classification = 'nospam';
+        $this->record_classification();
     }
 
-    private function post_spam_event() {
-        $this->route = 'logspam';
-        $this->post_event();
+    private function record_spam() {
+        $this->classification = 'spam';
+        $this->record_classification();
     }
 
-    private function post_event() {
-        // dont send if option sendspam = 0
-        $this->body['content'] = preg_replace( '/\\R/', ' ', str_replace( self::REPLACE, ' ', $this->body['content'] ) );
-        $options = get_option( 'fullworks-anti-spam' );
-        if ( get_option( 'fullworks_anti_spam_force_no_transmission' ) || isset( $options['sendspam'] ) && 0 == $options['sendspam'] || $this->freemius->is_plan_or_trial( 'gdpr', true ) ) {
-            global $wpdb;
-            $table_name = $wpdb->prefix . 'fwantispam_training_data';
-            //check if $this->body['content'] message is in db update if so
-            $existing = $wpdb->get_results( $wpdb->prepare( "SELECT * FROM {$table_name} WHERE message = %s", wp_unslash( $this->body['content'] ) ), ARRAY_A );
-            if ( !empty( $existing ) ) {
-                $wpdb->update( $table_name, array(
-                    'spam_or_ham' => ( $this->route == 'logspam' ? 'spam' : 'nospam' ),
-                ), array(
-                    'message' => wp_unslash( $this->body['content'] ),
-                ) );
-            } else {
-                // insert into db
-                $wpdb->insert( $table_name, array(
-                    'message'     => wp_unslash( $this->body['content'] ),
-                    'spam_or_ham' => ( $this->route == 'logspam' ? 'spam' : 'nospam' ),
-                    'remote_key'  => 0,
-                ) );
-            }
-        } else {
-            $args = array(
-                'method' => 'POST',
-                'body'   => $this->body,
-            );
-            $response = wp_safe_remote_post( trailingslashit( FWAS_SERVER ) . $this->route, $args );
-        }
+    /**
+     * Record a spam/ham classification.
+     *
+     * Always written to the site's own training table. This used to POST the
+     * submission to the Fullworks server whenever transmission was enabled,
+     * carrying the submitter's name, email address and IP along with the site
+     * URL and the site administrator's email. Nothing is sent anywhere now --
+     * classifications stay on the site that made them.
+     *
+     * Premium only, and the guard is load-bearing in two ways. The free build
+     * has no classifier to read the corpus and no table to hold it -- the
+     * activator creates fwantispam_training_data under is__premium_only() --
+     * so free was inserting into a table that does not exist and failing
+     * silently on every comment marked as spam. It also has no Training_Data
+     * class, that file being __premium_only, so LOCAL_KEY_BASE below would be
+     * a fatal call on a stripped class if this ever ran there.
+     */
+    private function record_classification() {
+    }
+
+    /**
+     * Collapse newlines and strip punctuation, without corrupting UTF-8.
+     *
+     * The pattern used to be /\R/ with no unicode modifier. In byte mode \R
+     * also matches \x85, which is a continuation byte inside many multi-byte
+     * UTF-8 characters -- so it cut Korean, Arabic and Russian text mid-character
+     * and produced invalid UTF-8. wpdb then rejected the row with "The supplied
+     * value ... contains invalid data" and the entry was silently dropped.
+     *
+     * @param string $text
+     *
+     * @return string
+     */
+    private function normalise_training_text( $text ) {
+        $text = str_replace( self::REPLACE, ' ', (string) $text );
+        $collapsed = preg_replace( '/\\R/u', ' ', $text );
+        // preg_replace returns null on malformed input; keep the original rather
+        // than replacing the text with nothing.
+        return ( null === $collapsed ? $text : $collapsed );
     }
 
 }

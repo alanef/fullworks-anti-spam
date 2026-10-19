@@ -328,7 +328,13 @@ class Utilities {
             if ( $type == "DENY" || $type == "BOT" ) {
                 $link = '';
             } else {
-                $link = $this->forms_registrations[$system]['spam_admin_url'];
+                /*
+                 * Only 10 of the 19 form registrations define a spam screen to
+                 * link to -- WP Registrations, WooCommerce and Quick Event
+                 * Manager among others have none. Reading the key unguarded
+                 * raised a warning and put null in the stats table.
+                 */
+                $link = $this->forms_registrations[$system]['spam_admin_url'] ?? '';
             }
             $line = array(
                 'source' => $this->forms_registrations[$system]['name'],

@@ -1,3 +1,15 @@
+= 3.1.0 =
+* Updated Freemius SDK to the latest version
+* Added: Training Data tab under Settings → Anti-Spam (Pro). Shows what the spam checker has learned, split between entries supplied with the plugin and entries marked on your own site, with export to JSON and import (merge or replace) so a corrected file can be loaded back.
+* Added: bulk Mark as Spam, Mark as Ham and Delete on the email log (Pro), so training the checker no longer means marking one email at a time.
+* Added: sites still using the hosted AI classification see a notice with a one-click switch to local spam checking (Pro). It loads the training data supplied with the plugin and then turns transmission off, ahead of the hosted service being retired.
+* Changed: the training data now ships inside the plugin (Pro), so a new install can classify from the start and no longer downloads training data from Fullworks every day. Both supplied data sets are loaded, giving the checker nearly 3,000 examples, and they refresh on each plugin update without touching anything you have marked yourself. The load runs in the admin or on cron, never on a visitor's page view.
+* Changed: marking a submission as spam or ham no longer sends it to Fullworks. It is recorded on your own site only, and only the message text is kept, not the submitter's name, email address or IP.
+* Fixed: marking spam or ham from the email log list now trains the checker. Previously only the single-email view did, and the list only changed the label.
+* Fixed: messages in non-Latin scripts (for example Korean, Arabic or Russian) were corrupted or silently dropped when marked as spam or ham, so international sites were training on incomplete data.
+* Fixed: the free version no longer tries to save classifications to a training table it does not have.
+* Fixed: a PHP warning, and an empty link in the spam statistics, for form plugins that have no spam screen of their own (for example WooCommerce and Quick Event Manager).
+
 = 3.0.2 =
 * Fix: spam tagging could appear on the wrong email. Where a form plugin sent
   more than one email in a single request (for example Contact Form 7 with an

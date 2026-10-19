@@ -360,9 +360,7 @@ class Admin_Settings extends Admin_Pages {
         );
         $this->titles['Send Spam'] = array(
             'title' => esc_html__( 'Spam transmission', 'fullworks-anti-spam' ),
-            'tip'   => esc_html__( 'Disabling transmission ensures complete privacy for website visitor messages and comments which enables easy compliance with privacy laws such as GDPR and UK GDPR without relying on Data Processing Agreements (DPA) and
-			 Standard Contractual Clauses (SCC) if you want to enable transmission to Fullworks and would like a DPA and SCC please contact support. Disabling will mean that AI can not be used and remote Statistical Analysis will not happen resulting in potentially
-			 lower correct classification of human spam. Bot and IP Blocklist and Local Statistical Analysis spam detection remains the same.', 'fullworks-anti-spam' ),
+            'tip'   => esc_html__( 'Disabling transmission ensures complete privacy for website visitor messages and comments, and is the recommended setting for compliance with privacy laws such as GDPR and UK GDPR, as nothing about a visitor submission leaves your server. Disabling will mean that AI can not be used and remote Statistical Analysis will not happen resulting in potentially lower correct classification of human spam. Bot and IP Blocklist and Local Statistical Analysis spam detection remains the same.', 'fullworks-anti-spam' ),
         );
         $this->titles['Spam Email'] = array(
             'title' => esc_html__( 'Spam to Email', 'fullworks-anti-spam' ),
