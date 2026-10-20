@@ -40,4 +40,35 @@ class Deactivator {
 		wp_clear_scheduled_hook( 'fullworks_anti_spam_alerts' );
 		wp_clear_scheduled_hook( 'fullworks_anti_spam_daily_training' );
 	}
+
+	/**
+	 * Drop this plugin's tables with a deleted multisite site.
+	 *
+	 * Hooked to wpmu_drop_tables, which WordPress runs as DROP TABLE IF
+	 * EXISTS, so listing a table the build never created is harmless.
+	 *
+	 * @param array $tables  Tables WordPress will drop.
+	 * @param int   $blog_id The site being deleted.
+	 *
+	 * @return array
+	 */
+	public static function on_delete_blog_tables( $tables, $blog_id ) {
+		global $wpdb;
+
+		$prefix = $wpdb->get_blog_prefix( $blog_id );
+		// The same tables Uninstall drops.
+		$ours = array(
+			'fwantispam_log',
+			'fwantispam_allow_deny',
+			'fwantispam_training_data',
+			'fwantispam_email_log',
+			'fwantispam_quarantine',
+			'fwas_diagnostics_log',
+		);
+		foreach ( $ours as $table ) {
+			$tables[] = $prefix . $table;
+		}
+
+		return $tables;
+	}
 }

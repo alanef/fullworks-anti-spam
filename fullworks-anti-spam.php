@@ -57,6 +57,19 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+/*
+ * The other copy (free or Pro) is already loaded. Hand over to Freemius,
+ * which deactivates the free one, and stop before defining anything --
+ * running on would redefine every constant below and print the warnings
+ * as unexpected output during activation.
+ */
+global $fwas_fs;
+if ( isset( $fwas_fs ) && function_exists( 'Fullworks_Anti_Spam\run_fullworks_anti_spam' ) ) {
+	$fwas_fs->set_basename( true, __FILE__ );
+
+	return;
+}
+
 define( 'FULLWORKS_ANTI_SPAM_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'FULLWORKS_ANTI_SPAM_CONTENT_DIR', dirname( plugin_dir_path( __DIR__ ) ) );
 define( 'FULLWORKS_ANTI_SPAM_PLUGINS_TOP_DIR', plugin_dir_path( __DIR__ ) );
@@ -134,7 +147,7 @@ if ( ! function_exists( 'Fullworks_Anti_Spam\run_fullworks_anti_spam' ) ) {
 			6
 		);
 		register_deactivation_hook( __FILE__, array( '\Fullworks_Anti_Spam\Control\Deactivator', 'deactivate' ) );
-		add_filter( 'wpmu_drop_tables', array( '\Fullworks_Anti_Spam\Control\Deactivator', 'on_delete_blog_tables' ) );
+		add_filter( 'wpmu_drop_tables', array( '\Fullworks_Anti_Spam\Control\Deactivator', 'on_delete_blog_tables' ), 10, 2 );
 		$fwas_fs->add_action( 'after_uninstall', array( '\Fullworks_Anti_Spam\Control\Uninstall', 'uninstall' ) );
 		$plugin = new Core( $fwas_fs );
 		add_action(
@@ -149,7 +162,5 @@ if ( ! function_exists( 'Fullworks_Anti_Spam\run_fullworks_anti_spam' ) ) {
 
 	run_fullworks_anti_spam();
 
-} else {
-	$fwas_fs->set_basename( true, __FILE__ );
 }
 

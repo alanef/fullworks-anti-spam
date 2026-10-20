@@ -9,6 +9,9 @@
 * Fixed: messages in non-Latin scripts (for example Korean, Arabic or Russian) were corrupted or silently dropped when marked as spam or ham, so international sites were training on incomplete data.
 * Fixed: the free version no longer tries to save classifications to a training table it does not have.
 * Fixed: a PHP warning, and an empty link in the spam statistics, for form plugins that have no spam screen of their own (for example WooCommerce and Quick Event Manager).
+* Fixed: activating Pro while the free version was still active printed a block of "already defined" warnings as unexpected output. Pro now hands over to Freemius before loading anything, and the free version is switched off cleanly.
+* Fixed: deleting a site on a multisite network failed with a fatal error. The plugin's tables for that site are now removed with it.
+* Fixed: deleting the plugin now also removes its allow/deny list table, which was previously left behind.
 
 = 3.0.2 =
 * Fix: spam tagging could appear on the wrong email. Where a form plugin sent
