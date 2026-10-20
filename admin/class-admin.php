@@ -89,9 +89,6 @@ class Admin {
         add_action( 'admin_enqueue_scripts', array($this, 'enqueue_styles') );
         add_action( 'admin_enqueue_scripts', array($this, 'enqueue_scripts') );
         add_action( 'admin_menu', array($this, 'admin_pages') );
-        add_action( 'admin_notices', array($this, 'remote_ai_retirement_notice__premium_only') );
-        add_action( 'admin_notices', array($this, 'go_local_result_notice__premium_only') );
-        add_action( 'admin_post_fwas_go_local__premium_only', array($this, 'handle_go_local__premium_only') );
         add_action( 'admin_post_fwas_ad_csv_import', array($this, 'handle_ad_csv_import') );
         add_action( 'admin_post_fwas_ad_csv_export', array($this, 'handle_ad_csv_export') );
         // Register AJAX handler for dismissible notices

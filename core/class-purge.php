@@ -62,7 +62,6 @@ class Purge {
     public function __construct( $plugin_name, $version ) {
         $this->plugin_name = $plugin_name;
         $this->version = $version;
-        add_action( 'fwas_purge_daily', array(__CLASS__, 'purge_email_and_spam_log__premium_only') );
         // Defer form registration callback setup until init to avoid early translation loading
         add_action( 'init', array($this, 'register_purge_callbacks') );
     }
